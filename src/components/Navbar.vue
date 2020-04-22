@@ -1,0 +1,143 @@
+<template>
+    <div class="container">
+        <div class="nav">
+            <b-navbar toggleable="lg" type="light"  :class="getClass"  fixed="top"  v-on:scroll.passive='handleScroll'>
+            <b-navbar-brand @click="move('/')" id="brand">
+                <img src="../assets/UScreen Logo_Color.png" class="ml-5" width="55%" alt="">
+            </b-navbar-brand>
+            <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
+
+            <b-collapse id="nav-collapse" is-nav>
+
+            <!-- Right aligned nav items -->
+            <b-navbar-nav class="ml-5">
+                <b-nav-item @click="move('/')">Home</b-nav-item>
+                <b-nav-item @click="move('/employer-packages')">For Employers</b-nav-item>
+                <b-nav-item @click="move('/individual-packages')">For Individuals</b-nav-item>
+                <b-nav-item @click="move('/order-confirmation')">Orders</b-nav-item>
+                <b-nav-item @click="move('/about')">About Us</b-nav-item>
+                <b-nav-item @click="move('/login')">Log In</b-nav-item>
+                <b-nav-item @click="move('/contact')">Contact Us</b-nav-item>
+                <b-nav-item @click="search = !search"><i class="fa fa-search"></i></b-nav-item>
+                <b-nav-item v-if="search"><input type="text" class="form-control" placeholder="Search"></b-nav-item>
+                
+            </b-navbar-nav>
+            </b-collapse>
+        </b-navbar>    
+        </div>
+        
+        </div>
+   
+</template>
+
+<script>
+export default {
+    name: "Navbar",
+    computed:{
+        getClass: function() {    
+            return this.scrolls > 10 && this.scrolls < 150 ? 'white' : 'transparent';
+        }
+    },
+    data() {
+        return {
+            search: false,
+            scrolls: 0
+        }
+    },
+    methods: {
+        move(link) {
+            this.$router.push({path: link})
+        },
+        handleScroll (event) {
+            this.scrolls=window.scrollY
+        }
+    },
+    created () {
+        window.addEventListener('scroll', this.handleScroll);
+    },
+    destroyed () {
+        window.removeEventListener('scroll', this.handleScroll);
+    }
+}
+</script>
+
+<style scoped>
+a {
+    color: #002F87 !important;
+    font-size: 18px;
+    padding-left: 4px !important;
+    font-weight: bold !important;
+}
+#brand {
+    cursor: pointer;
+}
+.white {
+    background-color: #fff !important;
+    opacity: 0.4;
+    transition: ease-out 2s;
+    color: #fff !important;
+}
+.transparent {
+    background-color: #fff !important;
+}
+.menus {
+    width: 100% !important;
+}
+@media screen and (min-width: 1024px) {
+    a {
+        padding-left: 10px !important;
+        font-size: 16px !important;
+    }
+}
+@media screen and (min-width: 1366px) {
+    a {
+        padding-left: 25px !important;
+        font-size: 20px !important;
+    }
+}
+
+/* 
+  ##Device = Tablets, Ipads (portrait)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  
+  
+  
+}
+
+/* 
+  ##Device = Tablets, Ipads (landscape)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+  a {
+        padding-left: 4px !important;
+        font-size: 15px !important;
+    }
+  
+}
+
+/* 
+  ##Device = Low Resolution Tablets, Mobiles (Landscape)
+  ##Screen = B/w 481px to 767px
+*/
+
+@media (min-width: 481px) and (max-width: 767px) {
+  
+  
+}
+
+/* 
+  ##Device = Most of the Smartphones Mobiles (Portrait)
+  ##Screen = B/w 320px to 479px
+*/
+
+@media (min-width: 320px) and (max-width: 480px) {
+  
+  
+  
+}
+</style>

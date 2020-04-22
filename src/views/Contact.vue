@@ -1,0 +1,87 @@
+<template>
+    <div class="contact">
+        <div class="row">
+            <div class="col-12">
+                <Breadcrumb :items="items" class="px-5" />
+            </div>
+        </div>
+        <div class="row my-5 pt-5">
+            <div class="col-12 text-center">
+                <h3><strong class="text-head">Contact First Advantage</strong></h3>
+            </div>
+        </div>
+        <div class="row mx-5">
+            <div class="col-md-3 col-12 mt-3">
+                <h2><strong class="text-head">General Office</strong></h2>
+                <div class="col-12 mt-4">
+                    <p class="title"><i class="fa fa-map-marker text-primary mr-2"></i> <strong>Address</strong></p>
+                    <p class="address text-gray">3261 Nmoore Road <br> Brooklyn, NY 11230  </p> 
+                </div>
+                <div class="col-12 mt-4">
+                    <p class="title"><i class="fa fa-phone-volume text-primary mr-2"></i> <strong>Phone</strong></p>
+                    <p class="address text-gray">800-123-4567, Fax 718-724-3312  </p> 
+                </div>
+                <div class="col-12 mt-4">
+                    <p class="title"><i class="far fa-clock text-primary mr-2"></i> <strong>Operating Hours</strong></p>
+                    <p class="address text-gray">3261 Nmoore Road <br> Brooklyn, NY 11230  </p> 
+                </div>
+            </div>
+            <div class="col-md-8 col-12 mt-3 mb-5">
+                <h2 class="text-center"><strong class="text-head">Get in Touch</strong></h2>
+                <input type="text" class="form-control mt-3" placeholder="Your name*">
+                <input type="email" class="form-control mt-3" placeholder="Email*">
+                <textarea cols="30" rows="7" placeholder="Message" class="mt-3 form-control"></textarea>
+                <div class="row mt-4">
+                    <div class="col-md-12">
+                        <vue-recaptcha sitekey="6Lejzd0UAAAAAE_gyBh7TAFyJrTJcDaTdsXbRkoQ"></vue-recaptcha>
+                    </div>
+                </div>
+                <button class="btn btn-primary mt-3">Send Message</button>
+            </div>
+        </div>
+
+    </div>
+</template>
+<script>
+import Breadcrumb from '@/components/Breadcrumb.vue'
+import VueRecaptcha from 'vue-recaptcha';
+export default {
+  name: "Contact",
+  components: {
+    Breadcrumb,
+    VueRecaptcha
+  },
+  data() {
+    return {
+      items: [
+        {
+            text: 'Home',
+            active: false,
+            to: '/'
+        },
+        {
+            text: 'Contact Us',
+            active: true,
+            to: '/contact'
+        }
+      ],
+    }
+  }
+}
+</script>
+<style scoped>
+.title {
+    font-size: 18px;
+}
+.address {
+    padding-left: 24px;
+    margin-top: -5px;
+}
+input {
+    height: 45px;
+}
+.btn-primary {
+    border-radius: 25px;
+    padding: 10px 40px;
+}
+</style>

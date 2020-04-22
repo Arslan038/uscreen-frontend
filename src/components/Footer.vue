@@ -1,0 +1,59 @@
+<template>
+    <div class="footer">
+        <div class="row no-gutters align-items-center">
+            <div class="col-md-4 col-12 text-center pt-4">
+                <img src="../assets/UScreen Logo_Color.png" alt="" @click="move('/')">
+            </div>
+            <div class="col-md-4 col-12 links">
+                <ul>
+                    <li><a href="javascript:;">Privacy Policy</a></li>
+                    <li><a href="javascript:;">Terms and Conditions of Use</a></li>
+                    <li><a href="javascript:;">Global Code of Conduct</a></li>
+                    <li><a href="javascript:;" @click="move('/faq')">FAQ</a></li>
+                    <li><a href="javascript:;" @click="move('/about')">About Us</a></li>
+                </ul>
+            </div>
+            <div class="col-md-4 col-12 links">
+                <ul>
+                    <li><a href="javascript:;" @click="move('/login')">Log In</a></li>
+                    <li><a href="javascript:;" @click="move('/contact')">Contact Us</a></li>
+                    <li><a href="javascript:;" @click="move('/employer-packages')">For Employers</a></li>
+                    <li><a href="javascript:;" @click="move('/individual-packages')">For Individuals</a></li>
+                    <li><a href="javascript:;" @click="move('/order-confirmation')">Orders</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</template>
+<script>
+export default {
+    name: "Footer",
+    methods: {
+        move(link) {
+            this.$router.push({path: link})
+        }
+    }
+}
+</script>
+<style scoped>
+.footer {
+    background: #f9f9f9;
+}
+.links {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+a {
+    font-size: 16px;
+    color: rgb(95, 95, 95);
+    font-weight: bold;
+}
+a:hover {
+    text-decoration: none;
+    color: #002F87 !important;
+}
+ul li {
+    list-style-type: none;
+    padding-top: 10px;
+}
+</style>
