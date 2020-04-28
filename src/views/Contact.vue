@@ -28,15 +28,15 @@
             </div>
             <div class="col-md-8 col-12 mt-3 mb-5">
                 <h2 class="text-center"><strong class="text-head">Get in Touch</strong></h2>
-                <input type="text" class="form-control mt-3" placeholder="Your name*">
-                <input type="email" class="form-control mt-3" placeholder="Email*">
-                <textarea cols="30" rows="7" placeholder="Message" class="mt-3 form-control"></textarea>
+                <input type="text" class="form-control mt-3" v-model="help_obj.Subject" placeholder="Subject*">
+                <input type="email" class="form-control mt-3" placeholder="Email*" v-model="help_obj.Email">
+                <textarea cols="30" rows="7" placeholder="Message" class="mt-3 form-control" v-model="help_obj.Message"></textarea>
                 <div class="row mt-4">
                     <div class="col-md-12">
                         <vue-recaptcha sitekey="6Lejzd0UAAAAAE_gyBh7TAFyJrTJcDaTdsXbRkoQ"></vue-recaptcha>
                     </div>
                 </div>
-                <button class="btn btn-primary mt-3">Send Message</button>
+                <button class="btn btn-primary mt-3" @click="sendMessage()">Send Message</button>
             </div>
         </div>
 
@@ -45,14 +45,36 @@
 <script>
 import Breadcrumb from '@/components/Breadcrumb.vue'
 import VueRecaptcha from 'vue-recaptcha';
+import { RepositoryFactory } from '../Repository/RepositoryFactory'
+const UserRepository = RepositoryFactory.get('user_repository')
 export default {
   name: "Contact",
   components: {
     Breadcrumb,
     VueRecaptcha
   },
+  methods:{
+      async sendMessage(){
+        let {data} = await UserRepository.helpask(this.help_obj)
+        .catch(error => {
+              console.log(error.response)
+              this.$store.commit('setNotifications',{message:error.response.data.Message,type:'error'})
+          });
+
+        console.log(data)
+        if(data!=null){
+            this.$store.commit('setNotifications',{message:'Query submitted succesffuly',type:'success'})
+
+          }
+      }
+  },
   data() {
     return {
+        help_obj:{
+           Email:'',
+           Message:'',
+           Subject:''
+       },
       items: [
         {
             text: 'Home',
