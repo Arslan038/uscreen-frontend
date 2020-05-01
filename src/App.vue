@@ -8,11 +8,93 @@
 <script>
 import Navbar from '@/components/Navbar.vue'
 import Footer from '@/components/Footer.vue'
+import {mapGetters} from 'vuex'
+import nativeToast from 'native-toast'
+import { RepositoryFactory } from './Repository/RepositoryFactory'
+const UserRepository = RepositoryFactory.get('user_repository')
+const OrderRepository = RepositoryFactory.get('order_repository')
+
 export default {
   components: {
     Navbar,
     Footer
-  }
+  },
+  created(){
+      this.fetchCountries()
+      this.fetchCurrency()
+      this.fetchIndustry()
+      // this.fetchPackages()
+      this.fetchEmployerPackages()
+
+    if(localStorage.getItem("loggedUser")!=null){
+        this.$store.commit("setLoggedUser",JSON.parse(localStorage.getItem("loggedUser")));
+        this.fetchUserDetails()
+        this.fetchOrders()
+
+    }
+      // localStorage.setItem("",'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJFbWFpbCI6ImFkbWluQGZhZHYuY29tIiwiVXNlck5hbWUiOiJhZG1pbiIsIlVzZXJSb2xlSWQiOjEsImV4cCI6MTU5MTY4MDYwOSwiaWF0IjoxNTg2NDk2NjA5fQ.x2VhwdUz0EZ56IkiaaTNl_3LMu4OxYhDPXLV2Wo6l2g')
+
+  },
+  computed:{
+    ...mapGetters(['notifications','loggedUser'])
+  },
+  watch:{
+    notifications(){
+      if(this.notifications.message!=null) {
+        nativeToast({
+          message: this.notifications.message,
+          position: 'north-east',
+          timeout: 5000,
+          type: this.notifications.type
+          })
+      }
+    },
+    loggedUser() {
+      // console.log(this.au)
+    if(this.loggedUser!=null){
+        this.fetchOrders()
+
+        this.$router.push({path:'/profile'})
+      
+    }
+    else{
+      this.$router.push({path:'/login'})
+    }
+
+   }
+  
+  },
+  
+  methods:{
+    async fetchUserDetails(){
+        let resp = await UserRepository.getloggeduser()
+        this.$store.commit("setUserDetails",resp.data.data.PageData[0])
+    },
+    async fetchCountries(){
+        let {data}= await UserRepository.getCountries()
+        this.$store.commit("setCountries",data.data)
+
+    },
+    async fetchOrders(){
+        let {data}= await OrderRepository.getorders()
+        this.$store.commit("setAllOrders",data.data.PageData)
+
+    },
+    async fetchCurrency(){
+        let {data}= await UserRepository.getCurrency()
+        this.$store.commit("setCurrency",data)
+      
+    },
+    async fetchEmployerPackages(){
+        let {data}= await OrderRepository.getEmployerPackages()
+        this.$store.commit("setEmployerPackages",data.data)
+      
+    },
+    async fetchIndustry(){
+        let {data}= await UserRepository.getIndustry()
+        this.$store.commit("setIndustry",data.data)
+    }
+  },
 }
 </script>
 <style>
