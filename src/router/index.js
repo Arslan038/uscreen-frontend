@@ -65,7 +65,8 @@ const routes = [
   {
     path: '/individual-order',
     name: 'IndividualOrder',
-    component: IndividualOrder
+    component: IndividualOrder,
+    props:true
   },
   {
     path: '/order-confirmation',
