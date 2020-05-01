@@ -11,6 +11,7 @@ const province_resource = 'geo/province';
 const city_resource = 'geo/city';
 const package_resource = 'api/package';
 
+const update_user_res = 'user/update';
 const help_resource = 'contact';
 
 // api/geo/city?CountryId=14&ProvinceId=9611689
@@ -45,12 +46,13 @@ export default {
   createaccount(payload) {
     return Repository.post(`${user_signup_resource}`, payload)
   },
+  updateuser(payload) {
+    return Repository.post(`${update_user_res}`, payload)
+  },
   getusers() {
     return Repository.get(`${users_list_resource}`)
   },
-  
-  getsingleuser(payload) {
-    
-    return Repository.get(`${users_list_resource}`+'?Page=1&Size=5&UserKey='+payload)
+  getloggeduser(){
+    return Repository.get(`${users_list_resource}?Page=1&Size=20`)
   },
 };
