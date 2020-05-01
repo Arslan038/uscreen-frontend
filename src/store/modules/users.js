@@ -2,10 +2,13 @@ const state = {
     loggedUser: null,
     allusers:[],
     notifications:{},
+    userdetails:{},
 
 };
 
 const getters = {
+    userdetails:state => state.userdetails,
+
     loggedUser:state => state.loggedUser,
     notifications:state => state.notifications,
     allusers:state => state.allusers,
@@ -38,6 +41,9 @@ const mutations = {
     },
     setNotifications:(state,payload) =>{
         state.notifications=payload
+    },
+    setUserDetails:(state,payload) =>{
+        state.userdetails=payload
     },
     logout(state,payload){
         state.loggedUser=null;
