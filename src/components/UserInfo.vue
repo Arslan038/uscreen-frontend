@@ -10,9 +10,9 @@
                                     <div class="col-6 text-left">
                                         <h4 class="text-head pb-4 px-5">User Information</h4>
                                     </div>
-                                    <div class="col-6 text-right">
+                                    <!-- <div class="col-6 text-right">
                                         <button class="btn btn-primary text-right">Update</button>
-                                    </div>
+                                    </div> -->
                                 </div>
                                 <hr>
                             </div>
@@ -20,15 +20,15 @@
                                 <div class="py-4 px-5">
                                     <p><strong class="text-head">Login Information</strong></p>
                                     <div class="row">
-                                        <div class="col-md-12 col-12 mt-3">
+                                        <!-- <div class="col-md-12 col-12 mt-3">
                                             <input type="password" placeholder="Password*" class="form-control">
-                                        </div>
+                                        </div> -->
                                         <div class="col-md-12 col-12 mt-3">
-                                            <input type="password" placeholder="New Password*" class="form-control">
+                                            <input type="password" v-model="new_employer.Password" placeholder="New Password*" class="form-control">
                                         </div>
-                                        <div class="col-md-12 col-12 mt-3">
+                                        <!-- <div class="col-md-12 col-12 mt-3">
                                             <input type="password" placeholder="Retype password*" class="form-control">
-                                        </div>
+                                        </div> -->
                                     </div>
                                 </div>
                                 <hr>
@@ -36,17 +36,15 @@
                                     <p><strong class="text-head">Company Information</strong></p>
                                     <div class="row">
                                         <div class="col-md-12 col-12 mt-3">
-                                            <input type="text" class="form-control" placeholder="Company Name" >
+                                            <input type="text" v-model="new_employer.CompanyName" class="form-control" placeholder="Company Name" >
                                         </div>
                                         <div class="col-md-12 col-12 mt-3">
-                                            <select class="form-control">
-                                                <option :value="null">-Select Industry Type-</option>
-                                                <option value="Industry 1">Industry 1</option>
-                                                <option value="Industry 2">Industry 2</option>
+                                             <select class="form-control" v-model="new_employer.IndustryTypeId">
+                                                <option v-for="(item,i) in industry" :key="i" :value="item.IndustryTypeId">{{item.IndustryTypeName}}</option>
                                             </select>
                                         </div>
                                         <div class="col-md-12 col-12 mt-3">
-                                            <input type="text" class="form-control" placeholder="Business Registration No" >
+                                            <input type="text" class="form-control"  v-model="new_employer.BusinessRegistrationNo"  placeholder="Business Registration No" >
                                         </div>
                                     </div>
                                 </div>
@@ -56,23 +54,20 @@
                                     <p><strong class="text-head">User Information</strong></p>
                                     <div class="row">
                                         <div class="col-md-6 col-12 mt-3">
-                                            <input type="text" class="form-control" placeholder="First Name*" >
+                                            <input type="text" v-model="new_employer.FirstName" class="form-control" placeholder="First Name*" >
                                         </div>
                                         <div class="col-md-6 col-12 mt-3">
-                                            <input type="text" class="form-control" placeholder="Last Name*" >
+                                            <input type="text " v-model="new_employer.LastName" class="form-control" placeholder="Last Name*" >
                                         </div>
                                         <div class="col-md-6 col-12 mt-3">
-                                            <input type="email" class="form-control" placeholder="Email (UserID)*" >
+                                            <input type="email" v-model="new_employer.Email" class="form-control" placeholder="Email (UserID)*" >
                                         </div>
                                             <div class="col-md-2 col-12 mt-3 country">
-                                                <select class="form-control">
-                                                    <option :value="null">-Country-</option>
-                                                    <option value="USA">USA</option>
-                                                    <option value="Canada">Canada</option>
-                                                </select>
+                                                <input type="tel" v-model="new_employer.MobileCode" class="form-control" placeholder="Mobile*" >
+                                                
                                             </div>
                                             <div class="col-md-4 mobile col-12 mt-3">
-                                                <input type="tel" class="form-control" placeholder="Mobile*" >
+                                                <input type="tel" v-model="new_employer.MobileNumber" class="form-control" placeholder="Mobile*" >
                                             </div>
                                     </div>
                                 </div>
@@ -80,27 +75,23 @@
 
                                 <div class="px-5 py-4">
                                     <p><strong class="text-head">Registered Address</strong></p>
-                                    <textarea class="form-control" rows="5" style="resize:none" placeholder="Address"></textarea>
+                                    <textarea class="form-control" v-model="new_employer.BusinessAddress.AddressName" rows="5" style="resize:none" placeholder="Address"></textarea>
                                     <div class="row mt-3">
                                         <div class="col-md-6 col-12 mt-3">
-                                            <select class="form-control">
-                                                <option :value="null">-Select Country-</option>
-                                                <option value="USA">USA</option>
-                                                <option value="Canada">Canada</option>
+                                            <select v-model="new_employer.BusinessAddress.CountryId" @change="handleBusinessCountry" class="form-control">
+                                                <option v-for="(item,i) in countries" :key="i" :value="item.CountryId">{{item.CountryName}}</option>
                                             </select>
                                         </div>
                                         <div class="col-md-6 col-12 mt-3">
-                                            <select class="form-control">
-                                                <option :value="null">-Select State/Province-</option>
-                                                <option value="North Dakota">North Dakota</option>
-                                                <option value="South Dakota">South Dakota</option>
+                                            <!--  -->
+                                            <select  v-model="new_employer.BusinessAddress.ProvinceId"  @change="handleBusinessProvince" class="form-control">
+                                                <option v-for="(item,i) in businessprovince" :key="i" :value="item.ProvinceId">{{item.ProvinceName}}</option>
                                             </select>
                                         </div>
                                         <div class="col-md-6 col-12 mt-3">
-                                            <select class="form-control">
-                                                <option :value="null">-Select City-</option>
-                                                <option value="New York">New York</option>
-                                                <option value="Texas">Texas</option>
+                                            <select v-model="new_employer.BusinessAddress.CityId"  class="form-control">
+                                                <option v-for="(item,i) in bussinesscity" :key="i" :value="item.CityId">{{item.CityName}}</option>
+                                                
                                             </select>
                                         </div>
                                         
@@ -110,28 +101,25 @@
 
                                 <div class="px-5 py-4">
                                     <p><strong class="text-head">Billing Address</strong></p>
-                                    <b-form-checkbox class="text-gray"> same as Address</b-form-checkbox>
-                                    <textarea class="form-control mt-3" rows="5" style="resize:none" placeholder="Address"></textarea>
+                                    <b-form-checkbox class="text-gray" v-model="isSame" @change="handleSame"> same as Address</b-form-checkbox>
+                                    <textarea class="form-control mt-3" v-model="new_employer.BusinessBillingAddress.AddressName" rows="5" style="resize:none" placeholder="Address"></textarea>
                                     <div class="row mt-3">
                                         <div class="col-md-6 col-12 mt-3">
-                                            <select class="form-control">
-                                                <option :value="null">-Select Country-</option>
-                                                <option value="USA">USA</option>
-                                                <option value="Canada">Canada</option>
+                                            <select v-model="new_employer.BusinessBillingAddress.CountryId" @change="handleBusinessBillingCountry" class="form-control">
+                                                <option v-for="(item,i) in countries" :key="i" :value="item.CountryId">{{item.CountryName}}</option>
+
                                             </select>
                                         </div>
                                         <div class="col-md-6 col-12 mt-3">
-                                            <select class="form-control">
-                                                <option :value="null">-Select State/Province-</option>
-                                                <option value="North Dakota">North Dakota</option>
-                                                <option value="South Dakota">South Dakota</option>
+                                             <select v-model="new_employer.BusinessBillingAddress.ProvinceId" @change="handleBusinessBillingProvince" class="form-control">
+                                                <option v-for="(item,i) in billingprovince" :key="i" :value="item.ProvinceId">{{item.ProvinceName}}</option>
+
                                             </select>
                                         </div>
                                         <div class="col-md-6 col-12 mt-3">
-                                            <select class="form-control">
-                                                <option :value="null">-Select City-</option>
-                                                <option value="New York">New York</option>
-                                                <option value="Texas">Texas</option>
+                                            <select v-model="new_employer.BusinessBillingAddress.CityId" class="form-control">
+                                                <option v-for="(item,i) in billingcity" :key="i" :value="item.CityId">{{item.CityName}}</option>
+
                                             </select>
                                         </div>
                                         <div class="col-md-6 col-12 mt-3">
@@ -146,7 +134,7 @@
                                     </div>
                                 </div>
                                 <div class="col-12 text-center mt-3 mb-5">
-                                    <button class="btn btn-primary mb-5 mt-3">Update</button>
+                                    <button class="btn btn-primary mb-5 mt-3" @click="update()">Update</button>
                                 </div>
                             </div>
                         </div>
@@ -158,10 +146,149 @@
 </template>
 <script>
 import VueRecaptcha from 'vue-recaptcha';
+import {mapGetters} from 'vuex'
+import { RepositoryFactory } from '../Repository/RepositoryFactory'
+const UserRepository = RepositoryFactory.get('user_repository')
 export default {
     name: "UserInfo",
+    data(){
+        return{
+            new_employer:'',
+            businessprovince:[],
+            billingprovince:[],
+            billingcity:[],
+            bussinesscity:[],
+            isSame:false,
+        }
+    },
     components: {
         VueRecaptcha
+    },
+    methods:{
+        async update(){
+            if(this.new_employer.Password==''){
+                delete this.new_employer.Password
+            }
+            let {data}=await UserRepository.updateuser(this.new_employer)
+            .catch(error => {
+              console.log(error.response)
+              this.$store.commit('setNotifications',{message:error.response.data.Message,type:'error'})
+            });
+            console.log(data)
+            if(data.status=='Success'){
+                this.$store.commit('setNotifications',{message:'User updated successfully',type:'success'})
+
+            }
+        },
+        handleSame(e){
+        if(e==true){
+            this.billingprovince=this.businessprovince
+            this.billingcity=this.bussinesscity
+                this.new_employer.BusinessBillingAddress.CountryId=this.new_employer.BusinessAddress.CountryId;
+                this.new_employer.BusinessBillingAddress.CityId=this.new_employer.BusinessAddress.CityId
+                this.new_employer.BusinessBillingAddress.ProvinceId=this.new_employer.BusinessAddress.ProvinceId
+                this.new_employer.BusinessBillingAddress.AddressName=this.new_employer.BusinessAddress.AddressName
+
+            }
+
+
+        },
+         async fetchCountries(){
+        
+          this.fetchBusinessProvinceByCountry(this.new_employer.BusinessAddress.CountryId,'first')
+
+        },
+        handleBusinessBillingCountry(val){
+        this.fetchBusinessProvinceByCountry(val.target.value,'billing')
+        },
+        handleBusinessBillingProvince(val){
+            this.fetchBusinessCityByProvinec(this.new_employer.BusinessBillingAddress.CountryId,val.target.value,'billing')
+        },
+        handleBusinessCountry(val){
+            this.fetchBusinessProvinceByCountry(val.target.value,'business')
+        },
+        handleBusinessProvince(val){
+        this.fetchBusinessCityByProvinec(this.new_employer.BusinessAddress.CountryId,val.target.value,'business')
+        },
+        async fetchBusinessProvinceByCountry(id,type){
+            let {data}= await UserRepository.getProvince(id)
+            if(type=='first'){
+                this.businessprovince=data.data
+                this.billingprovince=data.data
+            }
+            else if(type=='business'){
+                this.businessprovince=data.data
+            }
+            else if(type=='billing'){
+                this.billingprovince=data.data
+
+            }
+
+            this.fetchBusinessCityByProvinec(this.new_employer.BusinessAddress.CountryId,this.new_employer.BusinessAddress.ProvinceId,type)
+
+        },
+        async fetchBusinessCityByProvinec(CountryId,ProvinceId,type){
+        let {data}= await UserRepository.getCity({CountryId:CountryId,ProvinceId:ProvinceId})
+         if(type=='first'){
+        this.bussinesscity=data.data
+        this.billingcity=data.data
+
+        }
+        else if(type=='business'){
+        this.bussinesscity=data.data
+         
+        }
+        else if(type=='billing'){
+        this.billingcity=data.data
+         
+        }
+        
+    },
+    },
+    watch:{
+        currency(){
+            if(this.currency.length>0){
+            // this.fetchCurrency()
+
+            }
+        },
+        countries(){
+            if(this.countries.length>0){
+            this.fetchCountries()
+
+            }
+        },
+        industry(){
+            if(this.industry.length>0){
+                // this.fetchIndustry()
+
+            }
+        },
+        userdetails(){
+            if(this.userdetails!=null){
+                this.new_employer= {...this.userdetails}
+                console.log("watcher")
+                console.log(this.new_employer)
+                this.fetchCountries()
+
+            }
+        }
+    },
+    created(){
+        this.new_employer= {...this.userdetails}
+        console.log("created")
+        console.log(this.new_employer)
+        this.fetchCountries()
+    },
+    mounted(){
+        this.new_employer= {...this.userdetails}
+        console.log("mounted")
+        console.log(this.new_employer)
+        this.fetchCountries()
+    },
+    computed:{
+        ...mapGetters(['currency','countries','industry','userdetails'])
+
     }
 }
 </script>
