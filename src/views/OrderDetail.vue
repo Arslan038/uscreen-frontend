@@ -29,10 +29,10 @@
                             <div class="row">
                                 <div class="col-md-12 candidate">
                                     <p class="mb-4"><strong class="text-head">Candidate Information</strong></p>  
-                                    <p class="text-gray">First Name: Eric</p>
-                                    <p class="text-gray">Last Name: Poon</p>
-                                    <p class="text-gray">Email: ericpoon@nextsoftech.com</p>
-                                    <p class="text-gray">Mobile: +852 61116945</p>
+                                    <p class="text-gray">First Name: {{selected_order.Candidate.FirstName}}</p>
+                                    <p class="text-gray">Last Name: {{selected_order.Candidate.FirstName}}</p>
+                                    <p class="text-gray">Email: {{selected_order.Candidate.Email}}</p>
+                                    <p class="text-gray">Mobile: {{selected_order.Candidate.MobileCode}}{{selected_order.Candidate.MobileNumber}}</p>
                                 </div>
                                  
                             </div>
@@ -44,7 +44,7 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <p class="mb-4"><strong class="text-head">Client Reference</strong></p>  
-                                    <p class="text-gray">HK98736627</p>
+                                    <p class="text-gray">{{selected_order.CandidateReference[0].OrderCandidateInfoId}}</p>
                                     
                                 </div>
                             </div>
@@ -54,19 +54,19 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <p class="mb-4"><strong class="text-head">Country of Hire</strong></p>  
-                                    <p class="text-gray">Hong Kong</p>
+                                    <p class="text-gray">{{getCountryById(this.selected_order.Candidate.CountryId).CountryName}}</p>
                                 </div>
                             </div>
                         </div>
                         <hr>
-                        <div class="pl-5 pr-3 mb-5 pt-3">
+                        <!-- <div class="pl-5 pr-3 mb-5 pt-3">
                             <div class="row">
                                 <div class="col-md-12">
                                     <p class="mb-4"><strong class="text-head">Requestor</strong></p>  
                                     <p class="text-gray">ABC Hong Kong Limited</p>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                         <hr>
 
                         <div class="pl-5 pr-3 mb-5 pt-3">
@@ -79,18 +79,18 @@
                                 </div>
                             </div>
 
-                            <div class="row mt-3">
+                            <div v-for="(item,i) in selected_order.Items" :key="i" class="row mt-3">
                                 <div class="col-md-6 col-6">
-                                    <p><strong class="text-blue">Bankruptcy Check</strong></p>
+                                    <p><strong class="text-blue">{{item.PackageServiceItemName}}</strong></p>
                                 </div>
                                 <div class="col-md-3 col-3">
-                                    <p class="text-gray">Hong Kong</p>
+                                    <p class="text-gray">{{getCountryById(item.CountryId).CountryName}}</p>
                                 </div>
                                 <div class="col-md-3 col-3 text-right">
-                                    <p class="text-blue"><strong>$80</strong></p>
+                                    <p class="text-blue"><strong>${{item.SubTotal}}</strong></p>
                                 </div>
                             </div>
-                            <div class="row mt-3">
+                            <!-- <div class="row mt-3">
                                 <div class="col-md-6 col-6">
                                     <p><strong class="text-blue">Credit Check</strong></p>
                                 </div>
@@ -182,7 +182,7 @@
                                 <div class="col-md-3 col-3 text-right">
                                     <p class="text-blue"><strong>-$200</strong></p>
                                 </div>
-                            </div>
+                            </div> -->
 
                             <div class="row mt-4">
                                 <div class="col-md-6 col-6">
@@ -191,7 +191,7 @@
                                 <div class="col-md-3 col-3">
                                 </div>
                                 <div class="col-md-3 col-3 text-right">
-                                    <h4 class="text-head"><strong>$1000</strong></h4>
+                                    <h4 class="text-head"><strong>${{total}}</strong></h4>
                                 </div>
                             </div>
 
@@ -256,17 +256,34 @@
 </template>
 
 <script>
-export default {
-    name: "OrderDetail",
-}
-</script>
-<script>
 import Breadcrumb from '@/components/Breadcrumb.vue'
+import { mapGetters } from 'vuex'
 export default {
   name: "OrderDetail",
+  props:['selected_order'],
+  computed:{
+      ...mapGetters(['countries']),
+      total(){
+          let i=0
+          this.selected_order.Items.forEach(item=>{
+              i=i+item.SubTotal
+          })
+          return i 
+      }
+      
+  },
   components: {
     Breadcrumb
   },
+  created(){
+      console.log(this.selected_order)  
+  },
+  
+  methods:{
+        getCountryById(id){
+        return  this.countries.find(item=>item.CountryId==id)
+      }
+    },
   data() {
     return {
       items: [
