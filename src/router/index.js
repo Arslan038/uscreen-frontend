@@ -49,7 +49,8 @@ const routes = [
   {
     path: '/employer-order',
     name: 'EmployerOrder',
-    component: EmployerOrder
+    component: EmployerOrder,
+    props:true
   },
   {
     path: '/employer-packages',
@@ -69,12 +70,14 @@ const routes = [
   {
     path: '/order-confirmation',
     name: 'OrderConfirmation',
-    component: OrderConfirmation
+    component: OrderConfirmation,
+    props:true
   },
   {
     path: '/order-detail',
     name: 'OrderDetail',
-    component: OrderDetail
+    component: OrderDetail,
+    props:true
   },
   {
     path: '/bank-transfer',
