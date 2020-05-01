@@ -7,7 +7,7 @@
         </div>
         <div class="row head">
             <div class="col-12 align-self-end">
-                <h1>Eric Poon</h1>
+                <h1>{{userdetails.FirstName}} {{userdetails.LastName}}</h1>
             </div>
         </div>
         <div class="row">
@@ -27,7 +27,7 @@
                                         <h3 class="text-blue"><strong>Wallet Balance:</strong></h3>
                                     </div>
                                     <div class="col-5">
-                                        <h3 class="text-blue"><strong>$200</strong></h3>
+                                        <h3 class="text-blue"><strong>${{userdetails.UserWalletAmount}}</strong></h3>
                                     </div>
                                 </div>
                                 <div class="row mx-5 mt-3 mb-5">
@@ -48,8 +48,12 @@
 import OrderAndTransactions from '@/components/OrderAndTransactions.vue'
 import UserInfo from '@/components/UserInfo.vue'
 import Breadcrumb from '@/components/Breadcrumb.vue'
+import {mapGetters} from 'vuex'
 export default {
     name: "Profile",
+    computed:{
+        ...mapGetters(['userdetails'])
+    },
     components: {
         OrderAndTransactions,
         UserInfo,
