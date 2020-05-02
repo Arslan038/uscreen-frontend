@@ -50,35 +50,53 @@ const routes = [
     path: '/employer-order',
     name: 'EmployerOrder',
     component: EmployerOrder,
-    props:true
+    props:true,
+    meta: {
+      requiresAuth: true,
+    }
   },
   {
     path: '/employer-packages',
     name: 'EmployerPackages',
-    component: EmployerPackages
+    component: EmployerPackages,
+    meta: {
+      requiresAuth: true,
+    }
   },
   {
     path: '/individual-packages',
     name: 'IndividualPackages',
-    component: IndividualPackages
+    component: IndividualPackages,
+    meta: {
+      requiresAuth: true,
+    }
   },
   {
     path: '/individual-order',
     name: 'IndividualOrder',
     component: IndividualOrder,
-    props:true
+    props:true,
+    meta: {
+      requiresAuth: true,
+    }
   },
   {
     path: '/order-confirmation',
     name: 'OrderConfirmation',
     component: OrderConfirmation,
-    props:true
+    props:true,
+    meta: {
+      requiresAuth: true,
+    }
   },
   {
     path: '/order-detail',
     name: 'OrderDetail',
     component: OrderDetail,
-    props:true
+    props:true,
+    meta: {
+      requiresAuth: true,
+    }
   },
   {
     path: '/bank-transfer',
@@ -93,7 +111,10 @@ const routes = [
   {
     path: '/profile',
     name: 'Profile',
-    component: Profile
+    component: Profile,
+    meta: {
+      requiresAuth: true,
+    }
   },
   {
     path: '/contact',
