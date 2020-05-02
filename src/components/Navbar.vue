@@ -12,11 +12,12 @@
             <!-- Right aligned nav items -->
             <b-navbar-nav class="ml-5">
                 <b-nav-item @click="move('/')">Home</b-nav-item>
-                <b-nav-item @click="move('/employer-packages')">For Employers</b-nav-item>
-                <b-nav-item @click="move('/individual-packages')">For Individuals</b-nav-item>
+                <b-nav-item v-if="userdetails.UserRoleCode=='EMPLOYER'" @click="move('/employer-packages')">For Employers</b-nav-item>
+                <b-nav-item v-if="userdetails.UserRoleCode=='INDIVIDUAL'"  @click="move('/individual-packages')">For Individuals</b-nav-item>
                 <b-nav-item @click="move('/order-confirmation')">Orders</b-nav-item>
                 <b-nav-item @click="move('/about')">About Us</b-nav-item>
-                <b-nav-item @click="move('/login')">Log In</b-nav-item>
+                <b-nav-item v-if="loggedUser==null" @click="move('/login')">Log In</b-nav-item>
+                <b-nav-item v-else @click="logout()">Log Out</b-nav-item>
                 <b-nav-item @click="move('/contact')">Contact Us</b-nav-item>
                 <b-nav-item @click="search = !search"><i class="fa fa-search"></i></b-nav-item>
                 <b-nav-item v-if="search"><input type="text" class="form-control" placeholder="Search"></b-nav-item>
@@ -31,12 +32,14 @@
 </template>
 
 <script>
+import {mapGetters} from 'vuex'
 export default {
     name: "Navbar",
     computed:{
         getClass: function() {    
             return this.scrolls > 10 && this.scrolls < 150 ? 'white' : 'transparent';
-        }
+        },
+        ...mapGetters(['loggedUser','userdetails'])
     },
     data() {
         return {
@@ -45,6 +48,9 @@ export default {
         }
     },
     methods: {
+        logout(){
+            this.$store.commit("logout")
+        },
         move(link) {
             this.$router.push({path: link})
         },
