@@ -72,8 +72,30 @@
                                     </div>
                                 </div>
                                 <hr>
-
-                                <div class="px-5 py-4">
+                                <div v-if="userdetails.UserRoleCode=='INDIVIDUAL'" class="px-5 py-4">
+                                    <p><strong class="text-head">User Address</strong></p>
+                                    <textarea class="form-control" v-model="new_employer.UserAddress.AddressName" rows="5" style="resize:none" placeholder="Address"></textarea>
+                                    <div class="row mt-3">
+                                        <div class="col-md-6 col-12 mt-3">
+                                            <select v-model="new_employer.UserAddress.CountryId" @change="handleBusinessCountry" class="form-control">
+                                                <option v-for="(item,i) in countries" :key="i" :value="item.CountryId">{{item.CountryName}}</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-6 col-12 mt-3">
+                                            <select  v-model="new_employer.UserAddress.ProvinceId"  @change="handleBusinessProvince" class="form-control">
+                                                <option v-for="(item,i) in businessprovince" :key="i" :value="item.ProvinceId">{{item.ProvinceName}}</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-6 col-12 mt-3">
+                                            <select v-model="new_employer.UserAddress.CityId"  class="form-control">
+                                                <option v-for="(item,i) in bussinesscity" :key="i" :value="item.CityId">{{item.CityName}}</option>
+                                                
+                                            </select>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                                <div v-if="userdetails.UserRoleCode=='EMPLOYER'" class="px-5 py-4">
                                     <p><strong class="text-head">Registered Address</strong></p>
                                     <textarea class="form-control" v-model="new_employer.BusinessAddress.AddressName" rows="5" style="resize:none" placeholder="Address"></textarea>
                                     <div class="row mt-3">
@@ -83,7 +105,6 @@
                                             </select>
                                         </div>
                                         <div class="col-md-6 col-12 mt-3">
-                                            <!--  -->
                                             <select  v-model="new_employer.BusinessAddress.ProvinceId"  @change="handleBusinessProvince" class="form-control">
                                                 <option v-for="(item,i) in businessprovince" :key="i" :value="item.ProvinceId">{{item.ProvinceName}}</option>
                                             </select>
@@ -99,7 +120,7 @@
                                 </div>
                                 <hr>
 
-                                <div class="px-5 py-4">
+                                <div class="px-5 py-4" v-if="userdetails.UserRoleCode=='EMPLOYER'">
                                     <p><strong class="text-head">Billing Address</strong></p>
                                     <b-form-checkbox class="text-gray" v-model="isSame" @change="handleSame"> same as Address</b-form-checkbox>
                                     <textarea class="form-control mt-3" v-model="new_employer.BusinessBillingAddress.AddressName" rows="5" style="resize:none" placeholder="Address"></textarea>
@@ -194,8 +215,14 @@ export default {
 
         },
          async fetchCountries(){
-        
-          this.fetchBusinessProvinceByCountry(this.new_employer.BusinessAddress.CountryId,'first')
+            if(this.userdetails.UserRoleCode=='INDIVIDUAL'){
+               this.fetchBusinessProvinceByCountry(this.new_employer.UserAddress.CountryId,'first')
+
+            }
+            else{
+               this.fetchBusinessProvinceByCountry(this.new_employer.BusinessAddress.CountryId,'first')
+
+            }
 
         },
         handleBusinessBillingCountry(val){
@@ -204,11 +231,19 @@ export default {
         handleBusinessBillingProvince(val){
             this.fetchBusinessCityByProvinec(this.new_employer.BusinessBillingAddress.CountryId,val.target.value,'billing')
         },
+        
         handleBusinessCountry(val){
             this.fetchBusinessProvinceByCountry(val.target.value,'business')
         },
         handleBusinessProvince(val){
-        this.fetchBusinessCityByProvinec(this.new_employer.BusinessAddress.CountryId,val.target.value,'business')
+            if(this.userdetails.UserRoleCode=='INDIVIDUAL'){
+                 this.fetchBusinessCityByProvinec(this.new_employer.UserAddress.CountryId,val.target.value,'business')
+
+            }
+            else{
+                 this.fetchBusinessCityByProvinec(this.new_employer.BusinessAddress.CountryId,val.target.value,'business')
+
+            }
         },
         async fetchBusinessProvinceByCountry(id,type){
             let {data}= await UserRepository.getProvince(id)
@@ -223,8 +258,15 @@ export default {
                 this.billingprovince=data.data
 
             }
+             if(this.userdetails.UserRoleCode=='INDIVIDUAL'){
+               this.new_employer.UserAddress
+               this.fetchBusinessCityByProvinec(this.new_employer.UserAddress.CountryId,this.new_employer.UserAddress.ProvinceId,type)
 
-            this.fetchBusinessCityByProvinec(this.new_employer.BusinessAddress.CountryId,this.new_employer.BusinessAddress.ProvinceId,type)
+             }
+             else{
+               this.fetchBusinessCityByProvinec(this.new_employer.BusinessAddress.CountryId,this.new_employer.BusinessAddress.ProvinceId,type)
+
+             }
 
         },
         async fetchBusinessCityByProvinec(CountryId,ProvinceId,type){
