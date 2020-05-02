@@ -17,7 +17,7 @@
                         <b-tab title="Orders &amp; Transactions" active>
                             <OrderAndTransactions />
                         </b-tab>
-                        <b-tab title="User Info (Employer)">
+                        <b-tab :title="`User Info (${userdetails.UserRoleCode.charAt(0).toUpperCase() + userdetails.UserRoleCode.slice(1).toLowerCase()})`">
                             <UserInfo />
                         </b-tab>
                         <b-tab title="Wallet">
