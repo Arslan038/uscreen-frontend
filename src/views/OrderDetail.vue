@@ -39,7 +39,7 @@
                         </div>
 
                         <hr>
-                        <div v-if="userdetails.UserRoleCode!='INDIVIDUAL'" class="pl-5 pr-3 mb-5 pt-3">
+                        <div v-if="userdetails.UserRoleCode!='INDIVIDUAL' && selected_order.CandidateReference.length>0" class="pl-5 pr-3 mb-5 pt-3">
                             <div class="row">
                                 <div class="col-md-12">
                                     <p class="mb-4"><strong class="text-head">Client Reference</strong></p>  
