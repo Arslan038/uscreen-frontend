@@ -6,8 +6,20 @@ const package_items_resource = 'package/item';
 const package_items_countries = 'package/item/pricing';
 const new_order = 'order/create';
 const order_charge = 'payment/charge';
+const download_performa = 'export';
+const download_report = 'report';
+const order_export_report = 'order/export';
+
+
 
 export default {
+ 
+  getOrderReport(payload){
+    return Repository.post(`${download_report}`,payload)
+  },
+  getOrderPerforma(payload){
+    return Repository.get(`${download_performa}?OrderKey=${payload}`)
+  },
   getPackages(payload){
     return Repository.get(`${package_resource}?UserRoleCode=${payload}`)
   },
