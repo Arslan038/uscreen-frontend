@@ -29,10 +29,10 @@
                             <div class="row">
                                 <div class="col-md-12 candidate">
                                     <p class="mb-4"><strong class="text-head">Candidate Information</strong></p>  
-                                    <p class="text-gray">First Name: Eric</p>
-                                    <p class="text-gray">Last Name: Poon</p>
-                                    <p class="text-gray">Email: ericpoon@nextsoftech.com</p>
-                                    <p class="text-gray">Mobile: +852 61116945</p>
+                                    <p class="text-gray">First Name: {{selected_order.FirstName}}</p>
+                                    <p class="text-gray">Last Name: {{selected_order.LastName}}</p>
+                                    <p class="text-gray">Email: {{selected_order.Email}}</p>
+                                    <p class="text-gray">Mobile: {{selected_order.MobileCode+'-'+selected_order.MobileNumber}}</p>
                                 </div>
                                  
                             </div>
@@ -40,12 +40,12 @@
 
                         <hr>
 
-                        <div class="pl-5 pr-3 mb-5 pt-3">
+                        <div class="pl-5 pr-3 mb-5 pt-3" v-if="userdetails.UserRoleCode!='INDIVIDUAL'">
                             <div class="row">
                                 <div class="col-md-12">
                                     <p class="mb-4"><strong class="text-head">Client Reference</strong></p>  
-                                    <p class="text-gray">HK98736627</p>
-                                    
+                                    <p class="text-gray">{{selected_order.Reference[0].EmployeeId}}</p>
+                                    <p class="text-gray">{{selected_order.Reference[1].EmployeeId}}</p>
                                 </div>
                             </div>
                         </div>
@@ -54,16 +54,16 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <p class="mb-4"><strong class="text-head">Country of Hire</strong></p>  
-                                    <p class="text-gray">Hong Kong</p>
+                                    <p class="text-gray">{{getCountryById(selected_order.CountryId).CountryName}}</p>
                                 </div>
                             </div>
                         </div>
                         <hr>
-                        <div class="pl-5 pr-3 mb-5 pt-3">
+                        <div class="pl-5 pr-3 mb-5 pt-3" v-if="userdetails.UserRoleCode!='INDIVIDUAL'">
                             <div class="row">
                                 <div class="col-md-12">
                                     <p class="mb-4"><strong class="text-head">Requestor</strong></p>  
-                                    <p class="text-gray">ABC Hong Kong Limited</p>
+                                    <p class="text-gray">{{selected_order.Requestor}}</p>
                                 </div>
                             </div>
                         </div>
@@ -79,111 +79,18 @@
                                 </div>
                             </div>
 
-                            <div class="row mt-3">
+                            <div v-for="(item,i) in selected_order.PackageServiceItems" :key="i" class="row mt-3">
                                 <div class="col-md-6 col-6">
-                                    <p><strong class="text-blue">Bankruptcy Check</strong></p>
+                                    <p><strong class="text-blue">{{extras[i].PackageServiceItemName}}</strong></p>
                                 </div>
-                                <div class="col-md-3 col-3">
-                                    <p class="text-gray">Hong Kong</p>
+                                <div  class="col-md-3 col-3">
+                                    <p v-for="(cunt,j) in item.Countries" :key="j" class="text-gray">{{getCountryByCode(cunt).CountryName}}</p>
                                 </div>
                                 <div class="col-md-3 col-3 text-right">
-                                    <p class="text-blue"><strong>$80</strong></p>
+                                    <p class="text-blue" v-for="(it,l) in extras[i].amounts" :key="l"><strong>{{it}}</strong></p>
                                 </div>
                             </div>
-                            <div class="row mt-3">
-                                <div class="col-md-6 col-6">
-                                    <p><strong class="text-blue">Credit Check</strong></p>
-                                </div>
-                                <div class="col-md-3 col-3">
-                                    <p class="text-gray">Hong Kong</p>
-                                    <p class="text-gray">United Kingdom</p>
-                                    <p class="text-gray">Australia</p>
-                                    <p class="text-gray">Malaysia</p>
-                                </div>
-                                <div class="col-md-3 col-3 text-right">
-                                    <p class="text-blue"><strong>$50</strong></p>
-                                    <p class="text-blue"><strong>$50</strong></p>
-                                    <p class="text-blue"><strong>$50</strong></p>
-                                    <p class="text-blue"><strong>$50</strong></p>
-                                </div>
-                            </div>
-                            <div class="row mt-3">
-                                <div class="col-md-6 col-6">
-                                    <p><strong class="text-blue">Civi Litigation Check</strong></p>
-                                </div>
-                                <div class="col-md-3 col-3">
-                                    <p class="text-gray">Hong Kong</p>
-                                </div>
-                                <div class="col-md-3 col-3 text-right">
-                                    <p class="text-blue"><strong>$50</strong></p>
-                                </div>
-                            </div>
-                            <div class="row mt-3">
-                                <div class="col-md-6 col-6">
-                                    <p><strong class="text-blue">Criminal Check</strong></p>
-                                </div>
-                                <div class="col-md-3 col-3">
-                                    <p class="text-gray">Hong Kong</p>
-                                </div>
-                                <div class="col-md-3 col-3 text-right">
-                                    <p class="text-blue"><strong>$50</strong></p>
-                                </div>
-                            </div>
-                            <div class="row mt-3">
-                                <div class="col-md-6 col-6">
-                                    <p><strong class="text-blue">Global Sanctions</strong></p>
-                                </div>
-                                <div class="col-md-3 col-3">
-                                    <p class="text-gray">Hong Kong</p>
-                                </div>
-                                <div class="col-md-3 col-3 text-right">
-                                    <p class="text-blue"><strong>$50</strong></p>
-                                </div>
-                            </div>
-                            <div class="row mt-3">
-                                <div class="col-md-6 col-6">
-                                    <p><strong class="text-blue">Passport Check</strong></p>
-                                </div>
-                                <div class="col-md-3 col-3">
-                                    <p class="text-gray">Hong Kong</p>
-                                </div>
-                                <div class="col-md-3 col-3 text-right">
-                                    <p class="text-blue"><strong>$50</strong></p>
-                                </div>
-                            </div>
-                            <div class="row mt-3">
-                                <div class="col-md-6 col-6">
-                                    <p><strong class="text-blue">Global Media</strong></p>
-                                </div>
-                                <div class="col-md-3 col-3">
-                                    <p class="text-gray">Hong Kong</p>
-                                </div>
-                                <div class="col-md-3 col-3 text-right">
-                                    <p class="text-blue"><strong>$50</strong></p>
-                                </div>
-                            </div>
-                            <div class="row mt-3">
-                                <div class="col-md-6 col-6">
-                                    <p><strong class="text-blue">Education Check</strong></p>
-                                </div>
-                                <div class="col-md-3 col-3">
-                                    <p class="text-gray">Hong Kong</p>
-                                </div>
-                                <div class="col-md-3 col-3 text-right">
-                                    <p class="text-blue"><strong>$50</strong></p>
-                                </div>
-                            </div>
-                            <div class="row mt-3">
-                                <div class="col-md-6 col-6">
-                                    <p><strong class="text-blue">Wallet Balance</strong></p>
-                                </div>
-                                <div class="col-md-3 col-3">
-                                </div>
-                                <div class="col-md-3 col-3 text-right">
-                                    <p class="text-blue"><strong>-$200</strong></p>
-                                </div>
-                            </div>
-
+                      
                             <div class="row mt-4">
                                 <div class="col-md-6 col-6">
                                     <h4><strong class="text-head">Total:</strong></h4>
@@ -191,7 +98,7 @@
                                 <div class="col-md-3 col-3">
                                 </div>
                                 <div class="col-md-3 col-3 text-right">
-                                    <h4 class="text-head"><strong>$1000</strong></h4>
+                                    <h4 class="text-head"><strong>${{total}}</strong></h4>
                                 </div>
                             </div>
 
@@ -236,11 +143,15 @@
 
                                 <div class="col-md-6 col-12 mt-3">
                                     <p><strong class="text-blue">Option 3: Download Pro Forma Invoice and Pay Later</strong></p>
-                                    
+
                                 </div>
                                 <div class="col-md-6 col-12 mt-3">
-                                    <button class="btn btn-primary btn-block">Download Pro Forma Invoice</button>
+                                    <button class="btn btn-primary btn-block" @click="createAndDownload()">Get Pro Forma Invoice</button>
                                 </div>
+                                <div class="col-md-12 text-center">
+                                    <a v-if="performa_file!=''" :href="performa_file" download>Your file is ready click here </a>                                         
+                                </div>
+
                                 
                             </div>
                         </div>
@@ -254,33 +165,132 @@
         </div>
 
         <b-modal v-model="payModal" title="Pay Online" :hideFooter="true">
-            <h4 class="text-blue  mb-3 text-center">Pay $1000 via Credit Card</h4>
-            <i class="fa fa-user user"></i><input type="text" class="border-color form-control" placeholder="Name on card">
-            <div ref="card" class="border-color"></div>
-            <button class="btn btn-primary btn-block mt-3" >Pay Now</button>
+            <h4 class="text-blue  mb-3 text-center">Pay ${{total}} via Credit Card</h4>
+            <b-row>
+                <b-input v-model="paymentobj.number" placeholder=" Card Number"></b-input>
+            </b-row>
+            <b-row>
+                <b-col>
+                    <b-input v-model="paymentobj.exp_month" placeholder="M"></b-input>
+                </b-col>
+                <b-col>
+                    <b-input v-model="paymentobj.exp_year" placeholder="YYYY"></b-input>
+                </b-col>
+                <b-col>
+                    <b-input v-model="paymentobj.cvc" placeholder=" CVV"></b-input>
+                </b-col>
+            </b-row>
+            <!-- <i class="fa fa-user user"></i><input type="text" class="border-color form-control" placeholder="Name on card"> -->
+            <!-- <div ref="card" class="border-color"></div> -->
+            <div class="text-center">
+            <button v-if="isLoad==false" class="btn btn-primary btn-block mt-3" @click="createPayment">Pay Now</button>
+            <b-spinner  v-else variant="primary" label="Spinning"></b-spinner>
+
+            </div>
+
        </b-modal>
     </div>
 </template>
 
 <script>
-let stripe = Stripe(`pk_live_TKHBsoZN8lCilcpqwgy0HW2400916CYmD9`),
-    elements = stripe.elements(),
-    card = undefined;
+
+import { RepositoryFactory } from '../Repository/RepositoryFactory'
+const OrderRepository = RepositoryFactory.get('order_repository')
+
 import Breadcrumb from '@/components/Breadcrumb.vue'
+import {mapGetters} from 'vuex'
 export default {
   name: "OrderConfirmation",
+  props:['selected_order','extras'],
+  
+  computed:{
+      ...mapGetters(['countries','userdetails']),
+      total() {
+          let i=0
+          this.extras.forEach(item=>{
+              item.amounts.forEach(val=>{
+              i=i+val
+              })
+          })
+          return i 
+      }
+  },
   components: {
     Breadcrumb
   },
+  mounted(){
+     this.performa_file=''
+  },
   methods: {
+      async createAndDownload(){
+ 
+           let {data}=await OrderRepository.create_order(this.selected_order)
+            .catch(error => {
+                this.$store.commit('setNotifications',{message:error.response.data.Message,type:'error'})
+            });
+            if(data!=null){
+                let {data}=await OrderRepository.getOrderPerforma(data.data.OrderKey)
+                .catch(error => {
+                    this.$store.commit('setNotifications',{message:error.response.data.Message,type:'error'})
+                });
+                if(data.code=='MSG_SUCCESS_EXPORTS'){
+                    this.$store.commit('setNotifications',{message:'File Generated succesffuly',type:'success'})
+                    this.performa_file=data.data[0].File    
+                }   
+                else{
+                     this.$store.commit('setNotifications',{message:'Problems in Creating file',type:'error'})
+                }
+
+            }
+            else{
+                console.log(data)
+            }
+
+      },
+      async createPayment(){
+          this.isLoad=true
+           let {data}=await OrderRepository.create_order(this.selected_order)
+            .catch(error => {
+                this.$store.commit('setNotifications',{message:error.response.data.Message,type:'error'})
+            });
+            if(data!=null){
+
+                this.paymentobj.OrderKey=data.data.OrderKey
+                
+                let resp=await OrderRepository.order_charge(this.paymentobj)
+                .catch(error => {
+                    this.$store.commit('setNotifications',{message:error.response.data.Message,type:'error'})
+                    this.isLoad=false
+                });
+                if(resp.data.code=='MSG_SUCCESS_PAYMENT_CHARGE'){
+                     this.$store.commit('setNotifications',{message:'Order created succesffuly',type:'success'})
+                     this.$router.push({path:'/profile'})
+
+                }
+                else{
+                     this.$store.commit('setNotifications',{message:'Problems in Making payments',type:'error'})
+
+                }
+                this.payModal=false
+                this.isLoad=false
+
+            }
+            else{
+                console.log(data)
+            }
+      },
+      getCountryByCode(id){
+        return  this.countries.find(item=>item.CountryCode==id)
+      },
+      getCountryById(id){
+        return  this.countries.find(item=>item.CountryId==id)
+      },
       bankTransfer() {
           this.$router.push({path: '/bank-transfer'})
       },
       payNow() {
           this.payModal = true
-          this.$nextTick(function () {
-            this.createCardElement()
-        })
+         
         
       },
       createCardElement() {
@@ -309,6 +319,17 @@ export default {
   },
   data() {
     return {
+        performa_file:'',
+        isLoad:false,
+        tempobj:'',
+         paymentobj:{
+            //  4cce9195-7a7e-4c11-916d-de7d90b1c538
+            OrderKey: "",
+            number: "5555555555554444",
+            exp_month: "7",
+            exp_year: "2020",
+            cvc: "123"
+        },
         payModal: false,
       items: [
         {
