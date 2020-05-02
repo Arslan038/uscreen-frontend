@@ -13,12 +13,12 @@
                         <div class="card-body pt-3 pb-5 shadow">
                             <div class="row mx-5">
                                 <div class="col-md-6 offset-md-3 col-12">
-                                    <input type="email" class="form-control mt-3" placeholder="Email (UserID)*">
-                                    <input type="password" class="form-control mt-3" placeholder="Password">
-                                    <p class="text-primary mt-2">Forget Password</p>
+                                    <input type="email" class="form-control mt-3" v-model="user_Auth.Email" placeholder="Email*">
+                                    <input type="password" v-model="user_Auth.Password" class="form-control mt-3" placeholder="Password">
+                                    <!-- <p class="text-primary mt-2">Forget Password</p> -->
                                 </div>
                                 <div class="col-12 text-center">
-                                    <button class="btn btn-primary">Sign In</button>
+                                    <button class="btn btn-primary" @click="auth_login">Sign In</button>
                                     <p class="text-head pt-3">Don't have an account yet? <span class="text-primary" @click="$router.push({path: '/signup'})">Sign up</span></p>
                                 </div>
                             </div>
@@ -32,6 +32,9 @@
 
 <script>
 import Breadcrumb from '@/components/Breadcrumb.vue'
+import { RepositoryFactory } from '../Repository/RepositoryFactory'
+const UserRepository = RepositoryFactory.get('user_repository')
+import Repository from '../Repository/Repository'
 export default {
   name: "Login",
   components: {
@@ -39,6 +42,10 @@ export default {
   },
   data() {
     return {
+        user_Auth:{
+            Email:'',//'raymond5.company@email.com',paz.alvin22@gmail.com
+            Password:''//'daviddavid'@@admin123!@#
+        },
       items: [
         {
             text: 'Home',
@@ -52,6 +59,26 @@ export default {
         }
       ],
     }
+  },
+  methods:{
+      async auth_login(){
+          let {data} = await UserRepository.authenticatelogin(this.user_Auth)
+          .catch(error => {
+              console.log(error.response)
+              this.$store.commit('setNotifications',{message:error.response.data.Message,type:'error'})
+          });
+
+        console.log(data)
+        if(data!=null){
+            Repository.defaults.headers.Authorization = `Bearer ${data.data.Token}`;
+            this.$store.commit("setLoggedUser",data.data)
+
+            let resp = await UserRepository.getloggeduser()
+            this.$store.commit("setUserDetails",resp.data.data.PageData[0])
+
+
+          }
+      }
   }
 }
 </script>
