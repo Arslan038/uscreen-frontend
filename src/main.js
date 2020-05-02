@@ -8,6 +8,19 @@ import store from './store'
 import 'native-toast/dist/native-toast.css'
 
 Vue.use(BootstrapVue)
+router.beforeEach((to, from, next) => {
+  const requiresAuth = to.matched.some(x => x.meta.requiresAuth)
+   
+   if ( requiresAuth &&  !localStorage.getItem("loggedUser")) {
+      next('/login')
+  } 
+  else {
+     
+      next()
+
+  }
+})
+
 
 Vue.config.productionTip = false
 
