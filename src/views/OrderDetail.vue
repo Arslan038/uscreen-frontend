@@ -39,8 +39,7 @@
                         </div>
 
                         <hr>
-
-                        <div class="pl-5 pr-3 mb-5 pt-3">
+                        <div v-if="userdetails.UserRoleCode!='INDIVIDUAL'" class="pl-5 pr-3 mb-5 pt-3">
                             <div class="row">
                                 <div class="col-md-12">
                                     <p class="mb-4"><strong class="text-head">Client Reference</strong></p>  
@@ -203,7 +202,7 @@
                         </div>
                         <hr>
 
-                        <div class="pl-5 pr-3 pt-3 mb-5">
+                        <!-- <div class="pl-5 pr-3 pt-3 mb-5">
                             <div class="row">
                                 <div class="col-md-12">
                                     <h4><strong class="text-head">Payment</strong></h4>
@@ -243,7 +242,7 @@
                                 </div>
                                 
                             </div>
-                        </div>
+                        </div> -->
                         
                     </div>
                 </div>
@@ -262,7 +261,7 @@ export default {
   name: "OrderDetail",
   props:['selected_order'],
   computed:{
-      ...mapGetters(['countries']),
+      ...mapGetters(['countries','userdetails']),
       total(){
           let i=0
           this.selected_order.Items.forEach(item=>{
