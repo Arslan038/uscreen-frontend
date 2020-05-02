@@ -249,6 +249,7 @@ export default {
 
           if(data!=null){
             this.$store.commit('setNotifications',{message:'User created succesffuly',type:'success'})
+            this.$router.push({path:'/login'})
 
           }
           else{
