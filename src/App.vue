@@ -25,6 +25,7 @@ export default {
       this.fetchIndustry()
       // this.fetchPackages()
       this.fetchEmployerPackages()
+      this.fetchIndividualPackages()
 
     if(localStorage.getItem("loggedUser")!=null){
         this.$store.commit("setLoggedUser",JSON.parse(localStorage.getItem("loggedUser")));
@@ -54,7 +55,7 @@ export default {
     if(this.loggedUser!=null){
         this.fetchOrders()
 
-        this.$router.push({path:'/profile'})
+        this.$router.push({path:'/'})
       
     }
     else{
@@ -85,9 +86,14 @@ export default {
         this.$store.commit("setCurrency",data)
       
     },
-    async fetchEmployerPackages(){
-        let {data}= await OrderRepository.getEmployerPackages()
+    async fetchEmployerPackages() {
+        let {data}= await OrderRepository.getPackages('EMPLOYER')
         this.$store.commit("setEmployerPackages",data.data)
+      
+    },
+    async fetchIndividualPackages() {
+        let {data}= await OrderRepository.getPackages('INDIVIDUAL')
+        this.$store.commit("setIndividualPackages",data.data)
       
     },
     async fetchIndustry(){
