@@ -33,7 +33,7 @@
         <div class="container mb-5">
             <div class="row no-gutters mx-5 px-5 mt-5">
             <div class="col-12 text-center">
-                <h3 class="text-head"><strong>Packages By Role</strong></h3>
+                <!-- <h3 class="text-head"><strong>Packages By Role</strong></h3>
                 <p class="text-gray mt-3 mb-5">Lorem ipsum, or lorem ipsum Lorem ipsum, or lorem ipsum Lorem ipsum, or lorem ipsum Lorem ipsum, or lorem ipsum Lorem ipsum, or lorem ipsum Lorem ipsum, or lorem ipsum.</p>
                 <div class="roles">
                     <carousel :perPage="1" :perPageCustom="[[767, 1], [768, 1], [1024, 3]]">
@@ -106,7 +106,7 @@
                             </div>
                         </slide>
                     </carousel>
-                </div>
+                </div> -->
                 
             </div>
         </div>
@@ -134,8 +134,9 @@
                                                 <p><strong>Flat Rate</strong></p>
                                             </div>
                                             <div class="offer text-center py-3 px-3">
-                                                <span>Lorem ipsum, or lorem ipsum as it is.</span> <br>
-                                                <button class="btn btn-primary mt-3">Order Now</button>
+                                                <router-link :to="{name:'IndividualOrder',params:{selected_package:getPackage('Criminal Only')}}">
+                                                    <button class="btn btn-primary mt-3">Order Now</button>
+                                                </router-link>
                                             </div>
                                             <div class="offer text-left px-3 py-3">
                                                 <div class="mt-3">
@@ -184,8 +185,9 @@
                                                 <p><strong>Flat Rate</strong></p>
                                             </div>
                                             <div class="offer text-center py-3 px-3">
-                                                <span>Lorem ipsum, or lorem ipsum as it is.</span> <br>
-                                                <button class="btn btn-primary mt-3">Order Now</button>
+                                                <router-link :to="{name:'IndividualOrder',params:{selected_package:getPackage('Bronze')}}">
+                                                    <button class="btn btn-primary mt-3">Order Now</button>
+                                                </router-link>
                                             </div>
                                             <div class="offer text-left px-3 py-3">
                                                 <div class="mt-3">
@@ -230,12 +232,13 @@
                                         <div class="card-body">
                                             <div class="silver-head package"><h4><strong>Silver</strong></h4></div>
                                             <div class="offer text-center py-3">
-                                                <p class="text-gray"><sup>$</sup> <strong class="text-blue mobile-price">1200</strong></p>
-                                                <p><strong>Flat Rate</strong></p>
+                                                <!-- <p class="text-gray"><sup>$</sup> <strong class="text-blue mobile-price">1200</strong></p>
+                                                <p><strong>Flat Rate</strong></p> -->
                                             </div>
                                             <div class="offer text-center py-3 px-3">
-                                                <span>Lorem ipsum, or lorem ipsum as it is.</span> <br>
-                                                <button class="btn btn-primary mt-3">Order Now</button>
+                                                <router-link :to="{name:'IndividualOrder',params:{selected_package:getPackage('Silver')}}">
+                                                    <button class="btn btn-primary mt-3">Order Now</button>
+                                                </router-link>
                                             </div>
                                             <div class="offer text-left px-3 py-3">
                                                 <div class="mt-3">
@@ -285,8 +288,9 @@
                                                 <p><strong>Flat Rate</strong></p>
                                             </div>
                                             <div class="offer text-center py-3 px-3">
-                                                <span>Lorem ipsum, or lorem ipsum as it is.</span> <br>
-                                                <button class="btn btn-primary mt-3">Order Now</button>
+                                                <router-link :to="{name:'IndividualOrder',params:{selected_package:getPackage('Gold')}}">
+                                                    <button class="btn btn-primary mt-3">Order Now</button>
+                                                </router-link>
                                             </div>
                                             <div class="offer text-left px-3 py-3">
                                                 <div class="mt-3">
@@ -331,12 +335,12 @@
                                         <div class="card-body">
                                             <div class="platinum-head package"><h4><strong>Platinum</strong></h4></div>
                                             <div class="offer text-center py-3">
-                                                <p class="text-gray"><sup>$</sup> <strong class="text-blue mobile-price">1200</strong></p>
-                                                <p><strong>Flat Rate</strong></p>
+
                                             </div>
                                             <div class="offer text-center py-3 px-3">
-                                                <span>Lorem ipsum, or lorem ipsum as it is.</span> <br>
-                                                <button class="btn btn-primary mt-3">Order Now</button>
+                                                <router-link :to="{name:'IndividualOrder',params:{selected_package:getPackage('Platinum')}}">
+                                                    <button class="btn btn-primary mt-3">Order Now</button>
+                                                </router-link>
                                             </div>
                                             <div class="offer text-left px-3 py-3">
                                                 <div class="mt-3">
@@ -387,12 +391,11 @@
                     <p> <strong>Criminal Only</strong></p>
                 </div>
                 <div class="offer text-center py-3">
-                    <p class="text-gray"><span class="dollar">$</span> <span class="text-blue price">1200</span></p>
-                    <p><strong>Flat Rate</strong></p>
                 </div>
                 <div class="offer text-center py-3 px-3">
-                    <span>Lorem ipsum, or lorem ipsum as it is.</span>
-                    <button class="btn btn-primary mt-3">Order Now</button>
+                    <router-link :to="{name:'IndividualOrder',params:{selected_package:getPackage('Criminal Only')}}">
+                        <button class="btn btn-primary mt-3">Order Now</button>
+                    </router-link>
                 </div>
             </div>
             <div class="col-md-2 col-2">
@@ -400,25 +403,23 @@
                     <p> <strong>Bronze</strong></p>
                 </div>
                 <div class="offer text-center py-3">
-                    <p class="text-gray"><span class="dollar">$</span> <span class="text-blue price">1200</span></p>
-                    <p><strong>Flat Rate</strong></p>
                 </div>
                 <div class="offer text-center py-3 px-3">
-                    <span>Lorem ipsum, or lorem ipsum as it is.</span>
-                    <button class="btn btn-primary mt-3">Order Now</button>
+                    <router-link :to="{name:'IndividualOrder',params:{selected_package:getPackage('Bronze')}}">
+                        <button class="btn btn-primary mt-3">Order Now</button>
+                    </router-link>
                 </div>
             </div>
             <div class="col-md-2 col-2">
                 <div class="silver package text-center">
-                    <p> <strong>Sliver</strong></p>
+                    <p> <strong>Silver</strong></p>
                 </div>
                 <div class="offer text-center py-3">
-                    <p class="text-gray"><span class="dollar">$</span> <span class="text-blue price">1200</span></p>
-                    <p><strong>Flat Rate</strong></p>
                 </div>
                 <div class="offer text-center py-3 px-3">
-                    <span>Lorem ipsum, or lorem ipsum as it is.</span>
-                    <button class="btn btn-primary mt-3">Order Now</button>
+                    <router-link :to="{name:'IndividualOrder',params:{selected_package:getPackage('Silver')}}">
+                        <button class="btn btn-primary mt-3">Order Now</button>
+                    </router-link>
                 </div>
             </div>
             <div class="col-md-2 col-2">
@@ -426,12 +427,11 @@
                     <p><strong>Gold</strong></p>
                 </div>
                 <div class="offer text-center py-3">
-                    <p class="text-gray"><span class="dollar">$</span> <span class="text-blue price">1200</span></p>
-                    <p><strong>Flat Rate</strong></p>
                 </div>
                 <div class="offer text-center py-3 px-3">
-                    <span>Lorem ipsum, or lorem ipsum as it is.</span>
-                    <button class="btn btn-primary mt-3">Order Now</button>
+                    <router-link :to="{name:'IndividualOrder',params:{selected_package:getPackage('Gold')}}">
+                        <button class="btn btn-primary mt-3">Order Now</button>
+                    </router-link>
                 </div>
             </div>
             <div class="col-md-2 col-2">
@@ -439,12 +439,11 @@
                     <p> <strong>Platinum</strong></p>
                 </div>
                 <div class="offer text-center py-3">
-                    <p class="text-gray"><span class="dollar">$</span> <span class="text-blue price">1200</span></p>
-                    <p><strong>Flat Rate</strong></p>
                 </div>
                 <div class="offer text-center py-3 px-3">
-                    <span>Lorem ipsum, or lorem ipsum as it is.</span>
-                    <button class="btn btn-primary mt-3">Order Now</button>
+                    <router-link :to="{name:'IndividualOrder',params:{selected_package:getPackage('Platinum')}}">
+                        <button class="btn btn-primary mt-3">Order Now</button>
+                    </router-link>
                 </div>
             </div>
         </div>
@@ -537,12 +536,22 @@
 <script>
 import { Carousel, Slide } from 'vue-carousel';
 import Breadcrumb from '@/components/Breadcrumb.vue';
+import {mapGetters} from 'vuex'
 export default {
     name: "IndividualPackages",
     components: {
         Carousel,
         Slide,
         Breadcrumb
+    },
+    computed:{
+        ...mapGetters(['individual_packages'])
+    },
+    methods:{
+        getPackage(name){
+            // console.log(this.employer_packages.find(item=>item.PackageServiceName==name))
+            return this.individual_packages.find(item=>item.PackageServiceName==name)
+        }
     },
     data() {
     return {
