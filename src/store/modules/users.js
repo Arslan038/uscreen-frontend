@@ -47,6 +47,7 @@ const mutations = {
     },
     logout(state,payload){
         state.loggedUser=null;
+        state.userdetails={}
         localStorage.removeItem('uscreen-token')
         localStorage.removeItem('loggedUser')
 
