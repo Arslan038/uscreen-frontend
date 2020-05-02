@@ -14,8 +14,9 @@
                 <b-nav-item @click="move('/')">Home</b-nav-item>
                 <b-nav-item v-if="userdetails.UserRoleCode=='EMPLOYER'" @click="move('/employer-packages')">For Employers</b-nav-item>
                 <b-nav-item v-if="userdetails.UserRoleCode=='INDIVIDUAL'"  @click="move('/individual-packages')">For Individuals</b-nav-item>
-                <b-nav-item @click="move('/order-confirmation')">Orders</b-nav-item>
                 <b-nav-item @click="move('/about')">About Us</b-nav-item>
+                <b-nav-item v-if="loggedUser!=null" @click="move('/profile')">Profile</b-nav-item>
+
                 <b-nav-item v-if="loggedUser==null" @click="move('/login')">Log In</b-nav-item>
                 <b-nav-item v-else @click="logout()">Log Out</b-nav-item>
                 <b-nav-item @click="move('/contact')">Contact Us</b-nav-item>
