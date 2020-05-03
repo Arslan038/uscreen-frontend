@@ -18,7 +18,7 @@
                                     <!-- <p class="text-primary mt-2">Forget Password</p> -->
                                 </div>
                                 <div class="col-12 text-center">
-                                    <button class="btn btn-primary" @click="auth_login">Sign In</button>
+                                    <button class="btn btn-primary mt-4" @click="auth_login">Sign In</button>
                                     <p class="text-head pt-3">Don't have an account yet? <span class="text-primary" @click="$router.push({path: '/signup'})">Sign up</span></p>
                                 </div>
                             </div>

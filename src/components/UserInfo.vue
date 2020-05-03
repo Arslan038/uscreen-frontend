@@ -151,7 +151,9 @@
                                 <hr>
                                 <div class="row mt-5">
                                     <div class="col-md-4 offset-md-4 col-4 offset-2">
-                                        <vue-recaptcha sitekey="6Lejzd0UAAAAAE_gyBh7TAFyJrTJcDaTdsXbRkoQ"></vue-recaptcha>
+                                        <vue-recaptcha sitekey="6LeRufEUAAAAAH3YkifekIVSHW44inX-Ud9K57h5" @verify="verified" :loadRecaptchaScript="true">
+            
+                                        </vue-recaptcha>
                                     </div>
                                 </div>
                                 <div class="col-12 text-center mt-3 mb-5">
@@ -174,6 +176,7 @@ export default {
     name: "UserInfo",
     data(){
         return{
+            isVerified: false,
             new_employer:'',
             businessprovince:[],
             billingprovince:[],
@@ -186,7 +189,16 @@ export default {
         VueRecaptcha
     },
     methods:{
+        verified(response) {
+            if(response) {
+                this.isVerified = true
+            }
+        },
         async update(){
+            if(!this.isVerified) {
+                this.$store.commit('setNotifications',{message:'Re-Captcha Required',type:'error'})
+                return
+            }
             if(this.new_employer.Password==''){
                 delete this.new_employer.Password
             }
@@ -200,6 +212,7 @@ export default {
                 this.$store.commit('setNotifications',{message:'User updated successfully',type:'success'})
 
             }
+            this.isVerified = false
         },
         handleSame(e){
         if(e==true){

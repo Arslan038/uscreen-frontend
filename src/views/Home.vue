@@ -149,6 +149,9 @@ p {
   }
 }
 @media screen and (max-width: 600px) {
+  .text-head {
+    font-size: 28px !important;
+  }
   /* .header {
     height: 300px;
   } */

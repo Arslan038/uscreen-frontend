@@ -140,10 +140,13 @@
                                 <hr>
                                 <div class="row mt-3">
                                     <div class="col-md-4 offset-md-4 col-4 offset-2">
-                                        <vue-recaptcha sitekey="6Lejzd0UAAAAAE_gyBh7TAFyJrTJcDaTdsXbRkoQ"></vue-recaptcha>
+                                        <vue-recaptcha sitekey="6LeRufEUAAAAAH3YkifekIVSHW44inX-Ud9K57h5" @verify="verified" :loadRecaptchaScript="true">
+            
+                                        </vue-recaptcha>
                                     </div>
                                 </div>
                                 <div class="col-12 text-center my-5">
+                                    <!-- <b-alert show variant="danger" v-if="!isVerfied" class="my-3">Danger Alert</b-alert> -->
                                     <b-form-checkbox class="text-primary"> Terms and Conditions</b-form-checkbox>
                                     <button class="btn btn-primary mb-5 mt-3" @click="signup()">Signup</button>
                                 </div>
@@ -204,6 +207,11 @@ export default {
 
   },
   methods:{
+    verified(response) {
+        if(response) {
+            this.isVerified = true
+        }
+    },
     handleSame(e){
         if(e==true){
             this.billingprovince=this.businessprovince
@@ -235,6 +243,10 @@ export default {
         this.fetchBusinessCityByProvinec(this.new_employer.BusinessAddress.CountryId,val.target.value,'business')
     },
     async signup() {
+        if(!this.isVerified) {
+            this.$store.commit('setNotifications',{message:'Re-Captcha Required',type:'error'})
+            return
+        }
         this.new_employer.CityId=this.new_employer.BusinessAddress.CityId
         this.new_employer.CountryId=this.new_employer.BusinessAddress.CountryId
         this.new_employer.ProvinceId=this.new_employer.BusinessAddress.ProvinceId
@@ -248,13 +260,15 @@ export default {
           });
 
           if(data!=null){
-            this.$store.commit('setNotifications',{message:'User created succesffuly',type:'success'})
+            this.$store.commit('setNotifications',{message:'User created succesfully',type:'success'})
             this.$router.push({path:'/login'})
 
           }
           else{
               console.log(data)
           }
+
+          this.isVerified = false
 
     },
       
@@ -324,6 +338,7 @@ export default {
   },
   data() {
     return {
+        isVerified: false,
       businessprovince:[],
       billingprovince:[],
       billingcity:[],

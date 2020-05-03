@@ -38,7 +38,7 @@ export default {
     name: "Navbar",
     computed:{
         getClass: function() {    
-            return this.scrolls > 10 && this.scrolls < 150 ? 'white' : 'transparent';
+            return this.scrolls > 10 && this.scrolls < 110 ? 'white' : 'transparent';
         },
         ...mapGetters(['loggedUser','userdetails'])
     },
@@ -80,7 +80,7 @@ a {
 }
 .white {
     background-color: #fff !important;
-    opacity: 0.4;
+    opacity: 0.9;
     transition: ease-out 2s;
     color: #fff !important;
 }
@@ -142,9 +142,15 @@ a {
   ##Screen = B/w 320px to 479px
 */
 
-@media (min-width: 320px) and (max-width: 480px) {
-  
-  
+@media screen and (max-width: 600px){
+    img {
+        margin-left: 0 !important;
+    }
+  .navbar-light .navbar-toggler {
+      position: absolute;
+      right: 10px;
+      top: 15px;
+  }
   
 }
 </style>

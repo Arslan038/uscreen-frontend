@@ -33,7 +33,9 @@
                 <textarea cols="30" rows="7" placeholder="Message" class="mt-3 form-control" v-model="help_obj.Message"></textarea>
                 <div class="row mt-4">
                     <div class="col-md-12">
-                        <vue-recaptcha sitekey="6Lejzd0UAAAAAE_gyBh7TAFyJrTJcDaTdsXbRkoQ"></vue-recaptcha>
+                        <vue-recaptcha sitekey="6LeRufEUAAAAAH3YkifekIVSHW44inX-Ud9K57h5" @verify="verified" :loadRecaptchaScript="true">
+            
+                        </vue-recaptcha>
                     </div>
                 </div>
                 <button class="btn btn-primary mt-3" @click="sendMessage()">Send Message</button>
@@ -54,7 +56,16 @@ export default {
     VueRecaptcha
   },
   methods:{
+      verified(response) {
+        if(response) {
+            this.isVerified = true
+        }
+        },
       async sendMessage(){
+        if(!this.isVerified) {
+            this.$store.commit('setNotifications',{message:'Re-Captcha Required',type:'error'})
+            return
+        }
         let {data} = await UserRepository.helpask(this.help_obj)
         .catch(error => {
               console.log(error.response)
@@ -66,10 +77,12 @@ export default {
             this.$store.commit('setNotifications',{message:'Query submitted succesffuly',type:'success'})
 
           }
+          this.isVerified = false
       }
   },
   data() {
     return {
+        isVerified: false,
         help_obj:{
            Email:'',
            Message:'',

@@ -96,7 +96,9 @@
                                 <hr>
                                 <div class="row mt-3">
                                     <div class="col-md-4 offset-md-4 col-4 offset-2">
-                                        <vue-recaptcha sitekey="6Lejzd0UAAAAAE_gyBh7TAFyJrTJcDaTdsXbRkoQ"></vue-recaptcha>
+                                        <vue-recaptcha sitekey="6LeRufEUAAAAAH3YkifekIVSHW44inX-Ud9K57h5" @verify="verified" :loadRecaptchaScript="true">
+            
+                                        </vue-recaptcha>
                                     </div>
                                 </div>
                                 <div class="col-12 text-center my-5">
@@ -127,7 +129,11 @@ export default {
       ...mapGetters(['currency','countries','industry'])
   },
   methods:{
-      
+      verified(response) {
+        if(response) {
+            this.isVerified = true
+        }
+    },
     handleBusinessCountry(val){
         this.fetchBusinessProvinceByCountry(val.target.value)
     },
@@ -135,7 +141,10 @@ export default {
         this.fetchBusinessCityByProvinec(this.new_user.UserAddress.CountryId,val.target.value)
     },
     async signup(){
-         
+         if(!this.isVerified) {
+            this.$store.commit('setNotifications',{message:'Re-Captcha Required',type:'error'})
+            return
+        }
         console.log(this.new_user)
         let {data} = await UserRepository.createaccount(this.new_user)
         .catch(error => {
@@ -147,7 +156,7 @@ export default {
               this.$store.commit('setNotifications',{message:'User created successfully',type:'success'})
 
           }
-          
+          this.isVerified = false
 
     },
       
@@ -217,6 +226,7 @@ export default {
   },
   data() {
     return {
+    isVerified: false,
     province:[],
     billingprovince:[],
     billingcity:[],
