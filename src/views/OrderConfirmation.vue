@@ -75,7 +75,7 @@
                                     <h4><strong class="text-head">Product</strong></h4>
                                 </div>
                                 <div class="col-md-6 col-6 text-right">
-                                    <p class="text-head">Price (USD)</p>
+                                    <p class="text-head">Price ({{userdetails.CurrencyCode}})</p>
                                 </div>
                             </div>
 
@@ -98,7 +98,7 @@
                                 <div class="col-md-3 col-3">
                                 </div>
                                 <div class="col-md-3 col-3 text-right">
-                                    <h4 class="text-head"><strong>${{total}}</strong></h4>
+                                    <h4 class="text-head"><strong>{{total}}</strong></h4>
                                 </div>
                             </div>
 

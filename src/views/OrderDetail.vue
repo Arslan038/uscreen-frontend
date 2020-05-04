@@ -74,7 +74,7 @@
                                     <h4><strong class="text-head">Product</strong></h4>
                                 </div>
                                 <div class="col-md-6 col-6 text-right">
-                                    <p class="text-head">Price (USD)</p>
+                                    <p class="text-head">Price ({{userdetails.CurrencyCode}})</p>
                                 </div>
                             </div>
 
@@ -86,7 +86,7 @@
                                     <p class="text-gray">{{getCountryById(item.CountryId).CountryName}}</p>
                                 </div>
                                 <div class="col-md-3 col-3 text-right">
-                                    <p class="text-blue"><strong>${{item.SubTotal}}</strong></p>
+                                    <p class="text-blue"><strong>{{item.SubTotal}}</strong></p>
                                 </div>
                             </div>
                             <!-- <div class="row mt-3">
