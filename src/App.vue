@@ -104,9 +104,7 @@ export default {
 }
 </script>
 <style>
-html {
-  scroll-behavior: smooth !important; 
-}
+
 @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 #app {
   font-family: 'Roboto', sans-serif;
