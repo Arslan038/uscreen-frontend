@@ -15,25 +15,26 @@
                                 <h4 class="text-head pt-5 pb-4 px-5">User Information</h4>
                                 <hr>
                             </div>
+                            <form v-on:submit.prevent="signup()">
                             <div class="card-body">
                                 <div class="px-5 py-4">
                                     <p><strong class="text-head">Contact Information</strong></p>
                                     <label for="">This information will used to contact you about your background check.</label>
                                     <div class="row">
                                         <div class="col-md-6 col-12 mt-3">
-                                            <input type="text" v-model="new_user.FirstName" class="form-control" placeholder="First Name*" >
+                                            <input required type="text" v-model="new_user.FirstName" class="form-control" placeholder="First Name*" >
                                         </div>
                                         <div class="col-md-6 col-12 mt-3">
-                                            <input type="text" v-model="new_user.LastName" class="form-control" placeholder="Last Name*" >
+                                            <input required type="text" v-model="new_user.LastName" class="form-control" placeholder="Last Name*" >
                                         </div>
                                         <div class="col-md-6 col-12 mt-3">
-                                            <input type="email" v-model="new_user.Email" class="form-control" placeholder="Email (UserID)*" >
+                                            <input required type="email" v-model="new_user.Email" class="form-control" placeholder="Email (UserID)*" >
                                         </div>
                                             <div class="col-md-2 col-12 mt-3 country">
-                                                    <input  v-model="new_user.MobileCode" class="form-control" placeholder="92" >
+                                                    <input required  v-model="new_user.MobileCode"  class="form-control" placeholder="+852*" >
                                             </div>
                                             <div class="col-md-4 mobile col-12 mt-3">
-                                                <input type="tel" class="form-control" v-model="new_user.MobileNumber" placeholder="Mobile*" >
+                                                <input  required type="tel" class="form-control" v-model="new_user.MobileNumber" placeholder="Mobile*" >
                                             </div>
                                     </div>
                                 </div>
@@ -42,10 +43,10 @@
                                     <p><strong class="text-head">Login Password</strong></p>
                                     <div class="row">
                                         <div class="col-md-6 col-12 mt-3">
-                                            <input type="password" v-model="new_user.Password" placeholder="Password*" class="form-control">
+                                            <input required type="password" v-model="new_user.Password" placeholder="Password*" class="form-control">
                                         </div>
                                         <div class="col-md-6 col-12 mt-3">
-                                            <input type="password" placeholder="Retype password*" class="form-control">
+                                            <input required type="password" placeholder="Retype password*" v-model="retype_pass" class="form-control">
                                         </div>
                                     </div>
                                 </div>
@@ -68,20 +69,20 @@
 
                                 <div class="px-5 py-4">
                                     <p><strong class="text-head">User Address</strong></p>
-                                    <textarea class="form-control" v-model="new_user.UserAddress.AddressName" rows="5" style="resize:none" placeholder="Address"></textarea>
+                                    <textarea class="form-control" required v-model="new_user.UserAddress.AddressName" rows="5" style="resize:none" placeholder="Address"></textarea>
                                     <div class="row mt-3">
                                         <div class="col-md-6 col-12 mt-3">
-                                            <select class="form-control" v-model="new_user.UserAddress.CountryId">
+                                            <select class="form-control"  required v-model="new_user.UserAddress.CountryId">
                                                 <option v-for="(item,i) in countries" :key="i" :value="item.CountryId">{{item.CountryName}}</option>
                                             </select>
                                         </div>
                                         <div class="col-md-6 col-12 mt-3">
-                                            <select class="form-control" v-model="new_user.UserAddress.ProvinceId">
+                                            <select class="form-control" required v-model="new_user.UserAddress.ProvinceId">
                                                 <option v-for="(item,i) in province" :key="i" :value="item.ProvinceId">{{item.ProvinceName}}</option>
                                             </select>
                                         </div>
                                         <div class="col-md-6 col-12 mt-3">
-                                            <select class="form-control" v-model="new_user.UserAddress.CityId">
+                                            <select class="form-control" required v-model="new_user.UserAddress.CityId">
                                                 <option v-for="(item,i) in city" :key="i" :value="item.CityId">{{item.CityName}}</option>
 
                                             </select>
@@ -103,9 +104,10 @@
                                 </div>
                                 <div class="col-12 text-center my-5">
                                     <b-form-checkbox class="text-primary"> Terms and Conditions</b-form-checkbox>
-                                    <button class="btn btn-primary mb-5 mt-3" @click="signup()">Signup</button>
+                                    <button class="btn btn-primary mb-5 mt-3" type="submit">Signup</button>
                                 </div>
                             </div>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -119,8 +121,11 @@ import VueRecaptcha from 'vue-recaptcha';
 import { RepositoryFactory } from '../Repository/RepositoryFactory'
 const UserRepository = RepositoryFactory.get('user_repository')
 import {mapGetters} from 'vuex'
+import mainmixin from '../mixins/mainmixin'
+
 export default {
   name: "IndividualSignup",
+  mixins:[mainmixin],
   components: {
     Breadcrumb,
     VueRecaptcha
@@ -141,22 +146,43 @@ export default {
         this.fetchBusinessCityByProvinec(this.new_user.UserAddress.CountryId,val.target.value)
     },
     async signup(){
-         if(!this.isVerified) {
-            this.$store.commit('setNotifications',{message:'Re-Captcha Required',type:'error'})
-            return
-        }
-        console.log(this.new_user)
-        let {data} = await UserRepository.createaccount(this.new_user)
-        .catch(error => {
-              console.log(error.response)
-              this.$store.commit('setNotifications',{message:error.response.data.Message,type:'error'})
-          });
-          console.log(data)
-          if(data.status=='Success'){
-              this.$store.commit('setNotifications',{message:'User created successfully',type:'success'})
+        //  if(this.validationchecker(this.new_user,['FirstName','LastName','MobileCode','MobileNumber'])<1){
+              if(this.new_user.Password==this.retype_pass){
+                 if(!this.isVerified) {
+                    this.$store.commit('setNotifications',{message:'Re-Captcha Required',type:'error'})
+                    return
+                }
+                console.log(this.new_user)
+                let {data} = await UserRepository.createaccount(this.new_user)
+                .catch(error => {
+                    //   console.log(error.response)
+                      if(error.response.data.Message.toLowerCase().includes('duplicate entry')){
 
-          }
-          this.isVerified = false
+                        this.$store.commit('setNotifications',{message:`The email ${this.new_user.Email} is already used. Please try another email or contact us for more details`,type:'error'}) 
+                      }
+                      else{
+
+                        this.$store.commit('setNotifications',{message:error.response.data.Message,type:'error'}) 
+                      }
+                  });
+                  console.log(data)
+                  if(data.status=='Success'){
+                    this.$store.commit('setNotifications',{message:'User created successfully',type:'success'})
+                    this.$router.push({path:'/login'})
+                  }
+                  this.isVerified = false
+              }
+              else{
+                 this.$store.commit('setNotifications',{message:'Make sure your password and retyped password are same',type:'error'})
+
+              }
+
+        //   }
+        //   else{
+        //     this.$store.commit('setNotifications',{message:'Fill in all *required fields ',type:'error'})
+
+        //   }
+
 
     },
       
@@ -219,6 +245,8 @@ export default {
 
   },
   created(){
+      window.scrollTo(0, 0);
+
       this.fetchCountries()
       this.fetchCurrency()
       this.fetchIndustry()
@@ -226,6 +254,7 @@ export default {
   },
   data() {
     return {
+    retype_pass:'',
     isVerified: false,
     province:[],
     billingprovince:[],
