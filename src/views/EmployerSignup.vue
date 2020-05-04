@@ -112,23 +112,23 @@
 
                                 <div class="px-5 py-4">
                                     <p><strong class="text-head">Billing Address*</strong></p>
-                                    <b-form-checkbox class="text-gray"  v-model="isSame" @change="handleSame"> same as registered address</b-form-checkbox>
-                                    <textarea class="form-control mt-3" required v-model="new_employer.BusinessBillingAddress.AddressName" rows="5" style="resize:none" placeholder="Address"></textarea>
+                                    <b-form-checkbox class="text-gray"  v-model="isSame" > same as registered address</b-form-checkbox>
+                                    <textarea class="form-control mt-3"  v-model="new_employer.BusinessBillingAddress.AddressName" rows="5" style="resize:none" placeholder="Address"></textarea>
                                     <div class="row mt-3">
                                         <div class="col-md-6 col-12 mt-3">
-                                            <select required v-model="new_employer.BusinessBillingAddress.CountryId" @change="handleBusinessBillingCountry" class="form-control">
+                                            <select  v-model="new_employer.BusinessBillingAddress.CountryId" @change="handleBusinessBillingCountry" class="form-control">
                                                 <option v-for="(item,i) in countries" :key="i" :value="item.CountryId">{{item.CountryName}}</option>
 
                                             </select>
                                         </div>
                                         <div class="col-md-6 col-12 mt-3">
-                                            <select required v-model="new_employer.BusinessBillingAddress.ProvinceId" @change="handleBusinessBillingProvince" class="form-control">
+                                            <select  v-model="new_employer.BusinessBillingAddress.ProvinceId" @change="handleBusinessBillingProvince" class="form-control">
                                                 <option v-for="(item,i) in billingprovince" :key="i" :value="item.ProvinceId">{{item.ProvinceName}}</option>
 
                                             </select>
                                         </div>
                                         <div class="col-md-6 col-12 mt-3">
-                                            <select required v-model="new_employer.BusinessBillingAddress.CityId" class="form-control">
+                                            <select  v-model="new_employer.BusinessBillingAddress.CityId" class="form-control">
                                                 <option v-for="(item,i) in billingcity" :key="i" :value="item.CityId">{{item.CityName}}</option>
 
                                             </select>
@@ -218,8 +218,8 @@ export default {
             this.isVerified = true
         }
     },
-    handleSame(e){
-        if(e==true){
+    handleSame(){
+        if(this.isSame==true){
             this.billingprovince=this.businessprovince
             this.billingcity=this.bussinesscity
                 this.new_employer.BusinessBillingAddress={
@@ -249,19 +249,30 @@ export default {
         this.fetchBusinessCityByProvinec(this.new_employer.BusinessAddress.CountryId,val.target.value,'business')
     },
     async signup() {
-        //   if(this.validationchecker(this.new_employer,['FirstName','LastName','MobileCode','MobileNumber'])<1){
+
               if(this.new_employer.Password==this.retype_pass) {
                     if(!this.isVerified) {
                         this.$store.commit('setNotifications',{message:'Re-Captcha Required',type:'error'})
                         return
                     }
+                    else if(this.isSame!=true){
+                        if(this.validationchecker(this.new_employer.BusinessBillingAddress,['CountryId','ProvinceId','CityId','AddressName'])>0){
+                            this.$store.commit('setNotifications',{message:'Fill in business billing address details',type:'error'})
+                            return
+                        }
+                    }
+                    
                     this.new_employer.UserAddress={
                         CountryId: this.new_employer.BusinessAddress.CountryId,
                         CityId: this.new_employer.BusinessAddress.CityId,
                         ProvinceId: this.new_employer.BusinessAddress.ProvinceId,
                         AddressName: this.new_employer.BusinessAddress.AddressName,
                         PostalCode: ''
-                    },
+                    }
+                    if(this.isSame==true){
+                        this.handleSame()
+                    }
+                    
                     console.log(this.new_employer)
                     let {data} = await UserRepository.createaccount(this.new_employer)
                     
