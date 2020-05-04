@@ -20,8 +20,6 @@
                 <b-nav-item v-if="loggedUser==null" @click="move('/login')">Log In</b-nav-item>
                 <b-nav-item v-else @click="logout()">Log Out</b-nav-item>
                 <b-nav-item @click="move('/contact')">Contact Us</b-nav-item>
-                <b-nav-item @click="search = !search"><i class="fa fa-search"></i></b-nav-item>
-                <b-nav-item v-if="search"><input type="text" class="form-control" placeholder="Search"></b-nav-item>
                 
             </b-navbar-nav>
             </b-collapse>
