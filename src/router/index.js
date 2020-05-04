@@ -2,6 +2,8 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Login from '../views/Login.vue'
+import ForgetPassword from '../views/ForgetPassword.vue'
+
 import Signup from '../views/Signup.vue'
 import IndividualSignup from '../views/IndividualSignup.vue'
 import EmployerSignup from '../views/EmployerSignup.vue'
@@ -130,7 +132,14 @@ const routes = [
     path: '/faq',
     name: 'FAQ',
     component: FAQ
-  }
+  },
+  
+  {
+    path: '/forget-password',
+    name: 'ForgetPassword',
+    component: ForgetPassword
+  },
+  
 ]
 
 const router = new VueRouter({
