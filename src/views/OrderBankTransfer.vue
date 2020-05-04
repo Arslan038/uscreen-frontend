@@ -9,8 +9,11 @@
             <div class="col-md-4 offset-md-4 col-12 text-center text-gray mt-5">
                 <h4 class="mb-4 mt-3 text-head"><strong>Thank you. Your order has been received.</strong></h4>
                 <hr>
-                <p>Lorem ipsum dummy text as it is. Lorem ipsum dummy text as it is Lorem ipsum dummy text as it is Lorem ipsum dummy text as it is Lorem ipsum dummy text as it is Lorem ipsum dummy text as it is Lorem ipsum dummy text as it is Lorem ipsum dummy text as it is Lorem ipsum dummy text as it is</p>
-                <button class="btn btn-primary mt-3">Download Invoice</button> <br>
+                <!-- <p>Lorem ipsum dummy text as it is. Lorem ipsum dummy text as it is Lorem ipsum dummy text as it is Lorem ipsum dummy text as it is Lorem ipsum dummy text as it is Lorem ipsum dummy text as it is Lorem ipsum dummy text as it is Lorem ipsum dummy text as it is Lorem ipsum dummy text as it is</p> -->
+                <button class="btn btn-primary mt-3"  @click="createAndDownload()">Download Invoice</button> <br>
+                <div class="col-md-12 mt-2 text-center">
+                    <a  v-if="performa_file!=''" :href="performa_file" download>Your file is ready click here </a>                                         
+                </div>
                 <button class="btn btn-secondary mt-3 mb-5" @click="home">Home</button>
             </div>
         </div>
@@ -19,13 +22,17 @@
 
 <script>
 import Breadcrumb from '@/components/Breadcrumb.vue'
+import { RepositoryFactory } from '../Repository/RepositoryFactory'
+const OrderRepository = RepositoryFactory.get('order_repository')
 export default {
     name: "OrderBankTransfer",
+    props:['orderkey'],
     components: {
         Breadcrumb
     },
     data() {
         return {
+            performa_file:'',
             items: [
                 {
                     text: 'Home',
@@ -48,7 +55,20 @@ export default {
     methods: {
         home() {
             this.$router.push({path: '/'})
-        }
+        },
+         async createAndDownload(){
+            let {data}=await OrderRepository.getOrderPerforma(this.orderkey)
+            .catch(error => {
+                this.$store.commit('setNotifications',{message:error.response.data.Message,type:'error'})
+            });
+            if(data.code=='MSG_SUCCESS_EXPORTS'){
+                this.$store.commit('setNotifications',{message:'File Generated succesffuly',type:'success'})
+                this.performa_file=data.data[0].File    
+            }   
+            else{
+                this.$store.commit('setNotifications',{message:'Problems in Creating file',type:'error'})
+            }
+      },
     }
 }
 </script>

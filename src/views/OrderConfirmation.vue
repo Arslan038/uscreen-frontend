@@ -271,8 +271,7 @@ export default {
                 });
                 if(resp.data.code=='MSG_SUCCESS_PAYMENT_CHARGE'){
                      this.$store.commit('setNotifications',{message:'Order created succesffuly',type:'success'})
-                     this.$router.push({path:'/profile'})
-
+                     this.$router.push({name:'OrderBankTransfer',params:{orderkey:data.data.OrderKey}})
                 }
                 else{
                      this.$store.commit('setNotifications',{message:'Problems in Making payments',type:'error'})
