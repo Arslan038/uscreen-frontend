@@ -103,7 +103,7 @@
                                     </div>
                                 </div>
                                 <div class="col-12 text-center my-5">
-                                    <b-form-checkbox class="text-primary"> Terms and Conditions</b-form-checkbox>
+                                    <b-form-checkbox class="text-primary" required v-model="terms"> Terms and Conditions</b-form-checkbox>
                                     <button class="btn btn-primary mb-5 mt-3" type="submit">Signup</button>
                                 </div>
                             </div>
@@ -150,6 +150,10 @@ export default {
               if(this.new_user.Password==this.retype_pass){
                  if(!this.isVerified) {
                     this.$store.commit('setNotifications',{message:'Re-Captcha Required',type:'error'})
+                    return
+                }
+                if(this.terms==false){
+                    this.$store.commit('setNotifications',{message:'Accept terms and conditions',type:'error'})
                     return
                 }
                 console.log(this.new_user)
@@ -245,7 +249,8 @@ export default {
 
   },
   created(){
-      window.scrollTo(0, 0);
+  
+  window.scrollTo(0, 0);
 
       this.fetchCountries()
       this.fetchCurrency()
@@ -254,6 +259,7 @@ export default {
   },
   data() {
     return {
+    terms:false,
     retype_pass:'',
     isVerified: false,
     province:[],

@@ -194,11 +194,11 @@
                                 </div>
                             </div>
 
-                            <div class="row mt-3">
+                            <!-- <div class="row mt-3">
                                 <div class="col-md-12 text-center">
                                     <b-form-checkbox class="text-primary"> Terms and Conditions</b-form-checkbox>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                         <hr>
 

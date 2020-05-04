@@ -104,7 +104,7 @@
 
                             <div class="row mt-3">
                                 <div class="col-md-12 text-center">
-                                    <b-form-checkbox class="text-primary"> Terms and Conditions</b-form-checkbox>
+                                    <b-form-checkbox class="text-primary" v-model="terms"> Terms and Conditions</b-form-checkbox>
                                 </div>
                             </div>
                         </div>
@@ -223,7 +223,8 @@ export default {
   },
   methods: {
       async createAndDownload(){
- 
+          if(this.terms==true){
+
            let {data}=await OrderRepository.create_order(this.selected_order)
             .catch(error => {
                 this.$store.commit('setNotifications',{message:error.response.data.Message,type:'error'})
@@ -245,9 +246,15 @@ export default {
             else{
                 console.log(data)
             }
+          }
+            else{
+                    this.$store.commit('setNotifications',{message:'Accept terms and conditions',type:'error'})
+
+                }
 
       },
       async createPayment(){
+          if(this.terms==true){
           this.isLoad=true
            let {data}=await OrderRepository.create_order(this.selected_order)
             .catch(error => {
@@ -278,6 +285,11 @@ export default {
             else{
                 console.log(data)
             }
+          }
+          else{
+                    this.$store.commit('setNotifications',{message:'Accept terms and conditions',type:'error'})
+
+          }
       },
       getCountryByCode(id){
         return  this.countries.find(item=>item.CountryCode==id)
@@ -319,6 +331,7 @@ export default {
   },
   data() {
     return {
+        terms:false,
         performa_file:'',
         isLoad:false,
         tempobj:'',

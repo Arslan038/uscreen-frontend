@@ -148,7 +148,7 @@
                                 </div>
                                 <div class="col-12 text-center my-5">
                                     <!-- <b-alert show variant="danger" v-if="!isVerfied" class="my-3">Danger Alert</b-alert> -->
-                                    <b-form-checkbox class="text-primary"> Terms and Conditions</b-form-checkbox>
+                                    <b-form-checkbox class="text-primary" required v-model="terms"> Terms and Conditions</b-form-checkbox>
                                     <button class="btn btn-primary mb-5 mt-3" type="submit" >Signup</button>
                                 </div>
                             </div>
@@ -254,6 +254,10 @@ export default {
                     if(!this.isVerified) {
                         this.$store.commit('setNotifications',{message:'Re-Captcha Required',type:'error'})
                         return
+                    }
+                    if(this.terms==false){
+                    this.$store.commit('setNotifications',{message:'Accept terms and conditions',type:'error'})
+                    return
                     }
                     else if(this.isSame!=true){
                         if(this.validationchecker(this.new_employer.BusinessBillingAddress,['CountryId','ProvinceId','CityId','AddressName'])>0){
@@ -377,7 +381,8 @@ export default {
   },
   data() {
     return {
-        isVerified: false,
+    terms:false,
+    isVerified: false,
       businessprovince:[],
       billingprovince:[],
       billingcity:[],
