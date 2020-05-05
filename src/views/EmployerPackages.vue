@@ -51,7 +51,7 @@
                                         <div class="card-body">
                                             <div class="criminal-head package"><h4><strong>Criminal</strong></h4></div>
                                             <div class="offer text-center py-3">
-                                               
+                                            
                                             </div>
                                             <div class="offer text-center py-3 px-3">
                                                 <router-link :to="{name:'EmployerOrder',params:{selected_package:getPackage('Criminal Only')}}">
@@ -300,17 +300,13 @@
             </div>
         </div>
 
-        <!-- Mobile Carousal -->
-
-            <div class="web-view">
+        <!-- Web  -->
+        <div class="web-view">
                 <div class="row no-gutters mt-3">
             <div class="col-md-2 col-2 offset-md-2 offset-col-2">
+                <!-- offset-md-2 offset-col-2 -->
                 <div class="crimianl package text-center">
                     <p> <strong>Criminal Only</strong></p>
-                </div>
-                <div class="offer text-center py-3">
-                    <!-- <p class="text-gray"><span class="dollar">$</span> <span class="text-blue price">1200</span></p>
-                    <p><strong>Flat Rate</strong></p> -->
                 </div>
                 <div class="offer text-center py-3 px-3">
                     <!-- <span>Lorem ipsum, or lorem ipsum as it is.</span> -->
@@ -323,10 +319,6 @@
                 <div class="bronze package text-center">
                     <p> <strong>Bronze</strong></p>
                 </div>
-                <div class="offer text-center py-3">
-                    <!-- <p class="text-gray"><span class="dollar">$</span> <span class="text-blue price">1200</span></p>
-                    <p><strong>Flat Rate</strong></p> -->
-                </div>
                 <div class="offer text-center py-3 px-3">
                     <!-- <span>Lorem ipsum, or lorem ipsum as it is.</span> -->
                     <router-link :to="{name:'EmployerOrder',params:{selected_package:getPackage('Bronze')}}">
@@ -338,13 +330,9 @@
                 <div class="silver package text-center">
                     <p> <strong>Sliver</strong></p>
                 </div>
-                <div class="offer text-center py-3">
-                    <!-- <p class="text-gray"><span class="dollar">$</span> <span class="text-blue price">1200</span></p>
-                    <p><strong>Flat Rate</strong></p> -->
-                </div>
                 <div class="offer text-center py-3 px-3">
                     <!-- <span>Lorem ipsum, or lorem ipsum as it is.</span> -->
-                     <router-link :to="{name:'EmployerOrder',params:{selected_package:getPackage('Silver')}}">
+                    <router-link :to="{name:'EmployerOrder',params:{selected_package:getPackage('Silver')}}">
                     <button class="btn btn-primary mt-3">Order Now</button>
                     </router-link>
                 </div>
@@ -353,13 +341,9 @@
                 <div class="gold package text-center">
                     <p><strong>Gold</strong></p>
                 </div>
-                <div class="offer text-center py-3">
-                    <!-- <p class="text-gray"><span class="dollar">$</span> <span class="text-blue price">1200</span></p>
-                    <p><strong>Flat Rate</strong></p> -->
-                </div>
                 <div class="offer text-center py-3 px-3">
                     <!-- <span>Lorem ipsum, or lorem ipsum as it is.</span> -->
-                     <router-link :to="{name:'EmployerOrder',params:{selected_package:getPackage('Gold')}}">
+                    <router-link :to="{name:'EmployerOrder',params:{selected_package:getPackage('Gold')}}">
                     <button class="btn btn-primary mt-3">Order Now</button>
                     </router-link>
                 </div>
@@ -368,13 +352,9 @@
                 <div class="platinum package text-center">
                     <p> <strong>Platinum</strong></p>
                 </div>
-                <div class="offer text-center py-3">
-                    <!-- <p class="text-gray"><span class="dollar">$</span> <span class="text-blue price">1200</span></p>
-                    <p><strong>Flat Rate</strong></p> -->
-                </div>
                 <div class="offer text-center py-3 px-3">
                     <!-- <span>Lorem ipsum, or lorem ipsum as it is.</span> -->
-                     <router-link :to="{name:'EmployerOrder',params:{selected_package:getPackage('Platinum')}}">
+                    <router-link :to="{name:'EmployerOrder',params:{selected_package:getPackage('Platinum')}}">
                     <button class="btn btn-primary mt-3">Order Now</button>
                     </router-link>
                 </div>
@@ -633,7 +613,7 @@ th {
     display: none;
 }
 .btn {
-    width: 50px !important;
+    min-width: 150px !important;
 }
 @media screen and (max-width: 600px) {
   .image {
