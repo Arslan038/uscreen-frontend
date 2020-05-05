@@ -31,7 +31,7 @@
                         <p><strong class="text-head">{{selected_package.PackageServiceName}} Package Items</strong></p>
                         <p class="text-gray">Please select the associated country of interest of the checking.</p>
 
-                        <div class="row" v-for="(item,i) in packageitems" :key="i">
+                        <div v-if="item.IsActive==1" class="row" v-for="(item,i) in packageitems" :key="i">
                             <div class="col-md-12 col-xl-4 col-12 mt-3">
                                 <p><strong class="text-blue">{{item.PackageServiceItemName}}</strong></p>
                             </div>
@@ -46,14 +46,14 @@
                                     <div class="col-6">
                                         <button v-if="b_countryarr[i].show" class="btn btn-primary" @click="addBankruptcyCountry(i)">Add Country</button>
                                     </div>
-                                    <div class="col-6 text-right">
-                                        <span class="text-right text-gray">(Can add Upto 5) </span>
+                                    <div class="col-6 pr-0 text-right">
+                                        <span class="text-right text-gray">(Can add Upto {{b_countryarr[i].countrylimit}}) </span>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-
+                       <form v-on:submit.prevent="moveNext()">
                         <div class="pl-5 pr-3 pt-3 mb-5">
                             <div class="row">
                                 <div class="col-md-12">
@@ -61,20 +61,20 @@
                                     <p class="text-gray">This information will be used to contact your candidate about their background check.</p>
                                 </div>
                                <div class="col-md-12 col-lg-12 col-xl-6 col-12 mt-3">
-                                    <input type="text" class="form-control" v-model="new_order.FirstName" placeholder="First Name*" >
+                                    <input required type="text" class="form-control" v-model="new_order.FirstName" placeholder="First Name*" >
                                 </div>
                                 <div class="col-md-12 col-lg-12 col-xl-6 col-12 mt-3">
-                                    <input type="text" class="form-control" v-model="new_order.LastName" placeholder="Last Name*" >
+                                    <input required type="text" class="form-control" v-model="new_order.LastName" placeholder="Last Name*" >
                                 </div>
                                 <div class="col-md-12 col-lg-12 col-xl-6 col-12 mt-3">
-                                    <input type="email" class="form-control" v-model="new_order.Email" placeholder="Email (UserID)*" >
+                                    <input required type="email" class="form-control" v-model="new_order.Email" placeholder="Email (UserID)*" >
                                 </div>
                                 <div class="col-md-12 col-lg-12 col-xl-2 col-12 mt-3">
-                                    <input  class="form-control" v-model="new_order.MobileCode" placeholder="09" >
+                                    <input required  class="form-control" v-model="new_order.MobileCode" placeholder="+842" >
                                 
                                 </div>
                                 <div class="col-xl-4 mobile col-12 mt-3">
-                                    <input type="tel" class="form-control" v-model="new_order.MobileNumber" placeholder="Mobile*" >
+                                    <input required type="tel" class="form-control" v-model="new_order.MobileNumber" placeholder="Mobile*" >
                                 </div>  
                             </div>
                         </div>
@@ -86,7 +86,7 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <p><strong class="text-head">Country of Residence</strong></p>
-                                    <select v-model="new_order.CountryId" class="form-control">
+                                    <select required v-model="new_order.CountryId" class="form-control">
                                         <option v-for="(item,i) in countries" :key="i" :value="item.CountryId">{{item.CountryName}}</option>
                                     </select>
                                 </div>
@@ -95,9 +95,10 @@
 
                         <div class="row mb-5">
                             <div class="col-12 text-center">
-                                <button class="btn btn-primary next" @click="moveNext()">Next</button>
+                                <button class="btn btn-primary next" type="submit" >Next</button>
                             </div>
                         </div>
+                        </form>
                         
                     </div>
                 </div>
@@ -210,17 +211,18 @@ export default {
             console.log(j)
             this.b_countryarr[arrindex].b_country--
            
-            if(this.b_countryarr[arrindex].b_country < 5) {
+            if(this.b_countryarr[arrindex].b_country < this.b_countryarr[arrindex].countrylimit) {
                 this.b_countryarr[arrindex].show = true
 
             }
             this.b_countryarr[arrindex].countries.splice(j, 1)
         },
         async getPackageItems(){
-            let {data}=await OrderRepository.getPackageItems(this.selected_package.PackageServiceId)
+            let {data}=await OrderRepository.getPackageItems({PackageServiceId:this.selected_package.PackageServiceId,UserKey:this.loggedUser.UserKey})
             this.packageitems=data.data
+            console.log(this.packageitems)
             this.packageitems.forEach(item=>{
-            this.b_countryarr.push({name:item.PackageServiceItemName,type:item.ComponentType,b_country:1,countries:[],show:true})
+            this.b_countryarr.push({countrylimit:item.countrylimit,name:item.PackageServiceItemName,type:item.ComponentType,b_country:1,countries:[],show:true})
             })
         },
         async getPackageCountry(){
@@ -234,7 +236,7 @@ export default {
             this.b_countryarr[arrindex].b_country++
             // console.log(bcountryval)
             // this.b_country++
-            if(this.b_countryarr[arrindex].b_country == 5) {
+            if(this.b_countryarr[arrindex].b_country == this.b_countryarr[arrindex].countrylimit) {
                 // this.bankruptcy.show = false
                 this.b_countryarr[arrindex].show = false
 
