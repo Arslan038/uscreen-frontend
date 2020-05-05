@@ -26,9 +26,9 @@
                                         <div class="col-md-12 col-12 mt-3">
                                             <input type="password" v-model="new_employer.Password" placeholder="New Password*" class="form-control">
                                         </div>
-                                        <!-- <div class="col-md-12 col-12 mt-3">
-                                            <input type="password" placeholder="Retype password*" class="form-control">
-                                        </div> -->
+                                        <div class="col-md-12 col-12 mt-3">
+                                            <input type="password" v-model="retypedpassword" placeholder="Retype password*" class="form-control">
+                                        </div>
                                     </div>
                                 </div>
                                 <hr>
@@ -176,6 +176,7 @@ export default {
     name: "UserInfo",
     data(){
         return{
+            retypedpassword:'',
             isVerified: false,
             new_employer:'',
             businessprovince:[],
@@ -199,8 +200,16 @@ export default {
                 this.$store.commit('setNotifications',{message:'Re-Captcha Required',type:'error'})
                 return
             }
-            if(this.new_employer.Password==''){
-                delete this.new_employer.Password
+            console.log(this.new_employer.Password)
+            // if(this.new_employer.Password==''){
+            //     delete this.new_employer.Password
+            // }
+            
+            if(this.new_employer.Password!=null) {
+            if(this.new_employer.Password!=this.retypedpassword){
+                this.$store.commit('setNotifications',{message:'New Password and retyped password should be same',type:'error'})
+                return
+            }
             }
             let {data}=await UserRepository.updateuser(this.new_employer)
             .catch(error => {
