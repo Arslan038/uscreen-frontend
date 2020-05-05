@@ -4,7 +4,7 @@
       <div class="col-md-12 text-center">
           <h1>Why UScreen</h1>
           <p>No hidden fees, no memberships and no minimums. <br>Get quick and easy background checks.</p>
-          <button class="btn btn-screen">Screen Today</button>
+          <button class="btn btn-screen" @click="routeit()">Screen Today</button>
       </div>
     </div>
     <div class="row package">
@@ -54,12 +54,35 @@
 <script>
 // @ is an alias to /src
 //import HelloWorld from '@/components/HelloWorld.vue'
-
+import {mapGetters} from 'vuex'
 export default {
   name: 'Home',
+  computed:{
+    ...mapGetters(['loggedUser','userdetails'])
+  },
   components: {
     //HelloWorld
-  }
+  },
+  methods:{
+    routeit(){
+      if(this.loggedUser!=null){
+           if(this.userdetails.UserRoleCode=='INDIVIDUAL'){
+              this.$router.push({path:'/individual-packages'})
+
+           }
+           else if(this.userdetails.UserRoleCode=='EMPLOYER'){
+              this.$router.push({path:'/employer-packages'})
+
+           }
+
+      }
+      else{
+      this.$router.push({path:'login'})
+
+      }
+      // this.$router.push({path:'employer-package'})
+    }
+  },
 }
 </script>
 
