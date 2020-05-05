@@ -69,7 +69,10 @@ export default {
                 this.$store.commit('setNotifications',{message:'Problems in Creating file',type:'error'})
             }
       },
-    }
+    },
+    created() {
+      window.scrollTo(0,0)
+  }
 }
 </script>
 

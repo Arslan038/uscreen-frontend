@@ -70,6 +70,10 @@ export default {
             this.$store.commit('setNotifications',{message:'Password reset link sent successfully',type:'success'})
 
       }
+  },
+
+  created() {
+      window.scrollTo(0,0)
   }
 }
 </script>

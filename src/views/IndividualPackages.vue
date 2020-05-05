@@ -129,18 +129,17 @@
                                     <div class="card package-item">
                                         <div class="card-body">
                                             <div class="criminal-head package"><h4><strong>Criminal</strong></h4></div>
-                                            <div class="offer text-center py-3">
-                                                <p class="text-gray"><sup>$</sup> <strong class="text-blue mobile-price">1200</strong></p>
-                                                <p><strong>Flat Rate</strong></p>
-                                            </div>
+                                            <!-- <div class="offer text-center py-3">
+                                            
+                                            </div> -->
                                             <div class="offer text-center py-3 px-3">
                                                 <router-link :to="{name:'IndividualOrder',params:{selected_package:getPackage('Criminal Only')}}">
-                                                    <button class="btn btn-primary mt-3">Order Now</button>
+                                                <button class="btn btn-primary mt-3">Order Now</button>
                                                 </router-link>
                                             </div>
                                             <div class="offer text-left px-3 py-3">
                                                 <div class="mt-3">
-                                                    <i class="fa fa-check-circle text-blue mark"></i> Bankruptcy Check
+                                                    <i class="fa fa-times-circle text-danger mark"></i> Bankruptcy Check
                                                 </div>
                                                 <div class="mt-3">
                                                     <i class="fa fa-times-circle text-danger mark"></i> Civi Litigation Check
@@ -149,10 +148,16 @@
                                                     <i class="fa fa-times-circle text-danger mark"></i> Credit Check
                                                 </div>
                                                 <div class="mt-3">
-                                                    <i class="fa fa-times-circle text-danger mark"></i> Criminal Check
+                                                    <i class="fa fa-check-circle text-blue mark"></i> Criminal Check
                                                 </div>
                                                 <div class="mt-3">
-                                                    <i class="fa fa-times-circle text-danger mark"></i> Global Sanctions
+                                                    <i class="fa fa-times-circle text-danger mark"></i> Directorship Check
+                                                </div>
+                                                <div class="mt-3">
+                                                    <i class="fa fa-times-circle text-danger mark"></i> Expanded Global Sanctions
+                                                </div>
+                                                <div class="mt-3">
+                                                    <i class="fa fa-times-circle text-danger mark"></i> Global Reputational Media
                                                 </div>
                                                 <div class="mt-3">
                                                     <i class="fa fa-times-circle text-danger mark"></i> Passport Check
@@ -180,13 +185,11 @@
                                     <div class="card package-item">
                                         <div class="card-body">
                                             <div class="bronze-head package"><h4><strong>Bronze</strong></h4></div>
-                                            <div class="offer text-center py-3">
-                                                <p class="text-gray"><sup>$</sup> <strong class="text-blue mobile-price">1200</strong></p>
-                                                <p><strong>Flat Rate</strong></p>
-                                            </div>
+                                            <!-- <div class="offer text-center py-3">
+                                            </div> -->
                                             <div class="offer text-center py-3 px-3">
                                                 <router-link :to="{name:'IndividualOrder',params:{selected_package:getPackage('Bronze')}}">
-                                                    <button class="btn btn-primary mt-3">Order Now</button>
+                                                <button class="btn btn-primary mt-3">Order Now</button>
                                                 </router-link>
                                             </div>
                                             <div class="offer text-left px-3 py-3">
@@ -203,13 +206,19 @@
                                                     <i class="fa fa-check-circle text-blue mark"></i> Criminal Check
                                                 </div>
                                                 <div class="mt-3">
-                                                    <i class="fa fa-check-circle text-blue mark"></i> Global Sanctions
+                                                    <i class="fa fa-times-circle text-danger mark"></i> Directorship Check
+                                                </div>
+                                                <div class="mt-3">
+                                                    <i class="fa fa-check-circle text-blue mark"></i> Expanded Global Sanctions
+                                                </div>
+                                                <div class="mt-3">
+                                                    <i class="fa fa-check-circle text-blue mark"></i> Global Reputational Media
                                                 </div>
                                                 <div class="mt-3">
                                                     <i class="fa fa-times-circle text-danger mark"></i> Passport Check
                                                 </div>
                                                 <div class="mt-3">
-                                                    <i class="fa fa-check-circle text-blue mark"></i> Global Media Check
+                                                    <i class="fa fa-times-circle text-danger mark"></i> Global Media Check
                                                 </div>
                                                 <div class="mt-3">
                                                     <i class="fa fa-times-circle text-danger mark"></i> Education Check
@@ -231,13 +240,13 @@
                                     <div class="card package-item">
                                         <div class="card-body">
                                             <div class="silver-head package"><h4><strong>Silver</strong></h4></div>
-                                            <div class="offer text-center py-3">
-                                                <!-- <p class="text-gray"><sup>$</sup> <strong class="text-blue mobile-price">1200</strong></p>
-                                                <p><strong>Flat Rate</strong></p> -->
-                                            </div>
+                                            <!-- <div class="offer text-center py-3">
+                                                <p class="text-gray"><sup>$</sup> <strong class="text-blue mobile-price">1200</strong></p>
+                                                <p><strong>Flat Rate</strong></p>
+                                            </div> -->
                                             <div class="offer text-center py-3 px-3">
                                                 <router-link :to="{name:'IndividualOrder',params:{selected_package:getPackage('Silver')}}">
-                                                    <button class="btn btn-primary mt-3">Order Now</button>
+                                                <button class="btn btn-primary mt-3">Order Now</button>
                                                 </router-link>
                                             </div>
                                             <div class="offer text-left px-3 py-3">
@@ -254,7 +263,13 @@
                                                     <i class="fa fa-check-circle text-blue mark"></i> Criminal Check
                                                 </div>
                                                 <div class="mt-3">
-                                                    <i class="fa fa-check-circle text-blue mark"></i> Global Sanctions
+                                                    <i class="fa fa-times-circle text-danger mark"></i> Directorship Check
+                                                </div>
+                                                <div class="mt-3">
+                                                    <i class="fa fa-check-circle text-blue mark"></i> Expanded Global Sanctions
+                                                </div>
+                                                <div class="mt-3">
+                                                    <i class="fa fa-check-circle text-blue mark"></i> Global Reputational Media
                                                 </div>
                                                 <div class="mt-3">
                                                     <i class="fa fa-check-circle text-blue mark"></i> Passport Check
@@ -284,20 +299,19 @@
                                         <div class="card-body">
                                             <div class="gold-head package"><h4><strong>Gold</strong></h4></div>
                                             <div class="offer text-center py-3">
-                                                <p class="text-gray"><sup>$</sup> <strong class="text-blue mobile-price">1200</strong></p>
-                                                <p><strong>Flat Rate</strong></p>
+
                                             </div>
                                             <div class="offer text-center py-3 px-3">
                                                 <router-link :to="{name:'IndividualOrder',params:{selected_package:getPackage('Gold')}}">
-                                                    <button class="btn btn-primary mt-3">Order Now</button>
+                                                <button class="btn btn-primary mt-3">Order Now</button>
                                                 </router-link>
                                             </div>
                                             <div class="offer text-left px-3 py-3">
                                                 <div class="mt-3">
-                                                    <i class="fa fa-check-circle text-blue mark"></i> Bankruptcy Check
+                                                    <i class="fa fa-times-circle text-danger mark"></i> Bankruptcy Check
                                                 </div>
                                                 <div class="mt-3">
-                                                    <i class="fa fa-check-circle text-blue mark"></i> Civi Litigation Check
+                                                    <i class="fa fa-times-circle text-danger mark"></i> Civi Litigation Check
                                                 </div>
                                                 <div class="mt-3">
                                                     <i class="fa fa-check-circle text-blue mark"></i> Credit Check
@@ -306,7 +320,13 @@
                                                     <i class="fa fa-check-circle text-blue mark"></i> Criminal Check
                                                 </div>
                                                 <div class="mt-3">
-                                                    <i class="fa fa-check-circle text-blue mark"></i> Global Sanctions
+                                                    <i class="fa fa-times-circle text-danger mark"></i> Directorship Check
+                                                </div>
+                                                <div class="mt-3">
+                                                    <i class="fa fa-check-circle text-blue mark"></i> Expanded Global Sanctions
+                                                </div>
+                                                <div class="mt-3">
+                                                    <i class="fa fa-check-circle text-blue mark"></i> Global Reputational Media
                                                 </div>
                                                 <div class="mt-3">
                                                     <i class="fa fa-check-circle text-blue mark"></i> Passport Check
@@ -318,7 +338,7 @@
                                                     <i class="fa fa-check-circle text-blue mark"></i> Employment Check
                                                 </div>
                                                 <div class="mt-3">
-                                                    <i class="fa fa-times-circle text-danger mark"></i> Education Check
+                                                    <i class="fa fa-check-circle text-blue mark"></i> Education Check
                                                 </div>
                                             </div>
                                         </div>
@@ -334,12 +354,13 @@
                                     <div class="card package-item">
                                         <div class="card-body">
                                             <div class="platinum-head package"><h4><strong>Platinum</strong></h4></div>
-                                            <div class="offer text-center py-3">
-
-                                            </div>
+                                            <!-- <div class="offer text-center py-3">
+                                                <p class="text-gray"><sup>$</sup> <strong class="text-blue mobile-price">1200</strong></p>
+                                                <p><strong>Flat Rate</strong></p>
+                                            </div> -->
                                             <div class="offer text-center py-3 px-3">
                                                 <router-link :to="{name:'IndividualOrder',params:{selected_package:getPackage('Platinum')}}">
-                                                    <button class="btn btn-primary mt-3">Order Now</button>
+                                                <button class="btn btn-primary mt-3">Order Now</button>
                                                 </router-link>
                                             </div>
                                             <div class="offer text-left px-3 py-3">
@@ -356,7 +377,71 @@
                                                     <i class="fa fa-check-circle text-blue mark"></i> Criminal Check
                                                 </div>
                                                 <div class="mt-3">
-                                                    <i class="fa fa-check-circle text-blue mark"></i> Global Sanctions
+                                                    <i class="fa fa-times-circle text-danger mark"></i> Directorship Check
+                                                </div>
+                                                <div class="mt-3">
+                                                    <i class="fa fa-check-circle text-blue mark"></i> Expanded Global Sanctions
+                                                </div>
+                                                <div class="mt-3">
+                                                    <i class="fa fa-check-circle text-blue mark"></i> Global Reputational Media
+                                                </div>
+                                                <div class="mt-3">
+                                                    <i class="fa fa-check-circle text-blue mark"></i> Passport Check
+                                                </div>
+                                                <div class="mt-3">
+                                                    <i class="fa fa-check-circle text-blue mark"></i> Global Media Check
+                                                </div>
+                                                <div class="mt-3">
+                                                    <i class="fa fa-check-circle text-blue mark"></i> Education Check
+                                                </div>
+                                                <div class="mt-3">
+                                                    <i class="fa fa-check-circle text-blue mark"></i> Employment Check
+                                                </div>
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </slide>
+                    <slide>
+                        <div class="diamond-package">
+                            <div class="row">
+                                <div class="col-12 text-center">
+                                    <div class="card package-item">
+                                        <div class="card-body">
+                                            <div class="diamond-head package"><h4><strong>Diamond</strong></h4></div>
+                                            <!-- <div class="offer text-center py-3">
+                                                <p class="text-gray"><sup>$</sup> <strong class="text-blue mobile-price">1200</strong></p>
+                                                <p><strong>Flat Rate</strong></p>
+                                            </div> -->
+                                            <div class="offer text-center py-3 px-3">
+                                                <router-link :to="{name:'IndividualOrder',params:{selected_package:getPackage('Diamond')}}">
+                                                <button class="btn btn-primary mt-3">Order Now</button>
+                                                </router-link>
+                                            </div>
+                                            <div class="offer text-left px-3 py-3">
+                                                <div class="mt-3">
+                                                    <i class="fa fa-check-circle text-blue mark"></i> Bankruptcy Check
+                                                </div>
+                                                <div class="mt-3">
+                                                    <i class="fa fa-check-circle text-blue mark"></i> Civi Litigation Check
+                                                </div>
+                                                <div class="mt-3">
+                                                    <i class="fa fa-check-circle text-blue mark"></i> Credit Check
+                                                </div>
+                                                <div class="mt-3">
+                                                    <i class="fa fa-check-circle text-blue mark"></i> Criminal Check
+                                                </div>
+                                                <div class="mt-3">
+                                                    <i class="fa fa-check-circle text-blue mark"></i> Directorship Check
+                                                </div>
+                                                <div class="mt-3">
+                                                    <i class="fa fa-check-circle text-blue mark"></i> Expanded Global Sanctions
+                                                </div>
+                                                <div class="mt-3">
+                                                    <i class="fa fa-check-circle text-blue mark"></i> Global Reputational Media
                                                 </div>
                                                 <div class="mt-3">
                                                     <i class="fa fa-check-circle text-blue mark"></i> Passport Check
@@ -386,146 +471,181 @@
 
             <div class="web-view">
                 <div class="row no-gutters mt-3">
-            <div class="col-md-2 col-2 offset-md-2 offset-col-2">
+            <div class="offset-md-2 package-size">
+                <!-- offset-md-2 offset-col-2 -->
                 <div class="crimianl package text-center">
                     <p> <strong>Criminal Only</strong></p>
                 </div>
-                <div class="offer text-center py-3">
-                </div>
                 <div class="offer text-center py-3 px-3">
+                    <!-- <span>Lorem ipsum, or lorem ipsum as it is.</span> -->
                     <router-link :to="{name:'IndividualOrder',params:{selected_package:getPackage('Criminal Only')}}">
-                        <button class="btn btn-primary mt-3">Order Now</button>
+                    <button class="btn btn-primary mt-3">Order Now</button>
                     </router-link>
                 </div>
             </div>
-            <div class="col-md-2 col-2">
+            <div class="package-size">
                 <div class="bronze package text-center">
                     <p> <strong>Bronze</strong></p>
                 </div>
-                <div class="offer text-center py-3">
-                </div>
                 <div class="offer text-center py-3 px-3">
+                    <!-- <span>Lorem ipsum, or lorem ipsum as it is.</span> -->
                     <router-link :to="{name:'IndividualOrder',params:{selected_package:getPackage('Bronze')}}">
-                        <button class="btn btn-primary mt-3">Order Now</button>
+                    <button class="btn btn-primary mt-3">Order Now</button>
                     </router-link>
                 </div>
             </div>
-            <div class="col-md-2 col-2">
+            <div class="package-size">
                 <div class="silver package text-center">
-                    <p> <strong>Silver</strong></p>
-                </div>
-                <div class="offer text-center py-3">
+                    <p> <strong>Sliver</strong></p>
                 </div>
                 <div class="offer text-center py-3 px-3">
+                    <!-- <span>Lorem ipsum, or lorem ipsum as it is.</span> -->
                     <router-link :to="{name:'IndividualOrder',params:{selected_package:getPackage('Silver')}}">
-                        <button class="btn btn-primary mt-3">Order Now</button>
+                    <button class="btn btn-primary mt-3">Order Now</button>
                     </router-link>
                 </div>
             </div>
-            <div class="col-md-2 col-2">
+            <div class="package-size">
                 <div class="gold package text-center">
                     <p><strong>Gold</strong></p>
                 </div>
-                <div class="offer text-center py-3">
-                </div>
                 <div class="offer text-center py-3 px-3">
+                    <!-- <span>Lorem ipsum, or lorem ipsum as it is.</span> -->
                     <router-link :to="{name:'IndividualOrder',params:{selected_package:getPackage('Gold')}}">
-                        <button class="btn btn-primary mt-3">Order Now</button>
+                    <button class="btn btn-primary mt-3">Order Now</button>
                     </router-link>
                 </div>
             </div>
-            <div class="col-md-2 col-2">
+            <div class="package-size">
                 <div class="platinum package text-center">
                     <p> <strong>Platinum</strong></p>
                 </div>
-                <div class="offer text-center py-3">
+                <div class="offer text-center py-3 px-3">
+                    <!-- <span>Lorem ipsum, or lorem ipsum as it is.</span> -->
+                    <router-link :to="{name:'IndividualOrder',params:{selected_package:getPackage('Platinum')}}">
+                    <button class="btn btn-primary mt-3">Order Now</button>
+                    </router-link>
+                </div>
+            </div>
+            <div class="package-size">
+                <div class="diamond package text-center">
+                    <p> <strong>Diamond</strong></p>
                 </div>
                 <div class="offer text-center py-3 px-3">
-                    <router-link :to="{name:'IndividualOrder',params:{selected_package:getPackage('Platinum')}}">
-                        <button class="btn btn-primary mt-3">Order Now</button>
+                    <!-- <span>Lorem ipsum, or lorem ipsum as it is.</span> -->
+                    <router-link :to="{name:'IndividualOrder',params:{selected_package:getPackage('Diamond')}}">
+                    <button class="btn btn-primary mt-3">Order Now</button>
                     </router-link>
                 </div>
             </div>
         </div>
         <div class="row no-gutters">
             <div class="col-md-2 col-2 gray text-center package-text text-gray">Package</div>
-            <div class="col-md-2 col-2 gray border"></div>
-            <div class="col-md-2 col-2 gray border"></div>
-            <div class="col-md-2 col-2 gray border"></div>
-            <div class="col-md-2 col-2 gray border"></div>
-            <div class="col-md-2 col-2 gray border"></div>
+            <div class="package-size gray border"></div>
+            <div class="package-size gray border"></div>
+            <div class="package-size gray border"></div>
+            <div class="package-size gray border"></div>
+            <div class="package-size gray border"></div>
+            <div class="package-size gray border"></div>
         </div>
         <div class="row no-gutters">
             <div class="col-md-2 col-2 text-center package-text py-3">Bankruptcy Check</div>
-            <div class="col-md-2 col-2 border text-center py-3"></div>
-            <div class="col-md-2 col-2 border text-center py-3"></div>
-            <div class="col-md-2 col-2 border text-center py-3"><img src="../assets/Group 11 Copy 24@2x.png" width="20" alt=""></div>
-            <div class="col-md-2 col-2 border text-center py-3"><img src="../assets/Group 11 Copy 24@2x.png" width="20" alt=""></div>
-            <div class="col-md-2 col-2 border text-center py-3"><img src="../assets/Group 11 Copy 24@2x.png" width="20" alt=""></div>
+            <div class="package-size border text-center py-3"></div>
+            <div class="package-size border text-center py-3"></div>
+            <div class="package-size border text-center py-3"><img src="../assets/Group 11 Copy 24@2x.png" width="20" alt=""></div>
+            <div class="package-size border text-center py-3"><img src="../assets/Group 11 Copy 24@2x.png" width="20" alt=""></div>
+            <div class="package-size border text-center py-3"><img src="../assets/Group 11 Copy 24@2x.png" width="20" alt=""></div>
+            <div class="package-size border text-center py-3"><img src="../assets/Group 11 Copy 24@2x.png" width="20" alt=""></div>
         </div>
         <div class="row no-gutters">
             <div class="col-md-2 col-2 text-center package-text py-3">Civil Litigation Check</div>
-            <div class="col-md-2 col-2 border text-center py-3"></div>
-            <div class="col-md-2 col-2 border text-center py-3"></div>
-            <div class="col-md-2 col-2 border text-center py-3"><img src="../assets/Group 11 Copy 24@2x.png" width="20" alt=""></div>
-            <div class="col-md-2 col-2 border text-center py-3"><img src="../assets/Group 11 Copy 24@2x.png" width="20" alt=""></div>
-            <div class="col-md-2 col-2 border text-center py-3"><img src="../assets/Group 11 Copy 24@2x.png" width="20" alt=""></div>
+            <div class="package-size border text-center py-3"></div>
+            <div class="package-size border text-center py-3"></div>
+            <div class="package-size border text-center py-3"><img src="../assets/Group 11 Copy 24@2x.png" width="20" alt=""></div>
+            <div class="package-size border text-center py-3"><img src="../assets/Group 11 Copy 24@2x.png" width="20" alt=""></div>
+            <div class="package-size border text-center py-3"><img src="../assets/Group 11 Copy 24@2x.png" width="20" alt=""></div>
+            <div class="package-size border text-center py-3"><img src="../assets/Group 11 Copy 24@2x.png" width="20" alt=""></div>
         </div>
         <div class="row no-gutters">
             <div class="col-md-2 col-2 text-center package-text py-3">Credit Check</div>
-            <div class="col-md-2 col-2 border text-center py-3"></div>
-            <div class="col-md-2 col-2 border text-center py-3"><img src="../assets/Group 11 Copy 24@2x.png" width="20" alt=""></div>
-            <div class="col-md-2 col-2 border text-center py-3"><img src="../assets/Group 11 Copy 24@2x.png" width="20" alt=""></div>
-            <div class="col-md-2 col-2 border text-center py-3"><img src="../assets/Group 11 Copy 24@2x.png" width="20" alt=""></div>
-            <div class="col-md-2 col-2 border text-center py-3"><img src="../assets/Group 11 Copy 24@2x.png" width="20" alt=""></div>
+            <div class="package-size border text-center py-3"></div>
+            <div class="package-size border text-center py-3"><img src="../assets/Group 11 Copy 24@2x.png" width="20" alt=""></div>
+            <div class="package-size border text-center py-3"><img src="../assets/Group 11 Copy 24@2x.png" width="20" alt=""></div>
+            <div class="package-size border text-center py-3"><img src="../assets/Group 11 Copy 24@2x.png" width="20" alt=""></div>
+            <div class="package-size border text-center py-3"><img src="../assets/Group 11 Copy 24@2x.png" width="20" alt=""></div>
+            <div class="package-size border text-center py-3"><img src="../assets/Group 11 Copy 24@2x.png" width="20" alt=""></div>
         </div>
         <div class="row no-gutters">
             <div class="col-md-2 col-2 text-center package-text py-3">Criminal Check</div>
-            <div class="col-md-2 col-2 border text-center py-3"><img src="../assets/Group 11 Copy 24@2x.png" width="20" alt=""></div>
-            <div class="col-md-2 col-2 border text-center py-3"><img src="../assets/Group 11 Copy 24@2x.png" width="20" alt=""></div>
-            <div class="col-md-2 col-2 border text-center py-3"><img src="../assets/Group 11 Copy 24@2x.png" width="20" alt=""></div>
-            <div class="col-md-2 col-2 border text-center py-3"><img src="../assets/Group 11 Copy 24@2x.png" width="20" alt=""></div>
-            <div class="col-md-2 col-2 border text-center py-3"><img src="../assets/Group 11 Copy 24@2x.png" width="20" alt=""></div>
+            <div class="package-size border text-center py-3"><img src="../assets/Group 11 Copy 24@2x.png" width="20" alt=""></div>
+            <div class="package-size border text-center py-3"><img src="../assets/Group 11 Copy 24@2x.png" width="20" alt=""></div>
+            <div class="package-size border text-center py-3"><img src="../assets/Group 11 Copy 24@2x.png" width="20" alt=""></div>
+            <div class="package-size border text-center py-3"><img src="../assets/Group 11 Copy 24@2x.png" width="20" alt=""></div>
+            <div class="package-size border text-center py-3"><img src="../assets/Group 11 Copy 24@2x.png" width="20" alt=""></div>
+            <div class="package-size border text-center py-3"><img src="../assets/Group 11 Copy 24@2x.png" width="20" alt=""></div>
         </div>
         <div class="row no-gutters">
-            <div class="col-md-2 col-2 text-center package-text py-3">Global Sanctions</div>
-            <div class="col-md-2 col-2 border text-center py-3"></div>
-            <div class="col-md-2 col-2 border text-center py-3"><img src="../assets/Group 11 Copy 24@2x.png" width="20" alt=""></div>
-            <div class="col-md-2 col-2 border text-center py-3"><img src="../assets/Group 11 Copy 24@2x.png" width="20" alt=""></div>
-            <div class="col-md-2 col-2 border text-center py-3"><img src="../assets/Group 11 Copy 24@2x.png" width="20" alt=""></div>
-            <div class="col-md-2 col-2 border text-center py-3"><img src="../assets/Group 11 Copy 24@2x.png" width="20" alt=""></div>
+            <div class="col-md-2 col-2 text-center package-text py-3">Directorship Check</div>
+            <div class="package-size border text-center py-3"></div>
+            <div class="package-size border text-center py-3"></div>
+            <div class="package-size border text-center py-3"></div>
+            <div class="package-size border text-center py-3"></div>
+            <div class="package-size border text-center py-3"></div>
+            <div class="package-size border text-center py-3"><img src="../assets/Group 11 Copy 24@2x.png" width="20" alt=""></div>
+        </div>
+        <div class="row no-gutters">
+            <div class="col-md-2 col-2 text-center package-text py-3">Expanded Global Sanctions</div>
+            <div class="package-size border text-center py-3"></div>
+            <div class="package-size border text-center py-3"><img src="../assets/Group 11 Copy 24@2x.png" width="20" alt=""></div>
+            <div class="package-size border text-center py-3"><img src="../assets/Group 11 Copy 24@2x.png" width="20" alt=""></div>
+            <div class="package-size border text-center py-3"><img src="../assets/Group 11 Copy 24@2x.png" width="20" alt=""></div>
+            <div class="package-size border text-center py-3"><img src="../assets/Group 11 Copy 24@2x.png" width="20" alt=""></div>
+            <div class="package-size border text-center py-3"><img src="../assets/Group 11 Copy 24@2x.png" width="20" alt=""></div>
+        </div>
+        <div class="row no-gutters">
+            <div class="col-md-2 col-2 text-center package-text py-3">Global Reputational Media</div>
+            <div class="package-size border text-center py-3"></div>
+            <div class="package-size border text-center py-3"><img src="../assets/Group 11 Copy 24@2x.png" width="20" alt=""></div>
+            <div class="package-size border text-center py-3"><img src="../assets/Group 11 Copy 24@2x.png" width="20" alt=""></div>
+            <div class="package-size border text-center py-3"><img src="../assets/Group 11 Copy 24@2x.png" width="20" alt=""></div>
+            <div class="package-size border text-center py-3"><img src="../assets/Group 11 Copy 24@2x.png" width="20" alt=""></div>
+            <div class="package-size border text-center py-3"><img src="../assets/Group 11 Copy 24@2x.png" width="20" alt=""></div>
         </div>
         <div class="row no-gutters">
             <div class="col-md-2 col-2 text-center package-text py-3">Passport Check</div>
-            <div class="col-md-2 col-2 border text-center py-3"></div>
-            <div class="col-md-2 col-2 border text-center py-3"></div>
-            <div class="col-md-2 col-2 border text-center py-3"><img src="../assets/Group 11 Copy 24@2x.png" width="20" alt=""></div>
-            <div class="col-md-2 col-2 border text-center py-3"><img src="../assets/Group 11 Copy 24@2x.png" width="20" alt=""></div>
-            <div class="col-md-2 col-2 border text-center py-3"><img src="../assets/Group 11 Copy 24@2x.png" width="20" alt=""></div>
+            <div class="package-size border text-center py-3"></div>
+            <div class="package-size border text-center py-3"></div>
+            <div class="package-size border text-center py-3"><img src="../assets/Group 11 Copy 24@2x.png" width="20" alt=""></div>
+            <div class="package-size border text-center py-3"><img src="../assets/Group 11 Copy 24@2x.png" width="20" alt=""></div>
+            <div class="package-size border text-center py-3"><img src="../assets/Group 11 Copy 24@2x.png" width="20" alt=""></div>
+            <div class="package-size border text-center py-3"><img src="../assets/Group 11 Copy 24@2x.png" width="20" alt=""></div>
         </div>
         <div class="row no-gutters">
             <div class="col-md-2 col-2 text-center package-text py-3">Global Media</div>
-            <div class="col-md-2 col-2 border text-center py-3"></div>
-            <div class="col-md-2 col-2 border text-center py-3"><img src="../assets/Group 11 Copy 24@2x.png" width="20" alt=""></div>
-            <div class="col-md-2 col-2 border text-center py-3"><img src="../assets/Group 11 Copy 24@2x.png" width="20" alt=""></div>
-            <div class="col-md-2 col-2 border text-center py-3"><img src="../assets/Group 11 Copy 24@2x.png" width="20" alt=""></div>
-            <div class="col-md-2 col-2 border text-center py-3"><img src="../assets/Group 11 Copy 24@2x.png" width="20" alt=""></div>
+            <div class="package-size border text-center py-3"></div>
+            <div class="package-size border text-center py-3"><img src="../assets/Group 11 Copy 24@2x.png" width="20" alt=""></div>
+            <div class="package-size border text-center py-3"><img src="../assets/Group 11 Copy 24@2x.png" width="20" alt=""></div>
+            <div class="package-size border text-center py-3"><img src="../assets/Group 11 Copy 24@2x.png" width="20" alt=""></div>
+            <div class="package-size border text-center py-3"><img src="../assets/Group 11 Copy 24@2x.png" width="20" alt=""></div>
+            <div class="package-size border text-center py-3"><img src="../assets/Group 11 Copy 24@2x.png" width="20" alt=""></div>
         </div>
         <div class="row no-gutters">
             <div class="col-md-2 col-2 text-center package-text py-3">Education Check</div>
-            <div class="col-md-2 col-2 border text-center py-3"></div>
-            <div class="col-md-2 col-2 border text-center py-3"></div>
-            <div class="col-md-2 col-2 border text-center py-3"></div>
-            <div class="col-md-2 col-2 border text-center py-3"></div>
-            <div class="col-md-2 col-2 border text-center py-3"><img src="../assets/Group 11 Copy 24@2x.png" width="20" alt=""></div>
+            <div class="package-size border text-center py-3"></div>
+            <div class="package-size border text-center py-3"></div>
+            <div class="package-size border text-center py-3"></div>
+            <div class="package-size border text-center py-3"></div>
+            <div class="package-size border text-center py-3"><img src="../assets/Group 11 Copy 24@2x.png" width="20" alt=""></div>
+            <div class="package-size border text-center py-3"><img src="../assets/Group 11 Copy 24@2x.png" width="20" alt=""></div>
         </div>
         <div class="row no-gutters">
             <div class="col-md-2 col-2 text-center package-text py-3">Employment Check</div>
-            <div class="col-md-2 col-2 border text-center bottom py-3"></div>
-            <div class="col-md-2 col-2 border text-center bottom py-3"></div>
-            <div class="col-md-2 col-2 border text-center bottom py-3"></div>
-            <div class="col-md-2 col-2 border text-center bottom py-3"><img src="../assets/Group 11 Copy 24@2x.png" width="20" alt=""></div>
-            <div class="col-md-2 col-2 border text-center bottom py-3"><img src="../assets/Group 11 Copy 24@2x.png" width="20" alt=""></div>
+            <div class="package-size border text-center bottom py-3"></div>
+            <div class="package-size border text-center bottom py-3"></div>
+            <div class="package-size border text-center bottom py-3"></div>
+            <div class="package-size border text-center bottom py-3"><img src="../assets/Group 11 Copy 24@2x.png" width="20" alt=""></div>
+            <div class="package-size border text-center bottom py-3"><img src="../assets/Group 11 Copy 24@2x.png" width="20" alt=""></div>
+            <div class="package-size border bottom text-center py-3"><img src="../assets/Group 11 Copy 24@2x.png" width="20" alt=""></div>
         </div>
             </div>
         
@@ -568,6 +688,9 @@ export default {
         }
       ],
     }
+  },
+  created() {
+      window.scrollTo(0,0)
   }
 }
 </script>
@@ -625,8 +748,19 @@ li {
     background-size: 100% 100%;
     height: 80px;
 }
+.diamond, .diamond-head {
+    background: url('../assets/Rectangle Cop876y@2x.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    height: 80px;
+    
+}
 .offer {
     border: 1px solid #ddd;
+}
+.btn-primary {
+    min-width: 100% !important;
+    max-width: 100% !important;
 }
 .border {
     border-left: 1px solid #ddd;
@@ -696,11 +830,11 @@ th {
     font-size: 20px;
     background: transparent;
 }
+.package-size {
+    width: 140px;
+}
 .mobile-view {
     display: none;
-}
-.btn {
-    width: 50px !important;
 }
 @media screen and (max-width: 600px) {
   .image {
@@ -710,7 +844,7 @@ th {
         overflow: auto !important;
     }
 }
-@media screen and (max-width: 960px) {
+@media screen and (max-width: 1200px) {
   .mobile-view {
       display: inline !important;
   }

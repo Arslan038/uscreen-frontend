@@ -275,6 +275,7 @@ export default {
     Breadcrumb
   },
   created(){
+      window.scrollTo(0,0)
       console.log(this.selected_order)  
   },
   

@@ -55,6 +55,9 @@ export default {
   components: {
     Breadcrumb
   },
+  created() {
+    window.scrollTo(0,0)
+  },
   data() {
     return {
       items: [

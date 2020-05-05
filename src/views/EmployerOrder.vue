@@ -149,6 +149,7 @@ export default {
         Breadcrumb
     },
     created(){
+        window.scrollTo(0,0)
         console.log(this.selected_package)
         this.new_order.PackageServiceCode=this.selected_package.PackageServiceCode
         this.new_order.UserKey=this.loggedUser.UserKey

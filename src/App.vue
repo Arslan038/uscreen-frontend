@@ -116,20 +116,21 @@ export default {
   margin-bottom: 70px;
 }
 .text-gray {
-  color: #D0CFCD !important;
+  color: #575757 !important;
+  /* color: #D0CFCD !important; */
 }
 .text-head {
   color: #575757 !important;
 }
 .btn-primary {
-  background: #002F87 !important;
+  background: #0071CE !important;
   border-radius: 25px !important;
-  border: 1px solid #002F87 !important;
+  border: 1px solid #0071CE !important;
 }
 .btn-primary:hover {
   background: #fff !important;
-  color: #002F87 !important;
-  border: 1px solid #002F87 !important;
+  color: #0071CE !important;
+  border: 1px solid #0071CE !important;
 }
 .btn-secondary {
   color: #0071CE !important;

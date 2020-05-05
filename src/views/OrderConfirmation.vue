@@ -221,6 +221,9 @@ export default {
   mounted(){
      this.performa_file=''
   },
+  created() {
+      window.scrollTo(0,0)
+  },
   methods: {
       async bankTransfer(){
           if(this.terms==true){

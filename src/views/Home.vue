@@ -63,6 +63,9 @@ export default {
   components: {
     //HelloWorld
   },
+  created() {
+      window.scrollTo(0,0)
+  },
   methods:{
     routeit(){
       if(this.loggedUser!=null){
