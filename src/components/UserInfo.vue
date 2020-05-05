@@ -20,14 +20,14 @@
                                 <div class="py-4 px-5">
                                     <p><strong class="text-head">Login Information</strong></p>
                                     <div class="row">
-                                        <!-- <div class="col-md-12 col-12 mt-3">
-                                            <input type="password" placeholder="Password*" class="form-control">
-                                        </div> -->
+                                        <div class="col-md-12 col-12 mt-3">
+                                            <input type="password" placeholder="Password" class="form-control">
+                                        </div>
                                         <div class="col-md-12 col-12 mt-3">
                                             <input type="password" v-model="new_employer.Password" placeholder="New Password*" class="form-control">
                                         </div>
                                         <div class="col-md-12 col-12 mt-3">
-                                            <input type="password" v-model="retypedpassword" placeholder="Retype password*" class="form-control">
+                                            <input type="password" v-model="retypedpassword" placeholder="Retype New password*" class="form-control">
                                         </div>
                                     </div>
                                 </div>
