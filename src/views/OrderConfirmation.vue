@@ -212,7 +212,7 @@ export default {
               i=i+val
               })
           })
-          return i 
+          return i.toFixed(2) 
       }
   },
   components: {
@@ -222,6 +222,28 @@ export default {
      this.performa_file=''
   },
   methods: {
+      async bankTransfer(){
+          if(this.terms==true){
+
+           let {data}=await OrderRepository.create_order(this.selected_order)
+            .catch(error => {
+                this.$store.commit('setNotifications',{message:error.response.data.Message,type:'error'})
+            });
+            console.log(data)
+
+            if(data!=null){
+                this.$router.push({name:'OrderBankTransfer',params:{orderkey:data.data.OrderKey}})
+            }
+            else{
+                console.log(data)
+            }
+          }
+        else{
+                this.$store.commit('setNotifications',{message:'Accept terms and conditions',type:'error'})
+
+            }
+
+      },
       async createAndDownload(){
           if(this.terms==true){
 
@@ -229,14 +251,18 @@ export default {
             .catch(error => {
                 this.$store.commit('setNotifications',{message:error.response.data.Message,type:'error'})
             });
+            console.log(data)
+
             if(data!=null){
-                let {data}=await OrderRepository.getOrderPerforma(data.data.OrderKey)
+                let resp=await OrderRepository.getOrderPerforma(data.data.OrderKey)
                 .catch(error => {
                     this.$store.commit('setNotifications',{message:error.response.data.Message,type:'error'})
                 });
-                if(data.code=='MSG_SUCCESS_EXPORTS'){
-                    this.$store.commit('setNotifications',{message:'File Generated succesffuly',type:'success'})
-                    this.performa_file=data.data[0].File    
+                console.log(resp)
+
+                if(resp.data.code=='MSG_SUCCESS_EXPORTS'){
+                    this.$store.commit('setNotifications',{message:'File Generated succesfully',type:'success'})
+                    window.open(resp.data.data[0].File)    
                 }   
                 else{
                      this.$store.commit('setNotifications',{message:'Problems in Creating file',type:'error'})
@@ -295,9 +321,6 @@ export default {
       },
       getCountryById(id){
         return  this.countries.find(item=>item.CountryId==id)
-      },
-      bankTransfer() {
-          this.$router.push({path: '/bank-transfer'})
       },
       payNow() {
           this.payModal = true
