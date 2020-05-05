@@ -35,7 +35,7 @@
                             <div class="col-md-12 col-xl-4 col-12 mt-3">
                                 <p><strong class="text-blue">{{item.PackageServiceItemName}}</strong></p>
                             </div>
-                            <div class="col-md-12 col-xl-6 offset-xl-2 col-12">
+                            <div v-if="b_countryarr[i].countrylimit>0" class="col-md-12 col-xl-6 offset-xl-2 col-12">
                                 <div v-for="(b, j) in b_countryarr[i].b_country" :key="j" class="countries">
                                     <i v-if="j > 0" class="fa fa-trash trash" @click="removeBankCountry(i,j)"></i>
                                     <select class="form-control mt-3" v-model="b_countryarr[i].countries[j]">
@@ -50,6 +50,9 @@
                                         <span class="text-right text-gray ">(Can add Upto {{b_countryarr[i].countrylimit}}) </span>
                                     </div>
                                 </div>
+                            </div>
+                            <div v-else class="mt-2 col-md-12 col-xl-6 offset-xl-2 col-12">
+                               <span>NA</span>
                             </div>
                         </div>
   
