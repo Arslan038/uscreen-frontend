@@ -7,12 +7,11 @@
                         <thead>
                             <tr>
                                 <th>Order no.</th>
-                                <!-- <th>Case ID</th> -->
                                 <th>Item</th>
                                 <th>Amount (USD)</th>
-                                <!-- <th>Candidate Status</th> -->
-                                <th>Order Date</th>
+                                <th>Candidate Status</th>
                                 <th>Order Status</th>
+                                <th>Order Date</th>
                                 <th>Report</th>
                                 <th>Invoice</th>
                                 <th>Order Details</th>
@@ -21,18 +20,14 @@
                         <tbody>
                             <tr v-for="(item,i) in allorders" :key="i" >
                                 <td>{{item.OrderId}}</td>
-                                <!-- <td>98768731</td> -->
                                 <td>{{item.PackageServiceName}}</td>
                                 <td>{{item.TotalAmount}}</td>
+                                <td><button  :class="['btn ','btn-sm btn-block',item.CandidateStatusCode=='Ready'? 'btn-primary':'btn-border']">{{item.CandidateStatusName.split(' ').length>0 ? item.CandidateStatusName.split(' ')[0]:item.CandidateStatusName}}</button></td>
                                 <!-- <td><button class="btn btn-sm btn-border btn-block">in review</button></td> -->
-                                <td>{{item.LastCreated.split('T')[0]}}</td>
                                 <!-- v-if="v-if="getOrderStatus(item.OrderStatusId)=='Paid'"(item.OrderStatusId)=='Paid'" -->
                                 <td ><button  class="btn btn-sm btn-border btn-block">{{getOrderStatus(item.OrderStatusId)}}</button></td>
-                                <!-- <td v-else-if="getOrderStatus(item.OrderStatusId)=='Refund'"><button  class="btn btn-sm btn-block refunded btn-border btn-block">{{getOrderStatus(item.OrderStatusId)}}</button></td>
-                                <td v-else-if="getOrderStatus(item.OrderStatusId)=='Ready'"><button  class="btn btn-sm btn-primary btn-block">{{getOrderStatus(item.OrderStatusId)}}</button></td> -->
-
-                                <td v-if="viewreport[i].isreportshow==false"><button :disabled="getOrderStatus(item.OrderStatusId)=='Refund' || getOrderStatus(item.OrderStatusId)=='Expired' ? true:false " class="btn btn-primary btn-sm btn-block" @click="getViewReport(item.OrderKey,i)">View</button></td>
-                                <!-- <td v-else><a class="btn btn-primary btn-sm btn-block" target="_blank" :href="viewreport[i].reporturl">Click Now</a></td> -->
+                                <td>{{item.LastCreated.split('T')[0]}}</td>
+                                <td v-if="viewreport[i].isreportshow==false"><button :disabled=" (getOrderStatus(item.OrderStatusId)=='Ready' && item.CandidateStatusCode=='READY') ? false:true " class="btn btn-primary btn-sm btn-block" @click="getViewReport(item.OrderKey,i)">View</button></td>
                                 <td v-if="viewreport[i].showinvoice==false"><button class="btn btn-primary btn-sm btn-block" @click="getOrderExportReport(item.OrderKey,i)">Download</button></td>
                                 <td v-else><a class="btn btn-primary btn-sm btn-block"  download :href="viewreport[i].invoiceurl">Download Now</a></td>
 
@@ -152,8 +147,8 @@ export default {
 
 <style scoped>
     .btn {
-        padding: 0px 20px;
-        min-width: 100px;
+        padding: 0px 10px !important;
+        min-width: 130px !important;
     }
     .btn-border {
         border-radius: 25px;
