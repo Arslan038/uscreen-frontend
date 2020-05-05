@@ -101,9 +101,13 @@ const routes = [
     }
   },
   {
-    path: '/bank-transfer',
+    path: '/order-confirmed',
     name: 'OrderBankTransfer',
-    component: OrderBankTransfer
+    component: OrderBankTransfer,
+    props:true,
+    meta: {
+      requiresAuth: true,
+    }
   },
   {
     path: '/about',
