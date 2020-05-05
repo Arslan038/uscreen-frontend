@@ -63,7 +63,7 @@ export default {
             });
             if(data.code=='MSG_SUCCESS_EXPORTS'){
                 this.$store.commit('setNotifications',{message:'File Generated succesffuly',type:'success'})
-                this.performa_file=data.data[0].File    
+                window.open(data.data[0].File)    
             }   
             else{
                 this.$store.commit('setNotifications',{message:'Problems in Creating file',type:'error'})
