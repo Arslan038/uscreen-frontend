@@ -12,6 +12,8 @@
             <!-- Right aligned nav items -->
             <b-navbar-nav class="ml-5">
                 <b-nav-item @click="move('/')">Home</b-nav-item>
+                <b-nav-item v-if="loggedUser==null" @click="move('/employer-packages')">For Employers</b-nav-item>
+                <b-nav-item v-if="loggedUser==null"  @click="move('/individual-packages')">For Individuals</b-nav-item>
                 <b-nav-item v-if="userdetails.UserRoleCode=='EMPLOYER'" @click="move('/employer-packages')">For Employers</b-nav-item>
                 <b-nav-item v-if="userdetails.UserRoleCode=='INDIVIDUAL'"  @click="move('/individual-packages')">For Individuals</b-nav-item>
                 <b-nav-item @click="move('/about')">About Us</b-nav-item>
