@@ -28,7 +28,7 @@ export default {
     return Repository.get(`${package_items_countries}?PackageServiceId=${payload}`)
   },
   getPackageItems(payload) {
-    return Repository.get(`${package_items_resource}?PackageServiceId=${payload}`)
+    return Repository.get(`${package_items_resource}?PackageServiceId=${payload.PackageServiceId}&UserKey=${payload.UserKey}`)
   },
   getorders() {
     return Repository.get(`${order_list_resource}`+'?Page=1&Size=5')
