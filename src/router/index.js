@@ -61,17 +61,11 @@ const routes = [
     path: '/employer-packages',
     name: 'EmployerPackages',
     component: EmployerPackages,
-    meta: {
-      requiresAuth: true,
-    }
   },
   {
     path: '/individual-packages',
     name: 'IndividualPackages',
     component: IndividualPackages,
-    meta: {
-      requiresAuth: true,
-    }
   },
   {
     path: '/individual-order',
