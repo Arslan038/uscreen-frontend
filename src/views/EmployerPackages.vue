@@ -219,9 +219,6 @@
                                     <div class="card package-item">
                                         <div class="card-body">
                                             <div class="gold-head package"><h4><strong>Gold</strong></h4></div>
-                                            <div class="offer text-center py-3">
-
-                                            </div>
                                             <div class="offer text-center py-3 px-3">
                                                 <router-link :to="loggedUser!=null ? {name:'EmployerOrder',params:{selected_package:getPackage('Gold')}}:{path:'/login'}">
                                                 <button class="btn btn-primary mt-3">Order Now</button>
