@@ -19,7 +19,7 @@
                                 <h4 class=""><strong class="text-head">Order Information</strong></h4>
                             </div>
                             <div class="col-6 col-xl-4 col-lg-6 col-md-6 text-right">
-                                <button class="btn btn-secondary">Need help?</button>
+                                <!-- <button class="btn btn-secondary">Need help?</button> -->
                             </div>
                         </div>
                         <hr>
@@ -78,7 +78,7 @@
                                     <input required type="email" class="form-control" v-model="new_order.Email" placeholder="Email (UserID)*" >
                                 </div>
                                 <div class="col-md-12 col-lg-12 col-xl-2 col-12 mt-3">
-                                    <input required class="form-control" v-model="new_order.MobileCode" placeholder="09" >
+                                    <input required class="form-control" v-model="new_order.MobileCode" placeholder="" >
                                     
                                 </div>
                                 <div class="col-xl-4 mobile col-12 mt-3">

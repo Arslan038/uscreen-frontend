@@ -19,7 +19,7 @@
                                 <h4 class=""><strong class="text-head">Order Information</strong></h4>
                             </div>
                             <div class="col-4 text-right">
-                                <button class="btn btn-secondary">Need help?</button>
+                                <!-- <button class="btn btn-secondary">Need help?</button> -->
                             </div>
                         </div>
                         <hr>
