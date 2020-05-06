@@ -39,7 +39,7 @@
                                 <div v-for="(b, j) in b_countryarr[i].b_country" :key="j" class="countries">
                                     <i v-if="j > 0" class="fa fa-trash trash" @click="removeBankCountry(i,j)"></i>
                                     <select class="form-control mt-3" v-model="b_countryarr[i].countries[j]">
-                                        <option v-for="(cn_item,j) in countryitems[i].Pricing" :key="j" :value="cn_item.CountryCode">{{cn_item.CountryName}}</option>
+                                        <option v-for="(cn_item,k) in countryitems[i].Pricing" :key="k" :value="cn_item.CountryCode">{{cn_item.CountryName}}</option>
                                     </select>
                                 </div>
                                 <div class="row mt-2">
@@ -52,8 +52,8 @@
                                 </div>
                             </div>
                             <div v-else class="mt-2 col-md-12 col-xl-6 offset-xl-2 col-12">
-                               <select disabled  class="form-control mt-3" v-model="b_countryarr[i].countries[j]">
-                                        <option v-for="(cn_item,j) in countryitems[i].Pricing" :key="j" :value="cn_item.CountryCode">{{cn_item.CountryName}}</option>
+                               <select disabled  class="form-control mt-3" >
+                                        <option ></option>
                             </select>   
                             </div>
                         </div>
@@ -157,7 +157,6 @@ export default {
         this.new_order.UserKey=this.loggedUser.UserKey
 
         this.getPackageItems()
-        this.getPackageCountry()
 
     },
     data() {
@@ -206,7 +205,6 @@ export default {
             let extras=[]
             this.b_countryarr.forEach((item,i)=>{
                 if(item.countries.length>0){
-                
                 item.countries.forEach(opds=>{   
                  amounts.push(this.countryitems[i].Pricing.find(cunts=>cunts.CountryCode==opds).Amount)
                 })
@@ -231,13 +229,10 @@ export default {
         async getPackageItems(){
             let {data}=await OrderRepository.getPackageItems({PackageServiceId:this.selected_package.PackageServiceId,UserKey:this.loggedUser.UserKey})
             this.packageitems=data.data
+            this.countryitems=data.data
             this.packageitems.forEach(item=>{
             this.b_countryarr.push({countrylimit:item.countrylimit,name:item.PackageServiceItemName,type:item.ComponentType,b_country:1,countries:[],show:true})
             })
-        },
-        async getPackageCountry(){
-            let {data}=await OrderRepository.getPackageItemCountries(this.selected_package.PackageServiceId)
-            this.countryitems=data.data
         },
         
         addBankruptcyCountry(arrindex) {

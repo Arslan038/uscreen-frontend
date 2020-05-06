@@ -2,7 +2,7 @@ import Repository from './Repository';
 const order_update_resource = 'order/update';
 const order_list_resource = 'order/list';
 const package_resource = 'package';
-const package_items_resource = 'package/item';
+const package_items_resource = 'package/item/pricing';
 const package_items_countries = 'package/item/pricing';
 const new_order = 'order/create';
 const order_charge = 'payment/charge';
