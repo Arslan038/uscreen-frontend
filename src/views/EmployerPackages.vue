@@ -54,7 +54,7 @@
                                             
                                             </div> -->
                                             <div class="offer text-center py-3 px-3">
-                                                <router-link :to="loggedUser!=null ? {name:'IndividualOrder',params:{selected_package:getPackage('Criminal Only')}}:{path:'/login'}">
+                                                <router-link :to="loggedUser!=null ? {name:'EmployerOrder',params:{selected_package:getPackage('Criminal Only')}}:{path:'/login'}">
                                                 <button class="btn btn-primary mt-3">Order Now</button>
                                                 </router-link>
                                             </div>
@@ -109,7 +109,7 @@
                                             <!-- <div class="offer text-center py-3">
                                             </div> -->
                                             <div class="offer text-center py-3 px-3">
-                                                <router-link :to="loggedUser!=null ? {name:'IndividualOrder',params:{selected_package:getPackage('Bronze')}}:{path:'/login'}">                                   
+                                                <router-link :to="loggedUser!=null ? {name:'EmployerOrder',params:{selected_package:getPackage('Bronze')}}:{path:'/login'}">                                   
                                                 <button class="btn btn-primary mt-3">Order Now</button>
                                                 </router-link>
                                             </div>
@@ -166,7 +166,7 @@
                                                 <p><strong>Flat Rate</strong></p>
                                             </div> -->
                                             <div class="offer text-center py-3 px-3">
-                                                <router-link :to="loggedUser!=null ? {name:'IndividualOrder',params:{selected_package:getPackage('Silver')}}:{path:'/login'}">
+                                                <router-link :to="loggedUser!=null ? {name:'EmployerOrder',params:{selected_package:getPackage('Silver')}}:{path:'/login'}">
                                                 <button class="btn btn-primary mt-3">Order Now</button>
                                                 </router-link>
                                             </div>
@@ -223,7 +223,7 @@
 
                                             </div>
                                             <div class="offer text-center py-3 px-3">
-                                                <router-link :to="loggedUser!=null ? {name:'IndividualOrder',params:{selected_package:getPackage('Gold')}}:{path:'/login'}">
+                                                <router-link :to="loggedUser!=null ? {name:'EmployerOrder',params:{selected_package:getPackage('Gold')}}:{path:'/login'}">
                                                 <button class="btn btn-primary mt-3">Order Now</button>
                                                 </router-link>
                                             </div>
@@ -280,7 +280,7 @@
                                                 <p><strong>Flat Rate</strong></p>
                                             </div> -->
                                             <div class="offer text-center py-3 px-3">
-                                                <router-link :to="loggedUser!=null ? {name:'IndividualOrder',params:{selected_package:getPackage('Platinum')}}:{path:'/login'}">
+                                                <router-link :to="loggedUser!=null ? {name:'EmployerOrder',params:{selected_package:getPackage('Platinum')}}:{path:'/login'}">
                                                 <button class="btn btn-primary mt-3">Order Now</button>
                                                 </router-link>
                                             </div>
@@ -338,7 +338,7 @@
                                                 <p><strong>Flat Rate</strong></p>
                                             </div> -->
                                             <div class="offer text-center py-3 px-3">
-                                                <router-link :to="loggedUser!=null ? {name:'IndividualOrder',params:{selected_package:getPackage('Diamond')}}:{path:'/login'}">
+                                                <router-link :to="loggedUser!=null ? {name:'EmployerOrder',params:{selected_package:getPackage('Diamond')}}:{path:'/login'}">
                                                 <button class="btn btn-primary mt-3">Order Now</button>
                                                 </router-link>
                                             </div>
@@ -398,7 +398,7 @@
                 </div>
                 <div class="offer text-center py-3 px-3">
                     <!-- <span>Lorem ipsum, or lorem ipsum as it is.</span> -->
-                    <router-link :to="loggedUser!=null ? {name:'IndividualOrder',params:{selected_package:getPackage('Criminal Only')}}:{path:'/login'}">
+                    <router-link :to="loggedUser!=null ? {name:'EmployerOrder',params:{selected_package:getPackage('Criminal Only')}}:{path:'/login'}">
                     <button class="btn btn-primary mt-3">Order Now</button>
                     </router-link>
                 </div>
@@ -409,7 +409,7 @@
                 </div>
                 <div class="offer text-center py-3 px-3">
                     <!-- <span>Lorem ipsum, or lorem ipsum as it is.</span> -->
-                    <router-link :to="loggedUser!=null ? {name:'IndividualOrder',params:{selected_package:getPackage('Bronze')}}:{path:'/login'}">
+                    <router-link :to="loggedUser!=null ? {name:'EmployerOrder',params:{selected_package:getPackage('Bronze')}}:{path:'/login'}">
                     <button class="btn btn-primary mt-3">Order Now</button>
                     </router-link>
                 </div>
@@ -420,7 +420,7 @@
                 </div>
                 <div class="offer text-center py-3 px-3">
                     <!-- <span>Lorem ipsum, or lorem ipsum as it is.</span> -->
-                    <router-link :to="loggedUser!=null ? {name:'IndividualOrder',params:{selected_package:getPackage('Silver')}}:{path:'/login'}">
+                    <router-link :to="loggedUser!=null ? {name:'EmployerOrder',params:{selected_package:getPackage('Silver')}}:{path:'/login'}">
                     <button class="btn btn-primary mt-3">Order Now</button>
                     </router-link>
                 </div>
@@ -431,7 +431,7 @@
                 </div>
                 <div class="offer text-center py-3 px-3">
                     <!-- <span>Lorem ipsum, or lorem ipsum as it is.</span> -->
-                    <router-link :to="loggedUser!=null ? {name:'IndividualOrder',params:{selected_package:getPackage('Gold')}}:{path:'/login'}">
+                    <router-link :to="loggedUser!=null ? {name:'EmployerOrder',params:{selected_package:getPackage('Gold')}}:{path:'/login'}">
                     <button class="btn btn-primary mt-3">Order Now</button>
                     </router-link>
                 </div>
@@ -441,7 +441,7 @@
                     <p> <strong>Platinum</strong></p>
                 </div>
                 <div class="offer text-center py-3 px-3">
-                    <router-link :to="loggedUser!=null ? {name:'IndividualOrder',params:{selected_package:getPackage('Platinum')}}:{path:'/login'}">
+                    <router-link :to="loggedUser!=null ? {name:'EmployerOrder',params:{selected_package:getPackage('Platinum')}}:{path:'/login'}">
                     <button class="btn btn-primary mt-3">Order Now</button>
                     </router-link>
                 </div>
@@ -452,7 +452,7 @@
                 </div>
                 <div class="offer text-center py-3 px-3">
                     <!-- <span>Lorem ipsum, or lorem ipsum as it is.</span> -->
-                    <router-link :to="loggedUser!=null ? {name:'IndividualOrder',params:{selected_package:getPackage('Diamond')}}:{path:'/login'}">
+                    <router-link :to="loggedUser!=null ? {name:'EmployerOrder',params:{selected_package:getPackage('Diamond')}}:{path:'/login'}">
                     <button class="btn btn-primary mt-3">Order Now</button>
                     </router-link>
                 </div>
