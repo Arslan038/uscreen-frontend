@@ -8,7 +8,7 @@
                             <tr>
                                 <th>Order no.</th>
                                 <th>Item</th>
-                                <th>Amount (USD)</th>
+                                <th>Amount ({{userdetails.CurrencyCode}})</th>
                                 <th>Candidate Status</th>
                                 <th>Order Status</th>
                                 <th>Order Date</th>
@@ -51,7 +51,7 @@ const OrderRepository = RepositoryFactory.get('order_repository')
 export default {
     name: "OrderAndTransactions",
     computed:{
-        ...mapGetters(['allorders'])
+        ...mapGetters(['allorders','userdetails'])
     },
     watch:{
         allorders(){
