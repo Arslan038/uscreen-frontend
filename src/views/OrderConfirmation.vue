@@ -87,7 +87,7 @@
                                     <p v-for="(cunt,j) in item.Countries" :key="j" class="text-gray">{{getCountryByCode(cunt).CountryName}}</p>
                                 </div>
                                 <div class="col-md-3 col-3 text-right">
-                                    <p class="text-blue" v-for="(it,l) in extras[i].amounts" :key="l"><strong>{{it}}</strong></p>
+                                    <p class="text-blue" v-for="(it,l) in extras[i].amounts" :key="l"><strong>{{it.toFixed(2) }}</strong></p>
                                 </div>
                             </div>
                       
