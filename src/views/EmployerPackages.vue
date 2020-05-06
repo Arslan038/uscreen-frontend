@@ -84,9 +84,6 @@
                                                     <i class="fa fa-times-circle text-danger mark"></i> Passport Check
                                                 </div>
                                                 <div class="mt-3">
-                                                    <i class="fa fa-times-circle text-danger mark"></i> Global Media Check
-                                                </div>
-                                                <div class="mt-3">
                                                     <i class="fa fa-times-circle text-danger mark"></i> Education Check
                                                 </div>
                                                 <div class="mt-3">
@@ -137,9 +134,6 @@
                                                 </div>
                                                 <div class="mt-3">
                                                     <i class="fa fa-times-circle text-danger mark"></i> Passport Check
-                                                </div>
-                                                <div class="mt-3">
-                                                    <i class="fa fa-times-circle text-danger mark"></i> Global Media Check
                                                 </div>
                                                 <div class="mt-3">
                                                     <i class="fa fa-times-circle text-danger mark"></i> Education Check
@@ -196,9 +190,6 @@
                                                     <i class="fa fa-check-circle text-blue mark"></i> Passport Check
                                                 </div>
                                                 <div class="mt-3">
-                                                    <i class="fa fa-check-circle text-blue mark"></i> Global Media Check
-                                                </div>
-                                                <div class="mt-3">
                                                     <i class="fa fa-times-circle text-danger mark"></i> Education Check
                                                 </div>
                                                 <div class="mt-3">
@@ -248,9 +239,6 @@
                                                 </div>
                                                 <div class="mt-3">
                                                     <i class="fa fa-check-circle text-blue mark"></i> Passport Check
-                                                </div>
-                                                <div class="mt-3">
-                                                    <i class="fa fa-check-circle text-blue mark"></i> Global Media Check
                                                 </div>
                                                 <div class="mt-3">
                                                     <i class="fa fa-check-circle text-blue mark"></i> Employment Check
@@ -307,9 +295,6 @@
                                                     <i class="fa fa-check-circle text-blue mark"></i> Passport Check
                                                 </div>
                                                 <div class="mt-3">
-                                                    <i class="fa fa-check-circle text-blue mark"></i> Global Media Check
-                                                </div>
-                                                <div class="mt-3">
                                                     <i class="fa fa-check-circle text-blue mark"></i> Education Check
                                                 </div>
                                                 <div class="mt-3">
@@ -363,9 +348,6 @@
                                                 </div>
                                                 <div class="mt-3">
                                                     <i class="fa fa-check-circle text-blue mark"></i> Passport Check
-                                                </div>
-                                                <div class="mt-3">
-                                                    <i class="fa fa-check-circle text-blue mark"></i> Global Media Check
                                                 </div>
                                                 <div class="mt-3">
                                                     <i class="fa fa-check-circle text-blue mark"></i> Education Check
@@ -469,7 +451,7 @@
             <div class="package-size border text-center py-3"></div>
             <div class="package-size border text-center py-3"></div>
             <div class="package-size border text-center py-3"><img src="../assets/Group 11 Copy 24@2x.png" width="20" alt=""></div>
-            <div class="package-size border text-center py-3"><img src="../assets/Group 11 Copy 24@2x.png" width="20" alt=""></div>
+            <div class="package-size border text-center py-3"></div>
             <div class="package-size border text-center py-3"><img src="../assets/Group 11 Copy 24@2x.png" width="20" alt=""></div>
             <div class="package-size border text-center py-3"><img src="../assets/Group 11 Copy 24@2x.png" width="20" alt=""></div>
         </div>
@@ -478,7 +460,7 @@
             <div class="package-size border text-center py-3"></div>
             <div class="package-size border text-center py-3"></div>
             <div class="package-size border text-center py-3"><img src="../assets/Group 11 Copy 24@2x.png" width="20" alt=""></div>
-            <div class="package-size border text-center py-3"><img src="../assets/Group 11 Copy 24@2x.png" width="20" alt=""></div>
+            <div class="package-size border text-center py-3"></div>
             <div class="package-size border text-center py-3"><img src="../assets/Group 11 Copy 24@2x.png" width="20" alt=""></div>
             <div class="package-size border text-center py-3"><img src="../assets/Group 11 Copy 24@2x.png" width="20" alt=""></div>
         </div>
@@ -537,20 +519,11 @@
             <div class="package-size border text-center py-3"><img src="../assets/Group 11 Copy 24@2x.png" width="20" alt=""></div>
         </div>
         <div class="row no-gutters">
-            <div class="col-md-2 col-2 text-center package-text py-3">Global Media</div>
-            <div class="package-size border text-center py-3"></div>
-            <div class="package-size border text-center py-3"><img src="../assets/Group 11 Copy 24@2x.png" width="20" alt=""></div>
-            <div class="package-size border text-center py-3"><img src="../assets/Group 11 Copy 24@2x.png" width="20" alt=""></div>
-            <div class="package-size border text-center py-3"><img src="../assets/Group 11 Copy 24@2x.png" width="20" alt=""></div>
-            <div class="package-size border text-center py-3"><img src="../assets/Group 11 Copy 24@2x.png" width="20" alt=""></div>
-            <div class="package-size border text-center py-3"><img src="../assets/Group 11 Copy 24@2x.png" width="20" alt=""></div>
-        </div>
-        <div class="row no-gutters">
             <div class="col-md-2 col-2 text-center package-text py-3">Education Check</div>
             <div class="package-size border text-center py-3"></div>
             <div class="package-size border text-center py-3"></div>
             <div class="package-size border text-center py-3"></div>
-            <div class="package-size border text-center py-3"></div>
+            <div class="package-size border text-center py-3"><img src="../assets/Group 11 Copy 24@2x.png" width="20" alt=""></div>
             <div class="package-size border text-center py-3"><img src="../assets/Group 11 Copy 24@2x.png" width="20" alt=""></div>
             <div class="package-size border text-center py-3"><img src="../assets/Group 11 Copy 24@2x.png" width="20" alt=""></div>
         </div>
