@@ -72,7 +72,7 @@
                                     <textarea class="form-control" required v-model="new_user.UserAddress.AddressName" rows="5" style="resize:none" placeholder="Address"></textarea>
                                     <div class="row mt-3">
                                         <div class="col-md-6 col-12 mt-3">
-                                            <select class="form-control"  required v-model="new_user.UserAddress.CountryId">
+                                            <select class="form-control"  required v-model="new_user.UserAddress.CountryId" @change="handleBusinessCountry">
                                                 <option v-for="(item,i) in countries" :key="i" :value="item.CountryId">{{item.CountryName}}</option>
                                             </select>
                                         </div>
@@ -191,8 +191,8 @@ export default {
     },
       
     async fetchCountries(){
-          this.new_user.UserAddress.CountryId=this.countries[0].CountryId
-          this.fetchBusinessProvinceByCountry(this.new_user.UserAddress.CountryId)
+        //   this.new_user.UserAddress.CountryId=this.countries[0].CountryId
+        //   this.fetchBusinessProvinceByCountry(this.new_user.UserAddress.CountryId)
 
     },
     async fetchBusinessProvinceByCountry(id){
@@ -231,7 +231,7 @@ export default {
       },
       countries(){
         if(this.countries.length>0){
-          this.fetchCountries()
+        //   this.fetchCountries()
 
           }
       },
@@ -243,7 +243,7 @@ export default {
       }
   },
    mounted(){
-      this.fetchCountries()
+    //   this.fetchCountries()
       this.fetchCurrency()
       this.fetchIndustry()
 
