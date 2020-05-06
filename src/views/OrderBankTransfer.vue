@@ -26,7 +26,7 @@ import { RepositoryFactory } from '../Repository/RepositoryFactory'
 const OrderRepository = RepositoryFactory.get('order_repository')
 export default {
     name: "OrderBankTransfer",
-    props:['orderkey'],
+    props:['orderkey','proforma'],
     components: {
         Breadcrumb
     },
@@ -72,6 +72,9 @@ export default {
     },
     created() {
       window.scrollTo(0,0)
+      if(this.proforma==true){
+          this.createAndDownload()
+      }
   }
 }
 </script>

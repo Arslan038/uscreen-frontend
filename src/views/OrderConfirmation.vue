@@ -257,19 +257,21 @@ export default {
             console.log(data)
 
             if(data!=null){
-                let resp=await OrderRepository.getOrderPerforma(data.data.OrderKey)
-                .catch(error => {
-                    this.$store.commit('setNotifications',{message:error.response.data.Message,type:'error'})
-                });
-                console.log(resp)
+                this.$router.push({name:'OrderBankTransfer',params:{proforma:true,orderkey:data.data.OrderKey}})
 
-                if(resp.data.code=='MSG_SUCCESS_EXPORTS'){
-                    this.$store.commit('setNotifications',{message:'File Generated succesfully',type:'success'})
-                    window.open(resp.data.data[0].File)    
-                }   
-                else{
-                     this.$store.commit('setNotifications',{message:'Problems in Creating file',type:'error'})
-                }
+                // let resp=await OrderRepository.getOrderPerforma(data.data.OrderKey)
+                // .catch(error => {
+                //     this.$store.commit('setNotifications',{message:error.response.data.Message,type:'error'})
+                // });
+                // console.log(resp)
+
+                // if(resp.data.code=='MSG_SUCCESS_EXPORTS'){
+                //     this.$store.commit('setNotifications',{message:'File Generated succesfully',type:'success'})
+                //     window.open(resp.data.data[0].File)    
+                // }   
+                // else{
+                //      this.$store.commit('setNotifications',{message:'Problems in Creating file',type:'error'})
+                // }
 
             }
             else{
@@ -283,7 +285,6 @@ export default {
 
       },
       async createPayment(){
-          if(this.terms==true){
           this.isLoad=true
            let {data}=await OrderRepository.create_order(this.selected_order)
             .catch(error => {
@@ -313,11 +314,7 @@ export default {
             else{
                 console.log(data)
             }
-          }
-          else{
-                    this.$store.commit('setNotifications',{message:'Accept terms and conditions',type:'error'})
-
-          }
+             
       },
       getCountryByCode(id){
         return  this.countries.find(item=>item.CountryCode==id)
@@ -326,7 +323,14 @@ export default {
         return  this.countries.find(item=>item.CountryId==id)
       },
       payNow() {
-          this.payModal = true
+          if(this.terms==true){
+                this.payModal = true
+          }
+          else{
+                this.$store.commit('setNotifications',{message:'Accept terms and conditions',type:'error'})
+
+          }
+
          
         
       },
