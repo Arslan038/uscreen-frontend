@@ -6,7 +6,7 @@
                     <table class="table">
                         <thead>
                             <tr>
-                                <th>Order no.</th>
+                                <th>Order No.</th>
                                 <th>Item</th>
                                 <th>Amount ({{userdetails.CurrencyCode}})</th>
                                 <th>Candidate Status</th>
