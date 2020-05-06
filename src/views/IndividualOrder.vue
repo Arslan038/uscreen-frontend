@@ -52,7 +52,9 @@
                                 </div>
                             </div>
                             <div v-else class="mt-2 col-md-12 col-xl-6 offset-xl-2 col-12">
-                               <span>NA</span>
+                               <select disabled class="form-control mt-3" v-model="b_countryarr[i].countries[j]">
+                                        <option v-for="(cn_item,j) in countryitems[i].Pricing" :key="j" :value="cn_item.CountryCode">{{cn_item.CountryName}}</option>
+                                </select>
                             </div>
                         </div>
                     </div>
@@ -236,13 +238,18 @@ export default {
         },
         
         addBankruptcyCountry(arrindex) {
-            // console.log(arrindex)
-            this.b_countryarr[arrindex].b_country++
-            // console.log(bcountryval)
-            // this.b_country++
-            if(this.b_countryarr[arrindex].b_country == this.b_countryarr[arrindex].countrylimit) {
-                // this.bankruptcy.show = false
+            if(this.b_countryarr[arrindex].b_country > this.b_countryarr[arrindex].countrylimit) {
                 this.b_countryarr[arrindex].show = false
+
+            }
+            console.log(this.b_countryarr[arrindex].b_country)
+            
+            if(this.b_countryarr[arrindex].b_country == this.b_countryarr[arrindex].countrylimit) {
+                this.b_countryarr[arrindex].show = false
+
+            }
+            else{
+                this.b_countryarr[arrindex].b_country++
 
             }
         },
