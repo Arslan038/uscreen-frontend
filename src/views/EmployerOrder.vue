@@ -44,7 +44,7 @@
                                 </div>
                                 <div class="row mt-2">
                                     <div class="col-6">
-                                        <button v-if="b_countryarr[i].show" class="btn btn-primary" @click="addBankruptcyCountry(i)">Add Country</button>
+                                        <button v-if="b_countryarr[i].show && b_countryarr[i].b_country != b_countryarr[i].countrylimit" class="btn btn-primary" @click="addBankruptcyCountry(i)">Add Country</button>
                                     </div>
                                     <div class="col-6 pr-0 text-right">
                                         <span class="text-right text-gray ">(Can add Upto {{b_countryarr[i].countrylimit}}) </span>
