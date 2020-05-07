@@ -31,7 +31,8 @@ export default {
     return Repository.get(`${package_items_resource}?PackageServiceId=${payload.PackageServiceId}&UserKey=${payload.UserKey}`)
   },
   getorders() {
-    return Repository.get(`${order_list_resource}`+'?Page=1&Size=5')
+    // +'?Page=1&Size=5'
+    return Repository.get(`${order_list_resource}`)
   },
   order_charge(payload) {
     return Repository.post(`${order_charge}`,payload);
