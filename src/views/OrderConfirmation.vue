@@ -229,7 +229,22 @@ export default {
      this.performa_file=''
   },
   created() {
-      window.scrollTo(0,0)
+    window.scrollTo(0,0)
+    window.onbeforeunload = function() {
+        return "Data will be lost if you leave the page, are you sure?";
+    };
+      if(this.selected_order==null){
+           
+            if(JSON.parse(localStorage.getItem("userdetails"))!=null){
+                if(JSON.parse(localStorage.getItem("userdetails")).UserRoleCode=='INDIVIDUAL'){
+                    this.$router.push({path:'/individual-packages'})
+                }
+                else{
+                    this.$router.push({path:'/employer-packages'})
+
+                }
+            }
+      }
   },
   methods: {
       async bankTransfer(){

@@ -54,8 +54,13 @@ export default {
       // console.log(this.au)
     if(this.loggedUser!=null){
         this.fetchOrders()
-
-        this.$router.push({path:'/'})
+        if(localStorage.getItem("inside")==null){
+            localStorage.setItem("inside","yes")
+            this.$router.push({path:'/'})
+        }
+        else{
+          console.log("redirect to same page")
+        }
       
     }
     else{

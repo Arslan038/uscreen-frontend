@@ -130,7 +130,21 @@ export default {
     },
     created(){
         window.scrollTo(0,0)
-        console.log(this.selected_package)
+        window.onbeforeunload = function() {
+            return "Data will be lost if you leave the page, are you sure?";
+        };
+        if(this.selected_package==null){
+            
+                if(JSON.parse(localStorage.getItem("userdetails"))!=null){
+                    if(JSON.parse(localStorage.getItem("userdetails")).UserRoleCode=='INDIVIDUAL'){
+                        this.$router.push({path:'/individual-packages'})
+                    }
+                    else{
+                        this.$router.push({path:'/employer-packages'})
+
+                    }
+                }
+        }
         this.new_order.PackageServiceCode=this.selected_package.PackageServiceCode
         this.new_order.UserKey=this.loggedUser.UserKey
 
