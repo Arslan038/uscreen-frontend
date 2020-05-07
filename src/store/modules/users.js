@@ -44,12 +44,16 @@ const mutations = {
     },
     setUserDetails:(state,payload) =>{
         state.userdetails=payload
+        localStorage.setItem("userdetails",JSON.stringify(payload))
+
     },
     logout(state,payload){
         state.loggedUser=null;
         state.userdetails={}
         localStorage.removeItem('uscreen-token')
         localStorage.removeItem('loggedUser')
+        localStorage.removeItem('inside')
+        localStorage.removeItem('userdetails')
 
     }
     
