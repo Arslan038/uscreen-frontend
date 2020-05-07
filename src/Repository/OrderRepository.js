@@ -8,12 +8,14 @@ const new_order = 'order/create';
 const order_charge = 'payment/charge';
 const download_performa = 'export';
 const download_report = 'report';
-const order_export_report = 'order/export';
-
+// const order_export_report = 'order/export';
+const order_checkout = 'order/checkout';
 
 
 export default {
- 
+  getOrderRealPriceing(payload){
+    return Repository.post(`${order_checkout}`,payload)
+  },
   getOrderReport(payload){
     return Repository.post(`${download_report}`,payload)
   },
