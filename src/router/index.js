@@ -3,6 +3,8 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Login from '../views/Login.vue'
 import ForgetPassword from '../views/ForgetPassword.vue'
+import ResetPassword from '../views/ResetPassword.vue'
+
 
 import Signup from '../views/Signup.vue'
 import IndividualSignup from '../views/IndividualSignup.vue'
@@ -132,6 +134,11 @@ const routes = [
     component: FAQ
   },
   
+  {
+    path:'/reset-password/:id',
+    name: 'ResetPassword',
+    component: ResetPassword
+  },
   {
     path: '/forget-password',
     name: 'ForgetPassword',

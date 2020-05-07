@@ -12,7 +12,8 @@ const city_resource = 'geo/city';
 const package_resource = 'api/package';
 
 const update_user_res = 'user/update';
-const user_forget_res = 'user/forgot';
+const user_forget_res = 'user/forgot/request';
+const user_verify_resource = 'user/password/verify';
 const help_resource = 'contact';
 
 
@@ -20,9 +21,11 @@ const help_resource = 'contact';
 
 
 export default {
+  verify_reset_passs(payload){
+    return Repository.post(`${user_verify_resource}`, payload)
+  },  
   forget_password(payload){
     return Repository.post(`${user_forget_res}`, payload)
-
   },  
   getPackage(){
     return Repository.get(`${package_resource}`)
