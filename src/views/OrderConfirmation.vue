@@ -79,26 +79,24 @@
                                 </div>
                             </div>
 
-                            <div v-for="(item,i) in selected_order.PackageServiceItems" :key="i" class="row mt-3">
-                                <div class="col-md-6 col-6">
-                                    <p><strong class="text-blue">{{extras[i].PackageServiceItemName}}</strong></p>
+                            <div v-for="(item,i) in PackageServiceItems" :key="i" class="row mt-3">
+                                 <div class="col-md-6 col-6">
+                                    <p><strong class="text-blue">{{item.PackageServiceItemName}}</strong></p>
                                 </div>
-                                <div  class="col-md-3 col-3">
-                                    <p v-for="(cunt,j) in item.Countries" :key="j" class="text-gray">{{getCountryByCode(cunt).CountryName}}</p>
+                                 <div  class="col-md-3 col-3">
+                                    <p  class="text-gray">{{getCountryById(item.CountryId).CountryName}}</p>
                                 </div>
                                 <div class="col-md-3 col-3 text-right">
-                                    <p class="text-blue" v-for="(it,l) in extras[i].amounts" :key="l"><strong>{{it.toFixed(2) }}</strong></p>
-                                </div>
+                                    <p class="text-blue" ><strong>{{item.Amount.toFixed(2) }}</strong></p>
+                                </div> 
                             </div>
                       
                             <div class="row mt-4">
                                 <div class="col-md-6 col-6">
                                     <h4><strong class="text-head">Total:</strong></h4>
                                 </div>
-                                <div class="col-md-3 col-3">
-                                </div>
-                                <div class="col-md-3 col-3 text-right">
-                                    <h4 class="text-head"><strong>{{total}}</strong></h4>
+                                <div class="col-md-6 col-3 text-right">
+                                    <h4 class="text-head"><strong>{{temp.CurrencyCode}} {{total.toFixed(2)}}</strong></h4>
                                 </div>
                             </div>
 
@@ -172,7 +170,7 @@
         </div>
 
         <b-modal v-model="payModal" title="Pay Online" :hideFooter="true">
-            <h4 class="text-blue  mb-3 text-center">Pay ${{total}} via Credit Card</h4>
+            <h4 class="text-blue  mb-3 text-center">Pay {{total.toFixed(2)}} {{userdetails.CurrencyCode}}  via Credit Card</h4>
             <b-row>
                 <b-input v-model="paymentobj.number" placeholder=" Card Number"></b-input>
             </b-row>
@@ -208,19 +206,11 @@ import Breadcrumb from '@/components/Breadcrumb.vue'
 import {mapGetters} from 'vuex'
 export default {
   name: "OrderConfirmation",
-  props:['selected_order','extras'],
+  props:['selected_order'],
   
   computed:{
       ...mapGetters(['countries','userdetails']),
-      total() {
-          let i=0
-          this.extras.forEach(item=>{
-              item.amounts.forEach(val=>{
-              i=i+val
-              })
-          })
-          return i.toFixed(2) 
-      }
+   
   },
   components: {
     Breadcrumb
@@ -229,6 +219,7 @@ export default {
      this.performa_file=''
   },
   created() {
+ 
     window.scrollTo(0,0)
     window.onbeforeunload = function() {
         return "Data will be lost if you leave the page, are you sure?";
@@ -238,15 +229,34 @@ export default {
             if(JSON.parse(localStorage.getItem("userdetails"))!=null){
                 if(JSON.parse(localStorage.getItem("userdetails")).UserRoleCode=='INDIVIDUAL'){
                     this.$router.push({path:'/individual-packages'})
+                    console.log("yeh")
                 }
                 else{
                     this.$router.push({path:'/employer-packages'})
+                    console.log("deh")
 
                 }
             }
       }
+         this.realprice={
+        PackageServiceCode: this.selected_order.PackageServiceCode,
+        PackageServiceItems : this.selected_order.PackageServiceItems,
+        UserKey: this.userdetails.UserKey
+
+    }
+    this.getRealPrice()
+
+    console.log(this.selected_order)
   },
   methods: {
+      async getRealPrice(){
+        let {data} = await OrderRepository.getOrderRealPriceing(this.realprice)
+        console.log(data)
+        this.temp=data.data
+        this.total=data.data.Amount
+        this.PackageServiceItems=data.data.PackageServiceItems
+
+      },
       async bankTransfer(){
           if(this.terms==true){
 
@@ -280,21 +290,6 @@ export default {
 
             if(data!=null){
                 this.$router.push({name:'OrderBankTransfer',params:{proforma:true,orderkey:data.data.OrderKey}})
-
-                // let resp=await OrderRepository.getOrderPerforma(data.data.OrderKey)
-                // .catch(error => {
-                //     this.$store.commit('setNotifications',{message:error.response.data.Message,type:'error'})
-                // });
-                // console.log(resp)
-
-                // if(resp.data.code=='MSG_SUCCESS_EXPORTS'){
-                //     this.$store.commit('setNotifications',{message:'File Generated succesfully',type:'success'})
-                //     window.open(resp.data.data[0].File)    
-                // }   
-                // else{
-                //      this.$store.commit('setNotifications',{message:'Problems in Creating file',type:'error'})
-                // }
-
             }
             else{
                 console.log(data)
@@ -315,6 +310,7 @@ export default {
             if(data!=null){
 
                 this.paymentobj.OrderKey=data.data.OrderKey
+
                 
                 let resp=await OrderRepository.order_charge(this.paymentobj)
                 .catch(error => {
@@ -346,7 +342,14 @@ export default {
       },
       payNow() {
           if(this.terms==true){
-                this.payModal = true
+              
+                if(this.total==0){
+                    this.createAndDownload()
+                }
+                else{
+                    this.payModal = true
+                    
+                }
           }
           else{
                 this.$store.commit('setNotifications',{message:'Accept terms and conditions',type:'error'})
@@ -382,6 +385,10 @@ export default {
   },
   data() {
     return {
+        temp:{},
+        PackageServiceItems:[],
+        total:0,
+        realprice:{},
         terms:false,
         performa_file:'',
         isLoad:false,
