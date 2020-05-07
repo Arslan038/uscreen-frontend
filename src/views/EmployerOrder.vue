@@ -215,20 +215,15 @@ export default {
     methods: {
         async moveNext(){
             // let items=[]
-            let amounts=[]
-            let extras=[]
             this.b_countryarr.forEach((item,i)=>{
-                if(item.countries.length>0){
-                item.countries.forEach(opds=>{   
-                 amounts.push(this.countryitems[i].Pricing.find(cunts=>cunts.CountryCode==opds).Amount)
-                })
-                extras.push({amounts:amounts,PackageServiceItemName:item.name})
+                if(item.countries.length>0){                
                 this.new_order.PackageServiceItems.push({ComponentType:item.type,Countries:item.countries})
-                amounts=[]
+                }
+                else if(item.IsActive==1 && item.countries.length<1){
+                this.new_order.PackageServiceItems.push({ComponentType:item.type})
                 }
             })
-            console.log(extras)
-            this.$router.push({name:'OrderConfirmation',params:{selected_order:this.new_order,extras:extras}})
+            this.$router.push({name:'OrderConfirmation',params:{selected_order:this.new_order}})
 
            
         },
@@ -245,7 +240,7 @@ export default {
             this.packageitems=data.data
             this.countryitems=data.data
             this.packageitems.forEach(item=>{
-            this.b_countryarr.push({countrylimit:item.countrylimit,name:item.PackageServiceItemName,type:item.ComponentType,b_country:1,countries:[],show:true})
+            this.b_countryarr.push({IsActive:item.IsActive,countrylimit:item.countrylimit,name:item.PackageServiceItemName,type:item.ComponentType,b_country:1,countries:[],show:true})
             })
         },
         
