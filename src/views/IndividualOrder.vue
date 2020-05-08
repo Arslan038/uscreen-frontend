@@ -216,7 +216,7 @@ export default {
                 this.new_order.PackageServiceItems.push({ComponentType:item.type,Countries:item.countries})
                 }
                 else if(item.IsActive==1 && item.countries.length<1){
-                this.new_order.PackageServiceItems.push({ComponentType:item.type})
+                this.new_order.PackageServiceItems.push({ComponentType:item.type,Countries:[]})
 
                 }
             })
