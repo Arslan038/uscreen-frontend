@@ -7,7 +7,7 @@
         </div>
         <div class="row head">
             <div class="col-12 align-self-end">
-                <h1>{{userdetails.FirstName}} {{userdetails.LastName}}</h1>
+                <h1 class="text-white">{{userdetails.FirstName}} {{userdetails.LastName}}</h1>
             </div>
         </div>
         <div class="row">

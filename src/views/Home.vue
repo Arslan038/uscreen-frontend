@@ -2,7 +2,7 @@
   <div class="home">
     <div class="row no-gutters header align-items-center">
       <div class="col-md-12 text-center">
-          <h1>Why UScreen</h1>
+          <h1 class="text-white">Why UScreen</h1>
           <p>No hidden fees, no memberships and no minimums. <br>Get quick and easy background checks.</p>
           <button class="btn btn-screen" @click="routeit()">Screen Today</button>
       </div>
