@@ -38,7 +38,7 @@
                             <div v-if="b_countryarr[i].countrylimit>0" class="col-md-12 col-xl-6 offset-xl-2 col-12">
                                 <div v-for="(b, j) in b_countryarr[i].b_country" :key="j" class="countries">
                                     <i v-if="j > 0" class="fa fa-trash trash" @click="removeBankCountry(i,j)"></i>
-                                    <select class="form-control mt-3" v-model="b_countryarr[i].countries[j]">
+                                    <select @change="handleChange(i)" class="form-control mt-3" v-model="b_countryarr[i].countries[j]">
                                         <option v-for="(cn_item,k) in countryitems[i].Pricing" :key="k" :value="cn_item.CountryCode">{{cn_item.CountryName}}</option>
                                     </select>
                                 </div>
@@ -208,6 +208,34 @@ export default {
         }
     },
     methods: {
+        handleChange(arrindex){
+            let prev=""
+            let obj={exists:false,index:0}
+            this.b_countryarr[arrindex].countries.forEach((item,i)=>{
+                // console.log()
+                console.log("new sprint")
+                for(var k=i+1;k<this.b_countryarr[arrindex].countries.length;k++){
+                    console.log("----")
+                    console.log(this.b_countryarr[arrindex].countries[k])
+                    console.log(item)
+                    if(this.b_countryarr[arrindex].countries[k]==item){
+                        obj.exists=true
+                        obj.index=k
+                        console.log("Cameee")
+                        // foundindex=i
+                        
+                    }   
+                }
+
+            })
+
+            if(obj.exists==true){
+                console.log("insideee")
+                this.$store.commit('setNotifications',{message:"Duplicate country selected",type:'error'})
+                this.b_countryarr[arrindex].countries.splice(obj.index, 1)
+            }
+
+        },
        async moveNext(){
             // let items=[]
             this.b_countryarr.forEach((item,i)=>{
@@ -226,7 +254,7 @@ export default {
            
         },
         removeBankCountry(arrindex,j) {
-            console.log(j)
+            // console.log(j)
             this.b_countryarr[arrindex].b_country--
            
             if(this.b_countryarr[arrindex].b_country < this.b_countryarr[arrindex].countrylimit) {
@@ -250,7 +278,6 @@ export default {
                 this.b_countryarr[arrindex].show = false
 
             }
-            console.log(this.b_countryarr[arrindex].b_country)
             
             if(this.b_countryarr[arrindex].b_country == this.b_countryarr[arrindex].countrylimit) {
                 this.b_countryarr[arrindex].show = false
