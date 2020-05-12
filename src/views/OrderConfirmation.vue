@@ -318,7 +318,7 @@ export default {
                     this.isLoad=false
                 });
                 if(resp.data.code=='MSG_SUCCESS_PAYMENT_CHARGE'){
-                     this.$store.commit('setNotifications',{message:'Order created succesffuly',type:'success'})
+                     this.$store.commit('setNotifications',{message:'Order created successfully',type:'success'})
                      this.$router.push({name:'OrderBankTransfer',params:{orderkey:data.data.OrderKey}})
                 }
                 else{
