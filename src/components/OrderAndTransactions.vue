@@ -21,7 +21,7 @@
                             <tr v-for="(item,i) in spliced_posts" :key="i" >
                                 <td>{{item.OrderNumber}}</td>
                                 <td>{{item.PackageServiceName}}</td>
-                                <td>{{item.TotalAmount.toFixed(2)}}</td>
+                                <td>{{item.OriginalAmount.toFixed(2)}}</td>
                                 <td><button  :class="['btn ','btn-sm btn-block',item.CandidateStatusCode=='Ready'? 'btn-primary':'btn-border']">{{item.CandidateStatusName}}</button></td>
                                 <!-- <td><button class="btn btn-sm btn-border btn-block">in review</button></td> -->
                                 <!-- v-if="v-if="getOrderStatus(item.OrderStatusId)=='Paid'"(item.OrderStatusId)=='Paid'" -->
