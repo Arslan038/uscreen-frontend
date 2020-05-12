@@ -19,7 +19,7 @@
                         </thead>
                         <tbody>
                             <tr v-for="(item,i) in spliced_posts" :key="i" >
-                                <td>{{item.OrderId}}</td>
+                                <td>{{item.OrderNumber}}</td>
                                 <td>{{item.PackageServiceName}}</td>
                                 <td>{{item.TotalAmount.toFixed(2)}}</td>
                                 <td><button  :class="['btn ','btn-sm btn-block',item.CandidateStatusCode=='Ready'? 'btn-primary':'btn-border']">{{item.CandidateStatusName}}</button></td>
