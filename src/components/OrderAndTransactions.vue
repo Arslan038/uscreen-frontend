@@ -245,9 +245,16 @@ export default {
             else if(id==5) {
                 return 'Expired'
             }
-            if(id==6) {
+            else if(id==6) {
                 return 'Done'
             }
+            else if(id==7) {
+                return 'Wallet'
+            }
+            else if(id==8) {
+                return 'Cancelled'
+            }
+            return '='
         }
     }
 }
