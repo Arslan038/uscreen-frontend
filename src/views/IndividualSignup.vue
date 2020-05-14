@@ -77,7 +77,7 @@
                                             </select>
                                         </div>
                                         <div class="col-md-6 col-12 mt-3">
-                                            <select class="form-control" required v-model="new_user.UserAddress.ProvinceId">
+                                            <select class="form-control" required @change="handleBusinessProvince" v-model="new_user.UserAddress.ProvinceId">
                                                 <option v-for="(item,i) in province" :key="i" :value="item.ProvinceId">{{item.ProvinceName}}</option>
                                             </select>
                                         </div>
