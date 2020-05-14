@@ -338,7 +338,11 @@ export default {
         return  this.countries.find(item=>item.CountryCode==id)
       },
       getCountryById(id){
-        return  this.countries.find(item=>item.CountryId==id)
+        var countryFound = this.countries.find(item=>item.CountryId==id);
+        if (countryFound == undefined) {
+            return "";
+        }
+        return countryFound;
       },
       payNow() {
           if(this.terms==true){
