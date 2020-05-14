@@ -727,7 +727,7 @@ export default {
 
                     if(data!=null){
                         this.$store.commit('setNotifications',{message:'User created succesfully',type:'success'})
-                        this.$router.push({path:'/login'})
+                        this.$router.push({path:'/registration-completed'})
 
                     }
                     else{
