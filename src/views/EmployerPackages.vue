@@ -563,6 +563,9 @@ export default {
     },
     created() {
         window.scrollTo(0,0)
+        if(JSON.parse(localStorage.getItem("userdetails")).UserRoleCode!='EMPLOYER' && this.loggedUser!=null){
+            this.$router.push({path:'/'})
+        }
     },
     data() {
     return {
