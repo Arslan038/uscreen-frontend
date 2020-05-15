@@ -33,6 +33,12 @@ export default {
         this.fetchOrders()
 
     }
+    if(localStorage.getItem("userdetails")!=null){
+        this.$store.commit("setUserDetails",JSON.parse(localStorage.getItem("userdetails")))
+
+    }
+
+
       // localStorage.setItem("",'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJFbWFpbCI6ImFkbWluQGZhZHYuY29tIiwiVXNlck5hbWUiOiJhZG1pbiIsIlVzZXJSb2xlSWQiOjEsImV4cCI6MTU5MTY4MDYwOSwiaWF0IjoxNTg2NDk2NjA5fQ.x2VhwdUz0EZ56IkiaaTNl_3LMu4OxYhDPXLV2Wo6l2g')
 
   },
@@ -51,15 +57,11 @@ export default {
       }
     },
     loggedUser() {
-      // console.log(this.au)
     if(this.loggedUser!=null){
         this.fetchOrders()
         if(localStorage.getItem("inside")==null){
             localStorage.setItem("inside","yes")
             this.$router.push({path:'/'})
-        }
-        else{
-          console.log("redirect to same page")
         }
       
     }
