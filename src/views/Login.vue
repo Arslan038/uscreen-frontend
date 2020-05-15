@@ -14,7 +14,7 @@
                             <div class="row mx-5">
                                 <div class="col-md-6 offset-md-3 col-12">
                                     <input type="email" class="form-control mt-3" v-model="user_Auth.Email" placeholder="Email*">
-                                    <input type="password" v-model="user_Auth.Password" class="form-control mt-3" placeholder="Password">
+                                    <input type="password" v-model="user_Auth.Password" v-on:keyup.enter="auth_login" class="form-control mt-3" placeholder="Password">
                                     <router-link  to="/forget-password">
                                     <p class="text-primary mt-2">Forget Password</p>
                                     </router-link>
