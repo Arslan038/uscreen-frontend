@@ -32,9 +32,9 @@ export default {
   getPackageItems(payload) {
     return Repository.get(`${package_items_resource}?PackageServiceId=${payload.PackageServiceId}&UserKey=${payload.UserKey}`)
   },
-  getorders() {
+  getorders(page) {
     // +'?Page=1&Size=5'
-    return Repository.get(`${order_list_resource}`)
+    return Repository.get(`${order_list_resource}?Page=${page}&Size=5`)
   },
   order_charge(payload) {
     return Repository.post(`${order_charge}`,payload);

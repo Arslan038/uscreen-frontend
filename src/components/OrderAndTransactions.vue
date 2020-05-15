@@ -17,8 +17,8 @@
                                 <th>Order Details</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr v-for="(item,i) in spliced_posts" :key="i" >
+                        <tbody v-if="pageLoad==false">
+                            <tr v-for="(item,i) in allorders" :key="i" >
                                 <td>{{item.OrderId}}</td>
                                 <td>{{item.PackageServiceName}}</td>
                                 <td>{{item.TotalAmount.toFixed(2)}}</td>
@@ -39,15 +39,17 @@
                             </tr>
                         </tbody>
                     </table>
-                    <div v-if="spliced_posts.length<1" class="text-center">
-                        <h3>No Record</h3>
+                    <div  class="text-center">
+                        <h3 v-if="allorders.length<1">No Record</h3>
+                        <b-spinner  v-if="pageLoad==true" variant="primary" label="Spinning"></b-spinner>
+
 
                     </div>
                 </div>
             </div>
         </div>
         <div>
-            <a-pagination class="float-right" :current="current" @change="onChange"  :total="rows" />  
+            <a-pagination class="float-right"  :page-size.sync="per_page" :current="current" @change="thechange"  :total="rows" />  
 
         </div>
 
@@ -86,36 +88,36 @@ export default {
     name: "OrderAndTransactions",
     computed:{
         ...mapGetters(['allorders','userdetails']),
-          rows() {
-             if(this.allorders.length>0) {
-                    let lngth_posts=this.allorders.length
-                    let temp_perpage=5
-                    let dividedresult=lngth_posts/temp_perpage
-                    let parsed= parseInt(dividedresult)
-                    if(parsed*temp_perpage<lngth_posts) {
-                        parsed++
-                        let sringer=parsed.toString()+'0'
-                        let parsedback=parseInt(sringer)
-                        return  parsedback
-                    }
-                    else{
-                        let sringer=parsed.toString()+'0'
-                        let parsedback=parseInt(sringer)
-                        return  parsedback
-                    }
-             }
+        //   rows() {
+        //      if(this.allorders.length>0) {
+        //             let lngth_posts=this.allorders.length
+        //             let temp_perpage=5
+        //             let dividedresult=lngth_posts/temp_perpage
+        //             let parsed= parseInt(dividedresult)
+        //             if(parsed*temp_perpage<lngth_posts) {
+        //                 parsed++
+        //                 let sringer=parsed.toString()+'0'
+        //                 let parsedback=parseInt(sringer)
+        //                 return  parsedback
+        //             }
+        //             else{
+        //                 let sringer=parsed.toString()+'0'
+        //                 let parsedback=parseInt(sringer)
+        //                 return  parsedback
+        //             }
+        //      }
            
-        },
-        spliced_posts(){
-            let arr2=[]
-            if(this.allorders.length>0){
-            arr2=this.allorders.slice(this.start_index,this.end_index)
-            return arr2
-            }
-            else{
-                return []
-            }
-        }
+        // },
+        // spliced_posts(){
+        //     let arr2=[]
+        //     if(this.allorders.length>0){
+        //     arr2=this.allorders.slice(this.start_index,this.end_index)
+        //     return arr2
+        //     }
+        //     else{
+        //         return []
+        //     }
+        // }
     },
     watch:{
         // allorders(){
@@ -123,15 +125,14 @@ export default {
         // }
     },
     created(){
-        this.fetchOrders()
+        this.fetchOrders(this.current)
         // this.setTempViewReports()
     },
     data(){
         return {
-            start_index:0,
-            end_index:5,
             current: 1,
             per_page:5,
+            rows:0,
 
             total:'',
             isLoad:false,
@@ -144,20 +145,13 @@ export default {
                 exp_year: "2020",
                 cvc: "123"
             },
+            pageLoad:false,
         }
     },
     methods:{
-        onChange(current,pkd){
-            if(current<this.current){
-            this.end_index=this.per_page*current     
-            this.current = current;
-            this.start_index=(this.current-1)*this.per_page
-            }
-            else{
-            this.end_index=this.per_page*current     
-            this.current = current;
-            this.start_index=(this.current-1)*this.per_page
-            }
+        thechange(current,pkd){
+            this.current=current
+            this.fetchOrders(this.current)
         },
         async createPayment(){
           this.isLoad=true
@@ -169,9 +163,8 @@ export default {
             if(resp.data.code=='MSG_SUCCESS_PAYMENT_CHARGE') {
                     this.$store.commit('setNotifications',{message:'Payment executed successfully',type:'success'})
                     
-                    this.fetchOrders()
+                    this.fetchOrders(this.current)
 
-                    // this.$router.push({name:'OrderBankTransfer',params:{orderkey:data.data.OrderKey}})
             }
             else{
                     this.$store.commit('setNotifications',{message:'Problems in Making payments',type:'error'})
@@ -181,14 +174,7 @@ export default {
             this.isLoad=false
              
         },
-        // setTempViewReports(){
-        //     this.viewreport=[]
-        //     if(this.allorders.length>0){
-        //         this.allorders.forEach(item=>{  
-        //           this.viewreport.push({isreportshow:false,reporturl:'',invoiceurl:'',showinvoice:false})
-        //         })
-        //     }
-        // },
+       
         async getViewReport(id,i){
             let {data}= await OrderRepository.getOrderReport({OrderKey:id})
             .catch(error => {
@@ -219,10 +205,13 @@ export default {
             // this.viewreport[i].showinvoice=true
 
         },
-        async fetchOrders(){
-        let {data}= await OrderRepository.getorders()
-        this.$store.commit("setAllOrders",data.data.PageData)
-
+        async fetchOrders(page){
+            this.pageLoad=true
+            let {data}= await OrderRepository.getorders(page)
+            console.log(data)
+            this.rows=data.data.HitsTotal
+            this.$store.commit("setAllOrders",data.data.PageData)
+            this.pageLoad=false
         },
         routeto(item){
             this.$router.push({name:'OrderDetail',params:{selected_order:item}})
