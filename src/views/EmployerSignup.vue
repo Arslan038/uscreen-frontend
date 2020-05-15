@@ -89,16 +89,20 @@
                                     <div class="row mt-3">
                                         <div class="col-md-6 col-12 mt-3">
                                             <select required v-model="new_employer.BusinessAddress.CountryId" @change="handleBusinessCountry" class="form-control">
+                                                <option value="" disabled selected>-Select Country-</option>
+
                                                 <option v-for="(item,i) in countries" :key="i" :value="item.CountryId">{{item.CountryName}}</option>
                                             </select>
                                         </div>
                                         <div class="col-md-6 col-12 mt-3">
                                             <select required  v-model="new_employer.BusinessAddress.ProvinceId" @change="handleBusinessProvince" class="form-control">
+                                                <option value="" disabled selected>-Select Province/State-</option>
                                                 <option v-for="(item,i) in businessprovince" :key="i" :value="item.ProvinceId">{{item.ProvinceName}}</option>
                                             </select>
                                         </div>
                                         <div class="col-md-6 col-12 mt-3">
                                             <select required v-model="new_employer.BusinessAddress.CityId"  class="form-control">
+                                                <option value="" disabled selected>-Select City-</option>
                                                 <option v-for="(item,i) in bussinesscity" :key="i" :value="item.CityId">{{item.CityName}}</option>
                                                 
                                             </select>
@@ -117,18 +121,22 @@
                                     <div class="row mt-3">
                                         <div class="col-md-6 col-12 mt-3">
                                             <select  v-model="new_employer.BusinessBillingAddress.CountryId" @change="handleBusinessBillingCountry" class="form-control">
+                                                <option value="" disabled selected>-Select Country-</option>
                                                 <option v-for="(item,i) in countries" :key="i" :value="item.CountryId">{{item.CountryName}}</option>
 
                                             </select>
                                         </div>
                                         <div class="col-md-6 col-12 mt-3">
                                             <select  v-model="new_employer.BusinessBillingAddress.ProvinceId" @change="handleBusinessBillingProvince" class="form-control">
+                                                <option value="" disabled selected>-Select Province/State-</option>
+
                                                 <option v-for="(item,i) in billingprovince" :key="i" :value="item.ProvinceId">{{item.ProvinceName}}</option>
 
                                             </select>
                                         </div>
                                         <div class="col-md-6 col-12 mt-3">
                                             <select  v-model="new_employer.BusinessBillingAddress.CityId" class="form-control">
+                                                <option value="" disabled selected>-Select City-</option>
                                                 <option v-for="(item,i) in billingcity" :key="i" :value="item.CityId">{{item.CityName}}</option>
 
                                             </select>

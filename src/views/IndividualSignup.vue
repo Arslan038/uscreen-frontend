@@ -73,22 +73,25 @@
                                     <div class="row mt-3">
                                         <div class="col-md-6 col-12 mt-3">
                                             <select class="form-control"  required v-model="new_user.UserAddress.CountryId" @change="handleBusinessCountry">
+                                                <option value="" disabled selected>-Select Country-</option>
                                                 <option v-for="(item,i) in countries" :key="i" :value="item.CountryId">{{item.CountryName}}</option>
                                             </select>
                                         </div>
                                         <div class="col-md-6 col-12 mt-3">
                                             <select class="form-control" required @change="handleBusinessProvince" v-model="new_user.UserAddress.ProvinceId">
+                                                <option value="" disabled selected>-Select Province/State-</option>
                                                 <option v-for="(item,i) in province" :key="i" :value="item.ProvinceId">{{item.ProvinceName}}</option>
                                             </select>
                                         </div>
                                         <div class="col-md-6 col-12 mt-3">
-                                            <select class="form-control" required v-model="new_user.UserAddress.CityId">
+                                            <select  class="form-control" required v-model="new_user.UserAddress.CityId">
+                                                <option value="" disabled selected>-Select City-</option>
                                                 <option v-for="(item,i) in city" :key="i" :value="item.CityId">{{item.CityName}}</option>
 
                                             </select>
                                         </div>
                                         <div class="col-md-6 col-12 mt-3">
-                                            <input v-model="new_user.UserAddress.PostalCode" type="text" class="form-control" placeholder="Postcode/zipcodes*">
+                                            <input v-model="new_user.UserAddress.PostalCode" type="text" class="form-control" placeholder="Select Postcode/zipcodes*">
                                         </div>
                                     </div>
                                 </div>
