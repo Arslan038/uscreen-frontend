@@ -17,8 +17,8 @@
                 <ul>
                     <li  v-if="loggedUser==null"><a href="javascript:;" @click="move('/login')">Log In</a></li>
                     <li><a href="javascript:;" @click="move('/contact')">Contact Us</a></li>
-                    <li><a href="javascript:;" @click="move('/employer-packages')">For Employers</a></li>
-                    <li><a href="javascript:;" @click="move('/individual-packages')">For Individuals</a></li>
+                    <li v-if="this.userdetails.UserRoleCode=='EMPLOYER'"><a href="javascript:;"  @click="move('/employer-packages')">For Employers</a></li>
+                    <li v-if="this.userdetails.UserRoleCode=='INDIVIDUAL'"><a href="javascript:;"   @click="move('/individual-packages')">For Individuals</a></li>
                     <li><a href="javascript:;" @click="move('/order-confirmation')">Orders</a></li>
                 </ul>
             </div>
@@ -30,7 +30,7 @@ import {mapGetters} from 'vuex'
 export default {
     name: "Footer",
     computed:{
-        ...mapGetters(['loggedUser'])
+        ...mapGetters(['loggedUser','userdetails'])
     },
     methods: {
         move(link) {
