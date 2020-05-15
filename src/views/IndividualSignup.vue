@@ -30,12 +30,15 @@
                                         <div class="col-md-6 col-12 mt-3">
                                             <input required type="email" v-model="new_user.Email" class="form-control" placeholder="Email (UserID)*" >
                                         </div>
-                                            <div class="col-md-2 col-12 mt-3 country">
-                                                    <input required  v-model="new_user.MobileCode"  class="form-control" placeholder="+852*" >
-                                            </div>
-                                            <div class="col-md-4 mobile col-12 mt-3">
-                                                <input  required type="tel" class="form-control" v-model="new_user.MobileNumber" placeholder="Mobile*" >
-                                            </div>
+                                        <div class="col-md-2 col-12 mt-3 country">
+                                                <input required  v-model="new_user.MobileCode"  class="form-control" placeholder="+852*" >
+                                        </div>
+                                        <div class="col-md-4 mobile col-12 mt-3">
+                                            <input  required type="tel" class="form-control" v-model="new_user.MobileNumber" placeholder="Mobile*" >
+                                        </div>
+                                        <div class="col-md-6 col-12 mt-3">
+                                        <input required type="email" v-model="confirm_email" class="form-control" placeholder="Confirm Email*" >
+                                        </div>
                                     </div>
                                 </div>
                                 <hr>
@@ -581,6 +584,10 @@ export default {
                     this.$store.commit('setNotifications',{message:'Re-Captcha Required',type:'error'})
                     return
                 }
+                if(this.new_user.Email!=this.confirm_email){
+                    this.$store.commit('setNotifications',{message:'Email and Confirmed email should be same',type:'error'})
+                    return
+                }
                 if(this.terms==false){
                     this.$store.commit('setNotifications',{message:'Accept terms and conditions',type:'error'})
                     return
@@ -731,6 +738,7 @@ export default {
         
         
       },
+      confirm_email:'',
 
       items: [
         {

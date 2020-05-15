@@ -79,6 +79,9 @@
                                             <div class="col-md-4 mobile col-12 mt-3">
                                                 <input required type="tel" v-model="new_employer.MobileNumber" class="form-control" placeholder="Mobile*" >
                                             </div>
+                                            <div class="col-md-6 col-12 mt-3">
+                                            <input required type="email" v-model="confirm_email" class="form-control" placeholder="Confirm Email*" >
+                                            </div>
                                     </div>
                                 </div>
                                 <hr>
@@ -685,16 +688,17 @@ export default {
     scrollMeTo(refName) {
         var elemntss=document.getElementById("legals")
         elemntss.scrollIntoView()
-    // var element = this.$refs[refName];
-    // var top = element.offsetTop;
-
-    // window.scrollTo(0, top);
+   
     },
     async signup() {
 
               if(this.new_employer.Password==this.retype_pass) {
                     if(!this.isVerified) {
                         this.$store.commit('setNotifications',{message:'Re-Captcha Required',type:'error'})
+                        return
+                    }
+                    if(this.new_employer.Email!=this.confirm_email){
+                        this.$store.commit('setNotifications',{message:'Email and Confirmed email should be same',type:'error'})
                         return
                     }
                     if(this.terms==false){
@@ -881,6 +885,7 @@ export default {
            }
         
       },
+      confirm_email:'',
 
       items: [
         {
