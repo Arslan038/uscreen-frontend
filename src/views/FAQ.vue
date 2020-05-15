@@ -1,5 +1,5 @@
 <template>
-    <div class="faq">
+    <div class="faq" style="margin-bottom: 100px">
         <div class="row">
             <div class="col-12">
                 <Breadcrumb :items="items" class="px-5" />
@@ -16,10 +16,17 @@
         <div class="row mt-3 mx-5 px-5">
             <div class="col-md-12">
                 <div class="question">
-                    <i :class="q1 ? 'fa fa-minus plus' : 'fa fa-plus plus'" @click="q1 = !q1"></i> <span class="ml-3 question-text text-head">How can I get a quote?</span>
+                    <div @click="q1 = !q1">
+                        <i :class="q1 ? 'fa fa-minus plus' : 'fa fa-plus plus'"></i>
+                        <span class="ml-3 question-text text-head">
+                        What is UScreen?
+                        </span>
+                    </div>
                     <b-collapse v-model="q1">
                         <b-card class="pl-5 ml-2 text-head">
-                            <p class="answer">Simply visit the signup flow to book a cleaning and as you provide information about your house and schedule, your quote will dynamically adjust.</p>
+                            <p class="answer">
+                            Simply visit the signup flow to book a cleaning and as you provide information about your house and schedule, your quote will dynamically adjust.
+                            </p>
                         </b-card>
                     </b-collapse>
                 </div>
@@ -28,10 +35,17 @@
         <div class="row mt-3 mx-5 px-5">
             <div class="col-md-12">
                 <div class="question">
-                    <i :class="q2 ? 'fa fa-minus plus' : 'fa fa-plus plus'" @click="q2 = !q2"></i> <span class="ml-3 question-text text-head">Am I charged the full quoted amount even if it doesn't take that long to clean my house?</span>
+                    <div @click="q2 = !q2">
+                        <i :class="q2 ? 'fa fa-minus plus' : 'fa fa-plus plus'"></i>
+                        <span class="ml-3 question-text text-head">
+                        I have more questions, who should I contact?
+                        </span>
+                    </div>
                     <b-collapse v-model="q2">
                         <b-card class="pl-5 ml-2 text-head">
-                            <p class="answer">Simply visit the signup flow to book a cleaning and as you provide information about your house and schedule, your quote will dynamically adjust.</p>
+                            <p class="answer">
+                            Simply visit the signup flow to book a cleaning and as you provide information about your house and schedule, your quote will dynamically adjust.
+                            </p>
                         </b-card>
                     </b-collapse>
                 </div>
@@ -40,10 +54,17 @@
         <div class="row mt-3 mx-5 px-5">
             <div class="col-md-12">
                 <div class="question">
-                    <i :class="q3 ? 'fa fa-minus plus' : 'fa fa-plus plus'" @click="q3 = !q3"></i> <span class="ml-3 question-text text-head">Does someone have to visit my house before i can book a cleaning?</span>
+                    <div @click="q3 = !q3">
+                        <i :class="q3 ? 'fa fa-minus plus' : 'fa fa-plus plus'"></i>
+                        <span class="ml-3 question-text text-head">
+                        How do I order a background check on myself?
+                        </span>
+                    </div>
                     <b-collapse v-model="q3">
                         <b-card class="pl-5 ml-2 text-head">
-                            <p class="answer">Simply visit the signup flow to book a cleaning and as you provide information about your house and schedule, your quote will dynamically adjust.</p>
+                            <p class="answer">
+                            Simply visit the signup flow to book a cleaning and as you provide information about your house and schedule, your quote will dynamically adjust.
+                            </p>
                         </b-card>
                     </b-collapse>
                 </div>
@@ -52,10 +73,17 @@
         <div class="row mt-3 mx-5 px-5">
             <div class="col-md-12">
                 <div class="question">
-                    <i :class="q4 ? 'fa fa-minus plus' : 'fa fa-plus plus'" @click="q4 = !q4"></i> <span class="ml-3 question-text text-head">Are cleaning supplies included?</span>
+                    <div @click="q4 = !q4">
+                        <i :class="q4 ? 'fa fa-minus plus' : 'fa fa-plus plus'"></i>
+                        <span class="ml-3 question-text text-head">
+                        How do I order a background check for an employee?
+                        </span>
+                    </div>
                     <b-collapse v-model="q4">
                         <b-card class="pl-5 ml-2 text-head">
-                            <p class="answer">Simply visit the signup flow to book a cleaning and as you provide information about your house and schedule, your quote will dynamically adjust.</p>
+                            <p class="answer">
+                            Simply visit the signup flow to book a cleaning and as you provide information about your house and schedule, your quote will dynamically adjust.
+                            </p>
                         </b-card>
                     </b-collapse>
                 </div>
@@ -64,16 +92,79 @@
         <div class="row mt-3 mx-5 px-5">
             <div class="col-md-12">
                 <div class="question">
-                    <i :class="q5 ? 'fa fa-minus plus' : 'fa fa-plus plus'" @click="q5 = !q5"></i> <span class="ml-3 question-text text-head">What if I'm not happy with cleaning?</span>
+                    <div @click="q5 = !q5">
+                        <i :class="q5 ? 'fa fa-minus plus' : 'fa fa-plus plus'"></i>
+                        <span class="ml-3 question-text text-head">
+                        How does the background check process work?
+                        </span>
+                    </div>
                     <b-collapse v-model="q5">
                         <b-card class="pl-5 ml-2 text-head">
-                            <p class="answer">Simply visit the signup flow to book a cleaning and as you provide information about your house and schedule, your quote will dynamically adjust.</p>
+                            <p class="answer">
+                            Simply visit the signup flow to book a cleaning and as you provide information about your house and schedule, your quote will dynamically adjust.
+                            </p>
                         </b-card>
                     </b-collapse>
                 </div>
             </div>
         </div>
-
+        <div class="row mt-3 mx-5 px-5">
+            <div class="col-md-12">
+                <div class="question">
+                    <div @click="q6 = !q6">
+                        <i :class="q6 ? 'fa fa-minus plus' : 'fa fa-plus plus'"></i>
+                        <span class="ml-3 question-text text-head">
+                        How do I change my details on my account?
+                        </span>
+                    </div>
+                    <b-collapse v-model="q6">
+                        <b-card class="pl-5 ml-2 text-head">
+                            <p class="answer">
+                            Simply visit the signup flow to book a cleaning and as you provide information about your house and schedule, your quote will dynamically adjust.
+                            </p>
+                        </b-card>
+                    </b-collapse>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-3 mx-5 px-5">
+            <div class="col-md-12">
+                <div class="question">
+                    <div @click="q7 = !q7">
+                        <i :class="q7 ? 'fa fa-minus plus' : 'fa fa-plus plus'"></i>
+                        <span class="ml-3 question-text text-head">
+                        What is included in the background check report?
+                        </span>
+                    </div>
+                    <b-collapse v-model="q7">
+                        <b-card class="pl-5 ml-2 text-head">
+                            <p class="answer">
+                            Simply visit the signup flow to book a cleaning and as you provide information about your house and schedule, your quote will dynamically adjust.
+                            </p>
+                        </b-card>
+                    </b-collapse>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-3 mx-5 px-5">
+            <div class="col-md-12">
+                <div class="question">
+                    <div @click="q8 = !q8">
+                        <i :class="q8 ? 'fa fa-minus plus' : 'fa fa-plus plus'"></i>
+                        <span class="ml-3 question-text text-head">
+                        What packages are available for me to order?
+                        </span>
+                    </div>
+                    <b-collapse v-model="q8">
+                        <b-card class="pl-5 ml-2 text-head">
+                            <p class="answer">
+                            Simply visit the signup flow to book a cleaning and as you provide information about your house and schedule, your quote will dynamically adjust.
+                            </p>
+                        </b-card>
+                    </b-collapse>
+                </div>
+            </div>
+        </div>
         <div class="row mt-4">
             <div class="col-12 text-center text-head">
                 <h5><strong>I'm an Employer Requestor</strong></h5>
@@ -83,23 +174,93 @@
         <div class="row mt-3 mx-5 px-5">
             <div class="col-md-12">
                 <div class="question">
-                    <i :class="q6 ? 'fa fa-minus plus' : 'fa fa-plus plus'" @click="q6 = !q6"></i> <span class="ml-3 question-text text-head">Can I get a same-day booking?</span>
-                    <b-collapse v-model="q6">
+                    <div @click="q9 = !q9">
+                        <i :class="q9 ? 'fa fa-minus plus' : 'fa fa-plus plus'"></i>
+                        <span class="ml-3 question-text text-head">
+                        What package should I order?
+                        </span>
+                    </div>
+                    <b-collapse v-model="q9">
                         <b-card class="pl-5 ml-2 text-head">
-                            <p class="answer">Simply visit the signup flow to book a cleaning and as you provide information about your house and schedule, your quote will dynamically adjust.</p>
+                            <p class="answer">
+                            Simply visit the signup flow to book a cleaning and as you provide information about your house and schedule, your quote will dynamically adjust.
+                            </p>
                         </b-card>
                     </b-collapse>
                 </div>
             </div>
         </div>
-
         <div class="row mt-3 mx-5 px-5">
             <div class="col-md-12">
                 <div class="question">
-                    <i :class="q7 ? 'fa fa-minus plus' : 'fa fa-plus plus'" @click="q7 = !q7"></i> <span class="ml-3 question-text text-head">Do I have to be home for cleaning?</span>
-                    <b-collapse v-model="q7">
+                    <div @click="q10 = !q10">
+                        <i :class="q10 ? 'fa fa-minus plus' : 'fa fa-plus plus'"></i>
+                        <span class="ml-3 question-text text-head">
+                        How do I view my order?
+                        </span>
+                    </div>
+                    <b-collapse v-model="q10">
                         <b-card class="pl-5 ml-2 text-head">
-                            <p class="answer">Simply visit the signup flow to book a cleaning and as you provide information about your house and schedule, your quote will dynamically adjust.</p>
+                            <p class="answer">
+                            Simply visit the signup flow to book a cleaning and as you provide information about your house and schedule, your quote will dynamically adjust.
+                            </p>
+                        </b-card>
+                    </b-collapse>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-3 mx-5 px-5">
+            <div class="col-md-12">
+                <div class="question">
+                    <div @click="q11 = !q11">
+                        <i :class="q11 ? 'fa fa-minus plus' : 'fa fa-plus plus'"></i>
+                        <span class="ml-3 question-text text-head">
+                        How do I view my invoice?
+                        </span>
+                    </div>
+                    <b-collapse v-model="q11">
+                        <b-card class="pl-5 ml-2 text-head">
+                            <p class="answer">
+                            Simply visit the signup flow to book a cleaning and as you provide information about your house and schedule, your quote will dynamically adjust.
+                            </p>
+                        </b-card>
+                    </b-collapse>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-3 mx-5 px-5">
+            <div class="col-md-12">
+                <div class="question">
+                    <div @click="q12 = !q12">
+                        <i :class="q12 ? 'fa fa-minus plus' : 'fa fa-plus plus'"></i>
+                        <span class="ml-3 question-text text-head">
+                        I made a mistake on the order. How do I change it?
+                        </span>
+                    </div>
+                    <b-collapse v-model="q12">
+                        <b-card class="pl-5 ml-2 text-head">
+                            <p class="answer">
+                            Simply visit the signup flow to book a cleaning and as you provide information about your house and schedule, your quote will dynamically adjust.
+                            </p>
+                        </b-card>
+                    </b-collapse>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-3 mx-5 px-5">
+            <div class="col-md-12">
+                <div class="question">
+                    <div @click="q13 = !q13">
+                        <i :class="q13 ? 'fa fa-minus plus' : 'fa fa-plus plus'"></i>
+                        <span class="ml-3 question-text text-head">
+                        I need to order multiple screens at once, what do I do?
+                        </span>
+                    </div>
+                    <b-collapse v-model="q13">
+                        <b-card class="pl-5 ml-2 text-head">
+                            <p class="answer">
+                            Simply visit the signup flow to book a cleaning and as you provide information about your house and schedule, your quote will dynamically adjust.
+                            </p>
                         </b-card>
                     </b-collapse>
                 </div>
@@ -115,28 +276,42 @@
         <div class="row mt-3 mx-5 px-5">
             <div class="col-md-12">
                 <div class="question">
-                    <i :class="q8 ? 'fa fa-minus plus' : 'fa fa-plus plus'" @click="q8 = !q8"></i> <span class="ml-3 question-text text-head">Can I get a same-day booking?</span>
-                    <b-collapse v-model="q8">
+                    <div @click="q14 = !q14">
+                        <i :class="q14 ? 'fa fa-minus plus' : 'fa fa-plus plus'"></i>
+                        <span class="ml-3 question-text text-head">
+                        What package should I order?
+                        </span>
+                    </div>
+                    <b-collapse v-model="q14">
                         <b-card class="pl-5 ml-2 text-head">
-                            <p class="answer">Simply visit the signup flow to book a cleaning and as you provide information about your house and schedule, your quote will dynamically adjust.</p>
+                            <p class="answer">
+                            Simply visit the signup flow to book a cleaning and as you provide information about your house and schedule, your quote will dynamically adjust.
+                            </p>
+                        </b-card>
+                    </b-collapse>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-3 mx-5 px-5">
+            <div class="col-md-12">
+                <div class="question">
+                    <div @click="q15 = !q15">
+                        <i :class="q15 ? 'fa fa-minus plus' : 'fa fa-plus plus'"></i>
+                        <span class="ml-3 question-text text-head">
+                        I made a mistake on the order. How do I change it?
+                        </span>
+                    </div>
+                    <b-collapse v-model="q15">
+                        <b-card class="pl-5 ml-2 text-head">
+                            <p class="answer">
+                            Simply visit the signup flow to book a cleaning and as you provide information about your house and schedule, your quote will dynamically adjust.
+                            </p>
                         </b-card>
                     </b-collapse>
                 </div>
             </div>
         </div>
 
-        <div class="row mt-3 mx-5 px-5 mb-5">
-            <div class="col-md-12">
-                <div class="question">
-                    <i :class="q9 ? 'fa fa-minus plus' : 'fa fa-plus plus'" @click="q9 = !q9"></i> <span class="ml-3 question-text text-head">Do I have to be home for cleaning?</span>
-                    <b-collapse v-model="q9">
-                        <b-card class="pl-5 ml-2 text-head">
-                            <p class="answer">Simply visit the signup flow to book a cleaning and as you provide information about your house and schedule, your quote will dynamically adjust.</p>
-                        </b-card>
-                    </b-collapse>
-                </div>
-            </div>
-        </div>
     </div>
 </template>
 
@@ -174,6 +349,11 @@ export default {
             q8: false,
             q9: false,
             q10: false,
+            q11: false,
+            q12: false,
+            q13: false,
+            q14: false,
+            q15: false,
         }
     }
 }

@@ -29,7 +29,7 @@
 
                         
                         <p><strong class="text-head">{{selected_package.PackageServiceName}} Package Items</strong></p>
-                        <p class="text-gray">Please select the associated country of interest of the checking.</p>
+                        <p class="text-gray">Please take note that certain checks have maximum number of countries you can request checks for. You can add as many as five (5) countries to conduct for database checks like Bankruptcy, Civil Litigation, Credit, Criminal and Directorship. Employment check can be conducted for max of three (3) countries. One (1) country can be selected for the Education check.</p>
 
                         <div v-if="item.IsActive==1" class="row" v-for="(item,i) in packageitems" :key="i">
                             <div class="col-md-12 col-xl-4 col-12 mt-3">

@@ -21,6 +21,9 @@ import OrderDetail from '../views/OrderDetail.vue'
 import Profile from '../views/Profile.vue'
 import FAQ from '../views/FAQ.vue'
 import OrderBankTransfer from '../views/OrderBankTransfer.vue'
+import RegistrationCompleted from '../views/RegistrationCompleted.vue'
+import VerifySuccess from '../views/VerifySuccess.vue'
+import VerifyFailed from '../views/VerifyFailed.vue'
 
 Vue.use(VueRouter)
 
@@ -143,6 +146,21 @@ const routes = [
     path: '/forget-password',
     name: 'ForgetPassword',
     component: ForgetPassword
+  },
+  {
+    path: '/registration-completed',
+    name: 'RegistrationCompleted',
+    component: RegistrationCompleted
+  },
+  {
+    path: '/verify-success',
+    name: 'VerifySuccess',
+    component: VerifySuccess
+  },
+  {
+    path: '/verify-failed',
+    name: 'VerifyFailed',
+    component: VerifyFailed
   },
   
 ]

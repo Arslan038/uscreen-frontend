@@ -21,7 +21,7 @@
                             <tr v-for="(item,i) in allorders" :key="i" >
                                 <td>{{item.OrderId}}</td>
                                 <td>{{item.PackageServiceName}}</td>
-                                <td>{{item.TotalAmount.toFixed(2)}}</td>
+                                <td>{{item.OriginalAmount.toFixed(2)}}</td>
                                 <td><button  :class="['btn ','btn-sm btn-block',item.CandidateStatusCode=='Ready'? 'btn-primary':'btn-border']">{{item.CandidateStatusName}}</button></td>
                                 <!-- <td><button class="btn btn-sm btn-border btn-block">in review</button></td> -->
                                 <!-- v-if="v-if="getOrderStatus(item.OrderStatusId)=='Paid'"(item.OrderStatusId)=='Paid'" -->
@@ -233,9 +233,16 @@ export default {
             else if(id==5) {
                 return 'Expired'
             }
-            if(id==6) {
+            else if(id==6) {
                 return 'Done'
             }
+            else if(id==7) {
+                return 'Wallet'
+            }
+            else if(id==8) {
+                return 'Cancelled'
+            }
+            return '='
         }
     }
 }

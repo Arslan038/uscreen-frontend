@@ -577,7 +577,7 @@ export default {
             to: '/'
         },
         {
-            text: 'For Individuals',
+            text: 'For Employer',
             active: true,
             to: '/individual-packages'
         }

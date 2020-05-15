@@ -605,7 +605,7 @@ export default {
                   });
                   if(data.status=='Success'){
                     this.$store.commit('setNotifications',{message:'User created successfully',type:'success'})
-                    this.$router.push({path:'/login'})
+                    this.$router.push({path:'/registration-completed'})
                   }
                   this.isVerified = false
               }

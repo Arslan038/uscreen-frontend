@@ -310,7 +310,7 @@ export default {
                     this.isLoad=false
                 });
                 if(resp.data.code=='MSG_SUCCESS_PAYMENT_CHARGE'){
-                     this.$store.commit('setNotifications',{message:'Order created succesffuly',type:'success'})
+                     this.$store.commit('setNotifications',{message:'Order created successfully',type:'success'})
                      this.$router.push({name:'OrderBankTransfer',params:{orderkey:data.data.OrderKey}})
                 }
                 else{
@@ -329,7 +329,11 @@ export default {
         return  this.countries.find(item=>item.CountryCode==id)
       },
       getCountryById(id){
-        return  this.countries.find(item=>item.CountryId==id)
+        var countryFound = this.countries.find(item=>item.CountryId==id);
+        if (countryFound == undefined) {
+            return "";
+        }
+        return countryFound;
       },
       payNow() {
           if(this.terms==true){
