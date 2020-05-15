@@ -24,6 +24,7 @@
 import Breadcrumb from '@/components/Breadcrumb.vue'
 import { RepositoryFactory } from '../Repository/RepositoryFactory'
 const OrderRepository = RepositoryFactory.get('order_repository')
+const UserRepository = RepositoryFactory.get('user_repository')
 export default {
     name: "OrderBankTransfer",
     props:['orderkey','proforma'],
@@ -53,6 +54,11 @@ export default {
         }
     },
     methods: {
+        async fetchWallet(){
+            localStorage.removeItem("userdetails")
+            let resp = await UserRepository.getloggeduser()
+            this.$store.commit("setUserDetails",resp.data.data.PageData[0])
+        },
         home() {
             this.$router.push({path: '/profile'})
         },
@@ -63,6 +69,7 @@ export default {
             });
             if(data.code=='MSG_SUCCESS_EXPORTS'){
                 this.$store.commit('setNotifications',{message:'File Generated succesffuly',type:'success'})
+                console.log(data)
                 window.open(data.data[0].File)    
             }   
             else{
@@ -72,6 +79,8 @@ export default {
     },
     created() {
       window.scrollTo(0,0)
+      this.fetchWallet()
+
       if(this.proforma==true){
           this.createAndDownload()
       }
