@@ -1,7 +1,7 @@
 <template>
     <div class="order-and-transactions">
         <div class="row">
-            <div class="col-md-12 pr-1 pl-2 ">
+            <div class="col-md-12 pr-4 pl-4 ">
                 <div class="table-responsive">
                     <table class="table">
                         <thead>
