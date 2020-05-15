@@ -31,10 +31,10 @@
                                             <input required type="email" v-model="new_user.Email" class="form-control" placeholder="Email (UserID)*" >
                                         </div>
                                         <div class="col-md-2 col-12 mt-3 country">
-                                                <input required  v-model="new_user.MobileCode"  class="form-control" placeholder="+852*" >
+                                                <input required pattern="^([0|\+[0-9]{1,5})"  v-model="new_user.MobileCode"  class="form-control" placeholder="+852*" >
                                         </div>
                                         <div class="col-md-4 mobile col-12 mt-3">
-                                            <input  required type="tel" class="form-control" v-model="new_user.MobileNumber" placeholder="Mobile*" >
+                                            <input  required type="tel" pattern="[0-9]{3,10}"  class="form-control" v-model="new_user.MobileNumber" placeholder="Mobile*" >
                                         </div>
                                         <div class="col-md-6 col-12 mt-3">
                                         <input required type="email" v-model="confirm_email" class="form-control" placeholder="Confirm Email*" >

@@ -75,11 +75,11 @@
                                     <input required type="email" class="form-control" v-model="new_order.Email" placeholder="Email (UserID)*" >
                                 </div>
                                 <div class="col-md-12 col-lg-12 col-xl-2 col-12 mt-3">
-                                    <input required  class="form-control" v-model="new_order.MobileCode" placeholder="" >
+                                    <input required  class="form-control" pattern="^([0|\+[0-9]{1,5})" type="tel" v-model="new_order.MobileCode" placeholder="" >
                                 
                                 </div>
                                 <div class="col-xl-4 mobile col-12 mt-3">
-                                    <input required type="tel" class="form-control" v-model="new_order.MobileNumber" placeholder="Mobile*" >
+                                    <input required type="tel" class="form-control" pattern="[0-9]{3,10}" v-model="new_order.MobileNumber" placeholder="Mobile*" >
                                 </div>  
                             </div>
                         </div>
