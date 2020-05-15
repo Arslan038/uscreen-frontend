@@ -153,7 +153,7 @@ export default {
     created(){
         window.scrollTo(0,0)
         window.onbeforeunload = function() {
-            return "Data will be lost if you leave the page, are you sure?";
+            return "Changes that you made may not be saved!";
         };
         if(this.selected_package==null){
             
