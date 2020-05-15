@@ -15,7 +15,7 @@
             </div>
             <div class="col-md-4 col-12 links">
                 <ul>
-                    <li><a href="javascript:;" @click="move('/login')">Log In</a></li>
+                    <li  v-if="loggedUser==null"><a href="javascript:;" @click="move('/login')">Log In</a></li>
                     <li><a href="javascript:;" @click="move('/contact')">Contact Us</a></li>
                     <li><a href="javascript:;" @click="move('/employer-packages')">For Employers</a></li>
                     <li><a href="javascript:;" @click="move('/individual-packages')">For Individuals</a></li>
@@ -26,8 +26,12 @@
     </div>
 </template>
 <script>
+import {mapGetters} from 'vuex'
 export default {
     name: "Footer",
+    computed:{
+        ...mapGetters(['loggedUser'])
+    },
     methods: {
         move(link) {
             this.$router.push({path: link})
