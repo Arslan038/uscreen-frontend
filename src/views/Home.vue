@@ -4,7 +4,7 @@
       <div class="col-md-12 text-center">
           <h1 class="text-white">Why UScreen</h1>
           <p>No hidden fees, no memberships and no minimums. <br>Get quick and easy background checks.</p>
-          <button class="btn btn-screen" @click="routeit()">Screen Today</button>
+          <button class="btn btn-screen" @click="routeit('simple')">Screen Today</button>
       </div>
     </div>
     <div class="row package">
@@ -18,13 +18,14 @@
           <img class="zoom" src="../assets/adfBitmap@2x.png" width="80%" alt="">
           <h3 class="pt-5 text-head">Individual </h3>
           <p class="px-5 pt-2 text-gray">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,</p>
-          <button class="btn btn-secondary more">More</button>
+          <button class="btn btn-secondary more" @click="routeit('indiv')">More</button>
+          
         </div>
         <div class="col-md-6 col-12 text-center mt-5">
           <img class="zoom" src="../assets/Bitmaafp@2x.png" width="80%" alt="">
           <h3 class="pt-5 text-head">Employer </h3>
           <p class="px-5 pt-2 text-gray">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,</p>
-          <button class="btn btn-secondary more">More</button>
+          <button class="btn btn-secondary more" @click="routeit('emplo')">More</button>
         </div>
       </div>
     </div>
@@ -67,16 +68,45 @@ export default {
       window.scrollTo(0,0)
   },
   methods:{
-    routeit(){
+    routeit(arg){
       if(this.loggedUser!=null){
-           if(this.userdetails.UserRoleCode=='INDIVIDUAL'){
+          if(arg=='simple'){
+            if(this.userdetails.UserRoleCode=='INDIVIDUAL'){
               this.$router.push({path:'/individual-packages'})
 
            }
-           else if(this.userdetails.UserRoleCode=='EMPLOYER'){
-              this.$router.push({path:'/employer-packages'})
+            else if(this.userdetails.UserRoleCode=='EMPLOYER'){
+                this.$router.push({path:'/employer-packages'})
+
+            }
+          }
+          
+          if(arg=='simple'){
+            if(this.userdetails.UserRoleCode=='INDIVIDUAL'){
+              this.$router.push({path:'/individual-packages'})
 
            }
+            else if(this.userdetails.UserRoleCode=='EMPLOYER'){
+                this.$router.push({path:'/employer-packages'})
+
+            }
+          }
+        
+          if(arg=='indiv'){
+            if(this.userdetails.UserRoleCode=='INDIVIDUAL'){
+              this.$router.push({path:'/individual-packages'})
+
+           }
+            
+          }
+
+          if(arg=='emplo'){
+            if(this.userdetails.UserRoleCode=='EMPLOYER'){
+                this.$router.push({path:'/employer-packages'})
+
+           }
+            
+          }
 
       }
       else{
