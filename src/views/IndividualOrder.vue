@@ -123,7 +123,7 @@ export default {
     name: "IndividualOrder",
     props:['selected_package'],
     computed:{
-        ...mapGetters(['countries','loggedUser','userdetails'])
+        ...mapGetters(['temporder','countries','loggedUser','userdetails'])
     },
     components: {
         Breadcrumb
@@ -212,17 +212,10 @@ export default {
             let prev=""
             let obj={exists:false,index:0}
             this.b_countryarr[arrindex].countries.forEach((item,i)=>{
-                // console.log()
-                console.log("new sprint")
                 for(var k=i+1;k<this.b_countryarr[arrindex].countries.length;k++){
-                    console.log("----")
-                    console.log(this.b_countryarr[arrindex].countries[k])
-                    console.log(item)
                     if(this.b_countryarr[arrindex].countries[k]==item){
                         obj.exists=true
                         obj.index=k
-                        console.log("Cameee")
-                        // foundindex=i
                         
                     }   
                 }
@@ -230,14 +223,22 @@ export default {
             })
 
             if(obj.exists==true){
-                console.log("insideee")
                 this.$store.commit('setNotifications',{message:"Duplicate country selected",type:'error'})
                 this.b_countryarr[arrindex].countries.splice(obj.index, 1)
             }
 
         },
        async moveNext(){
-            // let items=[]
+            const active_items=this.b_countryarr.filter(item=>item.IsActive==1 && item.countrylimit>0)
+            var x;
+
+            for (x of active_items){
+                if(x.countries.length==0){
+                  this.$store.commit('setNotifications',{message:'Select at least one option in \t'+x.name,type:'error'})
+                  return
+                }
+            }
+
             this.b_countryarr.forEach((item,i)=>{
                 if(item.countries.length>0){ 
                     // to remove
@@ -248,13 +249,12 @@ export default {
 
                 }
             })
-            console.log(this.new_order)
+            this.$store.commit("setTempOrder",this.new_order)
             this.$router.push({name:'OrderConfirmation',params:{selected_order:this.new_order}})
 
            
         },
         removeBankCountry(arrindex,j) {
-            // console.log(j)
             this.b_countryarr[arrindex].b_country--
            
             if(this.b_countryarr[arrindex].b_country < this.b_countryarr[arrindex].countrylimit) {
