@@ -39,6 +39,10 @@
                             </tr>
                         </tbody>
                     </table>
+                    <div v-if="spliced_posts.length<1" class="text-center">
+                        <h3>No Record</h3>
+
+                    </div>
                 </div>
             </div>
         </div>
@@ -186,10 +190,8 @@ export default {
         //     }
         // },
         async getViewReport(id,i){
-            // console.log(id)
             let {data}= await OrderRepository.getOrderReport({OrderKey:id})
             .catch(error => {
-              console.log(error.response)
               this.$store.commit('setNotifications',{message:error.response.data.Message,type:'error'})
            });
            if(data.data.screening_results_url==''){
@@ -200,18 +202,15 @@ export default {
               window.open(data.data.screening_results_url);
            }
             // this.viewreport[i].isreportshow=true
-            console.log(data.data.screening_results_url)
 
 
 
             // this.viewreport[i].reporturl=data.data.screening_results_url
-            // console.log(data)
 
         },
         async getOrderExportReport(id,i){
             let {data}=await OrderRepository.getOrderPerforma(id)
             .catch(error => {
-              console.log(error.response)
               this.$store.commit('setNotifications',{message:error.response.data.Message,type:'error'})
            });
             window.open(data.data[0].File);
