@@ -105,7 +105,7 @@
                                     <div class="d-flex" style=" align-items: center; justify-content: center;">
                                     <b-form-checkbox class="text-primary" v-model="terms"></b-form-checkbox> <span v-b-modal.modal-1 style="cursor:pointer;color:blue"> Terms and Conditions</span>
                                     </div>
-                                 <b-modal id="modal-1" title="Terms and Conditions">
+                                 <b-modal ok-only id="modal-1" title="Terms and Conditions">
                                     <div>
                                         Please take note that the above order total is the pre-final amount based on selected checks to be conducted. Anticipating that some orders may have check additions or cancellations, depending on the addresses declared by the candidate upon data entry or depending on in-country regulations when conducting specific background screening checks, the final amount will be based on the actual checks conducted. Additional amounts to settle will be charged via a secondary invoice, while payments for checks not conducted will be refunded via wallet credits to your UScreen account.
                                     </div>
