@@ -27,7 +27,7 @@
                                         <h3 class="text-blue"><strong>Wallet Balance:</strong></h3>
                                     </div>
                                     <div class="col-5">
-                                        <h3 class="text-blue"><strong>${{userdetails.UserWalletAmount}}</strong></h3>
+                                        <h3 class="text-blue"><strong>{{userdetails.CurrencyCode}} {{userdetails.UserWalletAmount}}</strong></h3>
                                     </div>
                                 </div>
                                 <div class="row mx-5 mt-3 mb-5">
