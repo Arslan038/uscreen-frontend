@@ -25,7 +25,6 @@ const actions = {
 };
 const mutations = {
     setLoggedUser: (state, payload) => {
-        console.log("auth user set")
         if(localStorage.getItem('uscreen-token')==null){
             localStorage.setItem("uscreen-token",JSON.stringify(payload.Token))
 
@@ -43,8 +42,11 @@ const mutations = {
         state.notifications=payload
     },
     setUserDetails:(state,payload) =>{
+        if(localStorage.getItem('userdetails')==null){
+            localStorage.setItem("userdetails",JSON.stringify(payload))
+
+        }
         state.userdetails=payload
-        localStorage.setItem("userdetails",JSON.stringify(payload))
 
     },
     logout(state,payload){
