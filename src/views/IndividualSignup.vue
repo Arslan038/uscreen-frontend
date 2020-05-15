@@ -582,10 +582,8 @@ export default {
                     this.$store.commit('setNotifications',{message:'Accept terms and conditions',type:'error'})
                     return
                 }
-                console.log(this.new_user)
                 let {data} = await UserRepository.createaccount(this.new_user)
                 .catch(error => {
-                    //   console.log(error.response)
                       if(error.response.data.Message.toLowerCase().includes('duplicate entry')){
 
                         this.$store.commit('setNotifications',{message:`The email ${this.new_user.Email} is already used. Please try another email or contact us for more details`,type:'error'}) 
@@ -595,7 +593,6 @@ export default {
                         this.$store.commit('setNotifications',{message:error.response.data.Message,type:'error'}) 
                       }
                   });
-                  console.log(data)
                   if(data.status=='Success'){
                     this.$store.commit('setNotifications',{message:'User created successfully',type:'success'})
                     this.$router.push({path:'/login'})
@@ -632,9 +629,7 @@ export default {
     },
     async fetchBusinessCityByProvinec(CountryId,ProvinceId){
         let {data}= await UserRepository.getCity({CountryId:CountryId,ProvinceId:ProvinceId})
-        console.log(data)
         this.city=data.data
-        console.log("fosho")
         this.new_user.UserAddress.CityId=data.data[0].CityId
 
         

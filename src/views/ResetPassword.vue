@@ -69,7 +69,6 @@ export default {
               if(this.Retypedpass!='' && this.resetObj.Password!='') {
                 let {data} = await UserRepository.verify_reset_passs(this.resetObj)
                 .catch(error => {
-                    console.log(error.response)
                     this.$store.commit('setNotifications',{message:error.response.data.Message,type:'error'})
                 });
                 if(data.status=='Success'){

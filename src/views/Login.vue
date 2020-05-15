@@ -66,11 +66,9 @@ export default {
       async auth_login(){
           let {data} = await UserRepository.authenticatelogin(this.user_Auth)
           .catch(error => {
-              console.log(error.response)
               this.$store.commit('setNotifications',{message:error.response.data.Message,type:'error'})
           });
 
-        console.log(data)
         if(data!=null){
             Repository.defaults.headers.Authorization = `Bearer ${data.data.Token}`;
             this.$store.commit("setLoggedUser",data.data)

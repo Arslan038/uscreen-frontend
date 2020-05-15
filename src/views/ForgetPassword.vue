@@ -85,7 +85,6 @@ export default {
       async auth_login(){
           let {data} = await UserRepository.forget_password(this.forgetObj)
           .catch(error => {
-              console.log(error.response)
               this.$store.commit('setNotifications',{message:error.response.data.Message,type:'error'})
           });
           this.success=true

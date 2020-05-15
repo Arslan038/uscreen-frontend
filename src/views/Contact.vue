@@ -68,11 +68,9 @@ export default {
         }
         let {data} = await UserRepository.helpask(this.help_obj)
         .catch(error => {
-              console.log(error.response)
               this.$store.commit('setNotifications',{message:error.response.data.Message,type:'error'})
           });
 
-        console.log(data)
         if(data!=null){
             this.$store.commit('setNotifications',{message:'Query submitted succesffuly',type:'success'})
 

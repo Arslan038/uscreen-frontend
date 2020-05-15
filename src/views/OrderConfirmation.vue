@@ -229,11 +229,9 @@ export default {
             if(JSON.parse(localStorage.getItem("userdetails"))!=null){
                 if(JSON.parse(localStorage.getItem("userdetails")).UserRoleCode=='INDIVIDUAL'){
                     this.$router.push({path:'/individual-packages'})
-                    console.log("yeh")
                 }
                 else{
                     this.$router.push({path:'/employer-packages'})
-                    console.log("deh")
 
                 }
             }
@@ -246,12 +244,10 @@ export default {
     }
     this.getRealPrice()
 
-    console.log(this.selected_order)
   },
   methods: {
       async getRealPrice(){
         let {data} = await OrderRepository.getOrderRealPriceing(this.realprice)
-        console.log(data)
         this.temp=data.data
         this.total=data.data.Amount
         this.PackageServiceItems=data.data.PackageServiceItems
@@ -264,13 +260,11 @@ export default {
             .catch(error => {
                 this.$store.commit('setNotifications',{message:error.response.data.Message,type:'error'})
             });
-            console.log(data)
 
             if(data!=null){
                 this.$router.push({name:'OrderBankTransfer',params:{orderkey:data.data.OrderKey}})
             }
             else{
-                console.log(data)
             }
           }
         else{
@@ -286,13 +280,11 @@ export default {
             .catch(error => {
                 this.$store.commit('setNotifications',{message:error.response.data.Message,type:'error'})
             });
-            console.log(data)
 
             if(data!=null){
                 this.$router.push({name:'OrderBankTransfer',params:{proforma:true,orderkey:data.data.OrderKey}})
             }
             else{
-                console.log(data)
             }
           }
             else{
@@ -330,7 +322,6 @@ export default {
 
             }
             else{
-                console.log(data)
             }
              
       },

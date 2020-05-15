@@ -200,7 +200,6 @@ export default {
                 this.$store.commit('setNotifications',{message:'Re-Captcha Required',type:'error'})
                 return
             }
-            console.log(this.new_employer.Password)
             // if(this.new_employer.Password==''){
             //     delete this.new_employer.Password
             // }
@@ -213,10 +212,8 @@ export default {
             }
             let {data}=await UserRepository.updateuser(this.new_employer)
             .catch(error => {
-              console.log(error.response)
               this.$store.commit('setNotifications',{message:error.response.data.Message,type:'error'})
             });
-            console.log(data)
             if(data.status=='Success'){
                 this.$store.commit('setNotifications',{message:'User updated successfully',type:'success'})
 
@@ -331,8 +328,7 @@ export default {
         userdetails(){
             if(this.userdetails!=null){
                 this.new_employer= {...this.userdetails}
-                console.log("watcher")
-                console.log(this.new_employer)
+               
                 this.fetchCountries()
 
             }
@@ -340,14 +336,12 @@ export default {
     },
     created(){
         this.new_employer= {...this.userdetails}
-        console.log("created")
-        console.log(this.new_employer)
+       
         this.fetchCountries()
     },
     mounted(){
         this.new_employer= {...this.userdetails}
-        console.log("mounted")
-        console.log(this.new_employer)
+       
         this.fetchCountries()
     },
     computed:{

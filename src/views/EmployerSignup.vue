@@ -711,7 +711,6 @@ export default {
                         this.handleSame()
                     }
                     
-                    console.log(this.new_employer)
                     let {data} = await UserRepository.createaccount(this.new_employer)
                     
                     .catch(error => {
@@ -731,7 +730,6 @@ export default {
 
                     }
                     else{
-                        console.log(data)
                     }
 
                     this.isVerified = false
@@ -782,7 +780,6 @@ export default {
     },
     async fetchBusinessCityByProvinec(CountryId,ProvinceId,type){
         let {data}= await UserRepository.getCity({CountryId:CountryId,ProvinceId:ProvinceId})
-        console.log(data)
          if(type=='first'){
         this.bussinesscity=data.data
         this.billingcity=data.data

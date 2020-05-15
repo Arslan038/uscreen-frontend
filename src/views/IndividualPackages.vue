@@ -639,7 +639,6 @@ export default {
     },
     methods:{
         getPackage(name){
-            // console.log(this.employer_packages.find(item=>item.PackageServiceName==name))
             return this.individual_packages.find(item=>item.PackageServiceName==name)
         }
     },
