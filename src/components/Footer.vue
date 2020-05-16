@@ -9,17 +9,17 @@
                     <li><a href="javascript:;">Privacy Policy</a></li>
                     <li><a href="javascript:;">Terms and Conditions of Use</a></li>
                     <li><a href="javascript:;">Global Code of Conduct</a></li>
-                    <li><a href="javascript:;" @click="move('/faq')">FAQ</a></li>
-                    <li><a href="javascript:;" @click="move('/about')">About Us</a></li>
+                    <li><a href='/faq'>FAQ</a></li>
+                    <li><a href='/about'>About Us</a></li>
                 </ul>
             </div>
             <div class="col-md-4 col-12 links">
                 <ul>
-                    <li  v-if="loggedUser==null"><a href="javascript:;" @click="move('/login')">Log In</a></li>
-                    <li><a href="javascript:;" @click="move('/contact')">Contact Us</a></li>
-                    <li v-if="this.userdetails.UserRoleCode=='EMPLOYER'"><a href="javascript:;"  @click="move('/employer-packages')">For Employers</a></li>
-                    <li v-if="this.userdetails.UserRoleCode=='INDIVIDUAL'"><a href="javascript:;"   @click="move('/individual-packages')">For Individuals</a></li>
-                    <li><a href="javascript:;" @click="move('/order-confirmation')">Orders</a></li>
+                    <li  v-if="loggedUser==null"><a href='/login'>Log In</a></li>
+                    <li><a href='/contact'>Contact Us</a></li>
+                    <li v-if="this.userdetails.UserRoleCode=='EMPLOYER'"><a href='/employer-packages'>For Employers</a></li>
+                    <li v-if="this.userdetails.UserRoleCode=='INDIVIDUAL'"><a href='/individual-packages'>For Individuals</a></li>
+                    <li><a href='/profile'>Orders</a></li>
                 </ul>
             </div>
         </div>
