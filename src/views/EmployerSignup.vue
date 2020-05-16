@@ -780,14 +780,13 @@ export default {
         else if(type=='business'){
             this.businessprovince=data.data
             this.new_employer.BusinessAddress.ProvinceId=data.data[0].ProvinceId
+            this.fetchBusinessCityByProvinec(this.new_employer.BusinessAddress.CountryId,this.new_employer.BusinessAddress.ProvinceId,type)
         }
         else if(type=='billing'){
             this.billingprovince=data.data
             this.new_employer.BusinessBillingAddress.ProvinceId=data.data[0].ProvinceId
-
+            this.fetchBusinessCityByProvinec(this.new_employer.BusinessBillingAddress.CountryId,this.new_employer.BusinessBillingAddress.ProvinceId,type)
         }
-
-        this.fetchBusinessCityByProvinec(this.new_employer.BusinessAddress.CountryId,this.new_employer.BusinessAddress.ProvinceId,type)
 
     },
     async fetchBusinessCityByProvinec(CountryId,ProvinceId,type){
