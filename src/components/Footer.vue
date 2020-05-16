@@ -17,6 +17,8 @@
                 <ul>
                     <li  v-if="loggedUser==null"><a href='/login'>Log In</a></li>
                     <li><a href='/contact'>Contact Us</a></li>
+                    <li v-if="loggedUser==null"><a href='/employer-packages'>For Employers</a></li>
+                    <li v-if="loggedUser==null"><a href='/individual-packages'>For Individuals</a></li>
                     <li v-if="this.userdetails.UserRoleCode=='EMPLOYER'"><a href='/employer-packages'>For Employers</a></li>
                     <li v-if="this.userdetails.UserRoleCode=='INDIVIDUAL'"><a href='/individual-packages'>For Individuals</a></li>
                     <li><a href='/profile'>Orders</a></li>
