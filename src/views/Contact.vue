@@ -19,7 +19,7 @@
                     Australia: <a href="tel:+61290174300">+612.9017.4300</a><br>
                     Hong Kong: <a href="tel:+85239786888">+852.3978.6888</a><br>
                     Malaysia: <a href="tel:+60356244390">+603.5624.4390</a><br>
-                    Zealand: <a href="tel:+6494385232">+64.9438.5232</a> /Toll Free: <a href="tel:0800330033">0800.330.033</a><br>
+                    New Zealand: <a href="tel:+6494385232">+64.9438.5232</a> /Toll Free: <a href="tel:0800330033">0800.330.033</a><br>
                     Philippines: <a href="tel:+6328592111">+63.2859.2111</a><br>
                     Singapore: <a href="tel:+6566537200">+65.6653.7200</a>
                     </p>
