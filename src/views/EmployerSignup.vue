@@ -73,7 +73,7 @@
                                             <input required type="email" v-model="new_employer.Email" class="form-control" placeholder="Email (UserID)*" >
                                         </div>
                                             <div class="col-md-2 col-12 mt-3 country">
-                                                <input required type="tel" pattern="^([0|\+[0-9]{1,5})"  v-model="new_employer.MobileCode" class="form-control" placeholder="+852*" >
+                                                <input required type="tel" pattern="^([0|\+[0-9]{1,5})"  v-model="new_employer.MobileCode" class="form-control" placeholder="country code*" >
 
                                             </div>
                                             <div class="col-md-4 mobile col-12 mt-3">

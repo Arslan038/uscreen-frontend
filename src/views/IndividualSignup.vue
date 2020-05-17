@@ -31,7 +31,7 @@
                                             <input required type="email" v-model="new_user.Email" class="form-control" placeholder="Email (UserID)*" >
                                         </div>
                                         <div class="col-md-2 col-12 mt-3 country">
-                                                <input required pattern="^([0|\+[0-9]{1,5})"  v-model="new_user.MobileCode"  class="form-control" placeholder="+852*" >
+                                                <input required pattern="^([0|\+[0-9]{1,5})"  v-model="new_user.MobileCode"  class="form-control" placeholder="country code*" >
                                         </div>
                                         <div class="col-md-4 mobile col-12 mt-3">
                                             <input  required type="tel" pattern="[0-9]{3,10}"  class="form-control" v-model="new_user.MobileNumber" placeholder="Mobile*" >
