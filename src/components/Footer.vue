@@ -21,7 +21,6 @@
                     <li v-if="loggedUser==null"><a href='/individual-packages'>For Individuals</a></li>
                     <li v-if="this.userdetails.UserRoleCode=='EMPLOYER'"><a href='/employer-packages'>For Employers</a></li>
                     <li v-if="this.userdetails.UserRoleCode=='INDIVIDUAL'"><a href='/individual-packages'>For Individuals</a></li>
-                    <li><a href='/profile'>Orders</a></li>
                 </ul>
             </div>
         </div>
