@@ -39,8 +39,8 @@
                             </tr>
                         </tbody>
                     </table>
-                    <div  class="text-center">
-                        <h3 v-if="allorders.length<1">No Record</h3>
+                    <div  class="text-center mt-5">
+                        <h3 v-if="allorders.length<1 && pageLoad==false">No Record</h3>
                         <b-spinner  v-if="pageLoad==true" variant="primary" label="Spinning"></b-spinner>
 
 

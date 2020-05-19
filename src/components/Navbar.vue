@@ -11,17 +11,17 @@
 
             <!-- Right aligned nav items -->
             <b-navbar-nav class="ml-5">
-                <b-nav-item @click="move('/')">Home</b-nav-item>
-                <b-nav-item v-if="loggedUser==null" @click="move('/employer-packages')">For Employers</b-nav-item>
-                <b-nav-item v-if="loggedUser==null"  @click="move('/individual-packages')">For Individuals</b-nav-item>
-                <b-nav-item v-if="userdetails.UserRoleCode=='EMPLOYER'" @click="move('/employer-packages')">For Employers</b-nav-item>
-                <b-nav-item v-if="userdetails.UserRoleCode=='INDIVIDUAL'"  @click="move('/individual-packages')">For Individuals</b-nav-item>
-                <b-nav-item @click="move('/about')">About Us</b-nav-item>
-                <b-nav-item v-if="loggedUser!=null" @click="move('/profile')">Profile</b-nav-item>
+                <b-nav-item href='/'>Home</b-nav-item>
+                <b-nav-item v-if="loggedUser==null" href='/employer-packages'>For Employers</b-nav-item>
+                <b-nav-item v-if="loggedUser==null" href='/individual-packages'>For Individuals</b-nav-item>
+                <b-nav-item v-if="userdetails.UserRoleCode=='EMPLOYER'" href='/employer-packages'>For Employers</b-nav-item>
+                <b-nav-item v-if="userdetails.UserRoleCode=='INDIVIDUAL'"  href='/individual-packages'>For Individuals</b-nav-item>
+                <b-nav-item href='/about'>About Us</b-nav-item>
+                <b-nav-item v-if="loggedUser!=null" href='/profile'>Profile</b-nav-item>
 
-                <b-nav-item v-if="loggedUser==null" @click="move('/login')">Log In</b-nav-item>
+                <b-nav-item v-if="loggedUser==null" href='/login'>Log In</b-nav-item>
                 <b-nav-item v-else @click="logout()">Log Out</b-nav-item>
-                <b-nav-item @click="move('/contact')">Contact Us</b-nav-item>
+                <b-nav-item href='/contact'>Contact Us</b-nav-item>
                 
             </b-navbar-nav>
             </b-collapse>
