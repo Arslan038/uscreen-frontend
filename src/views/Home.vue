@@ -2,8 +2,8 @@
   <div class="home">
     <div class="row no-gutters header align-items-center">
       <div class="col-md-12 text-center">
-          <h1 class="text-white">Why UScreen</h1>
-          <p>No hidden fees, no memberships and no minimums. <br>Get quick and easy background checks.</p>
+          <h1 class="text-white">UScreen</h1>
+          <p>Quick and easy background checks.<br>No hidden fees, no memberships and no minimums</p>
           <button class="btn btn-screen" @click="routeit('simple')">Screen Today</button>
       </div>
     </div>
@@ -17,14 +17,14 @@
         <div class="col-md-6 col-12 text-center mt-5">
           <img class="zoom" src="../assets/adfBitmap@2x.png" width="80%" alt="">
           <h3 class="pt-5 text-head">Individual </h3>
-          <p class="px-5 pt-2 text-gray">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,</p>
+          <p class="px-5 pt-2 text-gray">Recommended for individual one-off background checks</p>
           <button class="btn btn-secondary more" @click="routeit('indiv')">More</button>
           
         </div>
         <div class="col-md-6 col-12 text-center mt-5">
           <img class="zoom" src="../assets/Bitmaafp@2x.png" width="80%" alt="">
           <h3 class="pt-5 text-head">Employer </h3>
-          <p class="px-5 pt-2 text-gray">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,</p>
+          <p class="px-5 pt-2 text-gray">For registered small business owners and/or employers to conduct background checks on employees</p>
           <button class="btn btn-secondary more" @click="routeit('emplo')">More</button>
         </div>
       </div>
@@ -69,7 +69,15 @@ export default {
   },
   methods:{
     routeit(arg){
-      if(this.loggedUser!=null){
+      if(arg=='indiv'){
+        this.$router.push({path:'/individual-packages'})
+      }
+
+      else if(arg=='emplo'){
+        this.$router.push({path:'/employer-packages'})
+      }
+
+      else if(this.loggedUser!=null){
           if(arg=='simple'){
             if(this.userdetails.UserRoleCode=='INDIVIDUAL'){
               this.$router.push({path:'/individual-packages'})
@@ -81,33 +89,17 @@ export default {
             }
           }
           
-          if(arg=='simple'){
-            if(this.userdetails.UserRoleCode=='INDIVIDUAL'){
-              this.$router.push({path:'/individual-packages'})
+          // if(arg=='simple'){
+          //   if(this.userdetails.UserRoleCode=='INDIVIDUAL'){
+          //     this.$router.push({path:'/individual-packages'})
 
-           }
-            else if(this.userdetails.UserRoleCode=='EMPLOYER'){
-                this.$router.push({path:'/employer-packages'})
+          //  }
+          //   else if(this.userdetails.UserRoleCode=='EMPLOYER'){
+          //       this.$router.push({path:'/employer-packages'})
 
-            }
-          }
+          //   }
+          // }
         
-          if(arg=='indiv'){
-            if(this.userdetails.UserRoleCode=='INDIVIDUAL'){
-              this.$router.push({path:'/individual-packages'})
-
-           }
-            
-          }
-
-          if(arg=='emplo'){
-            if(this.userdetails.UserRoleCode=='EMPLOYER'){
-                this.$router.push({path:'/employer-packages'})
-
-           }
-            
-          }
-
       }
       else{
       this.$router.push({path:'login'})
