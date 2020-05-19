@@ -255,17 +255,22 @@ export default {
       },
       async bankTransfer(){
           if(this.terms==true){
+            if(this.paymentobj.OrderKey=='') {
+                let {data}=await OrderRepository.create_order(this.selected_order)
+                .catch(error => {
+                    this.$store.commit('setNotifications',{message:error.response.data.Message,type:'error'})
+                });
 
-           let {data}=await OrderRepository.create_order(this.selected_order)
-            .catch(error => {
-                this.$store.commit('setNotifications',{message:error.response.data.Message,type:'error'})
-            });
+                if(data!=null) {
+                    this.$router.push({name:'OrderBankTransfer',params:{orderkey:data.data.OrderKey}})
+                }
 
-            if(data!=null){
-                this.$router.push({name:'OrderBankTransfer',params:{orderkey:data.data.OrderKey}})
             }
-            else{
+            else {
+                    this.$router.push({name:'OrderBankTransfer',params:{orderkey:this.paymentobj.OrderKey}})
             }
+
+
           }
         else{
                 this.$store.commit('setNotifications',{message:'Accept terms and conditions',type:'error'})
@@ -275,27 +280,37 @@ export default {
       },
       async createAndDownload(){
           if(this.terms==true){
+            if(this.paymentobj.OrderKey=='') {
+                let {data}=await OrderRepository.create_order(this.selected_order)
+                .catch(error => {
+                    this.$store.commit('setNotifications',{message:error.response.data.Message,type:'error'})
+                });
 
-           let {data}=await OrderRepository.create_order(this.selected_order)
-            .catch(error => {
-                this.$store.commit('setNotifications',{message:error.response.data.Message,type:'error'})
-            });
-
-            if(data!=null){
-                this.$router.push({name:'OrderBankTransfer',params:{proforma:true,orderkey:data.data.OrderKey}})
-            }
-            else{
-            }
-          }
-            else{
-                    this.$store.commit('setNotifications',{message:'Accept terms and conditions',type:'error'})
+                if(data!=null){
+                    this.$router.push({name:'OrderBankTransfer',params:{proforma:true,orderkey:data.data.OrderKey}})
+                }
+                else {
 
                 }
+
+            }
+            else{
+                this.$router.push({name:'OrderBankTransfer',params:{proforma:true,orderkey:this.paymentobj.OrderKey}})
+               
+            }
+
+           
+          }
+        else{
+                this.$store.commit('setNotifications',{message:'Accept terms and conditions',type:'error'})
+
+            }
 
       },
       async createPayment(){
           this.isLoad=true
-           let {data}=await OrderRepository.create_order(this.selected_order)
+          if(this.paymentobj.OrderKey=='') {
+            let {data}=await OrderRepository.create_order(this.selected_order)
             .catch(error => {
                 this.$store.commit('setNotifications',{message:error.response.data.Message,type:'error'})
             });
@@ -321,8 +336,28 @@ export default {
                 this.isLoad=false
 
             }
-            else{
-            }
+
+          }
+          else {
+
+                let resp=await OrderRepository.order_charge(this.paymentobj)
+                .catch(error => {
+                    this.$store.commit('setNotifications',{message:error.response.data.Message,type:'error'})
+                    this.isLoad=false
+                });
+                if(resp.data.code=='MSG_SUCCESS_PAYMENT_CHARGE') {
+                     this.$store.commit('setNotifications',{message:'Order created successfully',type:'success'})
+                     this.$router.push({name:'OrderBankTransfer',params:{orderkey:this.paymentobj.OrderKey}})
+                }
+                else{
+                     this.$store.commit('setNotifications',{message:'Problems in Making payments',type:'error'})
+
+                }
+                this.payModal=false
+                this.isLoad=false
+
+          }
+
              
       },
       getCountryByCode(id){
