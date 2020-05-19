@@ -16,7 +16,7 @@
                                     <input type="email" class="form-control mt-3" v-model="user_Auth.Email" placeholder="Email*">
                                     <input type="password" v-model="user_Auth.Password" v-on:keyup.enter="auth_login" class="form-control mt-3" placeholder="Password">
                                     <router-link  to="/forget-password">
-                                    <p class="text-primary mt-2">Forget Password</p>
+                                    <p class="text-primary mt-2">Forgot Password?</p>
                                     </router-link>
                                 </div>
                                 <div class="col-12 text-center">
