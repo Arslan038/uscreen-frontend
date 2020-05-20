@@ -84,7 +84,7 @@ export default {
 
     },
     async fetchOrders(){
-        let {data}= await OrderRepository.getorders()
+        let {data}= await OrderRepository.getorders(1)
         this.$store.commit("setAllOrders",data.data.PageData)
 
     },
