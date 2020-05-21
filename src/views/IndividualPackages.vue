@@ -113,7 +113,7 @@
         <div class="row mt-5">
             <div class="col-12 text-center">
                 <h3 class="text-head"><strong>Packages</strong></h3>
-                <p class="text-gray my-3">Lorem ipsum, or lorem ipsum Lorem ipsum, or lorem ipsum Lorem ipsum, or lorem ipsum Lorem ipsum, or lorem ipsum Lorem ipsum, or lorem ipsum Lorem ipsum, or lorem ipsum.</p>
+                <p class="text-gray my-3">The below table lists all available packages and background check inclusions for each package</p>
             </div>
         </div>
 
@@ -476,7 +476,7 @@
             </div>
             <div class="package-size">
                 <div class="silver package text-center">
-                    <p> <strong>Sliver</strong></p>
+                    <p> <strong>Silver</strong></p>
                 </div>
                 <div class="offer text-center py-3 px-3">
                     <!-- <span>Lorem ipsum, or lorem ipsum as it is.</span> -->
