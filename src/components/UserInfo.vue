@@ -176,6 +176,7 @@ export default {
     name: "UserInfo",
     data(){
         return{
+            passwordVal :/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
             retypedpassword:'',
             isVerified: false,
             new_employer:'',
@@ -205,10 +206,21 @@ export default {
             // }
             
             if(this.new_employer.Password!=null) {
-            if(this.new_employer.Password!=this.retypedpassword){
-                this.$store.commit('setNotifications',{message:'New Password and retyped password should be same',type:'error'})
-                return
-            }
+                if(this.new_employer.Password!=this.retypedpassword){
+                    this.$store.commit('setNotifications',{message:'New Password and retyped password should be same',type:'error'})
+                    return
+                }
+                else if(this.new_employer.Password==this.retypedpassword) {
+                    if(!this.passwordVal.test(this.new_employer.Password)) {
+                        this.$store.commit('setNotifications',{message:'Password should contain uppercase letter, alphanumeric symbol and number.',type:'error'})
+                        return
+                    }
+                    if(this.new_employer.Password.length < 8) {
+                        this.$store.commit('setNotifications',{message:'Password should be atleast 8 characters long.',type:'error'})
+                        return
+                    }
+
+                }
             }
             let {data}=await UserRepository.updateuser(this.new_employer)
             .catch(error => {

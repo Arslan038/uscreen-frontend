@@ -230,6 +230,7 @@ export default {
 
   },
   created(){
+      
       window.scrollTo(0, 0);
 
       this.fetchCountries()
@@ -283,6 +284,15 @@ export default {
               if(this.new_employer.Password==this.retype_pass) {
                     if(!this.isVerified) {
                         this.$store.commit('setNotifications',{message:'Re-Captcha Required',type:'error'})
+                        return
+                    }
+                       
+                    if(!this.passwordVal.test(this.new_employer.Password)) {
+                        this.$store.commit('setNotifications',{message:'Password should contain uppercase letter, alphanumeric symbol and number.',type:'error'})
+                        return
+                    }
+                    if(this.new_employer.Password.length < 8) {
+                        this.$store.commit('setNotifications',{message:'Password should be atleast 8 characters long.',type:'error'})
                         return
                     }
                     if(this.new_employer.Email!=this.confirm_email){
@@ -421,6 +431,7 @@ export default {
   },
   data() {
     return {
+    passwordVal :/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
     terms:false,
     isVerified: false,
       businessprovince:[],

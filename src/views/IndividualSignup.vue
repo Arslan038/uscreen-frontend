@@ -171,6 +171,14 @@ export default {
                     this.$store.commit('setNotifications',{message:'Re-Captcha Required',type:'error'})
                     return
                 }
+                if(!this.passwordVal.test(this.new_user.Password)) {
+                    this.$store.commit('setNotifications',{message:'Password should contain uppercase letter, alphanumeric symbol and number.',type:'error'})
+                    return
+                }
+                if(this.new_user.Password.length < 8) {
+                    this.$store.commit('setNotifications',{message:'Password should be atleast 8 characters long.',type:'error'})
+                    return
+                }
                 if(this.new_user.Email!=this.confirm_email){
                     this.$store.commit('setNotifications',{message:'Email and Confirmed email should be same',type:'error'})
                     return
@@ -295,6 +303,7 @@ export default {
   },
   data() {
     return {
+    passwordVal :/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
     terms:false,
     retype_pass:'',
     isVerified: false,
