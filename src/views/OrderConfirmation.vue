@@ -140,18 +140,18 @@
                                     </p>
                                 </div>
                                 <div class="col-md-6 col-12 mt-3 align-self-end">
-                                    <button class="btn btn-primary btn-block" @click="bankTransfer">Confirm Order with Bank Transfer</button>
+                                    <button class="btn btn-primary btn-block" @click="bankTransfer">Pay via Bank Transfer</button>
                                 </div>
                                 <div class="col-12 text-center my-5">
                                     <h4><strong class="text-head">or</strong></h4>
                                 </div>
 
                                 <div class="col-md-6 col-12 mt-3">
-                                    <p><strong class="text-blue">Option 3: Download Pro Forma Invoice and Pay Later</strong></p>
+                                    <p><strong class="text-blue">Option 3: Download Invoice and Pay Later</strong></p>
 
                                 </div>
                                 <div class="col-md-6 col-12 mt-3">
-                                    <button class="btn btn-primary btn-block" @click="createAndDownload()">Get Pro Forma Invoice</button>
+                                    <button class="btn btn-primary btn-block" @click="createAndDownload()">Pay Invoice</button>
                                 </div>
                                 <div class="col-md-12 text-center">
                                     <a v-if="performa_file!=''" :href="performa_file" download>Your file is ready click here </a>                                         
