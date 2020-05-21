@@ -32,7 +32,7 @@
                                 </div>
                                 <div class="row mx-5 mt-3 mb-5">
                                     <div class="col-8 text-right">
-                                        <p class="text-gray">Wallet Balance can be used as cash upon your next purchase</p>
+                                        <p class="text-gray">Wallet balance can be used towards your next order</p>
                                     </div>
                                 </div>
                             </div>
