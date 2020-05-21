@@ -13,15 +13,30 @@
         <p class="text-gray">Order your background check today. It's easy!</p>
       </div>
       <div class="container">
-      <div class="row mt-3">
+      <div v-if="loggedUser==null" class="row mt-3">
         <div class="col-md-6 col-12 text-center mt-5">
           <img class="zoom" src="../assets/adfBitmap@2x.png" width="80%" alt="">
           <h3 class="pt-5 text-head">Individual </h3>
           <p class="px-5 pt-2 text-gray">Recommended for individual one-off background checks</p>
           <button class="btn btn-secondary more" @click="routeit('indiv')">More</button>
-          
         </div>
         <div class="col-md-6 col-12 text-center mt-5">
+          <img class="zoom" src="../assets/Bitmaafp@2x.png" width="80%" alt="">
+          <h3 class="pt-5 text-head">Employer </h3>
+          <p class="px-5 pt-2 text-gray">For registered small business owners and/or employers to conduct background checks on employees</p>
+          <button class="btn btn-secondary more" @click="routeit('emplo')">More</button>
+        </div>
+      </div>
+      <div v-if="userdetails.UserRoleCode=='INDIVIDUAL'" class="row mt-3">
+        <div class="col-md-6 offset-md-3 col-12 text-center mt-5">
+          <img class="zoom" src="../assets/adfBitmap@2x.png" width="80%" alt="">
+          <h3 class="pt-5 text-head">Individual </h3>
+          <p class="px-5 pt-2 text-gray">Recommended for individual one-off background checks</p>
+          <button class="btn btn-secondary more" @click="routeit('indiv')">More</button>
+        </div>
+      </div>
+      <div v-if="userdetails.UserRoleCode=='EMPLOYER'" class="row mt-3">
+        <div class="col-md-6 offset-md-3 col-12 text-center mt-5">
           <img class="zoom" src="../assets/Bitmaafp@2x.png" width="80%" alt="">
           <h3 class="pt-5 text-head">Employer </h3>
           <p class="px-5 pt-2 text-gray">For registered small business owners and/or employers to conduct background checks on employees</p>
