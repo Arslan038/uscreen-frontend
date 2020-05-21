@@ -170,7 +170,7 @@
         </div>
 
         <b-modal v-model="payModal" title="Pay Online" :hideFooter="true">
-            <h4 class="text-blue  mb-3 text-center">Pay {{total.toFixed(2)}} {{userdetails.CurrencyCode}}  via Credit Card</h4>
+            <h4 class="text-blue  mb-3 text-center">Pay ${{total.toFixed(2)}} {{userdetails.CurrencyCode}}  via Credit Card</h4>
             <b-row>
                 <b-input v-model="paymentobj.number" placeholder=" Card Number"></b-input>
             </b-row>

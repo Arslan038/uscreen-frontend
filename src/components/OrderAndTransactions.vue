@@ -21,7 +21,7 @@
                             <tr v-for="(item,i) in allorders" :key="i" >
                                 <td>{{item.OrderId}}</td>
                                 <td>{{item.PackageServiceName}}</td>
-                                <td>{{item.OriginalAmount.toFixed(2)}}</td>
+                                <td>${{item.OriginalAmount.toFixed(2)}}</td>
                                 <td><button  :class="['btn ','btn-sm btn-block',item.CandidateStatusCode=='Ready'? 'btn-primary':'btn-border']">{{item.CandidateStatusName}}</button></td>
                                 <!-- <td><button class="btn btn-sm btn-border btn-block">in review</button></td> -->
                                 <!-- v-if="v-if="getOrderStatus(item.OrderStatusId)=='Paid'"(item.OrderStatusId)=='Paid'" -->
@@ -54,7 +54,7 @@
         </div>
 
         <b-modal v-model="payModal" title="Pay Online" :hideFooter="true">
-            <h4 class="text-blue  mb-3 text-center">Pay {{total}} {{userdetails.CurrencyCode}} via Credit Card</h4>
+            <h4 class="text-blue  mb-3 text-center">Pay ${{total}} {{userdetails.CurrencyCode}} via Credit Card</h4>
             <b-row>
                 <b-input v-model="paymentobj.number" placeholder=" Card Number"></b-input>
             </b-row>
