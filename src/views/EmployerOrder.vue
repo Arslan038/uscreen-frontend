@@ -28,7 +28,7 @@
                         <div class="pl-5 pr-4">
 
                         
-                        <p><strong class="text-head">{{selected_package.PackageServiceName}} Package Items</strong></p>
+                        <p><strong class="text-head">{{selected_package!=null ? selected_package.PackageServiceName:temp_selected_package.PackageServiceName}} Package Items</strong></p>
                         <p class="text-gray">Please take note that certain checks have maximum number of countries you can request checks for. You can add as many as five (5) countries to conduct for database checks like Bankruptcy, Civil Litigation, Credit, Criminal and Directorship. Employment check can be conducted for max of three (3) countries. One (1) country can be selected for the Education check.</p>
 
                         <div v-if="item.IsActive==1" class="row" v-for="(item,i) in packageitems" :key="i">
@@ -145,7 +145,7 @@ export default {
     name: "EmployerOrder",
     props:['selected_package'],
     computed:{
-        ...mapGetters(['countries','loggedUser'])
+        ...mapGetters(['temporder','countries','loggedUser','temp_selected_package'])
     },
     components: {
         Breadcrumb
@@ -155,7 +155,7 @@ export default {
         window.onbeforeunload = function() {
             return "Changes that you made may not be saved!";
         };
-        if(this.selected_package==null){
+        if(this.selected_package==null && this.temp_selected_package==null){
             
                 if(JSON.parse(localStorage.getItem("userdetails"))!=null){
                     if(JSON.parse(localStorage.getItem("userdetails")).UserRoleCode=='INDIVIDUAL'){
@@ -167,7 +167,10 @@ export default {
                     }
                 }
         }
-        this.new_order.PackageServiceCode=this.selected_package.PackageServiceCode
+        if(this.temporder!=null){
+            this.new_order=this.temporder
+        }
+        this.new_order.PackageServiceCode=this.selected_package!=null ? this.selected_package.PackageServiceCode:this.temp_selected_package.PackageServiceCode
         this.new_order.UserKey=this.loggedUser.UserKey
 
         this.getPackageItems()
@@ -246,12 +249,20 @@ export default {
             }
             this.b_countryarr.forEach((item,i)=>{
                 if(item.countries.length>0){                
-                this.new_order.PackageServiceItems.push({ComponentType:item.type,Countries:item.countries})
+                   let ot= this.new_order.PackageServiceItems.find(a=>a.ComponentType==item.type)
+                   if(ot==null) {
+                     this.new_order.PackageServiceItems.push({ComponentType:item.type,Countries:item.countries})
+                   }
                 }
                 else if(item.IsActive==1 && item.countries.length<1){
-                this.new_order.PackageServiceItems.push({ComponentType:item.type,Countries:[]})
+                 let ot= this.new_order.PackageServiceItems.find(a=>a.ComponentType==item.type)
+                   if(ot==null) {
+                         this.new_order.PackageServiceItems.push({ComponentType:item.type,Countries:[]})
+                   }
                 }
             })
+            this.$store.commit("setTempOrder",{selected_order:this.new_order,selected_package:this.selected_package!=null ? this.selected_package:this.temp_selected_package})
+
             this.$router.push({name:'OrderConfirmation',params:{selected_order:this.new_order}})
 
            
@@ -265,11 +276,27 @@ export default {
             this.b_countryarr[arrindex].countries.splice(j, 1)
         },
         async getPackageItems(){
-            let {data}=await OrderRepository.getPackageItems({PackageServiceId:this.selected_package.PackageServiceId,UserKey:this.loggedUser.UserKey})
+            let {data}=await OrderRepository.getPackageItems({PackageServiceId:this.selected_package!=null ? this.selected_package.PackageServiceId:this.temp_selected_package.PackageServiceId,UserKey:this.loggedUser.UserKey})
+            // let {data}=await OrderRepository.getPackageItems({PackageServiceId:this.selected_package.PackageServiceId,UserKey:this.loggedUser.UserKey})
             this.packageitems=data.data
             this.countryitems=data.data
             this.packageitems.forEach(item=>{
-            this.b_countryarr.push({IsActive:item.IsActive,countrylimit:item.countrylimit,name:item.PackageServiceItemName,type:item.ComponentType,b_country:1,countries:[],show:true})
+                if(this.temporder!=null){
+                    let obj=this.temporder.PackageServiceItems.find(a=>a.ComponentType==item.ComponentType)
+                    if(obj!=null){
+                        this.b_countryarr.push({IsActive:item.IsActive,countrylimit:item.countrylimit,name:item.PackageServiceItemName,type:obj.ComponentType,b_country:obj.Countries.length,countries:obj.Countries,show:true})
+                    
+                    }
+                    else{
+                        this.b_countryarr.push({IsActive:item.IsActive,countrylimit:item.countrylimit,name:item.PackageServiceItemName,type:item.ComponentType,b_country:1,countries:[],show:true})
+                    
+                    }
+                }
+                else {
+                        this.b_countryarr.push({IsActive:item.IsActive,countrylimit:item.countrylimit,name:item.PackageServiceItemName,type:item.ComponentType,b_country:1,countries:[],show:true})
+
+                }
+            // this.b_countryarr.push({IsActive:item.IsActive,countrylimit:item.countrylimit,name:item.PackageServiceItemName,type:item.ComponentType,b_country:1,countries:[],show:true})
             })
         },
         
