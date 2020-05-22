@@ -7,14 +7,14 @@
         </div>
         <div class="row my-5 pt-5">
             <div class="col-12 text-center">
-                <h3><strong class="text-head">Contact First Advantage</strong></h3>
+                <h3><strong class="text-head">Contact Us</strong></h3>
             </div>
         </div>
         <div class="row mx-5">
             <div class="col-md-3 col-12 mt-3">
                 <h2><strong class="text-head">Phone</strong></h2>
                 <div class="col-12 mt-4">
-                    <p class="title"><i class="fa fa-phone-volume text-primary mr-2"></i> <strong>Phone</strong></p>
+                    <p class="title"><!--<i class="fa fa-phone-volume text-primary mr-2"></i>--> <strong>Via Phone</strong></p>
                     <p class="address text-gray">
                     Australia: <a href="tel:+61290174300">+612.9017.4300</a><br>
                     Hong Kong: <a href="tel:+85239786888">+852.3978.6888</a><br>
@@ -24,16 +24,16 @@
                     Singapore: <a href="tel:+6566537200">+65.6653.7200</a>
                     </p>
                 </div>
-                <div class="col-12 mt-4">
+<!--                 <div class="col-12 mt-4">
                     <p class="title"><i class="far fa-clock text-primary mr-2"></i> <strong>Operating Hours</strong></p>
                     <p class="address text-gray">
                     Mon-Fri: 9:00am - 5:00pm<br>
                     Sat-Sun: 11:00am - 4:00pm
                     </p> 
-                </div>
+                </div> -->
             </div>
             <div class="col-md-8 col-12 mt-3 mb-5">
-                <h2 class="text-center"><strong class="text-head">Email</strong></h2>
+                <h2 class="text-center"><strong class="text-head">Via Email</strong></h2>
                 <input type="text" class="form-control mt-3" v-model="help_obj.Subject" placeholder="Subject*">
                 <input type="email" class="form-control mt-3" placeholder="Email*" v-model="help_obj.Email">
                 <textarea cols="30" rows="7" placeholder="Message" class="mt-3 form-control" v-model="help_obj.Message"></textarea>
