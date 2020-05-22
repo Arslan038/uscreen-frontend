@@ -292,9 +292,9 @@ export default {
             to: '/'
         },
         {
-            text: 'Order Form',
+            text: 'Profile',
             active: false,
-            to: '/employer-order'
+            to: '/profile'
         },
         {
             text: 'Order Detail',
