@@ -8,7 +8,7 @@
         <div class="row mt-5">
             <div class="col-12 text-center text-gray">
                 <h4 class="text-head"><strong>Frequently Asked Questions</strong></h4>
-                <p class="px-5 pt-3">Lorem ipsum dummy text Lorem ipsum dummy text Lorem ipsum dummy text Lorem ipsum dummy text Lorem ipsum dummy text Lorem ipsum dummy text Lorem ipsum dummy text <br> Lorem ipsum dummy text Lorem ipsum dummy text Lorem ipsum dummy text Lorem ipsum dummy text Lorem ipsum dummy text Lorem ipsum dummy text <br> Lorem ipsum dummy text Lorem ipsum dummy text </p>
+                <!-- <p class="px-5 pt-3">Lorem ipsum dummy text Lorem ipsum dummy text Lorem ipsum dummy text Lorem ipsum dummy text Lorem ipsum dummy text Lorem ipsum dummy text Lorem ipsum dummy text <br> Lorem ipsum dummy text Lorem ipsum dummy text Lorem ipsum dummy text Lorem ipsum dummy text Lorem ipsum dummy text Lorem ipsum dummy text <br> Lorem ipsum dummy text Lorem ipsum dummy text </p> -->
                 <h5 class="mt-5 text-head"><strong>General Questions</strong></h5>
             </div>
         </div>
@@ -334,7 +334,7 @@ export default {
                     to: '/'
                 },
                 {
-                    text: 'FAQ',
+                    text: 'FAQs',
                     active: true,
                     to: '/faq'
                 }
