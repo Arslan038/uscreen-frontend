@@ -18,7 +18,7 @@
                 <b-nav-item v-if="userdetails.UserRoleCode=='INDIVIDUAL'"  href='/individual-packages'>For Individuals</b-nav-item>
                 <b-nav-item v-if="loggedUser!=null" href='/profile'>Profile</b-nav-item>
 
-                <b-nav-item v-if="loggedUser==null" href='/login'>Log In</b-nav-item>
+                <b-nav-item v-if="loggedUser==null" href='/login'>Sign In/Sign up</b-nav-item>
                 <b-nav-item v-else @click="logout()">Log Out</b-nav-item>
                 <b-nav-item href='/contact'>Contact Us</b-nav-item>
                 <b-nav-item href='/about'>About Us</b-nav-item>
