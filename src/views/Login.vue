@@ -8,7 +8,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h4 class="text-center text-head mt-5">Login</h4>
+                    <h4 class="text-center text-head mt-5">Sign In</h4>
                     <div class="card my-5">
                         <div class="card-body pt-3 pb-5 shadow">
                             <div class="row mx-5">
@@ -55,7 +55,7 @@ export default {
             to: '/'
         },
         {
-            text: 'Login',
+            text: 'Sign In',
             active: true,
             to: '/login'
         }
