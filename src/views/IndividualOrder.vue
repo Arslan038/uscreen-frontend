@@ -29,8 +29,12 @@
 
                         
                         <p><strong class="text-head">{{selected_package!=null ? selected_package.PackageServiceName:temp_selected_package.PackageServiceName}} Package Items</strong></p>
-                        <p class="text-gray">Please take note that certain checks have maximum number of countries you can request checks for. You can add as many as five (5) countries to conduct for database checks like Bankruptcy, Civil Litigation, Credit, Criminal and Directorship. Employment check can be conducted for max of three (3) countries. One (1) country can be selected for the Education check.</p>
-
+                        <p class="text-gray">
+                        Important Note: Certain checks have a maximum number of countries you can request checks for. Please see below:<br>
+                        -Up to five (5) countries for database checks such as Bankruptcy, Civil Litigation, Credit, Criminal and Directorship checks<br>
+                        -Up to three (3) countries for Employment check.<br>
+                        -One (1) country only for Education check.
+                        </p>
                         <div v-if="item.IsActive==1" class="row" v-for="(item,i) in packageitems" :key="i">
                             <div class="col-md-12 col-xl-4 col-12 mt-3">
                                 <p><strong class="text-blue">{{item.PackageServiceItemName}}</strong></p>
@@ -47,7 +51,7 @@
                                         <button v-if="b_countryarr[i].show && b_countryarr[i].b_country != b_countryarr[i].countrylimit" class="btn btn-primary" @click="addBankruptcyCountry(i)">Add Country</button>
                                     </div>
                                     <div class="col-6 pr-0 text-right">
-                                        <span class="text-right text-gray">(Can add Upto {{b_countryarr[i].countrylimit}}) </span>
+                                        <span v-if="b_countryarr[i].countrylimit > 1" class="text-right text-gray ">(Max.{{b_countryarr[i].countrylimit}}) </span>
                                     </div>
                                 </div>
                             </div>
