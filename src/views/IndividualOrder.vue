@@ -146,11 +146,6 @@ export default {
         }
         if(this.temporder!=null){
             this.new_order=this.temporder
-            // this.new_order.FirstName =this.temporder.FirstName
-            // this.new_order.LastName=this.temporder.LastName
-            // this.new_order.Email=this.temporder.Email
-            // this.new_order.MobileCode=this.temporder.MobileCode
-            // this.new_order.MobileNumber=this.temporder.MobileNumber
         }
         this.new_order.PackageServiceCode=this.selected_package!=null ? this.selected_package.PackageServiceCode:this.temp_selected_package.PackageServiceCode
         this.new_order.UserKey=this.loggedUser.UserKey
@@ -263,8 +258,8 @@ export default {
                 }
             })
             this.$store.commit("setTempOrder",{selected_order:this.new_order,selected_package:this.selected_package!=null ? this.selected_package:this.temp_selected_package})
-            console.log(this.new_order)
-           this.$router.push({name:'OrderConfirmation',params:{selected_order:this.new_order}})
+            window.onbeforeunload = null
+            this.$router.push({name:'OrderConfirmation',params:{selected_order:this.new_order}})
 
            
         },
