@@ -14,7 +14,7 @@
                 <div class="col-md-12 mt-2 text-center">
                     <a  v-if="performa_file!=''" :href="performa_file" download>Your file is ready click here </a>                                         
                 </div>
-                <button class="btn btn-secondary mt-3 mb-5" @click="home">Order</button>
+                <button class="btn btn-secondary mt-3 mb-5" @click="home">My Orders</button>
             </div>
         </div>
     </div>
