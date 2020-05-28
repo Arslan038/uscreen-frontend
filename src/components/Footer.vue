@@ -4,7 +4,7 @@
             <div class="col-md-4 col-12 text-center pt-4">
                 <img src="../assets/UScreen Logo_Color.png" alt="" @click="move('/')">
             </div>
-            <div class="col-md-4 col-12 links">
+            <div class="col-md-4 col-12 links text-center">
                 <ul>
                     <li><a href="javascript:;">Privacy Policy</a></li>
                     <li><a href="javascript:;">Terms and Conditions of Use</a></li>
@@ -13,7 +13,7 @@
                     <li><a href='/about'>About Us</a></li>
                 </ul>
             </div>
-            <div class="col-md-4 col-12 links">
+            <div class="col-md-4 col-12 links text-center">
                 <ul>
                     <li  v-if="loggedUser==null"><a href='/login'>Log In</a></li>
                     <li><a href='/contact'>Contact Us</a></li>

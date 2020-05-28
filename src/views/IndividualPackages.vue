@@ -5,7 +5,7 @@
                 <Breadcrumb :items="items" class="px-5" />
             </div>
         </div>
-        <div class="row my-5 mx-5 px-5">
+        <div class="row my-5 px-3">
             <div class="col-12 text-center text-gray">
                 <h4 class="text-head"><strong>Background Checks for Individuals</strong></h4>
                 <p class="mt-4">To avoid spending time and effort on misrepresented and fraudulent resumes, most employers today are increasingly seeking <br> out pre-screened candidates.</p>

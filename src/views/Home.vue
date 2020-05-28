@@ -3,14 +3,14 @@
     <div class="row no-gutters header align-items-center">
       <div class="col-md-12 text-center">
           <h1 class="text-white">UScreen</h1>
-          <p>Quick and easy background checks.<br>No hidden fees, no memberships and no minimums</p>
+          <p class="px-3">Quick and easy background checks.<br>No hidden fees, no memberships and no minimums</p>
           <button class="btn btn-screen" @click="routeit('simple')">Screen Today</button>
       </div>
     </div>
     <div class="row package">
       <div class="col-md-12 text-center">
         <h2 class="text-head">Choose Your Package</h2>
-        <p class="text-gray">Order your background check today. It's easy!</p>
+        <p class="text-gray px-4">Order your background check today. It's easy!</p>
       </div>
       <div class="container">
       <div class="row mt-3">
