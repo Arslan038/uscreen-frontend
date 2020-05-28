@@ -204,6 +204,12 @@ input:focus, select:focus, textarea:focus, .btn-primary:focus, .btn-secondary:fo
     font-size: 12px !important;
     font-weight: bold !important;
   }
+  .rc-anchor-normal, .rc-anchor .rc-anchor-normal .rc-anchor-light {
+    max-width: 200px !important;
+  }
+  .nav-tabs .nav-link {
+    font-size: 10px !important;
+  }
 }
 
 </style>

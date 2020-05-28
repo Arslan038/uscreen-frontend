@@ -8,8 +8,8 @@
     <div class="row my-5 pt-5">
       <div class="col-12 text-center">
         <h3><strong class="text-head">About Us</strong></h3>
-        <p class="text-gray pt-3">Uscreen is powered by First Advantage, the world's most trusted background check provider.</p>
-        <p class="text-gray">We provide comprehensive background screening sloutions that provide employers and individuals, actionable reports so they <br> can make confident choices, reduce risk, stay compliant</p>
+        <p class="text-gray pt-3 px-3">Uscreen is powered by First Advantage, the world's most trusted background check provider.</p>
+        <p class="text-gray px-3">We provide comprehensive background screening sloutions that provide employers and individuals, actionable reports so they <br> can make confident choices, reduce risk, stay compliant</p>
       </div>
     </div>
 
@@ -23,7 +23,7 @@
     </div>
     <div class="row">
       <div class="col-md-6 col-12">
-        <div class="row my-5 mx-4 px-4">
+        <div class="row mt-5 mx-4">
           <div class="col-4 col-md-2">
             <img src="../assets/target@2x.png" width="80%" class="left" alt=""> 
           </div>
@@ -34,7 +34,7 @@
         </div>
       </div>
       <div class="col-md-6 col-12">
-        <div class="row my-5 mx-4 px-4">
+        <div class="row my-5 mx-4">
           <div class="col-4 col-md-2">
             <img src="../assets/scope@2x.png" width="80%" class="left" alt=""> 
           </div>

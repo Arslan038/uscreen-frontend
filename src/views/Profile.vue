@@ -22,16 +22,16 @@
                         </b-tab>
                         <b-tab title="Wallet">
                             <div class="container">
-                                <div class="row mx-5">
+                                <div class="row">
                                     <div class="col-7 text-center">
-                                        <h3 class="text-blue"><strong>Wallet Balance:</strong></h3>
+                                        <h3 class="text-blue wallet"><strong>Wallet Balance:</strong></h3>
                                     </div>
                                     <div class="col-5">
-                                        <h3 class="text-blue"><strong>{{userdetails.CurrencyCode}} {{userdetails.UserWalletAmount}}</strong></h3>
+                                        <h3 class="text-blue wallet"><strong>{{userdetails.CurrencyCode}} {{userdetails.UserWalletAmount}}</strong></h3>
                                     </div>
                                 </div>
-                                <div class="row mx-5 mt-3 mb-5">
-                                    <div class="col-8 text-right">
+                                <div class="row mt-3 mb-5">
+                                    <div class="col-md-8 col-12 text-center">
                                         <p class="text-gray">Wallet Balance can be used as cash upon your next purchase</p>
                                     </div>
                                 </div>
@@ -98,6 +98,14 @@ export default {
 @media screen and (max-width: 600px) {
   .head {
     height: 200px;
+  }
+  .head h1 {
+      font-size: 25px;
+      margin-left: 10px;
+      margin-bottom: 10px;
+  }
+  .wallet {
+      font-size: 16px;
   }
 }
 </style>

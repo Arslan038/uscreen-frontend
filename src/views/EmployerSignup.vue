@@ -150,8 +150,8 @@
                                     </div>
                                 </div>
                                 <hr>
-                                <div class="row mt-3">
-                                    <div class="col-md-4 offset-md-4 col-4 offset-2">
+                                <div class="row mt-3 pl-2">
+                                    <div class="col-md-4 offset-md-4 col-12">
                                         <vue-recaptcha sitekey="6LeRufEUAAAAAH3YkifekIVSHW44inX-Ud9K57h5" @verify="verified" :loadRecaptchaScript="true">
             
                                         </vue-recaptcha>
@@ -527,4 +527,5 @@ h4 {
 .card-body {
     padding: 0 !important;
 }
+
 </style>

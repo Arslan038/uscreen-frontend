@@ -7,10 +7,10 @@
         </div>
         <div class="row my-5 pt-5">
             <div class="col-12 text-center">
-                <h3><strong class="text-head">Contact First Advantage</strong></h3>
+                <h3><strong class="text-head px-2">Contact First Advantage</strong></h3>
             </div>
         </div>
-        <div class="row mx-5">
+        <div class="row mx-1">
             <div class="col-md-3 col-12 mt-3">
                 <h2><strong class="text-head">Phone</strong></h2>
                 <div class="col-12 mt-4">
@@ -37,18 +37,21 @@
                 <input type="text" class="form-control mt-3" v-model="help_obj.Subject" placeholder="Subject*">
                 <input type="email" class="form-control mt-3" placeholder="Email*" v-model="help_obj.Email">
                 <textarea cols="30" rows="7" placeholder="Message" class="mt-3 form-control" v-model="help_obj.Message"></textarea>
-                <div class="row mt-4">
-                    <div class="col-md-12">
-                        <vue-recaptcha sitekey="6LeRufEUAAAAAH3YkifekIVSHW44inX-Ud9K57h5" @verify="verified" :loadRecaptchaScript="true">
-            
-                        </vue-recaptcha>
-                    </div>
-                </div>
+            </div>
+        </div>
+        <div class="row pl-2">
+            <div class="col-md-9 offset-md-3 col-12">
+                <vue-recaptcha sitekey="6LeRufEUAAAAAH3YkifekIVSHW44inX-Ud9K57h5" @verify="verified" :loadRecaptchaScript="true">
+    
+                </vue-recaptcha>
+            </div>
+            <div class="col-12 col-md-9 offset-md-3 mb-5">
                 <button class="btn btn-primary mt-3" @click="sendMessage()">Send Message</button>
             </div>
         </div>
-
+        
     </div>
+        
 </template>
 <script>
 import Breadcrumb from '@/components/Breadcrumb.vue'
