@@ -31,6 +31,17 @@
                     Sat-Sun: 11:00am - 4:00pm
                     </p> 
                 </div> -->
+                <div class="col-12 mt-4">
+                    <p class="title"> <strong>Look for us on</strong></p>
+                    <a href="https://www.facebook.com/FirstAdvantage1" target="_blank"><img src="../assets/facebook.png" width="40" class="mr-2 mb-3"></a>
+                    <a href="https://www.linkedin.com/company/first-advantage/" target="_blank"><img src="../assets/linkedin.png" width="40" class="mr-2 mb-3"></a>
+                    <a href="https://twitter.com/FirstAdvantage" target="_blank"><img src="../assets/twitter.png" width="40" class="mr-2 mb-3"></a>
+                    <a href="https://www.instagram.com/first_advantage/" target="_blank"><img src="../assets/instagram.png" width="40" class="mr-2 mb-3"></a>
+                    <a href="https://www.youtube.com/user/FirstAdantage1" target="_blank"><img src="../assets/youtube.png" width="40" class="mr-2 mb-3"></a>
+
+                 <!-- <img class="zoom" src="../assets/adfBitmap@2x.png" width="80%" alt=""> -->
+
+                </div>
             </div>
             <div class="col-md-8 col-12 mt-3 mb-5">
                 <h2 class="text-center"><strong class="text-head">Via Email</strong></h2>
