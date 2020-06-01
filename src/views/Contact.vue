@@ -31,6 +31,17 @@
                     Sat-Sun: 11:00am - 4:00pm
                     </p> 
                 </div>
+                <div class="col-12 mt-4">
+                    <p class="title"> <strong>Look for us on</strong></p>
+                   <a href="http://google.com/" target="_blank"><img src="../assets/linkedin.png" width="50"></a>
+                    <a href="http://google.com/" target="_blank" class="ml-1 mr-1"><img src="../assets/facebook.png" width="50"></a>
+                    <a href="http://google.com/" target="_blank"><img src="../assets/youtube.png" width="50"></a>
+                    <a href="http://google.com/" target="_blank" class="ml-1 mr-1"><img src="../assets/twitter.png" width="50"></a>
+                    <a href="http://google.com/" target="_blank"><img src="../assets/instagram.png" width="50"></a>
+
+                 <!-- <img class="zoom" src="../assets/adfBitmap@2x.png" width="80%" alt=""> -->
+
+                </div>
             </div>
             <div class="col-md-8 col-12 mt-3 mb-5">
                 <h2 class="text-center"><strong class="text-head">Email</strong></h2>
