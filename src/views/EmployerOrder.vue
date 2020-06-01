@@ -265,8 +265,9 @@ export default {
                    }
                 }
             })
+            window.onbeforeunload = null
             this.$store.commit("setTempOrder",{selected_order:this.new_order,selected_package:this.selected_package!=null ? this.selected_package:this.temp_selected_package})
-
+                
             this.$router.push({name:'OrderConfirmation',params:{selected_order:this.new_order}})
 
            

@@ -60,7 +60,9 @@ export default {
         Breadcrumb
     },
     created() {
-      window.scrollTo(0,0)
+        window.scrollTo(0,0)
+        window.onbeforeunload = null
+
   },
     data() {
     return {

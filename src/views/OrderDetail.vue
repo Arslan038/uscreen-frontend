@@ -261,7 +261,7 @@ export default {
   name: "OrderDetail",
   props:['selected_order'],
   computed:{
-      ...mapGetters(['countries','userdetails']),
+      ...mapGetters(['countries','userdetails','temp_selected_order']),
       total(){
           let i=0
           this.selected_order.Items.forEach(item=>{
@@ -276,6 +276,12 @@ export default {
   },
   created(){
       window.scrollTo(0,0) 
+      if(this.selected_order!=null){
+          this.$store.commit("setSelectedOrder",this.selected_order)
+      }
+      else{
+          this.selected_order=this.temp_selected_order
+      }
   },
   
   methods:{

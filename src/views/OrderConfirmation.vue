@@ -262,11 +262,13 @@ export default {
                 });
 
                 if(data!=null) {
+                    window.onbeforeunload = null
                     this.$router.push({name:'OrderBankTransfer',params:{orderkey:data.data.OrderKey}})
                 }
 
             }
             else {
+                    window.onbeforeunload = null
                     this.$router.push({name:'OrderBankTransfer',params:{orderkey:this.paymentobj.OrderKey}})
             }
 
@@ -287,6 +289,7 @@ export default {
                 });
 
                 if(data!=null){
+                    window.onbeforeunload = null
                     this.$router.push({name:'OrderBankTransfer',params:{proforma:true,orderkey:data.data.OrderKey}})
                 }
                 else {
@@ -295,6 +298,8 @@ export default {
 
             }
             else{
+                window.onbeforeunload = null
+
                 this.$router.push({name:'OrderBankTransfer',params:{proforma:true,orderkey:this.paymentobj.OrderKey}})
                
             }
@@ -326,6 +331,8 @@ export default {
                 });
                 if(resp.data.code=='MSG_SUCCESS_PAYMENT_CHARGE'){
                      this.$store.commit('setNotifications',{message:'Order created successfully',type:'success'})
+                      window.onbeforeunload = null
+
                      this.$router.push({name:'OrderBankTransfer',params:{orderkey:data.data.OrderKey}})
                 }
                 else{
@@ -347,6 +354,8 @@ export default {
                 });
                 if(resp.data.code=='MSG_SUCCESS_PAYMENT_CHARGE') {
                      this.$store.commit('setNotifications',{message:'Order created successfully',type:'success'})
+                      window.onbeforeunload = null
+
                      this.$router.push({name:'OrderBankTransfer',params:{orderkey:this.paymentobj.OrderKey}})
                 }
                 else{
