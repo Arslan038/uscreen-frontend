@@ -163,12 +163,12 @@
                                     <b-form-checkbox class="text-primary" required v-model="terms" ></b-form-checkbox> <span @click="showmodals" style="cursor:pointer;color:blue"> Terms and Conditions</span>
                                     </div>
                                     <button class="btn btn-primary mb-5 mt-3" type="submit" >Sign Up</button>
-                                    <b-modal size="lg" ok-only :scrollable="true" id="general" title="Terms and Conditions">
+                                    <b-modal size="lg" ok-title="Close" cancel-title="Download" @cancel="downloadAgreement" scrollable="true" id="general" title="Terms and Conditions">
                                         <div class="text-center">User Agreement for UScreen</div>
                                         <div v-html="tc_normal">
                                         </div>
                                     </b-modal>
-                                    <b-modal ok-only size="lg" :scrollable="true" id="aud" title="Terms and Conditions">
+                                    <b-modal size="lg" ok-title="Close" cancel-title="Download" @cancel="downloadAusAgreement" :scrollable="true" id="aud" title="Terms and Conditions">
                                         <div class="text-center">User Agreement for UScreen</div>
                                         <div v-html="tc_aus">
                                         </div>
@@ -257,6 +257,14 @@ export default {
         }
 
 
+    },
+    downloadAgreement(bvModalEvt) {
+        bvModalEvt.preventDefault();
+        window.open("../sample.pdf", "_blank");
+    },
+    downloadAusAgreement(bvModalEvt) {
+        bvModalEvt.preventDefault();
+        window.open("../sample_aus.pdf", "_blank");
     },
     
     handleBusinessBillingCountry(val){
