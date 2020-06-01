@@ -76,7 +76,7 @@
                                     <input required type="text" class="form-control" v-model="new_order.LastName" placeholder="Last Name*" >
                                 </div>
                                 <div class="col-md-12 col-lg-12 col-xl-6 col-12 mt-3">
-                                    <input required type="email" class="form-control" v-model="new_order.Email" placeholder="Email (UserID)*" >
+                                    <input required type="email" class="form-control" v-model="new_order.Email" placeholder="Candidate Email Address*" >
                                 </div>
                                 <div class="col-md-12 col-lg-12 col-xl-2 col-12 mt-3">
                                     <input required  class="form-control" pattern="^([0|\+[0-9]{1,5})" type="tel" v-model="new_order.MobileCode" placeholder="" >
