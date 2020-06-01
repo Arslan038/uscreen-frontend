@@ -8,8 +8,8 @@
     <div class="row my-5 pt-5">
       <div class="col-12 text-center">
         <h3><strong class="text-head">About Us</strong></h3>
-        <p class="text-gray pt-3">Uscreen is powered by First Advantage, the world's most trusted background check provider.</p>
-        <p class="text-gray">We provide comprehensive background screening sloutions that provide employers and individuals, actionable reports so they <br> can make confident choices, reduce risk, stay compliant</p>
+        <p class="text-gray pt-3">UScreen is powered by First Advantage, the world's most trusted background check provider.</p>
+        <p class="text-gray">We provide comprehensive background screening solutions that provide employers and individuals, actionable reports so they <br> can make confident choices, reduce risk, stay compliant</p>
       </div>
     </div>
 
@@ -40,7 +40,7 @@
           </div>
           <div class="col-8 col-md-10">
             <h3 class="text-head"><strong>Our Vision</strong></h3>
-            <p>Deliver innovative sloutions and insights that help <br> manage risk and hire the best talent.</p>
+            <p>Deliver innovative solutions and insights that help <br> manage risk and hire the best talent.</p>
           </div>
         </div>
       </div>
