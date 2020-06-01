@@ -447,7 +447,7 @@
             <div class="package-size gray border"></div>
         </div>
         <div class="row no-gutters">
-            <div class="col-md-2 col-2 text-center package-text py-3">Bankruptcy Check</div>
+            <div class="col-md-2 col-2 text-center package-text py-3" title="Bankruptcy Check">Bankruptcy Check</div>
             <div class="package-size border text-center py-3"></div>
             <div class="package-size border text-center py-3"></div>
             <div class="package-size border text-center py-3"><img src="../assets/Group 11 Copy 24@2x.png" width="20" alt=""></div>
@@ -456,7 +456,7 @@
             <div class="package-size border text-center py-3"><img src="../assets/Group 11 Copy 24@2x.png" width="20" alt=""></div>
         </div>
         <div class="row no-gutters">
-            <div class="col-md-2 col-2 text-center package-text py-3">Civil Litigation Check</div>
+            <div class="col-md-2 col-2 text-center package-text py-3" title="Civil Litigation Check">Civil Litigation Check</div>
             <div class="package-size border text-center py-3"></div>
             <div class="package-size border text-center py-3"></div>
             <div class="package-size border text-center py-3"><img src="../assets/Group 11 Copy 24@2x.png" width="20" alt=""></div>
@@ -465,7 +465,7 @@
             <div class="package-size border text-center py-3"><img src="../assets/Group 11 Copy 24@2x.png" width="20" alt=""></div>
         </div>
         <div class="row no-gutters">
-            <div class="col-md-2 col-2 text-center package-text py-3">Credit Check</div>
+            <div class="col-md-2 col-2 text-center package-text py-3" title="Credit Check">Credit Check</div>
             <div class="package-size border text-center py-3"></div>
             <div class="package-size border text-center py-3"><img src="../assets/Group 11 Copy 24@2x.png" width="20" alt=""></div>
             <div class="package-size border text-center py-3"><img src="../assets/Group 11 Copy 24@2x.png" width="20" alt=""></div>
@@ -474,7 +474,7 @@
             <div class="package-size border text-center py-3"><img src="../assets/Group 11 Copy 24@2x.png" width="20" alt=""></div>
         </div>
         <div class="row no-gutters">
-            <div class="col-md-2 col-2 text-center package-text py-3">Criminal Check</div>
+            <div class="col-md-2 col-2 text-center package-text py-3" title="Criminal Check">Criminal Check</div>
             <div class="package-size border text-center py-3"><img src="../assets/Group 11 Copy 24@2x.png" width="20" alt=""></div>
             <div class="package-size border text-center py-3"><img src="../assets/Group 11 Copy 24@2x.png" width="20" alt=""></div>
             <div class="package-size border text-center py-3"><img src="../assets/Group 11 Copy 24@2x.png" width="20" alt=""></div>
@@ -483,7 +483,7 @@
             <div class="package-size border text-center py-3"><img src="../assets/Group 11 Copy 24@2x.png" width="20" alt=""></div>
         </div>
         <div class="row no-gutters">
-            <div class="col-md-2 col-2 text-center package-text py-3">Directorship Check</div>
+            <div class="col-md-2 col-2 text-center package-text py-3" title="Directorship Check">Directorship Check</div>
             <div class="package-size border text-center py-3"></div>
             <div class="package-size border text-center py-3"></div>
             <div class="package-size border text-center py-3"></div>
@@ -492,7 +492,7 @@
             <div class="package-size border text-center py-3"><img src="../assets/Group 11 Copy 24@2x.png" width="20" alt=""></div>
         </div>
         <div class="row no-gutters">
-            <div class="col-md-2 col-2 text-center package-text py-3">Expanded Global Sanctions</div>
+            <div class="col-md-2 col-2 text-center package-text py-3" title="Expanded Global Sanctions">Expanded Global Sanctions</div>
             <div class="package-size border text-center py-3"></div>
             <div class="package-size border text-center py-3"><img src="../assets/Group 11 Copy 24@2x.png" width="20" alt=""></div>
             <div class="package-size border text-center py-3"><img src="../assets/Group 11 Copy 24@2x.png" width="20" alt=""></div>
@@ -501,7 +501,7 @@
             <div class="package-size border text-center py-3"><img src="../assets/Group 11 Copy 24@2x.png" width="20" alt=""></div>
         </div>
         <div class="row no-gutters">
-            <div class="col-md-2 col-2 text-center package-text py-3">Global Reputational Media</div>
+            <div class="col-md-2 col-2 text-center package-text py-3" title="Global Reputational Media">Global Reputational Media</div>
             <div class="package-size border text-center py-3"></div>
             <div class="package-size border text-center py-3"><img src="../assets/Group 11 Copy 24@2x.png" width="20" alt=""></div>
             <div class="package-size border text-center py-3"><img src="../assets/Group 11 Copy 24@2x.png" width="20" alt=""></div>
@@ -510,7 +510,7 @@
             <div class="package-size border text-center py-3"><img src="../assets/Group 11 Copy 24@2x.png" width="20" alt=""></div>
         </div>
         <div class="row no-gutters">
-            <div class="col-md-2 col-2 text-center package-text py-3">Passport Check</div>
+            <div class="col-md-2 col-2 text-center package-text py-3" title="Passport Check">Passport Check</div>
             <div class="package-size border text-center py-3"></div>
             <div class="package-size border text-center py-3"></div>
             <div class="package-size border text-center py-3"><img src="../assets/Group 11 Copy 24@2x.png" width="20" alt=""></div>
@@ -519,7 +519,7 @@
             <div class="package-size border text-center py-3"><img src="../assets/Group 11 Copy 24@2x.png" width="20" alt=""></div>
         </div>
         <div class="row no-gutters">
-            <div class="col-md-2 col-2 text-center package-text py-3">Education Check</div>
+            <div class="col-md-2 col-2 text-center package-text py-3" title="Education Check">Education Check</div>
             <div class="package-size border text-center py-3"></div>
             <div class="package-size border text-center py-3"></div>
             <div class="package-size border text-center py-3"></div>
@@ -528,7 +528,7 @@
             <div class="package-size border text-center py-3"><img src="../assets/Group 11 Copy 24@2x.png" width="20" alt=""></div>
         </div>
         <div class="row no-gutters">
-            <div class="col-md-2 col-2 text-center package-text py-3">Employment Check</div>
+            <div class="col-md-2 col-2 text-center package-text py-3" title="Employment Check">Employment Check</div>
             <div class="package-size border text-center bottom py-3"></div>
             <div class="package-size border text-center bottom py-3"></div>
             <div class="package-size border text-center bottom py-3"></div>
