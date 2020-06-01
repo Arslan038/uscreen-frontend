@@ -5,7 +5,7 @@
                 <Breadcrumb :items="items" class="px-5" />
             </div>
         </div>
-        <div class="row my-5 mx-5 px-5">
+        <div class="row my-5 mx-5 px-5 background-check">
             <div class="col-12 text-center text-gray">
                 <h4 class="text-head"><strong>Background Checks for Individuals</strong></h4>
                 <p class="mt-4">To avoid spending time and effort on misrepresented and fraudulent resumes, most employers today are increasingly seeking <br> out pre-screened candidates.</p>
@@ -15,14 +15,14 @@
         <div class="row no-gutters why align-items-center">
             <div class="col-md-6 col-12 image"></div>
             <div class="col-md-6 col-12 px-5 py-5">
-                <h3 class="my-3"><strong>Why UScreen</strong></h3>
+                <h3 class="my-3"><strong>Why UScreen?</strong></h3>
                 <ul>
                     <li>No set-up fees</li>
                     <li>No contracts</li>
                     <li>Pay as you go</li>
                     <li>Quick and easy ordering process</li>
                     <li>Friendly user experience</li>
-                    <li>Reporting Dashboard</li>
+                    <li>Reporting dashboard</li>
                 </ul>
             </div>
         </div>
@@ -670,9 +670,20 @@ export default {
 .table-responsive {
     overflow: hidden !important;
 }
+.background-check h4 {
+    font-size: 1.8rem;
+}
+.background-check p {
+    font-size: 16px;
+}
 .why {
     background: #f1f1f1;
-    
+}
+.why h3 {
+    font-size: 2.0rem;
+}
+.why li {
+    font-size: 18px;
 }
 .image {
     background: url('../assets/15876@2x.png');
@@ -681,9 +692,15 @@ export default {
     background-size: cover;
     background-position: center;
 }
+ul {
+    list-style: none;
+}
 li {
     padding-top: 15px;
     font-weight: bold;
+}
+ul li:before {
+  content: '✓ ';
 }
 .package {
     padding: 30px 0;
