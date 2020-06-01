@@ -84,7 +84,7 @@ export default {
   clear: both;
 }
 .image {
-  background: url('../assets/15876@2x.png');
+  background: url('../assets/aboutus.jpg');
    height: 500px;
   background-repeat: no-repeat;
   background-size: cover;
