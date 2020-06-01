@@ -78,11 +78,11 @@
                                 <div class="col-md-12 col-lg-12 col-xl-6 col-12 mt-3">
                                     <input required type="email" class="form-control" v-model="new_order.Email" placeholder="Candidate Email Address*" >
                                 </div>
-                                <div class="col-md-12 col-lg-12 col-xl-2 col-12 mt-3">
-                                    <input required  class="form-control" pattern="^([0|\+[0-9]{1,5})" type="tel" v-model="new_order.MobileCode" placeholder="" >
+                                <div class="col-md-12 col-lg-12 col-xl-3 col-12 mt-3">
+                                    <input required  class="form-control" pattern="^([0|\+[0-9]{1,5})" type="tel" v-model="new_order.MobileCode" placeholder="Country Code*" >
                                 
                                 </div>
-                                <div class="col-xl-4 mobile col-12 mt-3">
+                                <div class="col-xl-3 mobile col-12 mt-3">
                                     <input required type="tel" class="form-control" pattern="[0-9]{3,10}" v-model="new_order.MobileNumber" placeholder="Mobile*" >
                                 </div>  
                             </div>
@@ -96,6 +96,7 @@
                                 <div class="col-md-12">
                                     <p><strong class="text-head">Country of Residence</strong></p>
                                     <select required v-model="new_order.CountryId" class="form-control">
+                                        <option value="" selected disabled>Country</option>
                                         <option v-for="(item,i) in countries" :key="i" :value="item.CountryId">{{item.CountryName}}</option>
                                     </select>
                                 </div>
