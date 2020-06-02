@@ -15,13 +15,17 @@
       <div class="container">
       <div v-if="loggedUser==null" class="row mt-3">
         <div class="col-md-6 col-12 text-center mt-5">
-          <img class="zoom" src="../assets/adfBitmap@2x.png" width="80%" alt="">
+          <div class="zoom">
+            <img src="../assets/homepage_individual.jpg" width="80%" alt="">
+          </div>
           <h3 class="pt-5 text-head">Individual </h3>
           <p class="px-5 pt-2 text-gray">Recommended for individual one-off background checks</p>
           <button class="btn btn-secondary more" @click="routeit('indiv')">More</button>
         </div>
         <div class="col-md-6 col-12 text-center mt-5">
-          <img class="zoom" src="../assets/Bitmaafp@2x.png" width="80%" alt="">
+          <div class="zoom">
+            <img src="../assets/homepage_employer.jpg" width="80%" alt="">
+          </div>
           <h3 class="pt-5 text-head">Employer </h3>
           <p class="px-5 pt-2 text-gray">For registered small business owners and/or employers to conduct background checks on employees</p>
           <button class="btn btn-secondary more" @click="routeit('emplo')">More</button>
@@ -29,7 +33,9 @@
       </div>
       <div v-if="userdetails.UserRoleCode=='INDIVIDUAL'" class="row mt-3">
         <div class="col-md-6 offset-md-3 col-12 text-center mt-5">
-          <img class="zoom" src="../assets/adfBitmap@2x.png" width="80%" alt="">
+          <div class="zoom">
+            <img src="../assets/homepage_individual.jpg" width="80%" alt="">
+          </div>
           <h3 class="pt-5 text-head">Individual </h3>
           <p class="px-5 pt-2 text-gray">Recommended for individual one-off background checks</p>
           <button class="btn btn-secondary more" @click="routeit('indiv')">More</button>
@@ -37,7 +43,9 @@
       </div>
       <div v-if="userdetails.UserRoleCode=='EMPLOYER'" class="row mt-3">
         <div class="col-md-6 offset-md-3 col-12 text-center mt-5">
-          <img class="zoom" src="../assets/Bitmaafp@2x.png" width="80%" alt="">
+          <div class="zoom">
+            <img src="../assets/homepage_employer.jpg" width="80%" alt="">
+          </div>
           <h3 class="pt-5 text-head">Employer </h3>
           <p class="px-5 pt-2 text-gray">For registered small business owners and/or employers to conduct background checks on employees</p>
           <button class="btn btn-secondary more" @click="routeit('emplo')">More</button>
@@ -133,7 +141,7 @@ export default {
   overflow-x: hidden !important;
 }
 .header {
-  background: url('../assets/Bitmaasdfadfp_2x.png'), rgba(0, 0, 0, 0.4);
+  background: url('../assets/homebanner.jpg'), rgba(0, 0, 0, 0.4);
   background-blend-mode: overlay;
   background-size: cover;
   background-position: center;
@@ -183,10 +191,22 @@ p {
   font-weight: bold;
 }
 .zoom {
+  width: 35vw;
+  height: 35vw;
+  position: relative;
+  overflow: hidden;
   transition: transform .2s;
+  border-radius: 50%;
+  margin: auto;
 }
 .zoom:hover {
   transform: scale(1.05);
+}
+.zoom img {
+  display: inline;
+  margin: 0 auto;
+  height: 100%;
+  width: auto;
 }
 .more {
   font-weight: bold;
@@ -224,6 +244,10 @@ p {
 @media (min-width: 481px) and (max-width: 767px) {
   .header {
     height: 300px;
+  }
+  .zoom {
+    width: 60vw;
+    height: 60vw;
   }
   
 }
