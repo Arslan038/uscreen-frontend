@@ -11,7 +11,7 @@
             </div>
         </div>
         <div class="row my-5 mx-3">
-            <div class="col-md-6 offset-md-2 col-12 mt-3">
+            <div class="col-xl-6 col-lg-8 col-md-12 offset-xl-2 offset-lg-2 col-12 mt-3">
                 <div class="card shadow">
                     <div class="card-head pt-3">
                         <div class="row pl-5 pr-3 my-4">
@@ -247,8 +247,15 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-3 col-12 text-md-left text-center mt-3">
-                <img src="../assets/Bitmaafsdgsp@2x.png" class="img-fluid" width="65%" alt="">
+            <div v-if="userdetails.UserRoleCode=='INDIVIDUAL'" class="col-xl-3 col-lg-3 col-12 text-md-left text-center mt-3 d-none d-xl-block">
+                <div class="individual-img-crop">
+                    <img src="../assets/individual_ordering.jpg" alt="">
+                </div>
+            </div>
+            <div v-if="userdetails.UserRoleCode=='EMPLOYER'" class="col-xl-3 col-lg-3 col-12 text-md-left text-center mt-3 d-none d-xl-block">
+                <div class="employer-img-crop">
+                    <img src="../assets/employer_ordering.jpg" alt="">
+                </div>
             </div>
         </div>
     </div>
@@ -340,4 +347,25 @@ export default {
 .candidate p {
     margin: 0;
 }
+.individual-img-crop {
+    width: 200px;
+    height: 700px;
+    overflow: hidden;
+}
+.individual-img-crop img{
+    height: 700px;
+    width: auto;
+    margin-left: -500px;
+}
+.employer-img-crop {
+    width: 200px;
+    height: 700px;
+    overflow: hidden;
+}
+.employer-img-crop img{
+    height: 700px;
+    width: auto;
+    margin-left: -600px;
+}
+
 </style>
