@@ -687,7 +687,7 @@ export default {
     font-size: 18px;
 }
 .image {
-    background: url('../assets/15876@2x.png');
+    background: url('../assets/for_individual.jpg');
     height: 500px;
     background-repeat: no-repeat;
     background-size: cover;
