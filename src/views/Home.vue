@@ -193,6 +193,8 @@ p {
 .zoom {
   width: 35vw;
   height: 35vw;
+  max-width: 400px;
+  max-height: 400px;
   position: relative;
   overflow: hidden;
   transition: transform .2s;
