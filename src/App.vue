@@ -195,6 +195,7 @@ input:focus, select:focus, textarea:focus, .btn-primary:focus, .btn-secondary:fo
 .breadcrumb {
   background: #f1f1f1 !important;
   height: 70px !important;
+  padding-left: 34px !important;
 }
 .breadcrumb ol {
   height: 30px !important;
@@ -208,8 +209,13 @@ input:focus, select:focus, textarea:focus, .btn-primary:focus, .btn-secondary:fo
     max-width: 200px !important;
   }
   .nav-tabs .nav-link {
-    font-size: 10px !important;
+    font-size: 14px !important;
   }
+  .breadcrumb {
+  background: #f1f1f1 !important;
+  height: 70px !important;
+  padding-left: 10px !important;
+}
 }
 
 </style>

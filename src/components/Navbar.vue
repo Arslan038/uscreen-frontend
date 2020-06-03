@@ -10,7 +10,7 @@
             <b-collapse id="nav-collapse" is-nav>
 
             <!-- Right aligned nav items -->
-            <b-navbar-nav class="ml-auto">
+            <b-navbar-nav class="">
                 <b-nav-item href='/'>Home</b-nav-item>
                 <b-nav-item v-if="loggedUser==null" href='/employer-packages'>For Employers</b-nav-item>
                 <b-nav-item v-if="loggedUser==null" href='/individual-packages'>For Individuals</b-nav-item>

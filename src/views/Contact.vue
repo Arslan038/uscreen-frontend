@@ -2,7 +2,7 @@
     <div class="contact">
         <div class="row">
             <div class="col-12">
-                <Breadcrumb :items="items" class="px-5" />
+                <Breadcrumb :items="items" />
             </div>
         </div>
         <div class="row my-5 pt-5">
@@ -10,7 +10,7 @@
                 <h3><strong class="text-head px-2">Contact First Advantage</strong></h3>
             </div>
         </div>
-        <div class="row mx-1">
+        <div class="row mx-1 mx-md-5">
             <div class="col-md-3 col-12 mt-3">
                 <h2><strong class="text-head">Phone</strong></h2>
                 <div class="col-12 mt-4">

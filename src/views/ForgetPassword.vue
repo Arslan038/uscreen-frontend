@@ -2,7 +2,7 @@
     <div class="login">
         <div class="row">
             <div class="col-12">
-                <Breadcrumb :items="items" class="px-5" />
+                <Breadcrumb :items="items" />
             </div>
         </div>
         <div class="container">

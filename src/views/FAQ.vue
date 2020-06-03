@@ -2,7 +2,7 @@
     <div class="faq" style="margin-bottom: 100px">
         <div class="row">
             <div class="col-12">
-                <Breadcrumb :items="items" class="px-5" />
+                <Breadcrumb :items="items" />
             </div>
         </div>
         <div class="row mt-5">
@@ -23,7 +23,7 @@
                             </span>
                         </div>
                         <b-collapse v-model="q1">
-                            <b-card class="pl-5 ml-2 text-head">
+                            <b-card class="pl-md-5 pl-4 ml-2 text-head">
                                 <p class="answer">
                                 Simply visit the signup flow to book a cleaning and as you provide information about your house and schedule, your quote will dynamically adjust.
                                 </p>
@@ -42,7 +42,7 @@
                             </span>
                         </div>
                         <b-collapse v-model="q2">
-                            <b-card class="pl-5 ml-2 text-head">
+                            <b-card class="pl-md-5 pl-4 ml-2 text-head">
                                 <p class="answer">
                                 Simply visit the signup flow to book a cleaning and as you provide information about your house and schedule, your quote will dynamically adjust.
                                 </p>
@@ -61,7 +61,7 @@
                             </span>
                         </div>
                         <b-collapse v-model="q3">
-                            <b-card class="pl-5 ml-2 text-head">
+                            <b-card class="pl-md-5 pl-4 ml-2 text-head">
                                 <p class="answer">
                                 Simply visit the signup flow to book a cleaning and as you provide information about your house and schedule, your quote will dynamically adjust.
                                 </p>
@@ -80,7 +80,7 @@
                             </span>
                         </div>
                         <b-collapse v-model="q4">
-                            <b-card class="pl-5 ml-2 text-head">
+                            <b-card class="pl-md-5 pl-4 ml-2 text-head">
                                 <p class="answer">
                                 Simply visit the signup flow to book a cleaning and as you provide information about your house and schedule, your quote will dynamically adjust.
                                 </p>
@@ -99,7 +99,7 @@
                             </span>
                         </div>
                         <b-collapse v-model="q5">
-                            <b-card class="pl-5 ml-2 text-head">
+                            <b-card class="pl-md-5 pl-4 ml-2 text-head">
                                 <p class="answer">
                                 Simply visit the signup flow to book a cleaning and as you provide information about your house and schedule, your quote will dynamically adjust.
                                 </p>
@@ -118,7 +118,7 @@
                             </span>
                         </div>
                         <b-collapse v-model="q6">
-                            <b-card class="pl-5 ml-2 text-head">
+                            <b-card class="pl-md-5 pl-4 ml-2 text-head">
                                 <p class="answer">
                                 Simply visit the signup flow to book a cleaning and as you provide information about your house and schedule, your quote will dynamically adjust.
                                 </p>
@@ -137,7 +137,7 @@
                             </span>
                         </div>
                         <b-collapse v-model="q7">
-                            <b-card class="pl-5 ml-2 text-head">
+                            <b-card class="pl-md-5 pl-4 ml-2 text-head">
                                 <p class="answer">
                                 Simply visit the signup flow to book a cleaning and as you provide information about your house and schedule, your quote will dynamically adjust.
                                 </p>
@@ -156,7 +156,7 @@
                             </span>
                         </div>
                         <b-collapse v-model="q8">
-                            <b-card class="pl-5 ml-2 text-head">
+                            <b-card class="pl-md-5 pl-4 ml-2 text-head">
                                 <p class="answer">
                                 Simply visit the signup flow to book a cleaning and as you provide information about your house and schedule, your quote will dynamically adjust.
                                 </p>
@@ -184,7 +184,7 @@
                             </span>
                         </div>
                         <b-collapse v-model="q9">
-                            <b-card class="pl-5 ml-2 text-head">
+                            <b-card class="pl-md-5 pl-4 ml-2 text-head">
                                 <p class="answer">
                                 Simply visit the signup flow to book a cleaning and as you provide information about your house and schedule, your quote will dynamically adjust.
                                 </p>
@@ -203,7 +203,7 @@
                             </span>
                         </div>
                         <b-collapse v-model="q10">
-                            <b-card class="pl-5 ml-2 text-head">
+                            <b-card class="pl-md-5 pl-4 ml-2 text-head">
                                 <p class="answer">
                                 Simply visit the signup flow to book a cleaning and as you provide information about your house and schedule, your quote will dynamically adjust.
                                 </p>
@@ -222,7 +222,7 @@
                             </span>
                         </div>
                         <b-collapse v-model="q11">
-                            <b-card class="pl-5 ml-2 text-head">
+                            <b-card class="pl-md-5 pl-4 ml-2 text-head">
                                 <p class="answer">
                                 Simply visit the signup flow to book a cleaning and as you provide information about your house and schedule, your quote will dynamically adjust.
                                 </p>
@@ -241,7 +241,7 @@
                             </span>
                         </div>
                         <b-collapse v-model="q12">
-                            <b-card class="pl-5 ml-2 text-head">
+                            <b-card class="pl-md-5 pl-4 ml-2 text-head">
                                 <p class="answer">
                                 Simply visit the signup flow to book a cleaning and as you provide information about your house and schedule, your quote will dynamically adjust.
                                 </p>
@@ -260,7 +260,7 @@
                             </span>
                         </div>
                         <b-collapse v-model="q13">
-                            <b-card class="pl-5 ml-2 text-head">
+                            <b-card class="pl-md-5 pl-4 ml-2 text-head">
                                 <p class="answer">
                                 Simply visit the signup flow to book a cleaning and as you provide information about your house and schedule, your quote will dynamically adjust.
                                 </p>
@@ -288,7 +288,7 @@
                         </span>
                     </div>
                     <b-collapse v-model="q14">
-                        <b-card class="pl-5 ml-2 text-head">
+                        <b-card class="pl-md-5 pl-4 ml-2 text-head">
                             <p class="answer">
                             Simply visit the signup flow to book a cleaning and as you provide information about your house and schedule, your quote will dynamically adjust.
                             </p>
@@ -307,7 +307,7 @@
                         </span>
                     </div>
                     <b-collapse v-model="q15">
-                        <b-card class="pl-5 ml-2 text-head">
+                        <b-card class="pl-md-5 pl-4 ml-2 text-head">
                             <p class="answer">
                             Simply visit the signup flow to book a cleaning and as you provide information about your house and schedule, your quote will dynamically adjust.
                             </p>

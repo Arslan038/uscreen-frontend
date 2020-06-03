@@ -2,11 +2,12 @@
     <div class="profile">
         <div class="row">
             <div class="col-12">
-                <Breadcrumb :items="items" class="px-5" />
+                <Breadcrumb :items="items" />
             </div>
         </div>
-        <div class="row head">
-            <div class="col-12 align-self-end">
+        <div class="row">
+            <img src="../assets/Bitmadyuthfp@2x.png" width="100%" height="auto" alt="">
+            <div class="col-12 align-self-end name">
                 <h1 class="text-white">{{userdetails.FirstName}} {{userdetails.LastName}}</h1>
             </div>
         </div>
@@ -31,8 +32,8 @@
                                     </div>
                                 </div>
                                 <div class="row mt-3 mb-5">
-                                    <div class="col-md-8 col-12 text-center">
-                                        <p class="text-gray">Wallet Balance can be used as cash upon your next purchase</p>
+                                    <div class="col-md-12 col-12 text-center">
+                                        <p class="text-gray px-5">Wallet Balance can be used as cash upon your next purchase</p>
                                     </div>
                                 </div>
                             </div>
@@ -88,18 +89,22 @@ export default {
     background: url('../assets/Bitmadyuthfp@2x.png');
     background-size: 100% 100%;
     height: 450px;
+    background-repeat: no-repeat;
     color: #fff;
     margin-top: -17px;
 }
-.head h1 {
+h1 {
     margin: 0 0 50px 50px;
+}
+.name {
+    position: absolute;
 }
 
 @media screen and (max-width: 600px) {
   .head {
     height: 200px;
   }
-  .head h1 {
+  h1 {
       font-size: 25px;
       margin-left: 10px;
       margin-bottom: 10px;

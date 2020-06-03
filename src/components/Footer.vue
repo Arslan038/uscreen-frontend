@@ -49,7 +49,7 @@ export default {
     padding-bottom: 20px;
 }
 a {
-    font-size: 16px;
+    font-size: 14px;
     color: rgb(95, 95, 95);
     font-weight: bold;
 }
@@ -59,6 +59,9 @@ a:hover {
 }
 ul li {
     list-style-type: none;
-    padding-top: 10px;
+    padding: 0 !important;
+    margin: 0 !important;
+    padding-top: 10px !important;
+
 }
 </style>

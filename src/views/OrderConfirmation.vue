@@ -2,7 +2,7 @@
     <div class="individual-order">
         <div class="row">
             <div class="col-12">
-                <Breadcrumb :items="items" class="px-5" />
+                <Breadcrumb :items="items" />
             </div>
         </div>
         <div class="row mt-3">
@@ -10,7 +10,7 @@
                 <h4><strong class="text-head">Order Confirmation</strong></h4>
             </div>
         </div>
-        <div class="row mt-3 mb-5">
+        <div class="row mt-3 mb-5 mx-1 mx-md-5">
             <div class="col-md-6 offset-md-2 col-12 mt-3">
                 <div class="card shadow">
                     <div class="card-head pt-3">

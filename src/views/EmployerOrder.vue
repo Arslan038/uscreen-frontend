@@ -2,7 +2,7 @@
     <div class="employer-order">
         <div class="row">
             <div class="col-12">
-                <Breadcrumb :items="items" class="px-5" />
+                <Breadcrumb :items="items" />
             </div>
         </div>
         <div class="row mt-3">
@@ -10,7 +10,7 @@
                 <h4><strong class="text-head">Employer's Order</strong></h4>
             </div>
         </div>
-        <div class="row mt-2 mb-5">
+        <div class="row mt-2 mb-5 mx-1 mx-md-5">
             <div class="col-xl-6 col-lg-6 col-md-12 offset-xl-2 offset-lg-2 col-12 mt-3">
                 <div class="card shadow">
                     <div class="card-head pt-3">
