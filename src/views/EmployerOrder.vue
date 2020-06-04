@@ -2,30 +2,33 @@
     <div class="employer-order">
         <div class="row">
             <div class="col-12">
-                <Breadcrumb :items="items" class="px-5" />
+                <Breadcrumb :items="items" />
             </div>
         </div>
-        <div class="row mt-5">
+        <div class="row mt-3">
             <div class="col-12 text-center">
                 <h4><strong class="text-head">Employer's Order</strong></h4>
             </div>
         </div>
-        <div class="row my-5 mx-3">
+        <div class="row mt-2 mb-5 mx-1 mx-md-5">
             <div class="col-xl-6 col-lg-8 col-md-12 offset-xl-2 offset-lg-2 col-12 mt-3">
                 <div class="card shadow">
                     <div class="card-head pt-3">
-                        <div class="row pl-5 pr-3 my-4">
-                            <div class="col-lg-6 col-6 col-md-6 col-xl-8">
-                                <h4 class=""><strong class="text-head">Order Information</strong></h4>
-                            </div>
-                            <div class="col-6 col-xl-4 col-lg-6 col-md-6 text-right">
-                                <!-- <button class="btn btn-secondary">Need help?</button> -->
+                        <div class="container">
+                            <div class="row my-4">
+                                <div class="col-lg-6 col-6 col-md-6 col-xl-8 col-12">
+                                    <h4 class=""><strong class="text-head order-head">Order Information</strong></h4>
+                                </div>
+                                <div class="col-6 col-xl-4 col-lg-6 col-md-6 text-right">
+                                    <!-- <button class="btn btn-secondary">Need help?</button> -->
+                                </div>
                             </div>
                         </div>
+                        
                         <hr>
                     </div>
                     <div class="card-body">
-                        <div class="pl-5 pr-4">
+                        <div class="container pr-4">
 
                         
                         <p><strong class="text-head">{{selected_package!=null ? selected_package.PackageServiceName:temp_selected_package.PackageServiceName}} Package Items</strong></p>
@@ -66,7 +69,7 @@
                         <hr>
                        <form v-on:submit.prevent="moveNext()">
 
-                        <div class="pl-5 pr-3 pt-3 mb-5">
+                        <div class="pl-3 pr-3 pt-3 mb-5">
                             <div class="row">
                                 <div class="col-md-12">
                                     <p><strong class="text-head">Candidate Information</strong></p>  
@@ -82,8 +85,7 @@
                                     <input required type="email" class="form-control" v-model="new_order.Email" placeholder="Candidate Email Address*" >
                                 </div>
                                 <div class="col-md-12 col-lg-12 col-xl-3 col-12 mt-3">
-                                    <input required class="form-control" pattern="^([0|\+[0-9]{1,5})" type="tel" v-model="new_order.MobileCode" placeholder="Country Code*" >
-                                    
+                                    <input required class="form-control" pattern="^([0|\+[0-9]{1,5})" type="tel" v-model="new_order.MobileCode" placeholder="Country Code*" >                                    
                                 </div>
                                 <div class="col-xl-3 mobile col-12 mt-3">
                                     <input required type="tel" class="form-control" pattern="[0-9]{3,10}" v-model="new_order.MobileNumber" placeholder="Mobile*" >
@@ -93,7 +95,7 @@
 
                         <hr>
 
-                        <div class="pl-5 pr-3 mb-5 pt-3">
+                        <div class="pl-3 pr-3 mb-5 pt-3">
                             <div class="row">
                                 <div class="col-md-12">
                                     <p><strong class="text-head">Client Reference</strong></p>
@@ -104,7 +106,7 @@
                         </div>
                         <hr>
 
-                        <div class="pl-5 pr-3 mb-5 pt-3">
+                        <div class="pl-3 pr-3 mb-5 pt-3">
                             <div class="row">
                                 <div class="col-md-12">
                                     <p><strong class="text-head">Country of Hire</strong></p>
@@ -117,7 +119,7 @@
                         </div>
                         <hr>
 
-                        <div class="pl-5 pr-3 mb-5 pt-3">
+                        <div class="pl-3 pr-3 mb-5 pt-3">
                             <div class="row">
                                 <div class="col-md-12">
                                     <p><strong class="text-head">Requestor</strong></p>
@@ -132,6 +134,7 @@
                             </div>
                         </div>
                         </form>
+                        <!-- Cntainer -->
                     </div>
                 </div>
             </div>
@@ -365,5 +368,4 @@ export default {
     width: auto;
     margin-left: -600px;
 }
-
 </style>

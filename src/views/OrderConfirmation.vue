@@ -2,30 +2,33 @@
     <div class="individual-order">
         <div class="row">
             <div class="col-12">
-                <Breadcrumb :items="items" class="px-5" />
+                <Breadcrumb :items="items" />
             </div>
         </div>
-        <div class="row mt-5">
+        <div class="row mt-3">
             <div class="col-12 text-center">
                 <h4><strong class="text-head">Order Confirmation</strong></h4>
             </div>
         </div>
-        <div class="row my-5 mx-3">
+        <div class="row mt-3 mb-5 mx-1 mx-md-5">
             <div class="col-xl-6 col-lg-8 col-md-12 offset-xl-2 offset-lg-2 col-12 mt-3">
                 <div class="card shadow">
                     <div class="card-head pt-3">
-                        <div class="row pl-5 pr-3 my-4">
-                            <div class="col-8">
-                                <h4 class=""><strong class="text-head">Order Information</strong></h4>
-                            </div>
-                            <div class="col-4 text-right">
-                                <!-- <button class="btn btn-secondary">Need help?</button> -->
+                        <div class="container">
+                            <div class="row pr-3 my-4">
+                                <div class="col-12">
+                                    <h4 class=""><strong class="text-head">Order Information</strong></h4>
+                                </div>
+                                <div class="col-4 text-right">
+                                    <!-- <button class="btn btn-secondary">Need help?</button> -->
+                                </div>
                             </div>
                         </div>
+                        
                         <hr>
                     </div>
                     <div class="card-body">
-                        <div class="pl-5 pr-3 pt-3 mb-5">
+                        <div class="pl-3 pr-3 pt-3 mb-5">
                             <div class="row">
                                 <div class="col-md-12 candidate">
                                     <p class="mb-4"><strong class="text-head">Candidate Information</strong></p>  
@@ -40,7 +43,7 @@
 
                         <hr>
 
-                        <div class="pl-5 pr-3 mb-5 pt-3" v-if="userdetails.UserRoleCode!='INDIVIDUAL'">
+                        <div class="pl-3 pr-3 mb-5 pt-3" v-if="userdetails.UserRoleCode!='INDIVIDUAL'">
                             <div class="row">
                                 <div class="col-md-12">
                                     <p class="mb-4"><strong class="text-head">Client Reference</strong></p>  
@@ -50,7 +53,7 @@
                             </div>
                         </div>
                         <hr>
-                        <div class="pl-5 pr-3 mb-5 pt-3">
+                        <div class="pl-3 pr-3 mb-5 pt-3">
                             <div class="row">
                                 <div class="col-md-12">
                                     <p class="mb-4"><strong class="text-head">Country of Hire</strong></p>  
@@ -59,7 +62,7 @@
                             </div>
                         </div>
                         <hr>
-                        <div class="pl-5 pr-3 mb-5 pt-3" v-if="userdetails.UserRoleCode!='INDIVIDUAL'">
+                        <div class="pl-3 pr-3 mb-5 pt-3" v-if="userdetails.UserRoleCode!='INDIVIDUAL'">
                             <div class="row">
                                 <div class="col-md-12">
                                     <p class="mb-4"><strong class="text-head">Requestor</strong></p>  
@@ -69,7 +72,7 @@
                         </div>
                         <hr>
 
-                        <div class="pl-5 pr-3 mb-5 pt-3">
+                        <div class="pl-3 pr-3 mb-5 pt-3">
                             <div class="row">
                                 <div class="col-md-6 col-6">
                                     <h4><strong class="text-head">Product</strong></h4>
@@ -95,8 +98,8 @@
                                 <div class="col-md-6 col-6">
                                     <h4><strong class="text-head">Total:</strong></h4>
                                 </div>
-                                <div class="col-md-6 col-3 text-right">
-                                    <h4 class="text-head"><strong>{{temp.CurrencyCode}} {{total.toFixed(2)}}</strong></h4>
+                                <div class="col-md-6 col-6">
+                                    <h4 class="text-head total mt-2"><strong>{{temp.CurrencyCode}} {{total.toFixed(2)}}</strong></h4>
                                 </div>
                             </div>
 
@@ -115,7 +118,7 @@
                         </div>
                         <hr>
 
-                        <div class="pl-5 pr-3 pt-3 mb-5">
+                        <div class="pl-3 pr-3 pt-3 mb-5">
                             <div class="row">
                                 <div class="col-md-12">
                                     <h4><strong class="text-head">Payment</strong></h4>
@@ -545,4 +548,18 @@ input:focus {
     margin-left: -600px;
 }
 
+@media screen and (max-width: 600px) {
+    .text-head {
+        font-size: 16px;
+    }
+    .text-blue {
+        font-size: 13px;
+    }
+    .text-gray {
+        font-size: 13px;
+    }
+    .total {
+        font-size: 13px;
+    }
+}
 </style>

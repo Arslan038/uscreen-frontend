@@ -2,7 +2,7 @@
     <div class="login">
         <div class="row">
             <div class="col-12">
-                <Breadcrumb :items="items" class="px-5" />
+                <Breadcrumb :items="items" />
             </div>
         </div>
         <div class="container">
@@ -11,7 +11,7 @@
                     <h4 class="text-center text-head mt-5">Forget Password</h4>
                     <div class="card my-5">
                         <div class="card-body pt-3 pb-5 shadow">
-                            <div class="row mx-5">
+                            <div class="row">
                                 <div class="col-md-6 offset-md-3 col-12">
                                     <input type="email" class="form-control mt-3" v-model="forgetObj.Email" placeholder="Email*">
                                     <!-- <input type="password" v-model="forgetObj.Password" class="form-control mt-3" placeholder="Password"> -->
@@ -29,7 +29,7 @@
                     <h4 class="text-center text-head mt-5">Check Email Password</h4>
                     <div class="card my-5">
                         <div class="card-body pt-3 pb-5 shadow">
-                            <div class="row mx-5">
+                            <div class="row">
                                 <div class="col-md-12 text-center col-12">
                                     <p>Please check your email and follow the instructions</p>
                                     <!-- <input type="password" v-model="forgetObj.Password" class="form-control mt-3" placeholder="Password"> -->

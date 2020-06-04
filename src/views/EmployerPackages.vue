@@ -2,10 +2,10 @@
     <div class="employer-packages">
         <div class="row">
             <div class="col-12">
-                <Breadcrumb :items="items" class="px-5" />
+                <Breadcrumb :items="items" />
             </div>
         </div>
-        <div class="row my-5 mx-5 px-5 background-check">
+        <div class="row my-5 mx-2 background-check">
             <div class="col-12 text-center text-gray">
                 <h4 class="text-head"><strong>Background Checks for Employees</strong></h4>
                 <p class="mt-4">Hiring the best people for your business represents an opportunity and a risk. As a small business owner or employer, it’s important to hire those who represent the right fit for your culture and can be trusted with sensitive business information. You also need to feel confident in your new hire’s ability to interact with your customers.</p>
@@ -547,7 +547,7 @@ import { Carousel, Slide } from 'vue-carousel';
 import Breadcrumb from '@/components/Breadcrumb.vue';
 import {mapGetters} from 'vuex'
 export default {
-    name: "IndividualPackages",
+    name: "EmployerPackages",
     components: {
         Carousel,
         Slide,

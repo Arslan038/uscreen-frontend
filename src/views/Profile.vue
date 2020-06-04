@@ -2,11 +2,12 @@
     <div class="profile">
         <div class="row">
             <div class="col-12">
-                <Breadcrumb :items="items" class="px-5" />
+                <Breadcrumb :items="items" />
             </div>
         </div>
-        <div class="row head">
-            <div class="col-12 align-self-end">
+        <div class="row">
+            <img src="../assets/Bitmadyuthfp@2x.png" width="100%" height="auto" alt="">
+            <div class="col-12 align-self-end name">
                 <h1 class="text-white">{{userdetails.FirstName}} {{userdetails.LastName}}</h1>
             </div>
         </div>
@@ -22,17 +23,17 @@
                         </b-tab>
                         <b-tab title="Wallet">
                             <div class="container">
-                                <div class="row mx-5">
+                                <div class="row">
                                     <div class="col-7 text-center">
-                                        <h3 class="text-blue"><strong>Wallet Balance:</strong></h3>
+                                        <h3 class="text-blue wallet"><strong>Wallet Balance:</strong></h3>
                                     </div>
                                     <div class="col-5">
-                                        <h3 class="text-blue"><strong>{{userdetails.CurrencyCode}} {{userdetails.UserWalletAmount}}</strong></h3>
+                                        <h3 class="text-blue wallet"><strong>{{userdetails.CurrencyCode}} {{userdetails.UserWalletAmount}}</strong></h3>
                                     </div>
                                 </div>
-                                <div class="row mx-5 mt-3 mb-5">
-                                    <div class="col-8 text-right">
-                                        <p class="text-gray">Wallet balance can be used towards your next order</p>
+                                <div class="row mt-3 mb-5">
+                                    <div class="col-md-12 col-12 text-center">
+                                        <p class="text-gray px-5">Wallet balance can be used towards your next order</p>
                                     </div>
                                 </div>
                             </div>
@@ -88,16 +89,28 @@ export default {
     background: url('../assets/Bitmadyuthfp@2x.png');
     background-size: 100% 100%;
     height: 450px;
+    background-repeat: no-repeat;
     color: #fff;
     margin-top: -17px;
 }
-.head h1 {
+h1 {
     margin: 0 0 50px 50px;
+}
+.name {
+    position: absolute;
 }
 
 @media screen and (max-width: 600px) {
   .head {
     height: 200px;
+  }
+  h1 {
+      font-size: 25px;
+      margin-left: 10px;
+      margin-bottom: 10px;
+  }
+  .wallet {
+      font-size: 16px;
   }
 }
 </style>

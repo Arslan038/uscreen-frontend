@@ -2,10 +2,10 @@
     <div class="individual-packages">
         <div class="row">
             <div class="col-12">
-                <Breadcrumb :items="items" class="px-5" />
+                <Breadcrumb :items="items" />
             </div>
         </div>
-        <div class="row my-5 mx-5 px-5 background-check">
+        <div class="row my-5 px-3 background-check">
             <div class="col-12 text-center text-gray">
                 <h4 class="text-head"><strong>Background Checks for Individuals</strong></h4>
                 <p class="mt-4">To avoid spending time and effort on misrepresented and fraudulent resumes, most employers today are increasingly seeking <br> out pre-screened candidates.</p>

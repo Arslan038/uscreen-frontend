@@ -195,6 +195,7 @@ input:focus, select:focus, textarea:focus, .btn-primary:focus, .btn-secondary:fo
 .breadcrumb {
   background: #f1f1f1 !important;
   height: 70px !important;
+  padding-left: 34px !important;
 }
 .breadcrumb ol {
   height: 30px !important;
@@ -204,6 +205,17 @@ input:focus, select:focus, textarea:focus, .btn-primary:focus, .btn-secondary:fo
     font-size: 12px !important;
     font-weight: bold !important;
   }
+  .rc-anchor-normal, .rc-anchor .rc-anchor-normal .rc-anchor-light {
+    max-width: 200px !important;
+  }
+  .nav-tabs .nav-link {
+    font-size: 14px !important;
+  }
+  .breadcrumb {
+  background: #f1f1f1 !important;
+  height: 70px !important;
+  padding-left: 10px !important;
+}
 }
 
 </style>

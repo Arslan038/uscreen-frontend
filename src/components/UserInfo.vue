@@ -2,13 +2,13 @@
     <div class="user-info">
         <div class="row">
             <div class="col-md-12">
-                <div class="row my-5">
+                <div class="row mt-3 mb-5">
                     <div class="col-md-8 offset-md-2 col-12">
                         <div class="card">
                             <div class="card-head">
                                 <div class="row">
-                                    <div class="col-6 text-left">
-                                        <h4 class="text-head pb-4 px-5">User Information</h4>
+                                    <div class="col-12 text-left">
+                                        <h4 class="text-head pb-2 px-3">User Information</h4>
                                     </div>
                                     <!-- <div class="col-6 text-right">
                                         <button class="btn btn-primary text-right">Update</button>
@@ -17,22 +17,27 @@
                                 <hr>
                             </div>
                             <div class="card-body">
-                                <div class="py-4 px-5">
-                                    <p><strong class="text-head">Login Information</strong></p>
-                                    <div class="row">
-                                        <div class="col-md-12 col-12 mt-3">
-                                            <input type="password" placeholder="Password" class="form-control">
-                                        </div>
-                                        <div class="col-md-12 col-12 mt-3">
-                                            <input type="password" v-model="new_employer.Password" placeholder="New Password*" class="form-control">
-                                        </div>
-                                        <div class="col-md-12 col-12 mt-3">
-                                            <input type="password" v-model="retypedpassword" placeholder="Retype New password*" class="form-control">
+                                <div class="container">
+                                    <div class="">
+                                        <p><strong class="text-head">Login Information</strong></p>
+                                        <div class="row">
+                                            <div class="col-md-12 col-12 mt-3">
+                                                <input type="password" placeholder="Password" class="form-control">
+                                            </div>
+                                            <div class="col-md-12 col-12 mt-3">
+                                                <input type="password" v-model="new_employer.Password" placeholder="New Password*" class="form-control">
+                                            </div>
+                                            <div class="col-md-12 col-12 mt-3">
+                                                <input type="password" v-model="retypedpassword" placeholder="Retype New password*" class="form-control">
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
+                                
                                 <hr>
-                                <div class="px-5 py-4">
+
+                                
+                                <div class="container">
                                     <p><strong class="text-head">Company Information</strong></p>
                                     <div class="row">
                                         <div class="col-md-12 col-12 mt-3">
@@ -50,7 +55,7 @@
                                 </div>
                                 <hr>
 
-                                <div class="px-5 py-4">
+                                <div class="container">
                                     <p><strong class="text-head">User Information</strong></p>
                                     <div class="row">
                                         <div class="col-md-6 col-12 mt-3">
@@ -72,7 +77,7 @@
                                     </div>
                                 </div>
                                 <hr>
-                                <div v-if="userdetails.UserRoleCode=='INDIVIDUAL'" class="px-5 py-4">
+                                <div v-if="userdetails.UserRoleCode=='INDIVIDUAL'" class="container">
                                     <p><strong class="text-head">User Address</strong></p>
                                     <textarea class="form-control" v-model="new_employer.UserAddress.AddressName" rows="5" style="resize:none" placeholder="Address"></textarea>
                                     <div class="row mt-3">
@@ -95,7 +100,7 @@
                                         
                                     </div>
                                 </div>
-                                <div v-if="userdetails.UserRoleCode=='EMPLOYER'" class="px-5 py-4">
+                                <div v-if="userdetails.UserRoleCode=='EMPLOYER'" class="container">
                                     <p><strong class="text-head">Registered Address</strong></p>
                                     <textarea class="form-control" v-model="new_employer.BusinessAddress.AddressName" rows="5" style="resize:none" placeholder="Address"></textarea>
                                     <div class="row mt-3">
@@ -120,7 +125,7 @@
                                 </div>
                                 <hr>
 
-                                <div class="px-5 py-4" v-if="userdetails.UserRoleCode=='EMPLOYER'">
+                                <div class="container" v-if="userdetails.UserRoleCode=='EMPLOYER'">
                                     <p><strong class="text-head">Billing Address</strong></p>
                                     <b-form-checkbox class="text-gray" v-model="isSame" @change="handleSame"> same as Address</b-form-checkbox>
                                     <textarea class="form-control mt-3" v-model="new_employer.BusinessBillingAddress.AddressName" rows="5" style="resize:none" placeholder="Address"></textarea>
@@ -149,13 +154,16 @@
                                     </div>
                                 </div>
                                 <hr>
-                                <div class="row mt-5">
-                                    <div class="col-md-4 offset-md-4 col-4 offset-2">
-                                        <vue-recaptcha sitekey="6LeRufEUAAAAAH3YkifekIVSHW44inX-Ud9K57h5" @verify="verified" :loadRecaptchaScript="true">
-            
-                                        </vue-recaptcha>
+                                <div class="container">
+                                    <div class="row mt-4">
+                                        <div class="col-12">
+                                            <vue-recaptcha sitekey="6LeRufEUAAAAAH3YkifekIVSHW44inX-Ud9K57h5" @verify="verified" :loadRecaptchaScript="true">
+                
+                                            </vue-recaptcha>
+                                        </div>
                                     </div>
                                 </div>
+                                
                                 <div class="col-12 text-center mt-3 mb-5">
                                     <button class="btn btn-primary mb-5 mt-3" @click="update()">Update</button>
                                 </div>
@@ -380,5 +388,10 @@ h4 {
 }
 .card-body {
     padding: 0 !important;
+}
+
+.rc-anchor-normal {
+    height: 74px;
+    width: 200px !important;
 }
 </style>
