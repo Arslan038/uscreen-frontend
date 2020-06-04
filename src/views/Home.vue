@@ -55,7 +55,7 @@
     </div>
 
     <div class="row membership my-5">
-      <div class="col-12 mt-3 mb-5">
+      <div class="col-12 mt-3">
         <h1 class="text-center text-head">Memberships, Accreditations &amp; Certification</h1>
       </div>
       <div class="col-md-3 col-12 text-center mt-5">
@@ -247,10 +247,11 @@ p {
   .header {
     height: 300px;
   }
+}
+@media (max-width: 767px) {
   .zoom {
     width: 60vw;
     height: 60vw;
-  }
-  
+  }  
 }
 </style>

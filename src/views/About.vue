@@ -5,7 +5,7 @@
             <Breadcrumb :items="items"/>
         </div>
     </div>
-    <div class="row my-5 pt-5">
+    <div class="row my-5">
       <div class="col-12 text-center">
         <h3><strong class="text-head">About Us</strong></h3>
         <p class="text-gray pt-3 px-3">UScreen is powered by First Advantage, the world's most trusted background check provider.</p>

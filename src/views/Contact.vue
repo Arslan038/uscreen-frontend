@@ -5,7 +5,7 @@
                 <Breadcrumb :items="items" />
             </div>
         </div>
-        <div class="row my-5 pt-5">
+        <div class="row my-5">
             <div class="col-12 text-center">
                 <h3><strong class="text-head px-2">Contact Us</strong></h3>
             </div>
