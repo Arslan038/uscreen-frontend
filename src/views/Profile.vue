@@ -6,7 +6,7 @@
             </div>
         </div>
         <div class="row">
-            <img src="../assets/Bitmadyuthfp@2x.png" width="100%" height="auto" alt="">
+            <img src="../assets/profile.jpg" width="100%" class="profile-img" alt="">
             <div class="col-12 align-self-end name">
                 <h1 class="text-white">{{userdetails.FirstName}} {{userdetails.LastName}}</h1>
             </div>
@@ -86,7 +86,7 @@ export default {
 
 <style scoped>
 .head {
-    background: url('../assets/Bitmadyuthfp@2x.png');
+    background: url('../assets/profile.jpg');
     background-size: 100% 100%;
     height: 450px;
     background-repeat: no-repeat;
@@ -98,6 +98,10 @@ h1 {
 }
 .name {
     position: absolute;
+}
+.profile-img {
+    object-fit: cover;
+    max-height: 500px;
 }
 
 @media screen and (max-width: 600px) {
