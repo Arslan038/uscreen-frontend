@@ -384,7 +384,7 @@ export default {
 
     @media screen and (max-width: 600px) {
         .question-text {
-            font-size: 11px;
+            font-size: 15px;
             font-weight: bold;
         }
         .plus {
