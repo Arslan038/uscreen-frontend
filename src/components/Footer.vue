@@ -4,7 +4,7 @@
             <div class="col-md-4 col-12 text-center pt-4">
                 <img class="poweredby" src="../assets/PoweredBy_FADV.png" alt="" @click="move('/')">
             </div>
-            <div class="col-md-4 col-12 links">
+            <div class="col-md-4 col-12 links text-center text-md-left">
                 <ul>
                     <li><a href="javascript:;">Privacy Policy</a></li>
                     <li><a href="javascript:;">Terms and Conditions of Use</a></li>
@@ -13,7 +13,7 @@
                     <li><a href='/about'>About Us</a></li>
                 </ul>
             </div>
-            <div class="col-md-4 col-12 links">
+            <div class="col-md-4 col-12 links text-center text-md-left">
                 <ul>
                     <li  v-if="loggedUser==null"><a href='/login'>Sign In/Sign Up</a></li>
                     <li><a href='/contact'>Contact Us</a></li>
@@ -49,7 +49,7 @@ export default {
     padding-bottom: 20px;
 }
 a {
-    font-size: 16px;
+    font-size: 17px;
     color: rgb(95, 95, 95);
     font-weight: bold;
 }

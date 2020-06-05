@@ -15,7 +15,7 @@
                 <div class="card shadow">
                     <div class="card-head pt-3">
                         <div class="container">
-                            <div class="row pr-3 my-4">
+                            <div class="row pr-3 my-4 mx-md-3">
                                 <div class="col-12">
                                     <h4 class=""><strong class="text-head">Order Information</strong></h4>
                                 </div>
@@ -29,7 +29,7 @@
                     </div>
                     <div class="card-body">
                         <div class="pl-3 pr-3 pt-3 mb-5">
-                            <div class="row">
+                            <div class="row mx-md-3">
                                 <div class="col-md-12 candidate">
                                     <p class="mb-4"><strong class="text-head">Candidate Information</strong></p>  
                                     <p class="text-gray">First Name: {{selected_order.FirstName}}</p>
@@ -44,7 +44,7 @@
                         <hr>
 
                         <div class="pl-3 pr-3 mb-5 pt-3" v-if="userdetails.UserRoleCode!='INDIVIDUAL'">
-                            <div class="row">
+                            <div class="row mx-md-3">
                                 <div class="col-md-12">
                                     <p class="mb-4"><strong class="text-head">Client Reference</strong></p>  
                                     <p class="text-gray">{{selected_order.Reference[0].EmployeeId}}</p>
@@ -54,7 +54,7 @@
                         </div>
                         <hr>
                         <div class="pl-3 pr-3 mb-5 pt-3">
-                            <div class="row">
+                            <div class="row mx-md-3">
                                 <div class="col-md-12">
                                     <p class="mb-4"><strong class="text-head">Country of Hire</strong></p>  
                                     <p class="text-gray">{{getCountryById(selected_order.CountryId).CountryName}}</p>
@@ -63,7 +63,7 @@
                         </div>
                         <hr>
                         <div class="pl-3 pr-3 mb-5 pt-3" v-if="userdetails.UserRoleCode!='INDIVIDUAL'">
-                            <div class="row">
+                            <div class="row mx-md-3">
                                 <div class="col-md-12">
                                     <p class="mb-4"><strong class="text-head">Requestor</strong></p>  
                                     <p class="text-gray">{{selected_order.Requestor}}</p>
@@ -73,7 +73,7 @@
                         <hr>
 
                         <div class="pl-3 pr-3 mb-5 pt-3">
-                            <div class="row">
+                            <div class="row mx-md-3">
                                 <div class="col-md-6 col-6">
                                     <h4><strong class="text-head">Product</strong></h4>
                                 </div>
@@ -82,7 +82,7 @@
                                 </div>
                             </div>
 
-                            <div v-for="(item,i) in PackageServiceItems" :key="i" class="row mt-3">
+                            <div v-for="(item,i) in PackageServiceItems" :key="i" class="row mt-3 mx-md-3">
                                  <div class="col-md-6 col-6">
                                     <p><strong class="text-blue">{{item.PackageServiceItemName}}</strong></p>
                                 </div>
@@ -94,16 +94,16 @@
                                 </div> 
                             </div>
                       
-                            <div class="row mt-4">
+                            <div class="row mt-4 mx-md-3">
                                 <div class="col-md-6 col-6">
                                     <h4><strong class="text-head">Total:</strong></h4>
                                 </div>
-                                <div class="col-md-6 col-6">
+                                <div class="col-md-6 col-6 text-right">
                                     <h4 class="text-head total mt-2"><strong>{{temp.CurrencyCode}} {{total.toFixed(2)}}</strong></h4>
                                 </div>
                             </div>
 
-                            <div class="row mt-3">
+                            <div class="row mt-3 mx-md-3">
                                 <div class="col-md-12 text-center">
                                     <div class="d-flex" style=" align-items: center; justify-content: center;">
                                     <b-form-checkbox class="text-primary" v-model="terms"></b-form-checkbox> <span v-b-modal.modal-1 style="cursor:pointer;color:blue"> Terms and Conditions</span>
@@ -119,7 +119,7 @@
                         <hr>
 
                         <div class="pl-3 pr-3 pt-3 mb-5">
-                            <div class="row">
+                            <div class="row mx-md-3">
                                 <div class="col-md-12">
                                     <h4><strong class="text-head">Payment</strong></h4>
                                 </div>
@@ -559,7 +559,7 @@ input:focus {
         font-size: 13px;
     }
     .total {
-        font-size: 13px;
+        font-size: 16px;
     }
 }
 </style>

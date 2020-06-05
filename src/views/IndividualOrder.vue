@@ -15,7 +15,7 @@
                 <div class="card shadow">
                     <div class="card-head pt-3">
                         <div class="container">
-                            <div class="row my-4">
+                            <div class="row my-4 mx-md-3">
                                 <div class="col-12">
                                     <h4 class=""><strong class="text-head">Order Information</strong></h4>
                                 </div>
@@ -28,15 +28,19 @@
                     <div class="card-body">
                         <div class="pl-3 pr-4">
 
+                        <div class="row mx-md-3">
+                            <div class="col-12">
+                                <p><strong class="text-head">{{selected_package!=null ? selected_package.PackageServiceName:temp_selected_package.PackageServiceName}} Package Items</strong></p>
+                                <p class="text-gray">
+                                Important Note: Certain checks have a maximum number of countries you can request checks for. Please see below:<br>
+                                -Up to five (5) countries for database checks such as Bankruptcy, Civil Litigation, Credit, Criminal and Directorship checks<br>
+                                -Up to three (3) countries for Employment check.<br>
+                                -One (1) country only for Education check.
+                                </p>
+                            </div>
+                        </div>
                         
-                        <p><strong class="text-head">{{selected_package!=null ? selected_package.PackageServiceName:temp_selected_package.PackageServiceName}} Package Items</strong></p>
-                        <p class="text-gray">
-                        Important Note: Certain checks have a maximum number of countries you can request checks for. Please see below:<br>
-                        -Up to five (5) countries for database checks such as Bankruptcy, Civil Litigation, Credit, Criminal and Directorship checks<br>
-                        -Up to three (3) countries for Employment check.<br>
-                        -One (1) country only for Education check.
-                        </p>
-                        <div v-if="item.IsActive==1" class="row" v-for="(item,i) in packageitems" :key="i">
+                        <div v-if="item.IsActive==1" class="row mx-md-3" v-for="(item,i) in packageitems" :key="i">
                             <div class="col-md-12 col-xl-4 col-12 mt-3">
                                 <p><strong class="text-blue">{{item.PackageServiceItemName}}</strong></p>
                             </div>
@@ -65,7 +69,7 @@
                     </div>
                        <form v-on:submit.prevent="moveNext()">
                         <div class="pl-3 pr-3 pt-3 mb-5">
-                            <div class="row">
+                            <div class="row mx-md-3">
                                 <div class="col-md-12">
                                     <p><strong class="text-head">Candidate Information</strong></p>  
                                     <p class="text-gray">This information will be used to contact your candidate about their background check.</p>
@@ -92,7 +96,7 @@
                         <hr>
 
                         <div class="pl-3 pr-3 mb-5 pt-3">
-                            <div class="row">
+                            <div class="row mx-md-3">
                                 <div class="col-md-12">
                                     <p><strong class="text-head">Country of Residence</strong></p>
                                     <select required v-model="new_order.CountryId" class="form-control">

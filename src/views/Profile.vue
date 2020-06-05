@@ -24,11 +24,8 @@
                         <b-tab title="Wallet">
                             <div class="container">
                                 <div class="row">
-                                    <div class="col-7 text-center">
-                                        <h3 class="text-blue wallet"><strong>Wallet Balance:</strong></h3>
-                                    </div>
-                                    <div class="col-5">
-                                        <h3 class="text-blue wallet"><strong>{{userdetails.CurrencyCode}} {{userdetails.UserWalletAmount}}</strong></h3>
+                                    <div class="col-12 text-center">
+                                        <h3 class="text-blue wallet"><strong>Wallet Balance:</strong> <strong class="pl-3">{{userdetails.CurrencyCode}} {{userdetails.UserWalletAmount}}</strong></h3>
                                     </div>
                                 </div>
                                 <div class="row mt-3 mb-5">
