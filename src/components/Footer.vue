@@ -64,4 +64,9 @@ ul li {
 .poweredby {
     width: 80%;
 }
+@media (max-width: 767px) {
+    ul {
+        padding-inline-start: 0px;
+    }
+}
 </style>
