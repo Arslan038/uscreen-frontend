@@ -4,10 +4,10 @@
       <div class="col-md-12 text-center">
           <h1 class="text-white">UScreen</h1>
           <p class="px-3">Quick and easy background checks.<br>No hidden fees, no memberships and no minimums</p>
-          <button class="btn btn-screen" @click="routeit('simple')">Screen Today</button>
+          <button class="btn btn-screen" @click="scrollToHash('#package');">Screen Today</button>
       </div>
     </div>
-    <div class="row package">
+    <div class="row package" id="package">
       <div class="col-md-12 text-center">
         <h2 class="text-head">Choose Your Package</h2>
         <p class="text-gray px-4">Order your background check today. It's easy!</p>
@@ -131,7 +131,16 @@ export default {
 
       }
       // this.$router.push({path:'employer-package'})
-    }
+    },
+    scrollToHash(hash) {
+      const element = document.querySelector(hash)
+      const topPos = element.getBoundingClientRect().top + window.pageYOffset
+
+      window.scrollTo({
+        top: topPos, // scroll so that the element is at the top of the view
+        behavior: 'smooth' // smooth scroll
+      })
+    },
   },
 }
 </script>
