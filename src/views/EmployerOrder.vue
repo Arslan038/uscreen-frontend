@@ -28,50 +28,60 @@
                         <hr>
                     </div>
                     <div class="card-body">
-                        <div class="pl-3 pr-4">
-                        <div class="row mx-md-3">
-                            <div class="col-12">
-                                <p><strong class="text-head">{{selected_package!=null ? selected_package.PackageServiceName:temp_selected_package.PackageServiceName}} Package Items</strong></p>
-                                <p class="text-gray">
-                                Important Note: Certain checks have a maximum number of countries you can request checks for. Please see below:<br>
-                                -Up to five (5) countries for database checks such as Bankruptcy, Civil Litigation, Credit, Criminal and Directorship checks<br>
-                                -Up to three (3) countries for Employment check.<br>
-                                -One (1) country only for Education check.
-                                </p>
-                            </div>
-                        </div>
-                        
-                        
-                        <div v-if="item.IsActive==1" class="row mx-md-3" v-for="(item,i) in packageitems" :key="i">
-                            <div class="col-md-12 col-xl-4 col-12 mt-3">
-                                <p><strong class="text-blue">{{item.PackageServiceItemName}}</strong></p>
-                            </div>
-                            <div v-if="b_countryarr[i].countrylimit>0" class="col-md-12 col-xl-6 offset-xl-2 col-12">
-                                <div v-for="(b, j) in b_countryarr[i].b_country" :key="j" class="countries">
-                                    <i v-if="j > 0" class="fa fa-trash trash" @click="removeBankCountry(i,j)"></i>
-                                    <select @change="handleChange(i)" class="form-control mt-3" v-model="b_countryarr[i].countries[j]">
-                                        <option v-for="(cn_item,k) in countryitems[i].Pricing" :key="k" :value="cn_item.CountryCode">{{cn_item.CountryName}}</option>
-                                    </select>
-                                </div>
-                                <div class="row mt-2">
-                                    <div class="col-6">
-                                        <button v-if="b_countryarr[i].show && b_countryarr[i].b_country != b_countryarr[i].countrylimit" class="btn btn-primary" @click="addBankruptcyCountry(i)">Add Country</button>
-                                    </div>
-                                    <div class="col-6 pr-0 text-right">
-                                        <span v-if="b_countryarr[i].countrylimit > 1" class="text-right text-gray ">(Max.{{b_countryarr[i].countrylimit}}) </span>
-                                    </div>
+                        <div class="pl-3 pr-3 pt-3 mb-5">
+                            <div class="row mx-md-3">
+                                <div class="col-12">
+                                    <p><strong class="text-head">{{selected_package!=null ? selected_package.PackageServiceName:temp_selected_package.PackageServiceName}} Package Items</strong></p>
+                                    <p class="text-gray">
+                                    Important Note: Certain checks have a maximum number of countries you can request checks for. Please see below:<br>
+                                    -Up to five (5) countries for database checks such as Bankruptcy, Civil Litigation, Credit, Criminal and Directorship checks<br>
+                                    -Up to three (3) countries for Employment check.<br>
+                                    -One (1) country only for Education check.
+                                    </p>
                                 </div>
                             </div>
-                            <div v-else class="mt-2 col-md-12 col-xl-6 offset-xl-2 col-12">
-                               <select disabled  class="form-control mt-3" >
-                                        <option ></option>
-                            </select>   
+                            
+                            
+                            <div v-if="item.IsActive==1" class="row mx-md-3" v-for="(item,i) in packageitems" :key="i">
+                                <div class="col-md-12 col-xl-4 col-12 mt-3">
+                                    <p><strong class="text-blue">{{item.PackageServiceItemName}}</strong></p>
+                                </div>
+                                <div v-if="b_countryarr[i].countrylimit>0" class="col-md-12 col-xl-6 offset-xl-2 col-12">
+                                    <div v-for="(b, j) in b_countryarr[i].b_country" :key="j" class="countries">
+                                        <i v-if="j > 0" class="fa fa-trash trash" @click="removeBankCountry(i,j)"></i>
+                                        <select @change="handleChange(i)" class="form-control mt-3" v-model="b_countryarr[i].countries[j]">
+                                            <option v-for="(cn_item,k) in countryitems[i].Pricing" :key="k" :value="cn_item.CountryCode">{{cn_item.CountryName}}</option>
+                                        </select>
+                                    </div>
+                                    <div class="row mt-2">
+                                        <div class="col-6">
+                                            <button v-if="b_countryarr[i].show && b_countryarr[i].b_country != b_countryarr[i].countrylimit" class="btn btn-primary" @click="addBankruptcyCountry(i)">Add Country</button>
+                                        </div>
+                                        <div class="col-6 pr-0 text-right">
+                                            <span v-if="b_countryarr[i].countrylimit > 1" class="text-right text-gray ">(Max.{{b_countryarr[i].countrylimit}}) </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div v-else class="mt-2 col-md-12 col-xl-6 offset-xl-2 col-12">
+                                   <select disabled  class="form-control mt-3" >
+                                            <option ></option>
+                                </select>   
+                                </div>
                             </div>
-                        </div>
-  
                         </div>
                         <hr>
                        <form v-on:submit.prevent="moveNext()">
+
+                        <div class="pl-3 pr-3 pt-3 mb-5">
+                            <div class="row mx-md-3">
+                                <div class="col-12">
+                                    <p class="text-gray">
+                                    <strong>Important Note:</strong> While you are able to order international checks, please note that the background check results and final cost may vary as this is dependent on the candidate's input and address history. You <strong>may</strong> be charged additional costs if the candidate adds countries you have not selected here. We highly recommend that the requestor be aware of any international address history that the candidate holds prior to placing order.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
 
                         <div class="pl-3 pr-3 pt-3 mb-5">
                             <div class="row mx-md-3">
@@ -96,7 +106,6 @@
                                 </div>  
                             </div>
                         </div>
-
                         <hr>
 
                         <div class="pl-3 pr-3 mb-5 pt-3">
