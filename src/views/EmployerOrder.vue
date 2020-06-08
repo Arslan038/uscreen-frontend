@@ -106,6 +106,7 @@
                                     <p class="text-gray">This information will help you identify the order. Add any relevant information such as Cost Centres and/or Employee ID.</p>
                                     <input type="text" v-model="new_order.Reference[0].EmployeeId" class="form-control mt-3" placeholder="">
                                     <input type="text" v-model="new_order.Reference[1].EmployeeId" class="form-control mt-3" placeholder="">
+                                    <input required type="text" class="form-control mt-3" v-model="new_order.Requestor" placeholder="Hiring Manager / Recruiter Name*">
                                 </div>
                             </div>
                         </div>
@@ -124,16 +125,6 @@
                             </div>
                         </div>
                         <hr>
-
-                        <div class="pl-3 pr-3 mb-5 pt-3">
-                            <div class="row mx-md-3">
-                                <div class="col-md-12">
-                                    <p><strong class="text-head">Requestor</strong></p>
-                                    <input required type="text" class="form-control mt-3" v-model="new_order.Requestor" placeholder="Requester Name*">
-                                </div>
-                            </div>
-                        </div>
-
                         <div class="row mb-5">
                             <div class="col-12 text-center">
                                 <button class="btn btn-primary next" type="submit">Next</button>
