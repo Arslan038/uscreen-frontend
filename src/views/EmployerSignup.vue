@@ -34,58 +34,6 @@
                                     </div>
                                 </div>
                                 <hr>
-                                <div class="py-4 px-5">
-                                    <p><strong class="text-head">Login Password</strong></p>
-                                    <div class="row">
-                                        <div class="col-md-6 col-12 mt-3">
-                                            <input required v-model="new_employer.Password" type="password" placeholder="Password*" class="form-control">
-                                        </div>
-                                        <div class="col-md-6 col-12 mt-3">
-                                            <input required  type="password" placeholder="Retype password*" v-model="retype_pass" class="form-control">
-                                        </div>
-                                    </div>
-                                </div>
-                                <hr>
-
-                                <div class="px-5 py-4">
-                                    <p><strong class="text-head">Currency</strong></p>
-                                    <p>Select the currency you wish to display in this website.</p>
-                                    <div class="row">
-                                        <div class="col-md-6 col-12 mt-3">
-                                            <select  v-model="new_employer.CurrencyId" class="form-control">
-                                                <option v-for="(item,i) in currency" :key="i" :value="item.CurrencyId">{{item.CurrencyName}}</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                                <hr>
-
-                                <div class="px-5 py-4">
-                                    <p><strong class="text-head">User Information</strong></p>
-                                    <div class="row">
-                                        <div class="col-md-6 col-12 mt-3">
-                                            <input required v-model="new_employer.FirstName" type="text" class="form-control" placeholder="First Name*" >
-                                        </div>
-                                        <div class="col-md-6 col-12 mt-3">
-                                            <input required type="text" v-model="new_employer.LastName" class="form-control" placeholder="Last Name*" >
-                                        </div>
-                                        <div class="col-md-6 col-12 mt-3">
-                                            <input required type="email" v-model="new_employer.Email" class="form-control" placeholder="Email (UserID)*" >
-                                        </div>
-                                            <div class="col-md-2 col-12 mt-3 country">
-                                                <input required type="tel" pattern="^([0|\+[0-9]{1,5})"  v-model="new_employer.MobileCode" class="form-control" placeholder="country code*" >
-
-                                            </div>
-                                            <div class="col-md-4 mobile col-12 mt-3">
-                                                <input required type="tel" pattern="[0-9]{3,10}" v-model="new_employer.MobileNumber" class="form-control" placeholder="Mobile*" >
-                                            </div>
-                                            <div class="col-md-6 col-12 mt-3">
-                                            <input required type="email" v-model="confirm_email" class="form-control" placeholder="Confirm Email*" >
-                                            </div>
-                                    </div>
-                                </div>
-                                <hr>
-
                                 <div class="px-5 py-4">
                                     <p><strong class="text-head">Registered Address*</strong></p>
                                     <textarea class="form-control" required v-model="new_employer.BusinessAddress.AddressName" rows="5" style="resize:none" placeholder="Address *"></textarea>
@@ -150,6 +98,58 @@
                                     </div>
                                 </div>
                                 <hr>
+                                <div class="px-5 py-4">
+                                    <p><strong class="text-head">Currency</strong></p>
+                                    <p>Select the currency you wish to be billed in</p>
+                                    <div class="row">
+                                        <div class="col-md-6 col-12 mt-3">
+                                            <select  v-model="new_employer.CurrencyId" class="form-control">
+                                                <option v-for="(item,i) in currency" :key="i" :value="item.CurrencyId">{{item.CurrencyName}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr>
+
+                                <div class="px-5 py-4">
+                                    <p><strong class="text-head">User Information</strong></p>
+                                    <div class="row">
+                                        <div class="col-md-6 col-12 mt-3">
+                                            <input required v-model="new_employer.FirstName" type="text" class="form-control" placeholder="First Name*" >
+                                        </div>
+                                        <div class="col-md-6 col-12 mt-3">
+                                            <input required type="text" v-model="new_employer.LastName" class="form-control" placeholder="Last Name*" >
+                                        </div>
+                                        <div class="col-md-6 col-12 mt-3">
+                                            <input required type="email" v-model="new_employer.Email" class="form-control" placeholder="Email (UserID)*" >
+                                        </div>
+                                            <div class="col-md-2 col-12 mt-3 country">
+                                                <input required type="tel" pattern="^([0|\+[0-9]{1,5})"  v-model="new_employer.MobileCode" class="form-control" placeholder="Country Code*" >
+
+                                            </div>
+                                            <div class="col-md-4 mobile col-12 mt-3">
+                                                <input required type="tel" pattern="[0-9]{3,10}" v-model="new_employer.MobileNumber" class="form-control" placeholder="Mobile*" >
+                                            </div>
+                                            <div class="col-md-6 col-12 mt-3">
+                                            <input required type="email" v-model="confirm_email" class="form-control" placeholder="Confirm Email*" >
+                                            </div>
+                                    </div>
+                                </div>
+                                <hr>
+
+                                <div class="py-4 px-5">
+                                    <p><strong class="text-head">Login Password</strong></p>
+                                    <div class="row">
+                                        <div class="col-md-6 col-12 mt-3">
+                                            <input required v-model="new_employer.Password" type="password" placeholder="Password*" class="form-control">
+                                        </div>
+                                        <div class="col-md-6 col-12 mt-3">
+                                            <input required  type="password" placeholder="Retype password*" v-model="retype_pass" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr>
+
                                 <div class="row mt-3 pl-2">
                                     <div class="col-md-4 offset-md-4 col-12">
                                         <vue-recaptcha sitekey="6LeRufEUAAAAAH3YkifekIVSHW44inX-Ud9K57h5" @verify="verified" :loadRecaptchaScript="true">
