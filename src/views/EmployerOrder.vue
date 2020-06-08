@@ -103,8 +103,9 @@
                             <div class="row mx-md-3">
                                 <div class="col-md-12">
                                     <p><strong class="text-head">Client Reference</strong></p>
-                                    <input required type="text" v-model="new_order.Reference[0].EmployeeId" class="form-control mt-3" placeholder="Cost Centre/EmployeeID*">
-                                    <input type="text" v-model="new_order.Reference[1].EmployeeId" class="form-control mt-3" placeholder="Cost Centre/EmployeeID*">
+                                    <p class="text-gray">This information will help you identify the order. Add any relevant information such as Cost Centres and/or Employee ID.</p>
+                                    <input type="text" v-model="new_order.Reference[0].EmployeeId" class="form-control mt-3" placeholder="">
+                                    <input type="text" v-model="new_order.Reference[1].EmployeeId" class="form-control mt-3" placeholder="">
                                 </div>
                             </div>
                         </div>
@@ -114,7 +115,8 @@
                             <div class="row mx-md-3">
                                 <div class="col-md-12">
                                     <p><strong class="text-head">Country of Hire</strong></p>
-                                    <select  required v-model="new_order.CountryId" class="form-control">
+                                    <p class="text-gray">The country of hire for the candidate</p>
+                                    <select  required v-model="new_order.CountryId" class="form-control mt-3">
                                         <option value="" selected disabled>Country</option>
                                         <option v-for="(item,i) in countries" :key="i" :value="item.CountryId">{{item.CountryName}}</option>
                                     </select>

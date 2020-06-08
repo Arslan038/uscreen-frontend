@@ -99,7 +99,8 @@
                             <div class="row mx-md-3">
                                 <div class="col-md-12">
                                     <p><strong class="text-head">Country of Residence</strong></p>
-                                    <select required v-model="new_order.CountryId" class="form-control">
+                                    <p class="text-gray">The country of hire for the candidate</p>
+                                    <select required v-model="new_order.CountryId" class="form-control mt-3">
                                         <option value="" selected disabled>Country</option>
                                         <option v-for="(item,i) in countries" :key="i" :value="item.CountryId">{{item.CountryName}}</option>
                                     </select>
