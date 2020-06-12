@@ -18,12 +18,12 @@
                     <div class="question">
                         <div @click="q1 = !q1">
                             <i :class="q1 ? 'fa fa-minus plus' : 'fa fa-plus plus'"></i>
-                            <span class="ml-3 question-text text-head">
+                            <span class="ml-1 md-ml-3 question-text text-head">
                             What is UScreen?
                             </span>
                         </div>
                         <b-collapse v-model="q1">
-                            <b-card class="pl-md-5 pl-4 ml-2 text-head">
+                            <b-card class="pl-md-5 pl-1 ml-2 text-head">
                                 <p class="answer">
                                 Simply visit the signup flow to book a cleaning and as you provide information about your house and schedule, your quote will dynamically adjust.
                                 </p>
@@ -37,12 +37,12 @@
                     <div class="question">
                         <div @click="q2 = !q2">
                             <i :class="q2 ? 'fa fa-minus plus' : 'fa fa-plus plus'"></i>
-                            <span class="ml-3 question-text text-head">
+                            <span class="ml-1 md-ml-3 question-text text-head">
                             I have more questions, who should I contact?
                             </span>
                         </div>
                         <b-collapse v-model="q2">
-                            <b-card class="pl-md-5 pl-4 ml-2 text-head">
+                            <b-card class="pl-md-5 pl-1 ml-2 text-head">
                                 <p class="answer">
                                 Simply visit the signup flow to book a cleaning and as you provide information about your house and schedule, your quote will dynamically adjust.
                                 </p>
@@ -56,12 +56,12 @@
                     <div class="question">
                         <div @click="q3 = !q3">
                             <i :class="q3 ? 'fa fa-minus plus' : 'fa fa-plus plus'"></i>
-                            <span class="ml-3 question-text text-head">
+                            <span class="ml-1 md-ml-3 question-text text-head">
                             How do I order a background check on myself?
                             </span>
                         </div>
                         <b-collapse v-model="q3">
-                            <b-card class="pl-md-5 pl-4 ml-2 text-head">
+                            <b-card class="pl-md-5 pl-1 ml-2 text-head">
                                 <p class="answer">
                                 Simply visit the signup flow to book a cleaning and as you provide information about your house and schedule, your quote will dynamically adjust.
                                 </p>
@@ -75,12 +75,12 @@
                     <div class="question">
                         <div @click="q4 = !q4">
                             <i :class="q4 ? 'fa fa-minus plus' : 'fa fa-plus plus'"></i>
-                            <span class="ml-3 question-text text-head">
+                            <span class="ml-1 md-ml-3 question-text text-head">
                             How do I order a background check for an employee?
                             </span>
                         </div>
                         <b-collapse v-model="q4">
-                            <b-card class="pl-md-5 pl-4 ml-2 text-head">
+                            <b-card class="pl-md-5 pl-1 ml-2 text-head">
                                 <p class="answer">
                                 Simply visit the signup flow to book a cleaning and as you provide information about your house and schedule, your quote will dynamically adjust.
                                 </p>
@@ -94,12 +94,12 @@
                     <div class="question">
                         <div @click="q5 = !q5">
                             <i :class="q5 ? 'fa fa-minus plus' : 'fa fa-plus plus'"></i>
-                            <span class="ml-3 question-text text-head">
+                            <span class="ml-1 md-ml-3 question-text text-head">
                             How does the background check process work?
                             </span>
                         </div>
                         <b-collapse v-model="q5">
-                            <b-card class="pl-md-5 pl-4 ml-2 text-head">
+                            <b-card class="pl-md-5 pl-1 ml-2 text-head">
                                 <p class="answer">
                                 Simply visit the signup flow to book a cleaning and as you provide information about your house and schedule, your quote will dynamically adjust.
                                 </p>
@@ -113,12 +113,12 @@
                     <div class="question">
                         <div @click="q6 = !q6">
                             <i :class="q6 ? 'fa fa-minus plus' : 'fa fa-plus plus'"></i>
-                            <span class="ml-3 question-text text-head">
+                            <span class="ml-1 md-ml-3 question-text text-head">
                             How do I change my details on my account?
                             </span>
                         </div>
                         <b-collapse v-model="q6">
-                            <b-card class="pl-md-5 pl-4 ml-2 text-head">
+                            <b-card class="pl-md-5 pl-1 ml-2 text-head">
                                 <p class="answer">
                                 Simply visit the signup flow to book a cleaning and as you provide information about your house and schedule, your quote will dynamically adjust.
                                 </p>
@@ -132,12 +132,12 @@
                     <div class="question">
                         <div @click="q7 = !q7">
                             <i :class="q7 ? 'fa fa-minus plus' : 'fa fa-plus plus'"></i>
-                            <span class="ml-3 question-text text-head">
+                            <span class="ml-1 md-ml-3 question-text text-head">
                             What is included in the background check report?
                             </span>
                         </div>
                         <b-collapse v-model="q7">
-                            <b-card class="pl-md-5 pl-4 ml-2 text-head">
+                            <b-card class="pl-md-5 pl-1 ml-2 text-head">
                                 <p class="answer">
                                 Simply visit the signup flow to book a cleaning and as you provide information about your house and schedule, your quote will dynamically adjust.
                                 </p>
@@ -151,12 +151,12 @@
                     <div class="question">
                         <div @click="q8 = !q8">
                             <i :class="q8 ? 'fa fa-minus plus' : 'fa fa-plus plus'"></i>
-                            <span class="ml-3 question-text text-head">
+                            <span class="ml-1 md-ml-3 question-text text-head">
                             What packages are available for me to order?
                             </span>
                         </div>
                         <b-collapse v-model="q8">
-                            <b-card class="pl-md-5 pl-4 ml-2 text-head">
+                            <b-card class="pl-md-5 pl-1 ml-2 text-head">
                                 <p class="answer">
                                 Simply visit the signup flow to book a cleaning and as you provide information about your house and schedule, your quote will dynamically adjust.
                                 </p>
@@ -179,12 +179,12 @@
                     <div class="question">
                         <div @click="q9 = !q9">
                             <i :class="q9 ? 'fa fa-minus plus' : 'fa fa-plus plus'"></i>
-                            <span class="ml-3 question-text text-head">
+                            <span class="ml-1 md-ml-3 question-text text-head">
                             What package should I order?
                             </span>
                         </div>
                         <b-collapse v-model="q9">
-                            <b-card class="pl-md-5 pl-4 ml-2 text-head">
+                            <b-card class="pl-md-5 pl-1 ml-2 text-head">
                                 <p class="answer">
                                 Simply visit the signup flow to book a cleaning and as you provide information about your house and schedule, your quote will dynamically adjust.
                                 </p>
@@ -198,12 +198,12 @@
                     <div class="question">
                         <div @click="q10 = !q10">
                             <i :class="q10 ? 'fa fa-minus plus' : 'fa fa-plus plus'"></i>
-                            <span class="ml-3 question-text text-head">
+                            <span class="ml-1 md-ml-3 question-text text-head">
                             How do I view my order?
                             </span>
                         </div>
                         <b-collapse v-model="q10">
-                            <b-card class="pl-md-5 pl-4 ml-2 text-head">
+                            <b-card class="pl-md-5 pl-1 ml-2 text-head">
                                 <p class="answer">
                                 Simply visit the signup flow to book a cleaning and as you provide information about your house and schedule, your quote will dynamically adjust.
                                 </p>
@@ -217,12 +217,12 @@
                     <div class="question">
                         <div @click="q11 = !q11">
                             <i :class="q11 ? 'fa fa-minus plus' : 'fa fa-plus plus'"></i>
-                            <span class="ml-3 question-text text-head">
+                            <span class="ml-1 md-ml-3 question-text text-head">
                             How do I view my invoice?
                             </span>
                         </div>
                         <b-collapse v-model="q11">
-                            <b-card class="pl-md-5 pl-4 ml-2 text-head">
+                            <b-card class="pl-md-5 pl-1 ml-2 text-head">
                                 <p class="answer">
                                 Simply visit the signup flow to book a cleaning and as you provide information about your house and schedule, your quote will dynamically adjust.
                                 </p>
@@ -236,12 +236,12 @@
                     <div class="question">
                         <div @click="q12 = !q12">
                             <i :class="q12 ? 'fa fa-minus plus' : 'fa fa-plus plus'"></i>
-                            <span class="ml-3 question-text text-head">
+                            <span class="ml-1 md-ml-3 question-text text-head">
                             I made a mistake on the order. How do I change it?
                             </span>
                         </div>
                         <b-collapse v-model="q12">
-                            <b-card class="pl-md-5 pl-4 ml-2 text-head">
+                            <b-card class="pl-md-5 pl-1 ml-2 text-head">
                                 <p class="answer">
                                 Simply visit the signup flow to book a cleaning and as you provide information about your house and schedule, your quote will dynamically adjust.
                                 </p>
@@ -255,12 +255,12 @@
                     <div class="question">
                         <div @click="q13 = !q13">
                             <i :class="q13 ? 'fa fa-minus plus' : 'fa fa-plus plus'"></i>
-                            <span class="ml-3 question-text text-head">
+                            <span class="ml-1 md-ml-3 question-text text-head">
                             I need to order multiple screens at once, what do I do?
                             </span>
                         </div>
                         <b-collapse v-model="q13">
-                            <b-card class="pl-md-5 pl-4 ml-2 text-head">
+                            <b-card class="pl-md-5 pl-1 ml-2 text-head">
                                 <p class="answer">
                                 Simply visit the signup flow to book a cleaning and as you provide information about your house and schedule, your quote will dynamically adjust.
                                 </p>
@@ -283,12 +283,12 @@
                 <div class="question">
                     <div @click="q14 = !q14">
                         <i :class="q14 ? 'fa fa-minus plus' : 'fa fa-plus plus'"></i>
-                        <span class="ml-3 question-text text-head">
+                        <span class="ml-1 md-ml-3 question-text text-head">
                         What package should I order?
                         </span>
                     </div>
                     <b-collapse v-model="q14">
-                        <b-card class="pl-md-5 pl-4 ml-2 text-head">
+                        <b-card class="pl-md-5 pl-1 ml-2 text-head">
                             <p class="answer">
                             Simply visit the signup flow to book a cleaning and as you provide information about your house and schedule, your quote will dynamically adjust.
                             </p>
@@ -302,12 +302,12 @@
                 <div class="question">
                     <div @click="q15 = !q15">
                         <i :class="q15 ? 'fa fa-minus plus' : 'fa fa-plus plus'"></i>
-                        <span class="ml-3 question-text text-head">
+                        <span class="ml-1 md-ml-3 question-text text-head">
                         I made a mistake on the order. How do I change it?
                         </span>
                     </div>
                     <b-collapse v-model="q15">
-                        <b-card class="pl-md-5 pl-4 ml-2 text-head">
+                        <b-card class="pl-md-5 pl-1 ml-2 text-head">
                             <p class="answer">
                             Simply visit the signup flow to book a cleaning and as you provide information about your house and schedule, your quote will dynamically adjust.
                             </p>
@@ -384,16 +384,16 @@ export default {
 
     @media screen and (max-width: 600px) {
         .question-text {
-            font-size: 15px;
+            font-size: 12px;
             font-weight: bold;
         }
         .plus {
-        color: #339df3 !important;
-        padding: 9px;
-        border: 2px solid #339df3 !important;
-        border-radius: 50%;
-        z-index: 2;
-        cursor: pointer;
-    }
+            color: #339df3 !important;
+            padding: 5px;
+            border: 2px solid #339df3 !important;
+            border-radius: 50%;
+            z-index: 2;
+            cursor: pointer;
+        }
     }
 </style>
