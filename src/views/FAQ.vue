@@ -15,43 +15,116 @@
         <div class="container">
             <div class="row mt-3">
                 <div class="col-md-12">
-                    <div class="question">
-                        <div @click="q1 = !q1">
-                            <i :class="q1 ? 'fa fa-minus plus' : 'fa fa-plus plus'"></i>
-                            <span class="ml-1 ml-md-3 question-text text-head">
-                            What is UScreen?
-                            </span>
-                        </div>
-                        <b-collapse v-model="q1">
-                            <b-card class="pl-md-5 pl-1 ml-2 text-head">
-                                <p class="answer">
-                                Simply visit the signup flow to book a cleaning and as you provide information about your house and schedule, your quote will dynamically adjust.
-                                </p>
-                            </b-card>
-                        </b-collapse>
-                    </div>
+                    <a-collapse :bordered="false">
+                        <template #expandIcon="props">
+                            <a-icon type="plus-circle" v-if="!props.isActive" />
+                            <a-icon type="minus-circle" v-else />
+                        </template>
+                        <a-collapse-panel key="1" header="What is UScreen?" :style="customStyle">
+                            <p>Simply visit the signup flow to book a cleaning and as you provide information about your house and schedule, your quote will dynamically adjust.</p>
+                        </a-collapse-panel>
+                    </a-collapse>
                 </div>
             </div>
+
             <div class="row mt-3">
                 <div class="col-md-12">
-                    <div class="question">
-                        <div @click="q2 = !q2">
-                            <i :class="q2 ? 'fa fa-minus plus' : 'fa fa-plus plus'"></i>
-                            <span class="ml-1 ml-md-3 question-text text-head">
-                            I have more questions, who should I contact?
-                            </span>
-                        </div>
-                        <b-collapse v-model="q2">
-                            <b-card class="pl-md-5 pl-1 ml-2 text-head">
-                                <p class="answer">
-                                Simply visit the signup flow to book a cleaning and as you provide information about your house and schedule, your quote will dynamically adjust.
-                                </p>
-                            </b-card>
-                        </b-collapse>
-                    </div>
+                    <a-collapse :bordered="false">
+                        <template #expandIcon="props">
+                            <a-icon type="plus-circle" v-if="!props.isActive" />
+                            <a-icon type="minus-circle" v-else />
+                        </template>
+                        <a-collapse-panel key="1" header="I have more questions, who should I contact?" :style="customStyle">
+                            <p>Simply visit the signup flow to book a cleaning and as you provide information about your house and schedule, your quote will dynamically adjust.</p>
+                        </a-collapse-panel>
+                    </a-collapse>
                 </div>
             </div>
+
             <div class="row mt-3">
+                <div class="col-md-12">
+                    <a-collapse :bordered="false">
+                        <template #expandIcon="props">
+                            <a-icon type="plus-circle" v-if="!props.isActive" />
+                            <a-icon type="minus-circle" v-else />
+                        </template>
+                        <a-collapse-panel key="1" header="How do I order a background check on myself?" :style="customStyle">
+                            <p>Simply visit the signup flow to book a cleaning and as you provide information about your house and schedule, your quote will dynamically adjust.</p>
+                        </a-collapse-panel>
+                    </a-collapse>
+                </div>
+            </div>
+
+            <div class="row mt-3">
+                <div class="col-md-12">
+                    <a-collapse :bordered="false">
+                        <template #expandIcon="props">
+                            <a-icon type="plus-circle" v-if="!props.isActive" />
+                            <a-icon type="minus-circle" v-else />
+                        </template>
+                        <a-collapse-panel key="1" header="How do I order a background check for an employee?" :style="customStyle">
+                            <p>Simply visit the signup flow to book a cleaning and as you provide information about your house and schedule, your quote will dynamically adjust.</p>
+                        </a-collapse-panel>
+                    </a-collapse>
+                </div>
+            </div>
+
+            <div class="row mt-3">
+                <div class="col-md-12">
+                    <a-collapse :bordered="false">
+                        <template #expandIcon="props">
+                            <a-icon type="plus-circle" v-if="!props.isActive" />
+                            <a-icon type="minus-circle" v-else />
+                        </template>
+                        <a-collapse-panel key="1" header="How does the background check process work?" :style="customStyle">
+                            <p>Simply visit the signup flow to book a cleaning and as you provide information about your house and schedule, your quote will dynamically adjust.</p>
+                        </a-collapse-panel>
+                    </a-collapse>
+                </div>
+            </div>
+
+            <div class="row mt-3">
+                <div class="col-md-12">
+                    <a-collapse :bordered="false">
+                        <template #expandIcon="props">
+                            <a-icon type="plus-circle" v-if="!props.isActive" />
+                            <a-icon type="minus-circle" v-else />
+                        </template>
+                        <a-collapse-panel key="1" header="How do I change my details on my account?" :style="customStyle">
+                            <p>Simply visit the signup flow to book a cleaning and as you provide information about your house and schedule, your quote will dynamically adjust.</p>
+                        </a-collapse-panel>
+                    </a-collapse>
+                </div>
+            </div>
+
+            <div class="row mt-3">
+                <div class="col-md-12">
+                    <a-collapse :bordered="false">
+                        <template #expandIcon="props">
+                            <a-icon type="plus-circle" v-if="!props.isActive" />
+                            <a-icon type="minus-circle" v-else />
+                        </template>
+                        <a-collapse-panel key="1" header="What is included in the background check report?" :style="customStyle">
+                            <p>Simply visit the signup flow to book a cleaning and as you provide information about your house and schedule, your quote will dynamically adjust.</p>
+                        </a-collapse-panel>
+                    </a-collapse>
+                </div>
+            </div>
+
+            <div class="row mt-3">
+                <div class="col-md-12">
+                    <a-collapse :bordered="false">
+                        <template #expandIcon="props">
+                            <a-icon type="plus-circle" v-if="!props.isActive" />
+                            <a-icon type="minus-circle" v-else />
+                        </template>
+                        <a-collapse-panel key="1" header="What packages are available for me to order?" :style="customStyle">
+                            <p>Simply visit the signup flow to book a cleaning and as you provide information about your house and schedule, your quote will dynamically adjust.</p>
+                        </a-collapse-panel>
+                    </a-collapse>
+                </div>
+            </div>
+            <!-- <div class="row mt-3">
                 <div class="col-md-12">
                     <div class="question">
                         <div @click="q3 = !q3">
@@ -164,7 +237,7 @@
                         </b-collapse>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
         
         
@@ -174,7 +247,72 @@
             </div>
         </div>
         <div class="container">
-            <div class="row mt-3 ">
+            <div class="row mt-3">
+                <div class="col-md-12">
+                    <a-collapse :bordered="false">
+                        <template #expandIcon="props">
+                            <a-icon type="plus-circle" v-if="!props.isActive" />
+                            <a-icon type="minus-circle" v-else />
+                        </template>
+                        <a-collapse-panel key="1" header="What package should I order?" :style="customStyle">
+                            <p>Simply visit the signup flow to book a cleaning and as you provide information about your house and schedule, your quote will dynamically adjust.</p>
+                        </a-collapse-panel>
+                    </a-collapse>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-md-12">
+                    <a-collapse :bordered="false">
+                        <template #expandIcon="props">
+                            <a-icon type="plus-circle" v-if="!props.isActive" />
+                            <a-icon type="minus-circle" v-else />
+                        </template>
+                        <a-collapse-panel key="1" header="How do I view my order?" :style="customStyle">
+                            <p>Simply visit the signup flow to book a cleaning and as you provide information about your house and schedule, your quote will dynamically adjust.</p>
+                        </a-collapse-panel>
+                    </a-collapse>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-md-12">
+                    <a-collapse :bordered="false">
+                        <template #expandIcon="props">
+                            <a-icon type="plus-circle" v-if="!props.isActive" />
+                            <a-icon type="minus-circle" v-else />
+                        </template>
+                        <a-collapse-panel key="1" header="How do I view my invoice?" :style="customStyle">
+                            <p>Simply visit the signup flow to book a cleaning and as you provide information about your house and schedule, your quote will dynamically adjust.</p>
+                        </a-collapse-panel>
+                    </a-collapse>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-md-12">
+                    <a-collapse :bordered="false">
+                        <template #expandIcon="props">
+                            <a-icon type="plus-circle" v-if="!props.isActive" />
+                            <a-icon type="minus-circle" v-else />
+                        </template>
+                        <a-collapse-panel key="1" header="I made a mistake on the order. How do I change it?" :style="customStyle">
+                            <p>Simply visit the signup flow to book a cleaning and as you provide information about your house and schedule, your quote will dynamically adjust.</p>
+                        </a-collapse-panel>
+                    </a-collapse>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-md-12">
+                    <a-collapse :bordered="false">
+                        <template #expandIcon="props">
+                            <a-icon type="plus-circle" v-if="!props.isActive" />
+                            <a-icon type="minus-circle" v-else />
+                        </template>
+                        <a-collapse-panel key="1" header="I need to order multiple screens at once, what do I do?" :style="customStyle">
+                            <p>Simply visit the signup flow to book a cleaning and as you provide information about your house and schedule, your quote will dynamically adjust.</p>
+                        </a-collapse-panel>
+                    </a-collapse>
+                </div>
+            </div>
+            <!-- <div class="row mt-3 ">
                 <div class="col-md-12">
                     <div class="question">
                         <div @click="q9 = !q9">
@@ -268,7 +406,7 @@
                         </b-collapse>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
 
         <div class="row mt-4">
@@ -278,44 +416,70 @@
         </div>
 
         <div class="container">
-        <div class="row mt-3 ">
-            <div class="col-md-12">
-                <div class="question">
-                    <div @click="q14 = !q14">
-                        <i :class="q14 ? 'fa fa-minus plus' : 'fa fa-plus plus'"></i>
-                        <span class="ml-1 ml-md-3 question-text text-head">
-                        What package should I order?
-                        </span>
-                    </div>
-                    <b-collapse v-model="q14">
-                        <b-card class="pl-md-5 pl-1 ml-2 text-head">
-                            <p class="answer">
-                            Simply visit the signup flow to book a cleaning and as you provide information about your house and schedule, your quote will dynamically adjust.
-                            </p>
-                        </b-card>
-                    </b-collapse>
+            <div class="row mt-3">
+                <div class="col-md-12">
+                    <a-collapse :bordered="false">
+                        <template #expandIcon="props">
+                            <a-icon type="plus-circle" v-if="!props.isActive" />
+                            <a-icon type="minus-circle" v-else />
+                        </template>
+                        <a-collapse-panel key="1" header="What package should I order?" :style="customStyle">
+                            <p>Simply visit the signup flow to book a cleaning and as you provide information about your house and schedule, your quote will dynamically adjust.</p>
+                        </a-collapse-panel>
+                    </a-collapse>
                 </div>
             </div>
-        </div>
-        <div class="row mt-3 ">
-            <div class="col-md-12">
-                <div class="question">
-                    <div @click="q15 = !q15">
-                        <i :class="q15 ? 'fa fa-minus plus' : 'fa fa-plus plus'"></i>
-                        <span class="ml-1 ml-md-3 question-text text-head">
-                        I made a mistake on the order. How do I change it?
-                        </span>
-                    </div>
-                    <b-collapse v-model="q15">
-                        <b-card class="pl-md-5 pl-1 ml-2 text-head">
-                            <p class="answer">
-                            Simply visit the signup flow to book a cleaning and as you provide information about your house and schedule, your quote will dynamically adjust.
-                            </p>
-                        </b-card>
-                    </b-collapse>
+            <div class="row mt-3">
+                <div class="col-md-12">
+                    <a-collapse :bordered="false">
+                        <template #expandIcon="props">
+                            <a-icon type="plus-circle" v-if="!props.isActive" />
+                            <a-icon type="minus-circle" v-else />
+                        </template>
+                        <a-collapse-panel key="1" header="I made a mistake on the order. How do I change it?" :style="customStyle">
+                            <p>Simply visit the signup flow to book a cleaning and as you provide information about your house and schedule, your quote will dynamically adjust.</p>
+                        </a-collapse-panel>
+                    </a-collapse>
                 </div>
             </div>
-        </div>
+            <!-- <div class="row mt-3 ">
+                <div class="col-md-12">
+                    <div class="question">
+                        <div @click="q14 = !q14">
+                            <i :class="q14 ? 'fa fa-minus plus' : 'fa fa-plus plus'"></i>
+                            <span class="ml-1 ml-md-3 question-text text-head">
+                            What package should I order?
+                            </span>
+                        </div>
+                        <b-collapse v-model="q14">
+                            <b-card class="pl-md-5 pl-1 ml-2 text-head">
+                                <p class="answer">
+                                Simply visit the signup flow to book a cleaning and as you provide information about your house and schedule, your quote will dynamically adjust.
+                                </p>
+                            </b-card>
+                        </b-collapse>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-3 ">
+                <div class="col-md-12">
+                    <div class="question">
+                        <div @click="q15 = !q15">
+                            <i :class="q15 ? 'fa fa-minus plus' : 'fa fa-plus plus'"></i>
+                            <span class="ml-1 ml-md-3 question-text text-head">
+                            I made a mistake on the order. How do I change it?
+                            </span>
+                        </div>
+                        <b-collapse v-model="q15">
+                            <b-card class="pl-md-5 pl-1 ml-2 text-head">
+                                <p class="answer">
+                                Simply visit the signup flow to book a cleaning and as you provide information about your house and schedule, your quote will dynamically adjust.
+                                </p>
+                            </b-card>
+                        </b-collapse>
+                    </div>
+                </div>
+            </div> -->
     </div>
     </div>
 </template>
@@ -332,6 +496,8 @@ export default {
     },
     data() {
         return {
+            customStyle: 'background: #fff;border-radius: 4px;border: 0;overflow: hidden',
+            
             items: [
                 {
                     text: 'Home',
@@ -365,7 +531,7 @@ export default {
 </script>
 
 <style scoped>
-    .plus {
+    /* .plus {
         color: #339df3 !important;
         padding: 18px;
         border: 2px solid #339df3 !important;
@@ -395,5 +561,5 @@ export default {
             z-index: 2;
             cursor: pointer;
         }
-    }
+    } */
 </style>

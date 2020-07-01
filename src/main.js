@@ -7,9 +7,9 @@ import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 import store from './store'
 import 'native-toast/dist/native-toast.css'
-import {Pagination} from 'ant-design-vue';
+import Antd from 'ant-design-vue';
 import 'ant-design-vue/dist/antd.css';
-Vue.use(Pagination);
+Vue.use(Antd);
 
 Vue.use(BootstrapVue)
 router.beforeEach((to, from, next) => {

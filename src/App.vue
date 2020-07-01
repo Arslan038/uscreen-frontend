@@ -119,6 +119,16 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   overflow: hidden !important;
 }
+.anticon {
+  font-size: 32px !important;
+  color: #339df3 !important
+}
+.ant-collapse > .ant-collapse-item > .ant-collapse-header {
+  font-size: 18px !important;
+  color: #575757 !important;
+  font-weight: bold !important;
+  padding-left: 70px !important;
+}
 .menu {
   margin-bottom: 70px;
 }
